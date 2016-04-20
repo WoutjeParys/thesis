@@ -136,8 +136,8 @@ LENGTH_P				the length of the period as programmed in main and init (.py)
 eff_factor_earlier		a factor to include the efficiency of demand shifted to an earlier time
 eff_factor_later		a factor to include the efficiency of demand shifted to a later time
 
-COMPENSATE(P,T)			a parameter that compensates for energy losses due an elasticity-matrix that is not perfect
-ELAST_DIAG(T,H)
+COMPENSATE(P,H)			a parameter that compensates for energy losses due an elasticity-matrix that is not perfect
+ELAST_NEW(P,T,H)
 ;
 
 $LOAD G_DATA
@@ -170,21 +170,25 @@ P_REF = 55.5;
 TOTDEM = sum((P,T,Z),DEM_T(P,T,Z));
 LIMITPRICE = P_REF*0.5;
 LIMITDEM = 750;
-LIMITSHIFT = 1500;
+LIMITSHIFT = 2000;
 LENGTH_P = card(T);
-ELAST_DIAG(T,H) = ELAST(T,H)*DIAG(T,H);
+#ELAST_NEW(P,T,H) = ELAST(T,H)*DIAG(T,H)+COMPENSATE(P,H)*(TRI_LOW(T,H)*ELAST(T,H)+TRI_UP(T,H)*ELAST(T,H));
+ELAST_NEW(P,T,H) = ELAST(T,H)*1;
 
 eff_factor_earlier = 1;
 eff_factor_later = 1;
 
 VARIABLES
 obj                 	Value of objective function
+
+#######################################################
+
 shiftforwards(P,H,Z)			Shift towards an earlier moment in time per hour
 shiftforwards_total(P,Z)		Shift towards an earlier moment in time per period
 shiftbackwards(P,H,Z)			Shift towards a later moment in time per hour
 shiftbackwards_total(P,Z)		Shift towards a later moment in time per period
 shiftaway(P,H,Z)				Shift away from an hour
-shift_total(P,Z)				Shift away from a period
+shiftaway_total(P,Z)				Shift away from a period
 ;
 
 POSITIVE VARIABLES
@@ -452,8 +456,12 @@ shiftconstraint(P,H,Z)
 shiftconstraint1(P,H,Z)
 shiftconstraint2(P,H,Z)
 shiftedforward(P,H,Z)
+shiftedforwardtotal(P,Z)
 shiftedbackward(P,H,Z)
+shiftedbackwardtotal(P,Z)
 shiftedaway(P,H,Z)
+shiftedawaytotal(P,Z)
+
 qinnerframe(P,H,Z)
 qouterframe(P,H,Z)
 
@@ -1495,7 +1503,7 @@ qgasusegen(Y,P,T,Z,GCG)..
 ################################################
 
 demand(P,T,Z)..
-					demand_unit(P,T,Z) =e= DEM_T(P,T,Z) + sum(H,ELAST(T,H)*(DEM_T(P,T,Z)/P_REF)*(price_unit(P,H,Z)-P_REF))
+					demand_unit(P,T,Z) =e= DEM_T(P,T,Z) + sum(H,ELAST_NEW(P,T,H)*(DEM_T(P,T,Z)/P_REF)*(price_unit(P,H,Z)-P_REF))
 					;
 
 demand_clone(P,H,Z)..
@@ -1507,8 +1515,8 @@ totdemand(P,Z)..
 					;
 
 totdemand2(P,Z)..
-#					demand_tot(P,Z) =e= sum(T,demand_unit(P,T,Z))
-					demand_tot(P,Z) =e= sum(T,DEM_T(P,T,Z))
+					demand_tot(P,Z) =g= sum(T,demand_unit(P,T,Z))
+#					demand_tot(P,Z) =e= sum(T,DEM_T(P,T,Z))
 					;
 
 #price(P,H,Z)..
@@ -1524,15 +1532,27 @@ refdemand(P,T,Z)..
 					;
 
 shiftedaway(P,H,Z)..
-					shiftaway(P,H,Z) =e= sum(T,DIAG(T,H)*ELAST(T,H)*DEM_T(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+					shiftaway(P,H,Z) =e= sum(T,DIAG(T,H)*ELAST_NEW(P,T,H)*DEM_T(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+					;
+
+shiftedawaytotal(P,Z)..
+					shiftaway_total(P,Z) =e= sum(H,shiftaway(P,H,Z))
 					;
 
 shiftedforward(P,H,Z)..
-					shiftforwards(P,H,Z) =e= sum(T,TRI_UP(T,H)*ELAST(T,H)*DEM_T(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+					shiftforwards(P,H,Z) =e= sum(T,TRI_UP(T,H)*ELAST_NEW(P,T,H)*DEM_T(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+					;
+
+shiftedforwardtotal(P,Z)..
+					shiftforwards_total(P,Z) =e= sum(H,shiftforwards(P,H,Z))
 					;
 
 shiftedbackward(P,H,Z)..
-					shiftbackwards(P,H,Z) =e= sum(T,TRI_LOW(T,H)*ELAST(T,H)*DEM_T(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+					shiftbackwards(P,H,Z) =e= sum(T,TRI_LOW(T,H)*ELAST_NEW(P,T,H)*DEM_T(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+					;
+
+shiftedbackwardtotal(P,Z)..
+					shiftbackwards_total(P,Z) =e= sum(H,shiftbackwards(P,H,Z))
 					;
 
 shiftconstraint(P,H,Z)..
@@ -1785,6 +1805,10 @@ MODEL GOA GOA model /
 		shiftedforward
 		shiftedbackward
 
+		shiftedawaytotal
+		shiftedforwardtotal
+		shiftedbackwardtotal
+
 		priceconstraint1
 		priceconstraint2
 #		priceconstraint3
@@ -1792,8 +1816,8 @@ MODEL GOA GOA model /
 		shiftconstraint1
 		shiftconstraint2
 
-#		qinnerframe
-#		qouterframe
+		qinnerframe
+		qouterframe
 
 #		revenue
 		fixedcost

@@ -59,26 +59,26 @@ genmarg = merge(genmarg, price_unit, left_index=True, right_index=True, how='out
 print 'Writing demand and prices to Excel'
 genmarg.to_excel(writer, na_rep=0.0, sheet_name='pattern', merge_cells=False)
 
-# print 'Retrieving innerframe'
-# innerframe = gdx_to_df(gdx_file, 'innerframe')
-# old_index = innerframe.index.names
-# innerframe['C'] = [zone_dict[z] for z in innerframe.index.get_level_values('Z')]
-# innerframe.set_index('C', append=True, inplace=True)
-# innerframe = innerframe.reorder_levels(['C'] + old_index)
-# innerframe.reset_index(inplace=True)
-# innerframe = pivot_table(innerframe, 'innerframe', index=['P', 'H','Z'], columns=['C'], aggfunc=np.sum)
-#
-# print 'Retrieving outerframe'
-# outerframe = gdx_to_df(gdx_file, 'outerframe')
-# old_index = outerframe.index.names
-# outerframe['C'] = [zone_dict[z] for z in outerframe.index.get_level_values('Z')]
-# outerframe.set_index('C', append=True, inplace=True)
-# outerframe = outerframe.reorder_levels(['C'] + old_index)
-# outerframe.reset_index(inplace=True)
-# outerframe = pivot_table(outerframe, 'outerframe', index=['P', 'H','Z'], columns=['C'], aggfunc=np.sum)
-#
-# framemerg = merge(innerframe,outerframe, left_index=True, right_index=True, how='outer', suffixes=['_inner', '_outer'])
-# framemerg.to_excel(writer, na_rep=0.0, sheet_name='frames', merge_cells=False)
+print 'Retrieving innerframe'
+innerframe = gdx_to_df(gdx_file, 'innerframe')
+old_index = innerframe.index.names
+innerframe['C'] = [zone_dict[z] for z in innerframe.index.get_level_values('Z')]
+innerframe.set_index('C', append=True, inplace=True)
+innerframe = innerframe.reorder_levels(['C'] + old_index)
+innerframe.reset_index(inplace=True)
+innerframe = pivot_table(innerframe, 'innerframe', index=['P', 'H','Z'], columns=['C'], aggfunc=np.sum)
+
+print 'Retrieving outerframe'
+outerframe = gdx_to_df(gdx_file, 'outerframe')
+old_index = outerframe.index.names
+outerframe['C'] = [zone_dict[z] for z in outerframe.index.get_level_values('Z')]
+outerframe.set_index('C', append=True, inplace=True)
+outerframe = outerframe.reorder_levels(['C'] + old_index)
+outerframe.reset_index(inplace=True)
+outerframe = pivot_table(outerframe, 'outerframe', index=['P', 'H','Z'], columns=['C'], aggfunc=np.sum)
+
+framemerg = merge(innerframe,outerframe, left_index=True, right_index=True, how='outer', suffixes=['_inner', '_outer'])
+framemerg.to_excel(writer, na_rep=0.0, sheet_name='frames', merge_cells=False)
 
 print 'Creating generation pattern analysis'
 print 'Retrieving gen'

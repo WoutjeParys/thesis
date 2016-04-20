@@ -405,7 +405,10 @@ def initialise(length_period):
                     newk = k-length_period
                 else:
                     newk = k
-                maxframe.append((i,newk,1))
+                if k == frame+overlapafter+i:
+                    maxframe.append((i,newk,0.1))
+                else:
+                    maxframe.append((i,newk,1))
         print minframe
         print maxframe
         cur.executemany('INSERT INTO Minframe VALUES (?,?,?)', minframe)

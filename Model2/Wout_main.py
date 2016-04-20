@@ -287,7 +287,7 @@ def main(length_period):
     TRI_LOW = db.add_parameter_dc('TRI_LOW', [T,H], 'Lower triangle with ones and zeros')
     SHIFTMIN = db.add_parameter_dc('SHIFTMIN', [H,T], 'matrix to constraint shifting of energy inner window')
     SHIFTMAX = db.add_parameter_dc('SHIFTMAX', [H,T], 'matrix to constraint shifting of energy outer window')
-    COMPENSATE = db.add_parameter_dc('COMPENSATE', [P,T], 'a factor to multiply with the elasticity matrix to compensate energy losses')
+    COMPENSATE = db.add_parameter_dc('COMPENSATE', [P,H], 'a factor to multiply with the elasticity matrix to compensate energy losses')
 
     ############################################
 
@@ -712,8 +712,8 @@ def main(length_period):
                     'SOLVE GOA using lp minimizing obj;\n'
                     'parameter marg(Y,P,T,Z) shadow prices of production;\n'
                     'marg(Y,P,T,Z) = qbalance.m(Y,P,T,Z)/W(P);\n'
-                    #'parameter factor(P,H,Z) compensation to avoid energy losses;\n'
-                    #'factor(P,H,Z) = -shiftaway.l(P,H,Z)/(shiftforwards.l(P,H,Z)+shiftbackwards.l(P,H,Z)+0.00000001);\n'
+                    'parameter factor(P,H,Z) compensation to avoid energy losses;\n'
+                    'factor(P,H,Z) = -shiftaway.l(P,H,Z)/(shiftforwards.l(P,H,Z)+shiftbackwards.l(P,H,Z)+0.00000001);\n'
                     ,cp)
                     #'SOLVE GOA using lp minimizing obj;'.format(res_target=res_target,inv_cost=inv_cost), cp)
                 job_sense.run(checkpoint=cp)

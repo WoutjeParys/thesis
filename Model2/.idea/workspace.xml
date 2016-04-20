@@ -24,7 +24,7 @@
       <file leaf-file-name="Wout_main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Wout_main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-7.827586">
               <caret line="692" column="0" selection-start-line="692" selection-start-column="0" selection-end-line="692" selection-end-column="0" />
               <folding />
             </state>
@@ -34,11 +34,9 @@
       <file leaf-file-name="LinearModel_Wout.gms" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gams/LinearModel_Wout.gms">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35568514">
-              <caret line="1786" column="0" selection-start-line="1786" selection-start-column="0" selection-end-line="1791" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#46424#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="0.29923666">
+              <caret line="1517" column="53" selection-start-line="1517" selection-start-column="53" selection-end-line="1517" selection-end-column="53" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -47,17 +45,7 @@
         <entry file="file://$PROJECT_DIR$/get_output_Wout.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LinearModel_Wout.lst" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gams/LinearModel_Wout.lst">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1932" column="7" selection-start-line="1932" selection-start-column="7" selection-end-line="1932" selection-end-column="7" />
+              <caret line="65" column="52" selection-start-line="65" selection-start-column="52" selection-end-line="65" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -67,12 +55,44 @@
         <entry file="file://$PROJECT_DIR$/Wout_program.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+              <caret line="197" column="0" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
               <folding>
-                <element signature="e#700#1368#0" expanded="false" />
-                <element signature="e#1401#2295#0" expanded="false" />
-                <element signature="e#2328#2947#0" expanded="false" />
+                <element signature="e#674#1425#0" expanded="false" />
+                <element signature="e#1522#2416#0" expanded="false" />
+                <element signature="e#2559#3181#0" expanded="false" />
+                <element signature="e#3262#4726#0" expanded="false" />
+                <element signature="e#4801#6882#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workbook.py" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Anaconda/Lib/site-packages/xlsxwriter/workbook.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="294" column="0" selection-start-line="294" selection-start-column="0" selection-end-line="294" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LinearModel_Wout.lst" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gams/LinearModel_Wout.lst">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1930" column="7" selection-start-line="1930" selection-start-column="7" selection-end-line="1930" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Wout_initialise.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Wout_initialise.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-236.82759">
+              <caret line="408" column="47" selection-start-line="408" selection-start-column="47" selection-end-line="408" selection-end-column="47" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -82,12 +102,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/gams/LinearModel.gms" />
         <option value="$PROJECT_DIR$/main_reduced.py" />
         <option value="$PROJECT_DIR$/gams/LinearModel_Wout.lst" />
+        <option value="$PROJECT_DIR$/gams/LinearModel.gms" />
         <option value="$PROJECT_DIR$/Wout_main.py" />
-        <option value="$PROJECT_DIR$/Wout_program.py" />
+        <option value="$PROJECT_DIR$/get_output_Wout.py" />
+        <option value="$PROJECT_DIR$/Wout_initialise.py" />
         <option value="$PROJECT_DIR$/gams/LinearModel_Wout.gms" />
+        <option value="$PROJECT_DIR$/Wout_program.py" />
       </list>
     </option>
   </component>
@@ -95,10 +117,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="-1928" />
+    <option name="y" value="-314" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -123,8 +145,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -167,30 +187,18 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gams" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Model2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Model2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="excel" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Model" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
     <property name="recentsLimit" value="5" />
   </component>
@@ -400,16 +408,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-1928" y="-314" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22108346" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15729167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32755905" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21964097" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -441,14 +449,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/get_output_Wout.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gams/LinearModel_Wout.lst">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -462,9 +462,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
           <folding>
-            <element signature="e#700#1368#0" expanded="false" />
-            <element signature="e#1401#2295#0" expanded="false" />
-            <element signature="e#2328#2947#0" expanded="false" />
+            <element signature="e#674#1425#0" expanded="false" />
+            <element signature="e#1522#2416#0" expanded="false" />
+            <element signature="e#2559#3181#0" expanded="false" />
+            <element signature="e#3262#4726#0" expanded="false" />
+            <element signature="e#4801#6882#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -489,7 +491,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#46424#0" expanded="false" />
+            <element signature="e#0#47031#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -507,9 +509,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="96" column="1" selection-start-line="96" selection-start-column="1" selection-end-line="96" selection-end-column="1" />
           <folding>
-            <element signature="e#700#1368#0" expanded="false" />
-            <element signature="e#1401#2295#0" expanded="false" />
-            <element signature="e#2328#2947#0" expanded="false" />
+            <element signature="e#674#1425#0" expanded="false" />
+            <element signature="e#1522#2416#0" expanded="false" />
+            <element signature="e#2559#3181#0" expanded="false" />
+            <element signature="e#3262#4726#0" expanded="false" />
+            <element signature="e#4801#6882#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -534,7 +538,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="1525" column="20" selection-start-line="1525" selection-start-column="20" selection-end-line="1525" selection-end-column="20" />
           <folding>
-            <element signature="e#0#46424#0" expanded="false" />
+            <element signature="e#0#47031#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -567,7 +571,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#46424#0" expanded="false" />
+            <element signature="e#0#47031#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -585,9 +589,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
           <folding>
-            <element signature="e#700#1368#0" expanded="false" />
-            <element signature="e#1401#2295#0" expanded="false" />
-            <element signature="e#2328#2947#0" expanded="false" />
+            <element signature="e#674#1425#0" expanded="false" />
+            <element signature="e#1522#2416#0" expanded="false" />
+            <element signature="e#2559#3181#0" expanded="false" />
+            <element signature="e#3262#4726#0" expanded="false" />
+            <element signature="e#4801#6882#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -612,9 +618,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#700#1368#0" expanded="false" />
-            <element signature="e#1401#2295#0" expanded="false" />
-            <element signature="e#2328#2947#0" expanded="false" />
+            <element signature="e#674#1425#0" expanded="false" />
+            <element signature="e#1522#2416#0" expanded="false" />
+            <element signature="e#2559#3181#0" expanded="false" />
+            <element signature="e#3262#4726#0" expanded="false" />
+            <element signature="e#4801#6882#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -631,7 +639,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#46424#0" expanded="false" />
+            <element signature="e#0#47031#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -649,9 +657,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#700#1368#0" expanded="false" />
-            <element signature="e#1401#2295#0" expanded="false" />
-            <element signature="e#2328#2947#0" expanded="false" />
+            <element signature="e#674#1425#0" expanded="false" />
+            <element signature="e#1522#2416#0" expanded="false" />
+            <element signature="e#2559#3181#0" expanded="false" />
+            <element signature="e#3262#4726#0" expanded="false" />
+            <element signature="e#4801#6882#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -690,9 +700,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#700#1368#0" expanded="false" />
-            <element signature="e#1401#2295#0" expanded="false" />
-            <element signature="e#2328#2947#0" expanded="false" />
+            <element signature="e#674#1425#0" expanded="false" />
+            <element signature="e#1522#2416#0" expanded="false" />
+            <element signature="e#2559#3181#0" expanded="false" />
+            <element signature="e#3262#4726#0" expanded="false" />
+            <element signature="e#4801#6882#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -712,20 +724,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gams/LinearModel.gms">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Wout_initialise.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output_reduced.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -764,13 +762,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gams/LinearModel.gms">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -816,10 +807,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gams/LinearModel.gms">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="8.173567">
+          <caret line="453" column="21" selection-start-line="453" selection-start-column="21" selection-end-line="453" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output_reduced.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Anaconda/Lib/site-packages/xlsxwriter/workbook.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="294" column="0" selection-start-line="294" selection-start-column="0" selection-end-line="294" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gams/LinearModel_Wout.lst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1930" column="7" selection-start-line="1930" selection-start-column="7" selection-end-line="1930" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Wout_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.827586">
+          <caret line="692" column="0" selection-start-line="692" selection-start-column="0" selection-end-line="692" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/get_output_Wout.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <caret line="65" column="52" selection-start-line="65" selection-start-column="52" selection-end-line="65" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Wout_initialise.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-236.82759">
+          <caret line="408" column="47" selection-start-line="408" selection-start-column="47" selection-end-line="408" selection-end-column="47" />
           <folding />
         </state>
       </provider>
@@ -827,38 +866,22 @@
     <entry file="file://$PROJECT_DIR$/Wout_program.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+          <caret line="197" column="0" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
           <folding>
-            <element signature="e#700#1368#0" expanded="false" />
-            <element signature="e#1401#2295#0" expanded="false" />
-            <element signature="e#2328#2947#0" expanded="false" />
+            <element signature="e#674#1425#0" expanded="false" />
+            <element signature="e#1522#2416#0" expanded="false" />
+            <element signature="e#2559#3181#0" expanded="false" />
+            <element signature="e#3262#4726#0" expanded="false" />
+            <element signature="e#4801#6882#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gams/LinearModel_Wout.lst">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1932" column="7" selection-start-line="1932" selection-start-column="7" selection-end-line="1932" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Wout_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="692" column="0" selection-start-line="692" selection-start-column="0" selection-end-line="692" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gams/LinearModel_Wout.gms">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35568514">
-          <caret line="1786" column="0" selection-start-line="1786" selection-start-column="0" selection-end-line="1791" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#46424#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.29923666">
+          <caret line="1517" column="53" selection-start-line="1517" selection-start-column="53" selection-end-line="1517" selection-end-column="53" />
+          <folding />
         </state>
       </provider>
     </entry>
