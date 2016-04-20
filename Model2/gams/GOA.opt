@@ -1,0 +1,32 @@
+* File GOA.opt to the GOA model.
+
+* This file holds options that are used to control model functionality
+
+
+
+
+*===============================================================================
+* Model choices:
+*===============================================================================
+
+
+
+
+*===============================================================================
+* Output:
+*===============================================================================
+
+
+
+*-------------------------------------------------------------------------------
+* Some of the actions producing output from the BUI will require establishment of
+* absolute paths. The following settings will ensure that if you work from the GAMS IDE
+* (with the GAMS Project located in the model folder) then the absolute paths will be established correctly.
+* Set relative (to model directory) paths to relevant folders:
+* No choices, they must be set as shown. Note the format.
+* They are to be used as illustrated below and elsewhere in the code.
+
+$setglobal  relpathModel            ""
+$setglobal  relpathoutput           "..\output\"
+$setglobal  relpathInputdata2GDX    "..\output\inputout\"
+$setglobal  relpathtemp             "..\output\temp\"

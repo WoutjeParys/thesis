@@ -1,0 +1,1792 @@
+
+PATH-NLP         24.5.1 r54187 Released Sep 23, 2015 WEI x86 64bit/MS Windows 
+
+=0PATH-NLP         24.5.1 r54187 Released Sep 23, 2015 WEI x86 64bit/MS Windows 
+convergence_tolerance 1e-006
+major_iteration_limit 500
+minor_iteration_limit 21934
+crash_iteration_limit 50
+cumulative_iteration_limit 4000000
+time_limit 100000
+interrupt_limit 5
+chen_lambda 0.8
+output yes
+output_errors yes
+output_warnings no
+output_major_iterations yes
+output_major_iterations_frequency 1
+output_minor_iterations yes
+output_minor_iterations_frequency 500
+output_crash_iterations yes
+output_crash_iterations_frequency 1
+output_initial_point no
+output_initial_statistics no
+output_initial_point_statistics yes
+output_initial_scaling_statistics yes
+output_final_point no
+output_final_statistics yes
+output_final_point_statistics yes
+output_final_scaling_statistics no
+output_final_degeneracy_statistics no
+output_final_summary yes
+output_maximum_zero_log 10
+output_maximum_zero_listing 1000
+output_restart_log yes
+output_options no
+presolve yes
+output_presolve_level 1
+gradient_step_limit 5
+gradient_searchtype arc
+crash_method pnewton
+crash_perturb yes
+crash_searchtype line
+crash_minimum_dimension 1
+crash_nbchange_limit 1
+nms yes
+nms_memory_size 10
+nms_mstep_frequency 10
+nms_initial_reference_factor 20
+nms_searchtype line
+nms_maximum_watchdogs 5
+proximal_perturbation 0
+merit_function fischer
+crash_merit_function fischer
+lemke_start automatic
+lemke_start_type slack
+lemke_rank_deficiency_iterations 10
+output_linear_model no
+NLP size: 243 obj coefs, 5722 rows, 5245 cols, 25209 non-zeros, 0.08% dense.
+MCP size: 10967 rows/cols, 50514 non-zeros, 0.04% dense.
+
+Path 4.7.03 (Wed Sep 23 12:00:24 2015)
+Written by Todd Munson, Steven Dirkse, and Michael Ferris
+MCP modified basis.
+  ** WARNING **
+Basis modifications: 9545
+
+INITIAL STATISTICS
+Inf-Norm of Complementarity . .  3.6618e+005 eqn: (totdemand(1,BEL_Z))
+Inf-Norm of Normal Map. . . . .  3.6618e+005 eqn: (totdemand(1,BEL_Z))
+Inf-Norm of Minimum Map . . . .  3.6618e+005 eqn: (totdemand(1,BEL_Z))
+Inf-Norm of Fischer Function. .  3.6618e+005 eqn: (totdemand(1,BEL_Z))
+Inf-Norm of Grad Fischer Fcn. .  1.2891e+009 eqn: (revenue(1,BEL_Z))
+Two-Norm of Grad Fischer Fcn. .  1.2930e+009
+
+INITIAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  5.0220e+001 var: (price_unit(1,1,BEL_Z))
+Maximum of F. . . . . . . . . .  2.0000e+007 eqn: (qco2lim(2050,BEL))
+Maximum of Grad F . . . . . . .  2.9946e+005 eqn: (revenue(1,BEL_Z))
+                                            var: (price_unit(1,29,BEL_Z))
+
+INITIAL JACOBIAN NORM STATISTICS
+Maximum Row Norm. . . . . . . .  4.2253e+005 eqn: (revenue(1,BEL_Z))
+Minimum Row Norm. . . . . . . .  2.4000e-001 eqn: (dLd_cap(2050,BEL_Z,Nuclear))
+Maximum Column Norm . . . . . .  4.2253e+005 var: (m_revenue(1,BEL_Z))
+Minimum Column Norm . . . . . .  2.4000e-001 var: (cap(2050,BEL_Z,Nuclear))
+
+Crash Log
+major  func  diff  size  residual    step       prox   (label)
+    0     0             2.2503e+006             0.0e+000 (totdemand(1,BEL_Z))
+Factorization: number of singularities 1099(1195)
+Crash: Factor: 1099 singularities.
+Crash: Factor: singular constraint: qbalance(2050,1,2,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,4,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,6,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,8,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,10,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,12,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,14,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,16,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,18,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,20,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,22,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,29,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,45,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,47,BEL_Z)
+Crash: Factor: singular constraint: qresgcu(2050,1,1,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,1,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,1,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,1,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,1,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,1,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,1,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,1,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,1,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,2,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,2,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,2,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,2,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,2,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,2,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,2,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,2,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,2,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,3,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,3,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,3,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,3,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,3,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,3,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,3,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,3,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,3,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,4,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,4,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,4,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,4,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,4,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,4,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,4,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,4,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,4,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,5,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,5,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,5,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,5,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,5,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,5,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,5,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,5,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,5,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,6,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,6,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,6,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,6,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,6,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,6,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,6,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,6,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,6,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,7,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,7,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,7,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,7,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,7,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,7,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,7,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,7,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,7,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,8,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,8,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,8,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,8,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,8,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,8,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,8,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,8,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,8,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,9,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,9,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,9,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,9,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,9,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,9,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,9,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,9,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,9,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,10,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,10,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,10,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,10,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,10,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,10,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,10,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,10,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,10,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,11,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,11,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,11,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,11,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,11,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,11,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,11,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,11,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,11,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,12,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,12,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,12,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,12,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,12,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,12,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,12,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,12,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,12,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,13,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,13,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,13,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,13,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,13,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,13,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,13,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,13,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,13,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,14,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,14,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,14,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,14,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,14,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,14,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,14,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,14,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,14,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,15,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,15,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,15,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,15,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,15,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,15,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,15,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,15,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,15,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,16,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,16,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,16,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,16,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,16,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,16,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,16,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,16,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,16,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,17,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,17,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,17,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,17,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,17,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,17,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,17,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,17,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,17,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,18,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,18,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,18,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,18,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,18,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,18,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,18,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,18,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,18,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,19,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,19,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,19,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,19,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,19,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,19,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,19,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,19,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,19,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,20,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,20,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,20,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,20,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,20,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,20,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,20,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,20,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,20,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,21,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,21,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,21,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,21,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,21,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,21,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,21,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,21,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,21,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,22,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,22,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,22,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,22,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,22,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,22,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,22,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,22,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,22,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,23,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,23,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,23,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,23,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,23,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,23,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,23,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,23,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,23,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,24,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,24,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,24,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,24,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,24,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,24,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,24,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,24,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,24,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,25,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,25,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,25,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,25,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,25,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,25,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,25,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,25,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,25,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,26,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,26,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,26,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,26,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,26,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,26,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,26,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,26,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,26,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,27,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,27,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,27,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,27,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,27,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,27,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,27,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,27,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,27,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,28,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,28,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,28,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,28,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,28,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,28,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,28,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,28,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,28,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,29,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,29,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,29,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,29,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,29,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,29,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,29,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,29,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,29,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,30,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,30,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,30,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,30,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,30,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,30,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,30,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,30,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,30,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,31,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,31,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,31,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,31,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,31,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,31,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,31,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,31,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,31,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,32,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,32,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,32,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,32,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,32,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,32,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,32,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,32,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,32,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,33,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,33,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,33,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,33,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,33,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,33,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,33,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,33,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,33,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,34,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,34,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,34,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,34,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,34,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,34,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,34,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,34,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,34,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,35,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,35,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,35,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,35,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,35,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,35,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,35,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,35,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,35,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,36,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,36,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,36,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,36,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,36,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,36,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,36,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,36,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,36,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,37,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,37,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,37,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,37,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,37,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,37,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,37,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,37,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,37,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,38,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,38,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,38,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,38,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,38,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,38,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,38,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,38,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,38,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,39,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,39,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,39,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,39,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,39,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,39,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,39,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,39,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,39,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,40,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,40,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,40,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,40,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,40,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,40,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,40,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,40,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,40,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,41,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,41,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,41,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,41,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,41,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,41,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,41,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,41,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,41,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,42,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,42,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,42,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,42,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,42,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,42,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,42,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,42,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,42,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,43,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,43,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,43,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,43,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,43,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,43,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,43,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,43,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,43,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,44,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,44,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,44,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,44,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,44,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,44,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,44,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,44,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,44,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,45,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,45,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,45,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,45,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,45,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,45,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,45,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,45,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,45,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,46,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,46,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,46,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,46,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,46,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,46,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,46,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,46,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,46,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,47,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,47,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,47,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,47,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,47,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,47,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,47,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,47,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,47,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,48,BEL_Z,FCR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,48,BEL_Z,FCR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,48,BEL_Z,FCR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,48,BEL_Z,AFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,48,BEL_Z,AFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,48,BEL_Z,AFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcu(2050,1,48,BEL_Z,MFRR_UP,Nuclear)
+Crash: Factor: singular constraint: qresgcu(2050,1,48,BEL_Z,MFRR_UP,Coal)
+Crash: Factor: singular constraint: qresgcu(2050,1,48,BEL_Z,MFRR_UP,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,1,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,1,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,1,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,1,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,1,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,1,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,2,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,2,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,2,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,2,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,2,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,2,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,3,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,3,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,3,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,3,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,3,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,3,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,4,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,4,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,4,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,4,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,4,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,4,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,5,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,5,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,5,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,5,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,5,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,5,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,6,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,6,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,6,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,6,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,6,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,6,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,7,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,7,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,7,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,7,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,7,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,7,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,8,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,8,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,8,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,8,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,8,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,8,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,9,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,9,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,9,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,9,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,9,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,9,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,10,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,10,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,10,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,10,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,10,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,10,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,11,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,11,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,11,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,11,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,11,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,11,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,12,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,12,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,12,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,12,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,12,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,12,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,13,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,13,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,13,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,13,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,13,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,13,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,14,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,14,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,14,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,14,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,14,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,14,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,15,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,15,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,15,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,15,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,15,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,15,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,16,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,16,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,16,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,16,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,16,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,16,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,17,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,17,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,17,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,17,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,17,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,17,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,18,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,18,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,18,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,18,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,18,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,18,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,19,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,19,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,19,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,19,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,19,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,19,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,20,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,20,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,20,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,20,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,20,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,20,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,21,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,21,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,21,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,21,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,21,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,21,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,22,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,22,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,22,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,22,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,22,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,22,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,23,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,23,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,23,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,23,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,23,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,23,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,24,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,24,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,24,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,24,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,24,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,24,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,25,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,25,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,25,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,25,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,25,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,25,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,26,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,26,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,26,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,26,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,26,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,26,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,27,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,27,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,27,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,27,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,27,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,27,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,28,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,28,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,28,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,28,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,28,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,28,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,29,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,29,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,29,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,29,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,29,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,29,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,30,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,30,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,30,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,30,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,30,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,30,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,31,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,31,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,31,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,31,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,31,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,31,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,32,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,32,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,32,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,32,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,32,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,32,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,33,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,33,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,33,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,33,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,33,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,33,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,34,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,34,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,34,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,34,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,34,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,34,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,35,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,35,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,35,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,35,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,35,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,35,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,36,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,36,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,36,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,36,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,36,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,36,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,37,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,37,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,37,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,37,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,37,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,37,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,38,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,38,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,38,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,38,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,38,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,38,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,39,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,39,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,39,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,39,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,39,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,39,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,40,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,40,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,40,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,40,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,40,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,40,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,41,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,41,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,41,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,41,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,41,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,41,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,42,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,42,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,42,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,42,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,42,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,42,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,43,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,43,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,43,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,43,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,43,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,43,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,44,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,44,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,44,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,44,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,44,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,44,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,45,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,45,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,45,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,45,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,45,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,45,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,46,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,46,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,46,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,46,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,46,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,46,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,47,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,47,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,47,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,47,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,47,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,47,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,48,BEL_Z,AFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,48,BEL_Z,AFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,48,BEL_Z,AFRR_DN,CCGT)
+Crash: Factor: singular constraint: qresgcd(2050,1,48,BEL_Z,MFRR_DN,Nuclear)
+Crash: Factor: singular constraint: qresgcd(2050,1,48,BEL_Z,MFRR_DN,Coal)
+Crash: Factor: singular constraint: qresgcd(2050,1,48,BEL_Z,MFRR_DN,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,1,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,1,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,1,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,2,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,2,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,2,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,3,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,3,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,3,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,4,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,4,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,4,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,5,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,5,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,5,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,6,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,6,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,6,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,7,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,7,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,7,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,8,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,8,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,8,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,9,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,9,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,9,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,10,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,10,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,10,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,11,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,11,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,11,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,12,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,12,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,12,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,13,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,13,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,13,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,14,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,14,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,14,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,15,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,15,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,15,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,16,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,16,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,16,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,17,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,17,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,17,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,18,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,18,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,18,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,19,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,19,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,19,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,20,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,20,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,20,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,21,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,21,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,21,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,22,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,22,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,22,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,23,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,23,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,23,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,24,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,24,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,24,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,25,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,25,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,25,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,26,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,26,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,26,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,27,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,27,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,27,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,28,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,28,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,28,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,29,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,29,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,29,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,30,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,30,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,30,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,31,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,31,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,31,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,32,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,32,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,32,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,33,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,33,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,33,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,34,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,34,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,34,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,35,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,35,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,35,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,36,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,36,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,36,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,37,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,37,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,37,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,38,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,38,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,38,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,39,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,39,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,39,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,40,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,40,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,40,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,41,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,41,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,41,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,42,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,42,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,42,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,43,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,43,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,43,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,44,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,44,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,44,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,45,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,45,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,45,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,46,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,46,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,46,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qn(2050,1,47,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qn(2050,1,47,BEL_Z,Coal)
+Crash: Factor: singular constraint: qn(2050,1,47,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,1,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,1,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,1,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,2,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,2,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,2,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,3,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,3,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,3,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,4,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,4,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,4,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,5,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,5,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,5,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,6,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,6,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,6,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,7,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,7,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,7,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,8,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,8,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,8,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,9,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,9,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,9,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,10,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,10,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,10,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,11,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,11,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,11,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,12,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,12,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,12,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,13,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,13,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,13,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,14,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,14,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,14,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,15,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,15,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,15,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,16,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,16,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,16,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,17,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,17,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,17,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,18,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,18,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,18,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,19,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,19,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,19,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,20,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,20,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,20,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,21,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,21,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,21,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,22,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,22,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,22,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,23,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,23,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,23,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,24,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,24,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,24,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,25,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,25,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,25,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,26,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,26,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,26,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,27,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,27,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,27,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,28,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,28,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,28,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,29,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,29,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,29,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,30,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,30,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,30,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,31,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,31,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,31,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,32,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,32,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,32,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,33,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,33,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,33,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,34,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,34,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,34,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,35,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,35,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,35,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,36,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,36,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,36,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,37,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,37,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,37,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,38,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,38,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,38,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,39,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,39,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,39,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,40,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,40,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,40,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,41,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,41,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,41,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,42,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,42,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,42,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,43,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,43,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,43,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,44,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,44,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,44,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,45,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,45,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,45,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,46,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,46,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,46,BEL_Z,CCGT)
+Crash: Factor: singular constraint: qgen(2050,1,47,BEL_Z,Nuclear)
+Crash: Factor: singular constraint: qgen(2050,1,47,BEL_Z,Coal)
+Crash: Factor: singular constraint: qgen(2050,1,47,BEL_Z,CCGT)
+Crash: Factor: singular constraint: price(1,1,BEL_Z)
+Crash: Factor: singular constraint: price(1,25,BEL_Z)
+Crash: Factor: singular constraint: totdemand(1,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,1,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,2,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,3,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,4,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,5,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,6,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,7,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,10,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,11,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,12,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,13,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,14,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,15,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,16,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,18,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,19,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,20,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,21,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,22,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,23,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,24,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,25,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,26,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,27,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,28,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,29,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,30,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,31,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,32,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,34,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,35,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,36,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,37,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,38,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,39,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,40,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,41,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,42,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,43,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,44,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,45,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,46,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,47,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,48,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,1,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,3,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,5,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,7,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,9,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,11,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,13,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,15,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,17,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,19,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,21,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,23,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,24,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,25,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,26,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,27,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,28,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,30,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,31,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,32,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,33,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,34,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,35,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,36,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,37,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,38,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,39,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,40,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,41,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,42,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,43,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,44,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,46,BEL_Z)
+Crash: Factor: singular constraint: qbalance(2050,1,48,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,8,BEL_Z)
+Crash: Factor: singular constraint: shiftconstraint(1,17,BEL_Z)
+    1     1   143  1195 8.8840e+005  1.0e+000    1.0e+001 (dLd_demand_unit(1,37,BE)
+    2     2   130  1241 1.4869e+005  1.0e+000    9.0e+000 (totdemand(1,BEL_Z))
+    3     3   401  1228 1.1485e+005  1.0e+000    8.1e+000 (dLd_demand_unit(1,6,BEL)
+pn_search terminated: no progress.
+  ** WARNING **
+Basis modifications: 350
+
+Major Iteration Log
+major minor  func  grad  residual    step  type prox    inorm  (label)
+    0     0    16     4 1.1485e+005           I 7.3e+000 3.8e+004 (dLd_demand_unit)
+  ** WARNING **
+Residual scaled (3.994797e+005).
+Basis: update  1: LU: 120447 z: 8 dmin: 0.318449
+Basis: update 21: LU: 125581 z: 15 dmin: 0.000406216
+Basis: update 41: LU: 131973 z: 28 dmin: 0.000406216
+Basis: Resize: refactorization: 0, storage allocated for basis: 275943 elements (157682 min)
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 117711 z: 0 dmin: 0.0066868
+Basis: update 21: LU: 123553 z: 0 dmin: 0.0066868
+Basis: update 41: LU: 130419 z: 2 dmin: 0.0066868
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 118019 z: 0 dmin: 0.00525203
+Basis: update 21: LU: 124694 z: 1 dmin: 0.00525203
+Basis: update 41: LU: 132076 z: 3 dmin: 0.00525203
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 112745 z: 0 dmin: 0.0253684
+Basis: update 21: LU: 118829 z: 0 dmin: 0.0253684
+Basis: update 41: LU: 124527 z: 2 dmin: 0.0253684
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 105935 z: 0 dmin: 0.00562472
+Basis: update 21: LU: 110825 z: 0 dmin: 0.000989864
+Basis: update 41: LU: 116371 z: 1 dmin: 0.000929361
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 99606 z: 0 dmin: 0.000137333
+Basis: update 21: LU: 104071 z: 0 dmin: 1.45818e-005
+Basis: update 41: LU: 109282 z: 1 dmin: 1.45818e-005
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 95551 z: 0 dmin: 0.00149685
+Basis: update 21: LU: 98458 z: 0 dmin: 8.87762e-006
+Basis: update 41: LU: 100551 z: 0 dmin: 8.87762e-006
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 94384 z: 0 dmin: 0.306849
+Basis: update 21: LU: 95440 z: 0 dmin: 0.306849
+Basis: update 41: LU: 96179 z: 0 dmin: 0.0214569
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 94780 z: 0 dmin: 0.0406129
+Basis: update 21: LU: 96053 z: 0 dmin: 0.00272321
+Basis: update 41: LU: 96962 z: 0 dmin: 0.00010585
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 93734 z: 0 dmin: 0.00138941
+Basis: update 21: LU: 94957 z: 0 dmin: 0.00138941
+
+Minor Iteration Log
+minor      t          z     w     v   art ckpts  enter    leave
+  500 -3.6460e-013  8628   444   472     0     9 v[   11] z[   35]
+Basis: update 41: LU: 96432 z: 0 dmin: 0.00138941
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 94191 z: 0 dmin: 0.306849
+Basis: update 21: LU: 95114 z: 0 dmin: 0.0025765
+Basis: update 41: LU: 96374 z: 0 dmin: 0.00010585
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 93990 z: 0 dmin: 0.000416762
+Basis: update 21: LU: 96857 z: 0 dmin: 0.000416762
+Basis: update 41: LU: 100284 z: 0 dmin: 0.000416762
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 92916 z: 0 dmin: 0.109208
+Basis: update 21: LU: 93601 z: 0 dmin: 0.00290024
+Basis: update 41: LU: 95061 z: 0 dmin: 0.00010585
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 93729 z: 0 dmin: 0.0279037
+Basis: update 21: LU: 97226 z: 0 dmin: 0.0279037
+Basis: update 41: LU: 101604 z: 0 dmin: 0.0279037
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 92960 z: 0 dmin: 0.198391
+Basis: update 21: LU: 93963 z: 0 dmin: 0.0025765
+Basis: update 41: LU: 95683 z: 0 dmin: 0.000339084
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 94139 z: 0 dmin: 0.140851
+Basis: update 21: LU: 98019 z: 0 dmin: 0.140851
+Basis: update 41: LU: 102760 z: 0 dmin: 0.140851
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 93863 z: 0 dmin: 0.306849
+Basis: update 21: LU: 94580 z: 0 dmin: 0.0043635
+Basis: update 41: LU: 95727 z: 0 dmin: 0.00010585
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 93394 z: 0 dmin: 0.00373266
+Basis: update 21: LU: 95292 z: 0 dmin: 0.00373266
+Basis: update 41: LU: 98196 z: 0 dmin: 0.00373266
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 93829 z: 0 dmin: 0.306849
+Basis: update 21: LU: 94492 z: 0 dmin: 0.00436754
+  ** WARNING **
+Cycle: Detected.
+  ** WARNING **
+Lemke Start.
+Basis: update  1: LU: 21939 z: 0 dmin: 1
+Basis: update 21: LU: 22065 z: 0 dmin: 1
+Basis: update 41: LU: 22330 z: 0 dmin: 0.00616694
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 22063 z: 0 dmin: 0.0013312
+Basis: update 21: LU: 22208 z: 0 dmin: 0.000415341
+Basis: update 41: LU: 22565 z: 0 dmin: 0.000415341
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 22470 z: 0 dmin: 0.0388355
+Basis: update 21: LU: 23047 z: 0 dmin: 0.00592174
+Basis: update 41: LU: 23816 z: 0 dmin: 0.00592174
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 23259 z: 0 dmin: 0.66583
+Basis: update 21: LU: 23703 z: 0 dmin: 0.00271811
+Basis: update 41: LU: 24741 z: 0 dmin: 0.000122483
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 23539 z: 0 dmin: 0.0691784
+Basis: update 21: LU: 23846 z: 0 dmin: 0.0135924
+Basis: update 41: LU: 24966 z: 0 dmin: 0.00750311
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 23776 z: 0 dmin: 1
+Basis: update 21: LU: 24697 z: 0 dmin: 1
+Basis: update 41: LU: 26131 z: 0 dmin: 1
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 24956 z: 0 dmin: 1
+Basis: update 21: LU: 26171 z: 0 dmin: 1
+Basis: update 41: LU: 27926 z: 0 dmin: 1
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 25945 z: 0 dmin: 0.990767
+Basis: update 21: LU: 26826 z: 0 dmin: 0.990767
+Basis: update 41: LU: 28078 z: 0 dmin: 0.990767
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 26523 z: 0 dmin: 0.388551
+Basis: update 21: LU: 27641 z: 0 dmin: 0.388551
+Basis: update 41: LU: 29103 z: 0 dmin: 0.388551
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 27230 z: 0 dmin: 1
+
+Minor Iteration Log
+minor      t          z     w     v   art ckpts  enter    leave
+  500 -1.1100e+003  1408  5041  3095     0     9 z[ 2475] v[ 6043]
+Basis: update 21: LU: 28449 z: 0 dmin: 1
+Basis: update 41: LU: 30055 z: 0 dmin: 1
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 27968 z: 0 dmin: 1
+Basis: update 21: LU: 29072 z: 0 dmin: 1
+Basis: update 41: LU: 30917 z: 0 dmin: 1
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 28750 z: 0 dmin: 1
+Basis: update 21: LU: 29921 z: 0 dmin: 1
+Basis: update 41: LU: 31911 z: 0 dmin: 1
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 29445 z: 0 dmin: 1
+Basis: update 21: LU: 30589 z: 0 dmin: 1
+Basis: update 41: LU: 32232 z: 0 dmin: 1
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 29975 z: 0 dmin: 1
+Basis: update 21: LU: 31509 z: 0 dmin: 0.153798
+Basis: update 41: LU: 33373 z: 0 dmin: 0.153798
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 30409 z: 0 dmin: 1
+Basis: update 21: LU: 31690 z: 0 dmin: 0.437166
+Basis: update 41: LU: 33674 z: 0 dmin: 0.437166
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 31640 z: 0 dmin: 1
+Basis: update 21: LU: 33140 z: 0 dmin: 0.163991
+Basis: update 41: LU: 34999 z: 0 dmin: 0.162751
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 32079 z: 0 dmin: 0.342936
+Basis: update 21: LU: 33957 z: 0 dmin: 0.162693
+Basis: update 41: LU: 36283 z: 0 dmin: 0.162693
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 32267 z: 0 dmin: 0.342936
+Basis: update 21: LU: 34024 z: 0 dmin: 0.162712
+Basis: update 41: LU: 36292 z: 0 dmin: 0.162711
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 32556 z: 0 dmin: 0.90479
+Basis: update 21: LU: 34341 z: 0 dmin: 0.474423
+Basis: update 41: LU: 36889 z: 0 dmin: 0.12466
+  ** WARNING **
+Basis refactored.
+ 1000 -9.5185e+001  1794  4791  2959     0    19 z[ 3839] w[ 3557]
+Basis: update  1: LU: 32641 z: 0 dmin: 0.649813
+Basis: update 21: LU: 34247 z: 0 dmin: 0.167126
+Basis: update 41: LU: 36695 z: 0 dmin: 0.143111
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 33186 z: 0 dmin: 0.649813
+Basis: update 21: LU: 34950 z: 0 dmin: 0.649813
+Basis: update 41: LU: 37137 z: 0 dmin: 0.120527
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 33769 z: 0 dmin: 0.90479
+Basis: update 21: LU: 35544 z: 0 dmin: 0.140438
+Basis: update 41: LU: 38022 z: 0 dmin: 0.140438
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 34230 z: 0 dmin: 0.342936
+Basis: update 21: LU: 35959 z: 0 dmin: 0.342936
+Basis: update 41: LU: 38590 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 34884 z: 0 dmin: 0.685871
+Basis: update 21: LU: 36690 z: 0 dmin: 0.423998
+Basis: update 41: LU: 39316 z: 0 dmin: 0.423998
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 35513 z: 0 dmin: 0.342936
+Basis: update 21: LU: 37277 z: 0 dmin: 0.342936
+Basis: update 41: LU: 39478 z: 0 dmin: 0.0963136
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 35897 z: 0 dmin: 0.342936
+Basis: update 21: LU: 37782 z: 0 dmin: 0.342936
+Basis: update 41: LU: 40020 z: 0 dmin: 0.162693
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 36449 z: 0 dmin: 0.342936
+Basis: update 21: LU: 38272 z: 0 dmin: 0.14232
+Basis: update 41: LU: 40447 z: 0 dmin: 0.14232
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 36974 z: 0 dmin: 0.342936
+Basis: update 21: LU: 39062 z: 0 dmin: 0.109366
+Basis: update 41: LU: 41986 z: 0 dmin: 0.109366
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 38040 z: 0 dmin: 0.342936
+Basis: update 21: LU: 40571 z: 0 dmin: 0.342936
+Basis: update 41: LU: 43712 z: 0 dmin: 0.143316
+ 1500 -5.3087e+000  2166  4509  2869     0    28 z[ 5522] v[ 5523]
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 40327 z: 0 dmin: 0.0672692
+Basis: update 21: LU: 43154 z: 0 dmin: 0.0672692
+Basis: update 41: LU: 46728 z: 0 dmin: 0.0672692
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 43344 z: 0 dmin: 0.342936
+Basis: update 21: LU: 46230 z: 0 dmin: 0.342936
+Basis: update 41: LU: 49945 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 44455 z: 0 dmin: 0.342936
+Basis: update 21: LU: 47393 z: 0 dmin: 0.342936
+Basis: update 41: LU: 51178 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 45869 z: 0 dmin: 0.342916
+Basis: update 21: LU: 48923 z: 0 dmin: 0.342916
+Basis: update 41: LU: 52543 z: 0 dmin: 0.342916
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 46904 z: 0 dmin: 0.342936
+Basis: update 21: LU: 50090 z: 0 dmin: 0.342936
+Basis: update 41: LU: 54050 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 47309 z: 0 dmin: 0.642952
+Basis: update 21: LU: 50654 z: 0 dmin: 0.293079
+Basis: update 41: LU: 53975 z: 0 dmin: 0.293079
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 49966 z: 0 dmin: 0.342936
+Basis: update 21: LU: 53724 z: 0 dmin: 0.255551
+Basis: update 41: LU: 58237 z: 0 dmin: 0.255551
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 52883 z: 0 dmin: 0.0508058
+Basis: update 21: LU: 55776 z: 0 dmin: 0.0508017
+Basis: update 41: LU: 58524 z: 0 dmin: 0.0508017
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 54622 z: 0 dmin: 0.342936
+Basis: update 21: LU: 54765 z: 0 dmin: 0.342936
+Basis: update 41: LU: 54857 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 56910 z: 0 dmin: 0.342936
+Basis: update 21: LU: 58797 z: 0 dmin: 0.342936
+ 2000  1.3514e-007  2660  4378  2506     0    38 z[ 1702] v[ 8459]
+Basis: update 41: LU: 58889 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 54560 z: 0 dmin: 0.342916
+Basis: update 21: LU: 54661 z: 0 dmin: 0.342916
+Basis: update 41: LU: 54755 z: 0 dmin: 0.342916
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 55930 z: 0 dmin: 0.342927
+Basis: update 21: LU: 59485 z: 0 dmin: 0.342927
+Basis: update 41: LU: 59648 z: 0 dmin: 0.342927
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 56143 z: 0 dmin: 0.342936
+Basis: update 21: LU: 58029 z: 0 dmin: 0.342936
+Basis: update 41: LU: 58119 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 55073 z: 0 dmin: 0.342936
+Basis: update 21: LU: 57191 z: 0 dmin: 0.342936
+Basis: update 41: LU: 57284 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 56429 z: 0 dmin: 0.342936
+Basis: update 21: LU: 58622 z: 0 dmin: 0.342936
+Basis: update 41: LU: 58709 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 56352 z: 0 dmin: 0.342927
+Basis: update 21: LU: 58614 z: 0 dmin: 0.342927
+Basis: update 41: LU: 58709 z: 0 dmin: 0.342927
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 56028 z: 0 dmin: 0.342936
+Basis: update 21: LU: 58341 z: 0 dmin: 0.342936
+Basis: update 41: LU: 58420 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 56498 z: 0 dmin: 0.342936
+Basis: update 21: LU: 58741 z: 0 dmin: 0.342936
+Basis: update 41: LU: 58823 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 56990 z: 0 dmin: 0.342936
+Basis: update 21: LU: 59271 z: 0 dmin: 0.342936
+Basis: update 41: LU: 59362 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 55937 z: 0 dmin: 0.342936
+Basis: update 21: LU: 58290 z: 0 dmin: 0.342936
+ 2500  1.5741e-007  3160  3987  2397     0    48 z[ 1824] v[ 8581]
+Basis: update 41: LU: 58380 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 58121 z: 0 dmin: 0.342936
+Basis: update 21: LU: 60696 z: 0 dmin: 0.342936
+Basis: update 41: LU: 60779 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 57039 z: 0 dmin: 0.339626
+Basis: update 21: LU: 59529 z: 0 dmin: 0.339626
+Basis: update 41: LU: 59622 z: 0 dmin: 0.339626
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 58356 z: 0 dmin: 0.342927
+Basis: update 21: LU: 60902 z: 0 dmin: 0.342927
+Basis: update 41: LU: 60992 z: 0 dmin: 0.342927
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 58078 z: 0 dmin: 0.342936
+Basis: update 21: LU: 58174 z: 0 dmin: 0.342936
+Basis: update 41: LU: 58267 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 57552 z: 0 dmin: 0.342936
+Basis: update 21: LU: 60364 z: 0 dmin: 0.342936
+Basis: update 41: LU: 60459 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 58948 z: 0 dmin: 0.342936
+Basis: update 21: LU: 61835 z: 0 dmin: 0.342936
+Basis: update 41: LU: 61921 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 58162 z: 0 dmin: 0.342936
+Basis: update 21: LU: 60957 z: 0 dmin: 0.342936
+Basis: update 41: LU: 61050 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 58955 z: 0 dmin: 0.342936
+Basis: update 21: LU: 59047 z: 0 dmin: 0.342936
+Basis: update 41: LU: 59135 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 58549 z: 0 dmin: 0.342936
+Basis: update 21: LU: 61457 z: 0 dmin: 0.342936
+Basis: update 41: LU: 61549 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 59709 z: 0 dmin: 0.342936
+ 3000  1.7975e-007  3660  3585  2299     0    58 z[ 1946] v[ 8703]
+Basis: update 21: LU: 62840 z: 0 dmin: 0.342936
+Basis: update 41: LU: 62921 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 58912 z: 0 dmin: 0.342933
+Basis: update 21: LU: 62155 z: 0 dmin: 0.342933
+Basis: update 41: LU: 62242 z: 0 dmin: 0.342933
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 59215 z: 0 dmin: 0.342936
+Basis: update 21: LU: 62480 z: 0 dmin: 0.342936
+Basis: update 41: LU: 62570 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 59291 z: 0 dmin: 0.342931
+Basis: update 21: LU: 59373 z: 0 dmin: 0.342931
+Basis: update 41: LU: 59466 z: 0 dmin: 0.342931
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 60574 z: 0 dmin: 0.342936
+Basis: update 21: LU: 60665 z: 0 dmin: 0.342936
+Basis: update 41: LU: 60752 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 59889 z: 0 dmin: 0.342936
+Basis: update 21: LU: 59987 z: 0 dmin: 0.342936
+Basis: update 41: LU: 60096 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 59328 z: 0 dmin: 0.342936
+Basis: update 21: LU: 62410 z: 0 dmin: 0.342936
+Basis: update 41: LU: 62503 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 60773 z: 0 dmin: 0.342936
+Basis: update 21: LU: 64400 z: 0 dmin: 0.342936
+Basis: update 41: LU: 64482 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 59989 z: 0 dmin: 0.342936
+Basis: update 21: LU: 63087 z: 0 dmin: 0.342936
+Basis: update 41: LU: 63176 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 59872 z: 0 dmin: 0.342936
+Basis: update 21: LU: 63150 z: 0 dmin: 0.342936
+Basis: update 41: LU: 63239 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 61274 z: 0 dmin: 0.342936
+ 3500  2.0196e-007  4160  3198  2186     0    68 z[ 8822] w[  878]
+Basis: update 21: LU: 64594 z: 0 dmin: 0.342936
+Basis: update 41: LU: 64680 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 60749 z: 0 dmin: 0.342936
+Basis: update 21: LU: 64029 z: 0 dmin: 0.342936
+Basis: update 41: LU: 64118 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 61444 z: 0 dmin: 0.342936
+Basis: update 21: LU: 65372 z: 0 dmin: 0.342936
+Basis: update 41: LU: 65467 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 61346 z: 0 dmin: 0.342936
+Basis: update 21: LU: 64736 z: 0 dmin: 0.342936
+Basis: update 41: LU: 64822 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 61990 z: 0 dmin: 0.342936
+Basis: update 21: LU: 66041 z: 0 dmin: 0.342936
+Basis: update 41: LU: 66127 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 58701 z: 0 dmin: 0.342936
+Basis: update 21: LU: 58894 z: 0 dmin: 0.342936
+Basis: update 41: LU: 58967 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 60947 z: 0 dmin: 0.342936
+Basis: update 21: LU: 61035 z: 0 dmin: 0.342936
+Basis: update 41: LU: 61152 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 61593 z: 0 dmin: 0.342936
+Basis: update 21: LU: 68907 z: 0 dmin: 0.342936
+Basis: update 41: LU: 69017 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 60956 z: 0 dmin: 0.342936
+Basis: update 21: LU: 61061 z: 0 dmin: 0.342936
+Basis: update 41: LU: 61169 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 63519 z: 0 dmin: 0.342936
+Basis: update 21: LU: 67293 z: 0 dmin: 0.342936
+Basis: update 41: LU: 67441 z: 0 dmin: 0.342936
+ 4000  4.3841e-007  4660  2844  2040     0    77 z[ 2169] v[ 9214]
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 63459 z: 0 dmin: 0.342896
+Basis: update 21: LU: 70993 z: 0 dmin: 0.342896
+Basis: update 41: LU: 71164 z: 0 dmin: 0.342896
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 63676 z: 0 dmin: 0.342936
+Basis: update 21: LU: 71344 z: 0 dmin: 0.342936
+Basis: update 41: LU: 71459 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 61655 z: 0 dmin: 0.342936
+Basis: update 21: LU: 61760 z: 0 dmin: 0.342936
+Basis: update 41: LU: 61871 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 63346 z: 0 dmin: 0.342927
+Basis: update 21: LU: 67316 z: 0 dmin: 0.342927
+Basis: update 41: LU: 67467 z: 0 dmin: 0.342927
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 63545 z: 0 dmin: 0.342936
+Basis: update 21: LU: 71464 z: 0 dmin: 0.342936
+Basis: update 41: LU: 71631 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 63342 z: 0 dmin: 0.342933
+Basis: update 21: LU: 71288 z: 0 dmin: 0.342933
+Basis: update 41: LU: 71402 z: 0 dmin: 0.342933
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 61535 z: 0 dmin: 0.342936
+Basis: update 21: LU: 61640 z: 0 dmin: 0.342936
+Basis: update 41: LU: 61757 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 64943 z: 0 dmin: 0.342936
+Basis: update 21: LU: 69087 z: 0 dmin: 0.342936
+Basis: update 41: LU: 69241 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 65137 z: 0 dmin: 0.342936
+Basis: update 21: LU: 73318 z: 0 dmin: 0.342936
+Basis: update 41: LU: 73478 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 64859 z: 0 dmin: 0.342936
+Basis: update 21: LU: 73271 z: 0 dmin: 0.342936
+ 4500  4.5201e-007  5160  2472  1912     0    87 z[ 2309] v[ 9354]
+Basis: update 41: LU: 73381 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 63738 z: 0 dmin: 0.342936
+Basis: update 21: LU: 63843 z: 0 dmin: 0.342936
+Basis: update 41: LU: 63954 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 66095 z: 0 dmin: 0.342927
+Basis: update 21: LU: 70421 z: 0 dmin: 0.342927
+Basis: update 41: LU: 70575 z: 0 dmin: 0.342927
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 67736 z: 0 dmin: 0.342936
+Basis: update 21: LU: 76327 z: 0 dmin: 0.342936
+Basis: update 41: LU: 76496 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 66404 z: 0 dmin: 0.302066
+Basis: update 21: LU: 75118 z: 0 dmin: 0.302066
+Basis: update 41: LU: 75232 z: 0 dmin: 0.302066
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 63976 z: 0 dmin: 0.342936
+Basis: update 21: LU: 64081 z: 0 dmin: 0.342936
+Basis: update 41: LU: 64189 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 66434 z: 0 dmin: 0.342936
+Basis: update 21: LU: 70914 z: 0 dmin: 0.342936
+Basis: update 41: LU: 71062 z: 0 dmin: 0.342936
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 67422 z: 0 dmin: 0.326037
+Basis: update 21: LU: 76391 z: 0 dmin: 0.326037
+Basis: update 41: LU: 76538 z: 0 dmin: 0.326037
+  ** WARNING **
+Basis refactored.
+Basis: update  1: LU: 67149 z: 0 dmin: 0.342936
+Basis: update 21: LU: 
