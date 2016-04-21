@@ -75,7 +75,6 @@ def balance_m_to_sqlite():
     print 'done marketprices'
 
 #reset compensation factor for inbalances in elasticities (to 1)
-#TODO: currently * 1.38!!!!!!!!!!!!!!!!!!!!!
 def reset_factor_to_one():
     print os.getcwd()
     conn = sq.connect("database/database.sqlite")
@@ -90,7 +89,29 @@ def reset_factor_to_one():
     factors = list()
     for p in range(1,amount_of_periods+1):
         for h in range(1,length_period+1):
-            factors.append((p,h,1.38))
+            factors.append((p,h,1.0))
+            print (p,' & ', h)
+    cur.executemany('INSERT INTO Factor VALUES (?,?,?)', factors)
+    conn.commit()
+    ############################################
+
+#set compensation factor for inbalances to a chosen value
+def set_factor_to_value():
+    value = 1.394
+    print os.getcwd()
+    conn = sq.connect("database/database.sqlite")
+    cur = conn.cursor()
+
+    print os.getcwd()
+    sql = 'DROP TABLE IF EXISTS Factor;'
+    cur.execute(sql)
+    sql = 'CREATE TABLE IF NOT EXISTS Factor (Period TEXT, Hour TEXT, Value FLOAT);'
+    # ,  PRIMARY KEY(Code));'
+    cur.execute(sql)
+    factors = list()
+    for p in range(1,amount_of_periods+1):
+        for h in range(1,length_period+1):
+            factors.append((p,h,value))
             print (p,' & ', h)
     cur.executemany('INSERT INTO Factor VALUES (?,?,?)', factors)
     conn.commit()
@@ -185,6 +206,7 @@ def shift_to_excel():
 
 # Reset factor (to compensate the inbalances in the cross elasticities) to 1
 # reset_factor_to_one()
+# set_factor_to_value()
 # set balance_price to flat price
 # Wout_initialise.initialise(length_period)
 

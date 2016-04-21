@@ -168,12 +168,12 @@ EGCAPEX = 2000000000000000000000000;
 E_LP = 7100000;
 P_REF = 55.5;
 TOTDEM = sum((P,T,Z),DEM_T(P,T,Z));
-LIMITPRICE = P_REF*0.5;
+LIMITPRICE = P_REF*0.9;
 LIMITDEM = 750;
 LIMITSHIFT = 2000;
 LENGTH_P = card(T);
-#ELAST_NEW(P,T,H) = ELAST(T,H)*DIAG(T,H)+COMPENSATE(P,H)*(TRI_LOW(T,H)*ELAST(T,H)+TRI_UP(T,H)*ELAST(T,H));
-ELAST_NEW(P,T,H) = ELAST(T,H)*1;
+ELAST_NEW(P,T,H) = ELAST(T,H)*DIAG(T,H)+COMPENSATE(P,H)*(TRI_LOW(T,H)*ELAST(T,H)+TRI_UP(T,H)*ELAST(T,H));
+#ELAST_NEW(P,T,H) = ELAST(T,H)*1;
 
 eff_factor_earlier = 1;
 eff_factor_later = 1;
@@ -188,7 +188,12 @@ shiftforwards_total(P,Z)		Shift towards an earlier moment in time per period
 shiftbackwards(P,H,Z)			Shift towards a later moment in time per hour
 shiftbackwards_total(P,Z)		Shift towards a later moment in time per period
 shiftaway(P,H,Z)				Shift away from an hour
-shiftaway_total(P,Z)				Shift away from a period
+shiftaway_total(P,Z)			Shift away from a period
+
+front_up(P,H,Z)
+front_down(P,H,Z)
+back_up(P,H,Z)
+back_down(P,H,Z)
 ;
 
 POSITIVE VARIABLES
@@ -461,6 +466,16 @@ shiftedbackward(P,H,Z)
 shiftedbackwardtotal(P,Z)
 shiftedaway(P,H,Z)
 shiftedawaytotal(P,Z)
+
+front_d_1(P,H,Z)
+front_d_2(P,H,Z)
+front_u_1(P,H,Z)
+front_u_2(P,H,Z)
+
+back_d_1(P,H,Z)
+back_d_2(P,H,Z)
+back_u_1(P,H,Z)
+back_u_2(P,H,Z)
 
 qinnerframe(P,H,Z)
 qouterframe(P,H,Z)
@@ -1511,7 +1526,7 @@ demand_clone(P,H,Z)..
 					;
 
 totdemand(P,Z)..
-					sum(T,DEM_T(P,T,Z)) =e= sum(T,demand_unit(P,T,Z))
+					sum(T,DEM_T(P,T,Z)) =l= sum(T,demand_unit(P,T,Z))
 					;
 
 totdemand2(P,Z)..
@@ -1608,6 +1623,42 @@ variablecost(P,Z)..
 
 cost(Z)..
 					totalcost(Z) =e= sum(P,totalvariablecost(P,Z)) + totalfixedcost(Z)
+					;
+
+####################################
+# get downwards en upward numbers for front and back
+####################################
+
+front_d_1(P,H,Z)..
+					front_down(P,H,Z) =l= shiftforwards(P,H,Z)
+					;
+
+front_d_2(P,H,Z)..
+					front_down(P,H,Z) =l= 0
+					;
+
+front_u_1(P,H,Z)..
+					front_up(P,H,Z) =g= shiftforwards(P,H,Z)
+					;
+
+front_u_2(P,H,Z)..
+					front_up(P,H,Z) =g= 0
+					;
+
+back_d_1(P,H,Z)..
+					back_down(P,H,Z) =l= shiftbackwards(P,H,Z)
+					;
+
+back_d_2(P,H,Z)..
+					back_down(P,H,Z) =l= 0
+					;
+
+back_u_1(P,H,Z)..
+					back_up(P,H,Z) =g= shiftbackwards(P,H,Z)
+					;
+
+back_u_2(P,H,Z)..
+					back_up(P,H,Z) =g= 0
 					;
 
 
@@ -1812,7 +1863,7 @@ MODEL GOA GOA model /
 		priceconstraint1
 		priceconstraint2
 #		priceconstraint3
-		shiftconstraint
+#		shiftconstraint
 		shiftconstraint1
 		shiftconstraint2
 
@@ -1826,6 +1877,15 @@ MODEL GOA GOA model /
 
 		demlimitunder
 		demlimitupper
+
+		front_d_1
+		front_d_2
+		front_u_1
+		front_u_2
+		back_d_1
+		back_d_2
+		back_u_1
+		back_u_2
 /;
 
 
