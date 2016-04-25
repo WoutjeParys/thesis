@@ -4,23 +4,28 @@ __author__ = 'Wout'
 import os
 from pandas import pivot_table, merge, ExcelWriter, DataFrame
 import numpy as np
-from openpyxl import Workbook
-from openpyxl import load_workbook
+import openpyxl
 from gams_addon import gdx_to_df, DomainInfo
 from openpyxl.styles import Style, Border, Alignment, Protection, Font, colors
 import sqlite3 as sq
 import csv
 import xlrd
 import os
+import math
 from matplotlib import pyplot as plt
 import Wout_initialise
 import Wout_main
 
 
+
 file = 'results\out_db_75.6_50.gdx'
 gdx_file = os.path.join(os.getcwd(), '%s' % file)
+sh_shift_name = 'shifting'
+excel_shift_name = 'excel\output_elasticity_model_shifting.xlsx'
+list_compensation = list()
 
-length_period = 168
+#length period needs to be a multiple of 24
+length_period = 24*7
 amount_of_periods = 1
 
 #write marginal values of balance function to excel
@@ -90,14 +95,17 @@ def reset_factor_to_one():
     for p in range(1,amount_of_periods+1):
         for h in range(1,length_period+1):
             factors.append((p,h,1.0))
-            print (p,' & ', h)
+            # print (p,' & ', h)
     cur.executemany('INSERT INTO Factor VALUES (?,?,?)', factors)
     conn.commit()
+
+    for i in range(1,amount_of_periods+1):
+        list_compensation.append(1)
+
     ############################################
 
-#set compensation factor for inbalances to a chosen value
-def set_factor_to_value():
-    value = 1.394
+#reset compensation factor for inbalances in elasticities (to 1)
+def reset_factor_to_value(value):
     print os.getcwd()
     conn = sq.connect("database/database.sqlite")
     cur = conn.cursor()
@@ -112,7 +120,32 @@ def set_factor_to_value():
     for p in range(1,amount_of_periods+1):
         for h in range(1,length_period+1):
             factors.append((p,h,value))
-            print (p,' & ', h)
+            # print (p,' & ', h)
+    cur.executemany('INSERT INTO Factor VALUES (?,?,?)', factors)
+    conn.commit()
+
+    for i in range(1,amount_of_periods+1):
+        list_compensation.append(value)
+
+    ############################################
+
+#set compensation factor for inbalances to a chosen value
+def set_factor_to_value():
+    print os.getcwd()
+    conn = sq.connect("database/database.sqlite")
+    cur = conn.cursor()
+
+    print os.getcwd()
+    sql = 'DROP TABLE IF EXISTS Factor;'
+    cur.execute(sql)
+    sql = 'CREATE TABLE IF NOT EXISTS Factor (Period TEXT, Hour TEXT, Value FLOAT);'
+    # ,  PRIMARY KEY(Code));'
+    cur.execute(sql)
+    factors = list()
+    for p in range(1,amount_of_periods+1):
+        for h in range(1,length_period+1):
+            factors.append((p,h,list_compensation[p-1]))
+            # print (p,' & ', h)
     cur.executemany('INSERT INTO Factor VALUES (?,?,?)', factors)
     conn.commit()
     ############################################
@@ -161,7 +194,7 @@ def update_factor_values():
 
 #write shift forward, backward & away to excel
 def shift_to_excel():
-    writefile = os.getcwd() + '\\' + 'excel\output_elasticity_model_shifting.xlsx'
+    writefile = os.getcwd() + '\\' + excel_shift_name
     writer = ExcelWriter(writefile)
     print gdx_file
     zone_dict = dict()
@@ -200,23 +233,55 @@ def shift_to_excel():
     shift = merge(shift, shiftaway, left_index=True, right_index=True, how='outer', suffixes=['', '_away'])
 
     print 'Writing demand and prices to Excel'
-    shift.to_excel(writer, na_rep=0.0, sheet_name='pattern', merge_cells=False)
+    shift.to_excel(writer, na_rep=0.0, sheet_name=sh_shift_name, merge_cells=False)
 
     writer.close()
 
+#calculate the compensation factor for each period
+def calculate_comp_factor():
+    print 'open shifting excel file'
+    wbread = openpyxl.load_workbook(excel_shift_name)
+    print 'shifting file loaded'
+    sheet = wbread.get_sheet_by_name(sh_shift_name)
+    print list_compensation
+    forward = 0
+    backward = 0
+    away = 0
+    for i in range(1,amount_of_periods+1):
+        for j in range(2,length_period+2):
+            # print ('j: ', j)
+            forward = forward + abs(sheet.cell(row = (i-1)+j,column = 4).value)
+            backward = backward + abs(sheet.cell(row = (i-1)+j,column = 5).value)
+            away = away + abs(sheet.cell(row = (i-1)+j,column = 6).value)
+        # print forward
+        # print backward
+        # print away
+        compensate = away/(forward+backward)
+        print 'compensate: ',compensate
+        list_compensation[i-1] = list_compensation[i-1]*math.sqrt(compensate)
+        print 'compensate new value: ', list_compensation[i-1]
+
 # Reset factor (to compensate the inbalances in the cross elasticities) to 1
-# reset_factor_to_one()
-# set_factor_to_value()
+reset_factor_to_one()
+# reset_factor_to_value(1.38)
 # set balance_price to flat price
 # Wout_initialise.initialise(length_period)
 
+output = list()
 
+output.append(list(list_compensation))
 for i in range (0,1):
     Wout_main.main(length_period)
     # balance_m_to_excel()
     # balance_m_to_sqlite()
     # update_factor_values()
     # shift_to_excel()
+    # calculate_comp_factor()
+    # set_factor_to_value()
+    #
+    # output.append(list(list_compensation))
+
+print output
 
 
 

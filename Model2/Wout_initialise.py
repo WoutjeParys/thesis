@@ -5,6 +5,7 @@ import csv
 import xlrd
 import os
 from matplotlib import pyplot as plt
+import openpyxl
 
 # length_period = 168
 
@@ -251,6 +252,12 @@ def initialise(length_period):
         ############################################
         print "Done time"
 
+    #test generated elasticity & diag/triag matrices
+    test = False
+    if test:
+        wbwrite = openpyxl.load_workbook('excel/TestElasticity.xlsx')
+
+
     if elasticity_matrix:
         book = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\Elasticity.xlsx"))
         sh = book.sheet_by_index(0)
@@ -259,8 +266,10 @@ def initialise(length_period):
         sql = 'CREATE TABLE IF NOT EXISTS Elasticity (Hour1 TEXT, Hour2 TEXT, Price_Elasticity FLOAT);'
         cur.execute(sql)
         elasticity = list()
+        if test:
+            sheetwrite = wbwrite.get_sheet_by_name('Sheet1')
         # TODO
-        # check how to handle elasticity, for now, only Hour1 - Hour2 and matrix 24-24
+        # check how to handle elasticity, for now, only Hour1 - Hour2 and matrix 168-168
         amount_of_days = length_period/24
         for day in range(0,amount_of_days):
             for row in range(3,sh.nrows):
@@ -269,19 +278,23 @@ def initialise(length_period):
                     if col < 13:
                         if row > 14 + col:
                             hour2 = int(sh.cell_value(2, col)) + 24*(day+1)
-                            if hour2 > 168:
-                                hour2 = hour2 - length_period
                         else:
                             hour2 = int(sh.cell_value(2, col)) + 24*(day)
+                        if hour2 > length_period:
+                            hour2 = hour2 - length_period
                     else:
                         if col > 11 + row-2:
                             hour2 = int(sh.cell_value(2, col)) + 24*(day-1)
-                            if hour2 < 1:
-                                hour2 = hour2 + length_period
                         else:
                             hour2 = int(sh.cell_value(2, col)) + 24*(day)
+                        if hour2 < 1:
+                            hour2 = hour2 + length_period
                     value = sh.cell_value(row,col)
                     elasticity.append((hour1,hour2,value))
+                    if test:
+                        writecell = sheetwrite.cell(row = hour1, column = hour2)
+                        # print value
+                        writecell.value = value
         cur.executemany('INSERT INTO Elasticity VALUES (?,?,?)', elasticity)
         conn.commit()
         print 'Done elasticities'
@@ -294,15 +307,34 @@ def initialise(length_period):
         cur.execute(sql)
         sql = 'CREATE TABLE IF NOT EXISTS C_Diagonal (Hour1 TEXT, Hour2 TEXT, Include_Value FLOAT);'
         cur.execute(sql)
+        if test:
+            sheetwrite = wbwrite.get_sheet_by_name('Sheet2')
         include_value = list()
         amount_of_days = length_period/24
         for day in range(0,amount_of_days):
             for row in range(1,sh.nrows):
                 hour1 = int(sh.cell_value(row, 0)) + 24*day
                 for col in range(1,sh.ncols):
-                    hour2 = int(sh.cell_value(0, col)) + 24*day
+                    if col < 13:
+                        if row > 12 + col:
+                            hour2 = int(sh.cell_value(0, col)) + 24*(day+1)
+                        else:
+                            hour2 = int(sh.cell_value(0, col)) + 24*(day)
+                        if hour2 > length_period:
+                            hour2 = hour2 - length_period
+                    else:
+                        if col > 11 + row:
+                            hour2 = int(sh.cell_value(0, col)) + 24*(day-1)
+                            if hour2 < 1:
+                                hour2 = hour2 + length_period
+                        else:
+                            hour2 = int(sh.cell_value(0, col)) + 24*(day)
                     value = sh.cell_value(row,col)
                     include_value.append((hour1,hour2,value))
+                    if test:
+                        writecell = sheetwrite.cell(row = hour1, column = hour2)
+                        # print value
+                        writecell.value = value
         cur.executemany('INSERT INTO C_Diagonal VALUES (?,?,?)', include_value)
         conn.commit()
         print 'Done diagonal'
@@ -313,6 +345,8 @@ def initialise(length_period):
         cur.execute(sql)
         sql = 'CREATE TABLE IF NOT EXISTS C_LowerT (Hour1 TEXT, Hour2 TEXT, Include_Value FLOAT);'
         cur.execute(sql)
+        if test:
+            sheetwrite = wbwrite.get_sheet_by_name('Sheet3')
         include_value = list()
         amount_of_days = length_period/24
         for day in range(0,amount_of_days):
@@ -322,10 +356,10 @@ def initialise(length_period):
                     if col < 13:
                         if row > 12 + col:
                             hour2 = int(sh.cell_value(0, col)) + 24*(day+1)
-                            if hour2 > 168:
-                                hour2 = hour2 - length_period
                         else:
                             hour2 = int(sh.cell_value(0, col)) + 24*(day)
+                        if hour2 > length_period:
+                            hour2 = hour2 - length_period
                     else:
                         if col > 11 + row:
                             hour2 = int(sh.cell_value(0, col)) + 24*(day-1)
@@ -335,6 +369,10 @@ def initialise(length_period):
                             hour2 = int(sh.cell_value(0, col)) + 24*(day)
                     value = sh.cell_value(row,col)
                     include_value.append((hour1,hour2,value))
+                    if test:
+                        writecell = sheetwrite.cell(row = hour1, column = hour2)
+                        # print value
+                        writecell.value = value
         cur.executemany('INSERT INTO C_LowerT VALUES (?,?,?)', include_value)
         conn.commit()
         print 'Done LowerT'
@@ -345,6 +383,8 @@ def initialise(length_period):
         cur.execute(sql)
         sql = 'CREATE TABLE IF NOT EXISTS C_UpperT (Hour1 TEXT, Hour2 TEXT, Include_Value FLOAT);'
         cur.execute(sql)
+        if test:
+            sheetwrite = wbwrite.get_sheet_by_name('Sheet4')
         include_value = list()
         amount_of_days = length_period/24
         for day in range(0,amount_of_days):
@@ -354,10 +394,10 @@ def initialise(length_period):
                     if col < 13:
                         if row > 12 + col:
                             hour2 = int(sh.cell_value(0, col)) + 24*(day+1)
-                            if hour2 > 168:
-                                hour2 = hour2 - length_period
                         else:
                             hour2 = int(sh.cell_value(0, col)) + 24*(day)
+                        if hour2 > length_period:
+                            hour2 = hour2 - length_period
                     else:
                         if col > 11 + row:
                             hour2 = int(sh.cell_value(0, col)) + 24*(day-1)
@@ -367,9 +407,17 @@ def initialise(length_period):
                             hour2 = int(sh.cell_value(0, col)) + 24*(day)
                     value = sh.cell_value(row,col)
                     include_value.append((hour1,hour2,value))
+                    if test:
+                        writecell = sheetwrite.cell(row = hour1, column = hour2)
+                        # print value
+                        writecell.value = value
         cur.executemany('INSERT INTO C_UpperT VALUES (?,?,?)', include_value)
         conn.commit()
         print 'Done UpperT'
+
+        if test:
+            print 'testmatrices written in excel'
+            wbwrite.save('excel/TestElasticity.xlsx')
 
         print 'Done correction matrices'
 
@@ -378,8 +426,9 @@ def initialise(length_period):
         maxframe = list()
         #frame is amount in two directions from middlepunt that is handeled
         frame = 10
-        overlapbefore = 0
+        overlapbefore = 1
         overlapafter = 1
+        amount_of_overlap_included = 0.2
         sql = 'DROP TABLE IF EXISTS Minframe;'
         cur.execute(sql)
         sql = 'CREATE TABLE IF NOT EXISTS Minframe (Hour1 TEXT, Hour2 TEXT, Inner_frame FLOAT);'
@@ -405,8 +454,8 @@ def initialise(length_period):
                     newk = k-length_period
                 else:
                     newk = k
-                if k == frame+overlapafter+i:
-                    maxframe.append((i,newk,0.1))
+                if k == frame+overlapafter+i or k == 1-frame-overlapbefore+(i-1):
+                    maxframe.append((i,newk,amount_of_overlap_included))
                 else:
                     maxframe.append((i,newk,1))
         print minframe

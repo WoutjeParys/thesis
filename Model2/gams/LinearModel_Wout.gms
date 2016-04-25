@@ -137,7 +137,7 @@ eff_factor_earlier		a factor to include the efficiency of demand shifted to an e
 eff_factor_later		a factor to include the efficiency of demand shifted to a later time
 
 COMPENSATE(P,H)			a parameter that compensates for energy losses due an elasticity-matrix that is not perfect
-ELAST_NEW(P,T,H)
+ELAST_NEW(P,T,H)        the new calculated elasticity matrix, taking into account the compensation factor
 ;
 
 $LOAD G_DATA
@@ -175,8 +175,8 @@ LENGTH_P = card(T);
 ELAST_NEW(P,T,H) = ELAST(T,H)*DIAG(T,H)+COMPENSATE(P,H)*(TRI_LOW(T,H)*ELAST(T,H)+TRI_UP(T,H)*ELAST(T,H));
 #ELAST_NEW(P,T,H) = ELAST(T,H)*1;
 
-eff_factor_earlier = 1;
-eff_factor_later = 1;
+eff_factor_earlier = 0.0;
+eff_factor_later = 0.0;
 
 VARIABLES
 obj                 	Value of objective function
@@ -194,6 +194,8 @@ front_up(P,H,Z)
 front_down(P,H,Z)
 back_up(P,H,Z)
 back_down(P,H,Z)
+shift_down(P,H,Z)
+shift_up(P,H,Z)
 ;
 
 POSITIVE VARIABLES
@@ -204,6 +206,7 @@ price_unit_clone(P,T,Z)
 demand_unit(P,T,Z)				demand of the electricity
 demand_unit_clone(P,H,Z)
 demand_tot(P,Z)					total demand, based on demand_unit
+surplus(P,T,Z)
 demand_ref(P,T,Z)				the reference demand with flat price
 innerframe(P,H,Z)
 outerframe(P,H,Z)
@@ -451,13 +454,15 @@ price_clone(P,T,Z)
 demand(P,T,Z)
 demand_clone(P,H,Z)
 totdemand(P,Z)
+surplusdemand(P,T,Z)
 totdemand2(P,Z)
 refdemand(P,T,Z)
 refdemand2(Z)
 priceconstraint1(P,T,Z)
 priceconstraint2(P,T,Z)
 priceconstraint3(P,Z)
-shiftconstraint(P,H,Z)
+shiftconstraint_frame_1(P,H,Z)
+shiftconstraint_frame_2(P,H,Z)
 shiftconstraint1(P,H,Z)
 shiftconstraint2(P,H,Z)
 shiftedforward(P,H,Z)
@@ -476,6 +481,11 @@ back_d_1(P,H,Z)
 back_d_2(P,H,Z)
 back_u_1(P,H,Z)
 back_u_2(P,H,Z)
+
+shift_d_1(P,H,Z)
+shift_d_2(P,H,Z)
+shift_u_1(P,H,Z)
+shift_u_2(P,H,Z)
 
 qinnerframe(P,H,Z)
 qouterframe(P,H,Z)
@@ -1526,11 +1536,16 @@ demand_clone(P,H,Z)..
 					;
 
 totdemand(P,Z)..
-					sum(T,DEM_T(P,T,Z)) =l= sum(T,demand_unit(P,T,Z))
+#					sum(T,DEM_T(P,T,Z)) =l= sum(T,demand_unit(P,T,Z))
+					sum(T,DEM_T(P,T,Z)+eff_factor_earlier*sum(H,DIAG(T,H)*(front_up(P,H,Z)-back_down(P,H,Z)))) =l= demand_tot(P,Z)
+					;
+
+surplusdemand(P,T,Z)..
+					surplus(P,T,Z) =e= eff_factor_earlier*sum(H,DIAG(T,H)*(front_up(P,H,Z)-back_down(P,H,Z)))
 					;
 
 totdemand2(P,Z)..
-					demand_tot(P,Z) =g= sum(T,demand_unit(P,T,Z))
+					demand_tot(P,Z) =e= sum(T,demand_unit(P,T,Z))
 #					demand_tot(P,Z) =e= sum(T,DEM_T(P,T,Z))
 					;
 
@@ -1551,7 +1566,7 @@ shiftedaway(P,H,Z)..
 					;
 
 shiftedawaytotal(P,Z)..
-					shiftaway_total(P,Z) =e= sum(H,shiftaway(P,H,Z))
+					shiftaway_total(P,Z) =e= sum(H,shift_up(P,H,Z)-shift_down(P,H,Z))
 					;
 
 shiftedforward(P,H,Z)..
@@ -1559,7 +1574,8 @@ shiftedforward(P,H,Z)..
 					;
 
 shiftedforwardtotal(P,Z)..
-					shiftforwards_total(P,Z) =e= sum(H,shiftforwards(P,H,Z))
+#					shiftforwards_total(P,Z) =e= sum(H,shiftforwards(P,H,Z))
+					shiftforwards_total(P,Z) =e= sum(H,front_up(P,H,Z)-back_down(P,H,Z))
 					;
 
 shiftedbackward(P,H,Z)..
@@ -1567,11 +1583,16 @@ shiftedbackward(P,H,Z)..
 					;
 
 shiftedbackwardtotal(P,Z)..
-					shiftbackwards_total(P,Z) =e= sum(H,shiftbackwards(P,H,Z))
+#					shiftbackwards_total(P,Z) =e= sum(H,shiftbackwards(P,H,Z))
+					shiftbackwards_total(P,Z) =e= sum(H,back_up(P,H,Z)-front_down(P,H,Z))
 					;
 
-shiftconstraint(P,H,Z)..
+shiftconstraint_frame_1(P,H,Z)..
 					sum(T,DEM_T(P,T,Z)*SHIFTMIN(H,T)) =l= sum(T,demand_unit(P,T,Z)*SHIFTMAX(H,T))
+					;
+
+shiftconstraint_frame_2(P,H,Z)..
+					sum(T,DEM_T(P,T,Z)*SHIFTMAX(H,T)) =g= sum(T,demand_unit(P,T,Z)*SHIFTMIN(H,T))
 					;
 
 shiftconstraint1(P,H,Z)..
@@ -1660,6 +1681,23 @@ back_u_1(P,H,Z)..
 back_u_2(P,H,Z)..
 					back_up(P,H,Z) =g= 0
 					;
+
+shift_d_1(P,H,Z)..
+					shift_down(P,H,Z) =l= shiftaway(P,H,Z)
+					;
+
+shift_d_2(P,H,Z)..
+					shift_down(P,H,Z) =l= 0
+					;
+
+shift_u_1(P,H,Z)..
+					shift_up(P,H,Z) =g= shiftaway(P,H,Z)
+					;
+
+shift_u_2(P,H,Z)..
+					shift_up(P,H,Z) =g= 0
+					;
+
 
 
 MODEL GOA GOA model /
@@ -1863,7 +1901,12 @@ MODEL GOA GOA model /
 		priceconstraint1
 		priceconstraint2
 #		priceconstraint3
-#		shiftconstraint
+
+        ##########
+        # include when working with moving frames, and set in wout_program -> factor back to 1
+		shiftconstraint_frame_1
+		shiftconstraint_frame_2
+
 		shiftconstraint1
 		shiftconstraint2
 
@@ -1886,6 +1929,13 @@ MODEL GOA GOA model /
 		back_d_2
 		back_u_1
 		back_u_2
+
+		shift_u_1
+		shift_u_2
+		shift_d_1
+		shift_d_2
+
+		surplusdemand
 /;
 
 
