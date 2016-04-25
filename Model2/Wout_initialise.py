@@ -15,7 +15,7 @@ geographical_entities = include
 generation_technologies = include
 storage_technologies = include
 time_periods = True
-demand_ref = include
+demand_ref = True
 intermittent_renewables = include
 reliable_intermittent = include
 policy = include
@@ -513,6 +513,44 @@ def initialise(length_period):
         #plt.plot(demand)
         #plt.show()
         ############################################
+
+        sh = book.sheet_by_index(2)
+
+        sql = 'DROP TABLE IF EXISTS Demand_non_residential;'
+        cur.execute(sql)
+        sql = 'CREATE TABLE IF NOT EXISTS Demand_non_residential (Zone TEXT, Time TEXT, Demand FLOAT);'
+        cur.execute(sql)
+        profile = list()
+        #print zones
+        zone = 'BEL_Z'
+        col = 3
+        for row in range(1, sh.nrows - 2):
+            time = '%d' % row
+            demand = sh.cell_value(row-1, col)
+            # print hour, zone, demand
+            profile.append((zone, time, demand))
+        cur.executemany('INSERT INTO Demand_non_residential VALUES (?,?,?)', profile)
+        conn.commit()
+
+        #####
+        sql = 'DROP TABLE IF EXISTS Demand_residential;'
+        cur.execute(sql)
+        sql = 'CREATE TABLE IF NOT EXISTS Demand_residential (Zone TEXT, Time TEXT, Demand FLOAT);'
+        cur.execute(sql)
+        profile = list()
+        #print zones
+        zone = 'BEL_Z'
+        col = 2
+        for row in range(1, sh.nrows - 2):
+            time = '%d' % row
+            demand = sh.cell_value(row-1, col)
+            # print hour, zone, demand
+            profile.append((zone, time, demand))
+        cur.executemany('INSERT INTO Demand_residential VALUES (?,?,?)', profile)
+        conn.commit()
+
+        ############################################
+
         print "Done demand"
 
     if intermittent_renewables:

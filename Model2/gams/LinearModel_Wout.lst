@@ -1,4 +1,4 @@
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/21/16 21:43:28 Page 1
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 13:54:13 Page 1
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -56,7 +56,7 @@ INCLUDE    C:\Users\Wout\Documents\GitHub\thesis\Model2\run\../gams/GAMS.opt
   57   
   58  *...............................................................................
   59  * OFFSYMXREF OFFSYMLIST OFFUELLIST OFFUELXREF, with the alternatives
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/21/16 21:43:28 Page 2
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 13:54:13 Page 2
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -114,7 +114,7 @@ C o m p i l a t i o n
  111   
  112  *...............................................................................
  113  * Handling of empty sets:
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/21/16 21:43:28 Page 3
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 13:54:13 Page 3
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -172,7 +172,7 @@ C o m p i l a t i o n
  164  *put "cuts no"/;
  165  *put "predual 1"/;
  166  *put "interactive yes"/;
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/21/16 21:43:28 Page 4
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 13:54:13 Page 4
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -230,7 +230,7 @@ INCLUDE    C:\Users\Wout\Documents\GitHub\thesis\Model2\run\../gams/GOA.opt
  216   
  217  # Declaration
  218   
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/21/16 21:43:28 Page 5
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 13:54:13 Page 5
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -288,7 +288,7 @@ GDXIN   C:\Users\Wout\Documents\GitHub\thesis\Model2\run\_gams_py_gdb0.gdx
 --- LOAD  C_ALL = 3:C_ALL
 --- LOAD  Z_ALL = 4:Z_ALL
 --- LOAD  R_C = 5:R_C
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/21/16 21:43:28 Page 6
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 13:54:13 Page 6
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -346,7 +346,7 @@ C o m p i l a t i o n
 --- LOAD  MDT = 38:MDT
  284  $LOAD MDT
  285   
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/21/16 21:43:28 Page 7
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 13:54:13 Page 7
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -402,2009 +402,2024 @@ C o m p i l a t i o n
  334   
  335  COMPENSATE(P,H)                 a parameter that compensates for energy losses due an elasticity-matrix that is not perfect
  336  ELAST_NEW(P,T,H)        the new calculated elasticity matrix, taking into account the compensation factor
- 337  ;
- 338   
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/21/16 21:43:28 Page 8
+ 337  DEM_REF_RES(P,T,Z)      amount of reference residential demand before DR
+ 338  DEM_NON_RES(P,T,Z)      amount of non residential demand
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 13:54:13 Page 8
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
+ 339  ;
+ 340   
 --- LOAD  G_DATA = 39:G_DATA
- 339  $LOAD G_DATA
+ 341  $LOAD G_DATA
 --- LOAD  S_DATA = 40:S_DATA
- 340  $LOAD S_DATA
+ 342  $LOAD S_DATA
 --- LOAD  RG = 41:RG
- 341  $LOAD RG
+ 343  $LOAD RG
 --- LOAD  RSC = 42:RSC
- 342  $LOAD RSC
+ 344  $LOAD RSC
 --- LOAD  RSD = 43:RSD
- 343  $LOAD RSD
+ 345  $LOAD RSD
 --- LOAD  DEM = 44:DEM
 --- LOAD  DEM_T = 45:DEM_T
- 344  $LOAD DEM DEM_T
+ 346  $LOAD DEM DEM_T
 --- LOAD  RES_T = 46:RES_T
- 345  $LOAD RES_T
+ 347  $LOAD RES_T
 --- LOAD  REL_T = 47:REL_T
- 346  $LOAD REL_T
+ 348  $LOAD REL_T
 --- LOAD  W = 48:W
- 347  $LOAD W
+ 349  $LOAD W
 --- LOAD  POL_TARGETS = 49:POL_TARGETS
- 348  $LOAD POL_TARGETS
- 349  #$LOAD CAP_G
+ 350  $LOAD POL_TARGETS
+ 351  #$LOAD CAP_G
 --- LOAD  R_EXO = 50:R_EXO
- 350  $LOAD R_EXO
+ 352  $LOAD R_EXO
 --- LOAD  R_ENDO = 51:R_ENDO
- 351  $LOAD R_ENDO
+ 353  $LOAD R_ENDO
 --- LOAD  T_R = 52:T_R
- 352  $LOAD T_R
+ 354  $LOAD T_R
 --- LOAD  ELAST = 53:ELAST
- 353  $LOAD ELAST
+ 355  $LOAD ELAST
 --- LOAD  DIAG = 54:DIAG
- 354  $LOAD DIAG
+ 356  $LOAD DIAG
 --- LOAD  TRI_UP = 55:TRI_UP
 --- LOAD  TRI_LOW = 56:TRI_LOW
- 355  $LOAD TRI_UP TRI_LOW
+ 357  $LOAD TRI_UP TRI_LOW
 --- LOAD  SHIFTMIN = 57:SHIFTMIN
- 356  $LOAD SHIFTMIN
+ 358  $LOAD SHIFTMIN
 --- LOAD  SHIFTMAX = 58:SHIFTMAX
- 357  $LOAD SHIFTMAX
+ 359  $LOAD SHIFTMAX
 --- LOAD  COMPENSATE = 59:COMPENSATE
- 358  $LOAD COMPENSATE
- 359   
- 360  #C_GAS = 25.6643460843943;
- 361  C_GAS = 25.6643460843943*2;
- 362  T_MARKET = 1;
- 363  EGCAPEX = 2000000000000000000000000;
- 364  E_LP = 7100000;
- 365  P_REF = 55.5;
- 366  TOTDEM = sum((P,T,Z),DEM_T(P,T,Z));
- 367  LIMITPRICE = P_REF*0.9;
- 368  LIMITDEM = 750;
- 369  LIMITSHIFT = 2000;
- 370  LENGTH_P = card(T);
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/21/16 21:43:28 Page 9
+ 360  $LOAD COMPENSATE
+--- LOAD  DEM_REF_RES = 61:DEM_REF_RES
+--- LOAD  DEM_NON_RES = 60:DEM_NON_RES
+ 361  $LOAD DEM_REF_RES DEM_NON_RES
+ 362   
+ 363  #C_GAS = 25.6643460843943;
+ 364  C_GAS = 25.6643460843943*2;
+ 365  T_MARKET = 1;
+ 366  EGCAPEX = 2000000000000000000000000;
+ 367  E_LP = 7100000;
+ 368  P_REF = 55.5;
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 13:54:13 Page 9
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
- 371  ELAST_NEW(P,T,H) = ELAST(T,H)*DIAG(T,H)+COMPENSATE(P,H)*(TRI_LOW(T,H)*ELAST(T,H)+TRI_UP(T,H)*ELAST(T,H));
- 372  #ELAST_NEW(P,T,H) = ELAST(T,H)*1;
- 373   
- 374  eff_factor_earlier = 0.0;
- 375  eff_factor_later = 0.0;
+ 369  TOTDEM = sum((P,T,Z),DEM_T(P,T,Z));
+ 370  LIMITPRICE = P_REF*0.9;
+ 371  LIMITDEM = 750;
+ 372  LIMITSHIFT = 2000;
+ 373  LENGTH_P = card(T);
+ 374  ELAST_NEW(P,T,H) = ELAST(T,H)*DIAG(T,H)+COMPENSATE(P,H)*(TRI_LOW(T,H)*ELAST(T,H)+TRI_UP(T,H)*ELAST(T,H));
+ 375  #ELAST_NEW(P,T,H) = ELAST(T,H)*1;
  376   
- 377  VARIABLES
- 378  obj                     Value of objective function
+ 377  eff_factor_earlier = 0.0;
+ 378  eff_factor_later = 0.0;
  379   
- 380  #######################################################
- 381   
- 382  shiftforwards(P,H,Z)                    Shift towards an earlier moment in time per hour
- 383  shiftforwards_total(P,Z)                Shift towards an earlier moment in time per period
- 384  shiftbackwards(P,H,Z)                   Shift towards a later moment in time per hour
- 385  shiftbackwards_total(P,Z)               Shift towards a later moment in time per period
- 386  shiftaway(P,H,Z)                                Shift away from an hour
- 387  shiftaway_total(P,Z)                    Shift away from a period
- 388   
- 389  front_up(P,H,Z)
- 390  front_down(P,H,Z)
- 391  back_up(P,H,Z)
- 392  back_down(P,H,Z)
- 393  shift_down(P,H,Z)
- 394  shift_up(P,H,Z)
- 395  ;
- 396   
- 397  POSITIVE VARIABLES
- 398  #######################################################
+ 380  VARIABLES
+ 381  obj                     Value of objective function
+ 382   
+ 383  #######################################################
+ 384   
+ 385  shiftforwards(P,H,Z)                    Shift towards an earlier moment in time per hour
+ 386  shiftforwards_total(P,Z)                Shift towards an earlier moment in time per period
+ 387  shiftbackwards(P,H,Z)                   Shift towards a later moment in time per hour
+ 388  shiftbackwards_total(P,Z)               Shift towards a later moment in time per period
+ 389  shiftaway(P,H,Z)                                Shift away from an hour
+ 390  shiftaway_total(P,Z)                    Shift away from a period
+ 391   
+ 392  front_up(P,H,Z)
+ 393  front_down(P,H,Z)
+ 394  back_up(P,H,Z)
+ 395  back_down(P,H,Z)
+ 396  shift_up(P,H,Z)
+ 397  shift_down(P,H,Z)
+ 398  ;
  399   
- 400  price_unit(P,H,Z)                               Price of the electricity
- 401  price_unit_clone(P,T,Z)
- 402  demand_unit(P,T,Z)                              demand of the electricity
- 403  demand_unit_clone(P,H,Z)
- 404  demand_tot(P,Z)                                 total demand, based on demand_unit
- 405  surplus(P,T,Z)
- 406  demand_ref(P,T,Z)                               the reference demand with flat price
- 407  innerframe(P,H,Z)
- 408  outerframe(P,H,Z)
- 409   
- 410  totalrevenue(P,Z)                               the product of demand and price
- 411  totalfixedcost(Z)                               the sum of the total investment cost and fixed variable cost
- 412  totalvariablecost(P,Z)                  the sum of the variable O&M cost and fuel cost
- 413  totalcost(Z)                                    the sum of the totalvariablecost and totalfixedcost
+ 400  POSITIVE VARIABLES
+ 401  #######################################################
+ 402   
+ 403  price_unit(P,H,Z)                               Residential price signal for the electricity
+ 404  price_unit_clone(P,T,Z)
+ 405  demand_new_res(P,T,Z)           Residential demand after price signal applied
+ 406  demand_new_res_clone(P,H,Z)
+ 407  demand_unit(P,T,Z)                              demand of the electricity (sum residential & non-residential)
+ 408  demand_unit_clone(P,H,Z)
+ 409  demand_tot(P,Z)                                 total demand, based on demand_unit
+ 410  surplus(P,T,Z)
+ 411  demand_ref(P,T,Z)                               the reference demand with flat price
+ 412  innerframe(P,H,Z)
+ 413  outerframe(P,H,Z)
  414   
- 415  #######################################################
- 416   
- 417  cap(Y,Z,G)                                      Generation capacity per year, per zone and per generation technology [MW]
- 418  e_cap(Y,Z,S)                            Energy capacity of storage technology S
- 419  p_cap_c(Y,Z,S)                          Charging power capacity of storage technology S
- 420  p_cap_d(Y,Z,SM)                         Discharging power capacity of storage technology SM
- 421  eg_cap                                          Gas storage capacity
- 422   
- 423  gen(Y,P,T,Z,G)                  Electricity generation per time step, per zone and per generation technology [MWh]
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 10
+ 415  totalrevenue(P,Z)                               the product of demand and price
+ 416  totalfixedcost(Z)                               the sum of the total investment cost and fixed variable cost
+ 417  totalvariablecost(P,Z)                  the sum of the variable O&M cost and fuel cost
+ 418  totalcost(Z)                                    the sum of the totalvariablecost and totalfixedcost
+ 419   
+ 420  #######################################################
+ 421   
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 10
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
- 424  curt(Y,P,T,Z,GRI)                       Curtailment of renewable output
- 425   
- 426  e(Y,P,Z,S)                              Energy content of storage technology S at period P
- 427  e_f(Y,P,T,Z,S)                          Energy content of storage technology S at time T during the first cycle of period P
- 428  e_l(Y,P,T,Z,S)                          Energy content of storage technology S at time T during the last cycle of period P
- 429  p_c(Y,P,T,Z,S)                  Electricity generation per time step, per zone and per generation technology [MWh]
- 430  p_d(Y,P,T,Z,S)                  Electricity generation per time step, per zone and per generation technology [MWh]
- 431  eg(Y,P,C)                                       Energy content of gas storage at period P
- 432  eg_f(Y,P,T,C)                           Energy content of gas storage at time T during the first cycle of period P
- 433  eg_l(Y,P,T,C)                           Energy content of gas storage at time T during the last cycle of period P
- 434  pg_c(Y,P,T,C)                           Charging of gas storage
- 435  pg_d(Y,P,T,C)                           Discharging of gas storage
- 436   
- 437  res_g(Y,P,T,Z,R,G)                      Reserve allocation of generation technology GD for reserve category R
- 438  res_s(Y,P,T,Z,R,S)                      Reserve allocation of storage technology S for reserve category R
- 439   
- 440  load_shedding(Y,P,T,Z)          Load shedding
- 441  q_endo(Y,P,T,C,R,GRI)           Endogenous reserve requirements for category R
- 442  co2(Y,C,G)                                      CO2-emissions per year, per zone and per generation technology [kg]
- 443  lcg(Y,C,G)                                      Life cycle greenhouse gas emissions per year, per zone and per generation technology [kg]
+ 422  cap(Y,Z,G)                                      Generation capacity per year, per zone and per generation technology [MW]
+ 423  e_cap(Y,Z,S)                            Energy capacity of storage technology S
+ 424  p_cap_c(Y,Z,S)                          Charging power capacity of storage technology S
+ 425  p_cap_d(Y,Z,SM)                         Discharging power capacity of storage technology SM
+ 426  eg_cap                                          Gas storage capacity
+ 427   
+ 428  gen(Y,P,T,Z,G)                  Electricity generation per time step, per zone and per generation technology [MWh]
+ 429  curt(Y,P,T,Z,GRI)                       Curtailment of renewable output
+ 430   
+ 431  e(Y,P,Z,S)                              Energy content of storage technology S at period P
+ 432  e_f(Y,P,T,Z,S)                          Energy content of storage technology S at time T during the first cycle of period P
+ 433  e_l(Y,P,T,Z,S)                          Energy content of storage technology S at time T during the last cycle of period P
+ 434  p_c(Y,P,T,Z,S)                  Electricity generation per time step, per zone and per generation technology [MWh]
+ 435  p_d(Y,P,T,Z,S)                  Electricity generation per time step, per zone and per generation technology [MWh]
+ 436  eg(Y,P,C)                                       Energy content of gas storage at period P
+ 437  eg_f(Y,P,T,C)                           Energy content of gas storage at time T during the first cycle of period P
+ 438  eg_l(Y,P,T,C)                           Energy content of gas storage at time T during the last cycle of period P
+ 439  pg_c(Y,P,T,C)                           Charging of gas storage
+ 440  pg_d(Y,P,T,C)                           Discharging of gas storage
+ 441   
+ 442  res_g(Y,P,T,Z,R,G)                      Reserve allocation of generation technology GD for reserve category R
+ 443  res_s(Y,P,T,Z,R,S)                      Reserve allocation of storage technology S for reserve category R
  444   
- 445  res_g_s(Y,P,T,Z,R,GD)           Spinning reserve allocation of generation technology GD for reserve category R
- 446  res_g_ns(Y,P,T,Z,RU,GD)         Start-up reserve allocation of generation technology GD for reserve category RU
- 447  res_g_sd(Y,P,T,Z,RD,GD)         Shut-down reserve allocation of generation technology GD for reserve category RD
- 448   
- 449  n(Y,P,T,Z,GD)                           Number of units of each generation technology per year, time step and zone [-]
- 450  n_su(Y,P,T,Z,GD)                        Number of units starting up of each generation technology
- 451  n_sd(Y,P,T,Z,GD)                        Number of units shutting down of each generation technology
- 452  n_su_r(Y,P,T,Z,RU,GD)           Number of units starting up of each generation technology
- 453  n_sd_r(Y,P,T,Z,RD,GD)           Number of units shutting down of each generation technology
- 454   
- 455  ramp_up(Y,P,T,Z,GD)                     Increase in output by ramping up
- 456  ramp_dn(Y,P,T,Z,GD)                     Decrease in output by ramping down
- 457  ramp_su(Y,P,T,Z,GD)                     Increase in output by starting up additional units
- 458  ramp_sd(Y,P,T,Z,GD)                     Decrease in output by shutting down units
+ 445  load_shedding(Y,P,T,Z)          Load shedding
+ 446  q_endo(Y,P,T,C,R,GRI)           Endogenous reserve requirements for category R
+ 447  co2(Y,C,G)                                      CO2-emissions per year, per zone and per generation technology [kg]
+ 448  lcg(Y,C,G)                                      Life cycle greenhouse gas emissions per year, per zone and per generation technology [kg]
+ 449   
+ 450  res_g_s(Y,P,T,Z,R,GD)           Spinning reserve allocation of generation technology GD for reserve category R
+ 451  res_g_ns(Y,P,T,Z,RU,GD)         Start-up reserve allocation of generation technology GD for reserve category RU
+ 452  res_g_sd(Y,P,T,Z,RD,GD)         Shut-down reserve allocation of generation technology GD for reserve category RD
+ 453   
+ 454  n(Y,P,T,Z,GD)                           Number of units of each generation technology per year, time step and zone [-]
+ 455  n_su(Y,P,T,Z,GD)                        Number of units starting up of each generation technology
+ 456  n_sd(Y,P,T,Z,GD)                        Number of units shutting down of each generation technology
+ 457  n_su_r(Y,P,T,Z,RU,GD)           Number of units starting up of each generation technology
+ 458  n_sd_r(Y,P,T,Z,RD,GD)           Number of units shutting down of each generation technology
  459   
- 460  curt_dummy(Y,P,T,Z,GRI)         Dummy variable in case RES objective cannot be reached
- 461   
- 462  res_s_c(Y,P,T,Z,R,S)            Reserve allocation of charging storage technology S for reserve category R
- 463  res_s_c_s(Y,P,T,Z,R,SML)        Spinning reserve allocation of charging storage technology SML for reserve category R
- 464  res_s_c_ns(Y,P,T,Z,RD,SML)      Start-up reserve allocation of charging storage technology SML for reserve category RD
- 465  res_s_c_sd(Y,P,T,Z,RU,SML)      Shut-down reserve allocation of charging storage technology SML for reserve category RU
- 466  res_s_d(Y,P,T,Z,R,S)            Reserve allocation of discharging storage technology S for reserve category R
- 467  res_s_d_s(Y,P,T,Z,R,SM)         Spinning reserve allocation of discharging storage technology SM for reserve category R
- 468  res_s_d_ns(Y,P,T,Z,RU,SM)       Start-up reserve allocation of discharging storage technology SM for reserve category RU
- 469  res_s_d_sd(Y,P,T,Z,RD,SM)       Shut-down reserve allocation of discharging storage technology SM for reserve category RD
- 470   
- 471  n_c(Y,P,T,Z,SML)                        Number of units of each generation technology per year, time step and zone [-]
- 472  n_c_su(Y,P,T,Z,SML)                     Number of units starting up of each generation technology
- 473  n_c_sd(Y,P,T,Z,SML)                     Number of units shutting down of each generation technology
- 474  n_c_su_r(Y,P,T,Z,RD,SML)        Number of units starting up of each generation technology
- 475  n_c_sd_r(Y,P,T,Z,RU,SML)        Number of units shutting down of each generation technology
- 476   
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 11
+ 460  ramp_up(Y,P,T,Z,GD)                     Increase in output by ramping up
+ 461  ramp_dn(Y,P,T,Z,GD)                     Decrease in output by ramping down
+ 462  ramp_su(Y,P,T,Z,GD)                     Increase in output by starting up additional units
+ 463  ramp_sd(Y,P,T,Z,GD)                     Decrease in output by shutting down units
+ 464   
+ 465  curt_dummy(Y,P,T,Z,GRI)         Dummy variable in case RES objective cannot be reached
+ 466   
+ 467  res_s_c(Y,P,T,Z,R,S)            Reserve allocation of charging storage technology S for reserve category R
+ 468  res_s_c_s(Y,P,T,Z,R,SML)        Spinning reserve allocation of charging storage technology SML for reserve category R
+ 469  res_s_c_ns(Y,P,T,Z,RD,SML)      Start-up reserve allocation of charging storage technology SML for reserve category RD
+ 470  res_s_c_sd(Y,P,T,Z,RU,SML)      Shut-down reserve allocation of charging storage technology SML for reserve category RU
+ 471  res_s_d(Y,P,T,Z,R,S)            Reserve allocation of discharging storage technology S for reserve category R
+ 472  res_s_d_s(Y,P,T,Z,R,SM)         Spinning reserve allocation of discharging storage technology SM for reserve category R
+ 473  res_s_d_ns(Y,P,T,Z,RU,SM)       Start-up reserve allocation of discharging storage technology SM for reserve category RU
+ 474  res_s_d_sd(Y,P,T,Z,RD,SM)       Shut-down reserve allocation of discharging storage technology SM for reserve category RD
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 11
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
- 477  ramp_c_up(Y,P,T,Z,S)            Increase in output by ramping up
- 478  ramp_c_dn(Y,P,T,Z,S)            Decrease in output by ramping down
- 479  ramp_c_su(Y,P,T,Z,SML)          Increase in output by starting up additional units
- 480  ramp_c_sd(Y,P,T,Z,SML)          Decrease in output by shutting down units
+ 475   
+ 476  n_c(Y,P,T,Z,SML)                        Number of units of each generation technology per year, time step and zone [-]
+ 477  n_c_su(Y,P,T,Z,SML)                     Number of units starting up of each generation technology
+ 478  n_c_sd(Y,P,T,Z,SML)                     Number of units shutting down of each generation technology
+ 479  n_c_su_r(Y,P,T,Z,RD,SML)        Number of units starting up of each generation technology
+ 480  n_c_sd_r(Y,P,T,Z,RU,SML)        Number of units shutting down of each generation technology
  481   
- 482  n_d(Y,P,T,Z,SM)                         Number of units of each generation technology per year, time step and zone [-]
- 483  n_d_su(Y,P,T,Z,SM)                      Number of units starting up of each generation technology
- 484  n_d_sd(Y,P,T,Z,SM)                      Number of units shutting down of each generation technology
- 485  n_d_su_r(Y,P,T,Z,RU,SM)         Number of units starting up of each generation technology
- 486  n_d_sd_r(Y,P,T,Z,RD,SM)         Number of units shutting down of each generation technology
- 487   
- 488  ramp_d_up(Y,P,T,Z,S)            Increase in output by ramping up
- 489  ramp_d_dn(Y,P,T,Z,S)            Decrease in output by ramping down
- 490  ramp_d_su(Y,P,T,Z,SM)           Increase in output by starting up additional units
- 491  ramp_d_sd(Y,P,T,Z,SM)           Decrease in output by shutting down units
+ 482  ramp_c_up(Y,P,T,Z,S)            Increase in output by ramping up
+ 483  ramp_c_dn(Y,P,T,Z,S)            Decrease in output by ramping down
+ 484  ramp_c_su(Y,P,T,Z,SML)          Increase in output by starting up additional units
+ 485  ramp_c_sd(Y,P,T,Z,SML)          Decrease in output by shutting down units
+ 486   
+ 487  n_d(Y,P,T,Z,SM)                         Number of units of each generation technology per year, time step and zone [-]
+ 488  n_d_su(Y,P,T,Z,SM)                      Number of units starting up of each generation technology
+ 489  n_d_sd(Y,P,T,Z,SM)                      Number of units shutting down of each generation technology
+ 490  n_d_su_r(Y,P,T,Z,RU,SM)         Number of units starting up of each generation technology
+ 491  n_d_sd_r(Y,P,T,Z,RD,SM)         Number of units shutting down of each generation technology
  492   
- 493  pg_import(Y,P,T,C)                      Import of gas
- 494  pg_syn(Y,P,T,Z,GCG)                     Use of synthetic gas in gas-fueled conventional generation technologies GCG
- 495  pg_fos(Y,P,T,Z,GCG)                     Use of natural gas in gas-fueled conventional generation technologies GCG
- 496   
- 497  ;
- 498   
- 499  EQUATIONS
- 500  #--Objective function--#
- 501  qobj
- 502   
- 503  #--System constraints--#
- 504  qbalance(Y,P,T,Z)
- 505  qresprod(Y,C)
- 506  qco2lim(Y,C)
- 507  qresendomin(Y,P,T,C,R,GRI)
- 508  qresendomax(Y,P,T,C,R,GRI)
- 509  qres(Y,P,T,C,R)
- 510  qgendisp(Y,P,T,C)
- 511  qgendisppeak(Y,C)
- 512  qco2(Y,C,G)
- 513  qlcg(Y,C,G)
- 514   
- 515  #--Generation technologies--#
- 516  qpotcapmin(Y,C,G)
- 517  #qpotcapmax(Y,C,G)
- 518  #qpotgenmin(Y,C,G)
- 519  #qpotgenmax(Y,C,G)
- 520   
- 521  qresgcu(Y,P,T,Z,RU,GD)
- 522  qresgcd(Y,P,T,Z,RD,GD)
- 523  qn(Y,P,T,Z,GD)
- 524  qnmax(Y,P,T,Z,GD)
- 525  qnsu(Y,P,T,Z,GD)
- 526  qnsd(Y,P,T,Z,GD)
- 527  qgen(Y,P,T,Z,GD)
- 528  qgenmin(Y,P,T,Z,GD)
- 529  qgenmax(Y,P,T,Z,GD)
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 12
+ 493  ramp_d_up(Y,P,T,Z,S)            Increase in output by ramping up
+ 494  ramp_d_dn(Y,P,T,Z,S)            Decrease in output by ramping down
+ 495  ramp_d_su(Y,P,T,Z,SM)           Increase in output by starting up additional units
+ 496  ramp_d_sd(Y,P,T,Z,SM)           Decrease in output by shutting down units
+ 497   
+ 498  pg_import(Y,P,T,C)                      Import of gas
+ 499  pg_syn(Y,P,T,Z,GCG)                     Use of synthetic gas in gas-fueled conventional generation technologies GCG
+ 500  pg_fos(Y,P,T,Z,GCG)                     Use of natural gas in gas-fueled conventional generation technologies GCG
+ 501   
+ 502  ;
+ 503   
+ 504  EQUATIONS
+ 505  #--Objective function--#
+ 506  qobj
+ 507   
+ 508  #--System constraints--#
+ 509  qbalance(Y,P,T,Z)
+ 510  qresprod(Y,C)
+ 511  qco2lim(Y,C)
+ 512  qresendomin(Y,P,T,C,R,GRI)
+ 513  qresendomax(Y,P,T,C,R,GRI)
+ 514  qres(Y,P,T,C,R)
+ 515  qgendisp(Y,P,T,C)
+ 516  qgendisppeak(Y,C)
+ 517  qco2(Y,C,G)
+ 518  qlcg(Y,C,G)
+ 519   
+ 520  #--Generation technologies--#
+ 521  qpotcapmin(Y,C,G)
+ 522  #qpotcapmax(Y,C,G)
+ 523  #qpotgenmin(Y,C,G)
+ 524  #qpotgenmax(Y,C,G)
+ 525   
+ 526  qresgcu(Y,P,T,Z,RU,GD)
+ 527  qresgcd(Y,P,T,Z,RD,GD)
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 12
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
- 530  qrudyn(Y,P,T,Z,GD)
- 531  qrucap(Y,P,T,Z,GD)
- 532  qrddyn(Y,P,T,Z,GD)
- 533  qrdcap(Y,P,T,Z,GD)
- 534  qsumin(Y,P,T,Z,GD)
- 535  qsumax(Y,P,T,Z,GD)
- 536  qsdmin(Y,P,T,Z,GD)
- 537  qsdmax(Y,P,T,Z,GD)
- 538  qrufu(Y,P,T,Z,GD)
- 539  qruau(Y,P,T,Z,GD)
- 540  qrumus(Y,P,T,Z,GD)
- 541  qrdad(Y,P,T,Z,GD)
- 542  qrdmd(Y,P,T,Z,GD)
- 543  qrunsmin(Y,P,T,Z,RU,GD)
- 544  qrunsmax(Y,P,T,Z,RU,GD)
- 545  qrdsdmin(Y,P,T,Z,RD,GD)
- 546  qrdsdmax(Y,P,T,Z,RD,GD)
- 547   
- 548  qresgru(Y,P,T,Z,RU,GRI)
- 549  qgenr(Y,P,T,Z,GRI)
- 550  qresgrdr(Y,P,T,Z,GRI)
- 551  qresgrdg(Y,P,T,Z,GRI)
+ 528  qn(Y,P,T,Z,GD)
+ 529  qnmax(Y,P,T,Z,GD)
+ 530  qnsu(Y,P,T,Z,GD)
+ 531  qnsd(Y,P,T,Z,GD)
+ 532  qgen(Y,P,T,Z,GD)
+ 533  qgenmin(Y,P,T,Z,GD)
+ 534  qgenmax(Y,P,T,Z,GD)
+ 535  qrudyn(Y,P,T,Z,GD)
+ 536  qrucap(Y,P,T,Z,GD)
+ 537  qrddyn(Y,P,T,Z,GD)
+ 538  qrdcap(Y,P,T,Z,GD)
+ 539  qsumin(Y,P,T,Z,GD)
+ 540  qsumax(Y,P,T,Z,GD)
+ 541  qsdmin(Y,P,T,Z,GD)
+ 542  qsdmax(Y,P,T,Z,GD)
+ 543  qrufu(Y,P,T,Z,GD)
+ 544  qruau(Y,P,T,Z,GD)
+ 545  qrumus(Y,P,T,Z,GD)
+ 546  qrdad(Y,P,T,Z,GD)
+ 547  qrdmd(Y,P,T,Z,GD)
+ 548  qrunsmin(Y,P,T,Z,RU,GD)
+ 549  qrunsmax(Y,P,T,Z,RU,GD)
+ 550  qrdsdmin(Y,P,T,Z,RD,GD)
+ 551  qrdsdmax(Y,P,T,Z,RD,GD)
  552   
- 553  #--Storage technologies--#
- 554  qress(Y,P,T,Z,R,S)
- 555  qspotcapmin(Y,C,S)
- 556  qspotcapmax(Y,C,S)
+ 553  qresgru(Y,P,T,Z,RU,GRI)
+ 554  qgenr(Y,P,T,Z,GRI)
+ 555  qresgrdr(Y,P,T,Z,GRI)
+ 556  qresgrdg(Y,P,T,Z,GRI)
  557   
- 558  qe(Y,P,Z,S)
- 559  qemax(Y,P,Z,S)
- 560  qef(Y,P,T,Z,S)
- 561  qefmin(Y,P,T,Z,S)
- 562  qefmax(Y,P,T,Z,S)
- 563  qefstart(Y,P,T,Z,S)
- 564  qel(Y,P,T,Z,S)
- 565  qelmin(Y,P,T,Z,S)
- 566  qelmax(Y,P,T,Z,S)
- 567  qelstart(Y,P,T,Z,S)
- 568  qdurmin(Y,Z,S)
- 569  qdurmax(Y,Z,S)
- 570   
- 571  qssc(Y,P,T,Z,SS)
- 572  qsscru(Y,P,T,Z,SS)
- 573  qsscrd(Y,P,T,Z,SS)
- 574  qssd(Y,P,T,Z,SS)
- 575  qssdru(Y,P,T,Z,SS)
- 576  qssdrd(Y,P,T,Z,SS)
- 577   
- 578  qresscu(Y,P,T,Z,RU,SML)
- 579  qresscd(Y,P,T,Z,RD,SML)
- 580  qressdu(Y,P,T,Z,RU,SM)
- 581  qressdd(Y,P,T,Z,RD,SM)
- 582  qnc(Y,P,T,Z,SML)
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 13
+ 558  #--Storage technologies--#
+ 559  qress(Y,P,T,Z,R,S)
+ 560  qspotcapmin(Y,C,S)
+ 561  qspotcapmax(Y,C,S)
+ 562   
+ 563  qe(Y,P,Z,S)
+ 564  qemax(Y,P,Z,S)
+ 565  qef(Y,P,T,Z,S)
+ 566  qefmin(Y,P,T,Z,S)
+ 567  qefmax(Y,P,T,Z,S)
+ 568  qefstart(Y,P,T,Z,S)
+ 569  qel(Y,P,T,Z,S)
+ 570  qelmin(Y,P,T,Z,S)
+ 571  qelmax(Y,P,T,Z,S)
+ 572  qelstart(Y,P,T,Z,S)
+ 573  qdurmin(Y,Z,S)
+ 574  qdurmax(Y,Z,S)
+ 575   
+ 576  qssc(Y,P,T,Z,SS)
+ 577  qsscru(Y,P,T,Z,SS)
+ 578  qsscrd(Y,P,T,Z,SS)
+ 579  qssd(Y,P,T,Z,SS)
+ 580  qssdru(Y,P,T,Z,SS)
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 13
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
- 583  qncmax(Y,P,T,Z,SML)
- 584  qncsu(Y,P,T,Z,SML)
- 585  qncsd(Y,P,T,Z,SML)
- 586  qsmlc(Y,P,T,Z,SML)
- 587  qsmlcmin(Y,P,T,Z,SML)
- 588  qsmlcmax(Y,P,T,Z,SML)
- 589  qcrudyn(Y,P,T,Z,SML)
- 590  qcrucap(Y,P,T,Z,SML)
- 591  qcrddyn(Y,P,T,Z,SML)
- 592  qcrdcap(Y,P,T,Z,SML)
- 593  qcsumin(Y,P,T,Z,SML)
- 594  qcsumax(Y,P,T,Z,SML)
- 595  qcsdmin(Y,P,T,Z,SML)
- 596  qcsdmax(Y,P,T,Z,SML)
- 597  qcruad(Y,P,T,Z,SML)
- 598  qcrumd(Y,P,T,Z,SML)
- 599  qcrdfu(Y,P,T,Z,SML)
- 600  qcrdau(Y,P,T,Z,SML)
- 601  qcrdmus(Y,P,T,Z,SML)
- 602  qcrunsmin(Y,P,T,Z,RD,SML)
- 603  qcrunsmax(Y,P,T,Z,RD,SML)
- 604  qcrdsdmin(Y,P,T,Z,RU,SML)
- 605  qcrdsdmax(Y,P,T,Z,RU,SML)
- 606   
- 607  qcapdeqcapc(Y,Z,SM)
- 608  qnd(Y,P,T,Z,SM)
- 609  qndmax(Y,P,T,Z,SM)
- 610  qndsu(Y,P,T,Z,SM)
- 611  qndsd(Y,P,T,Z,SM)
- 612  qsmd(Y,P,T,Z,SM)
- 613  qsmdmin(Y,P,T,Z,SM)
- 614  qsmdmax(Y,P,T,Z,SM)
- 615  qdrudyn(Y,P,T,Z,SM)
- 616  qdrucap(Y,P,T,Z,SM)
- 617  qdrddyn(Y,P,T,Z,SM)
- 618  qdrdcap(Y,P,T,Z,SM)
- 619  qdsumin(Y,P,T,Z,SM)
- 620  qdsumax(Y,P,T,Z,SM)
- 621  qdsdmin(Y,P,T,Z,SM)
- 622  qdsdmax(Y,P,T,Z,SM)
- 623  qdrufu(Y,P,T,Z,SM)
- 624  qdruau(Y,P,T,Z,SM)
- 625  qdrumus(Y,P,T,Z,SM)
- 626  qdrdad(Y,P,T,Z,SM)
- 627  qdrdmd(Y,P,T,Z,SM)
- 628  qdrunsmin(Y,P,T,Z,RU,SM)
- 629  qdrunsmax(Y,P,T,Z,RU,SM)
- 630  qdrdsdmin(Y,P,T,Z,RD,SM)
- 631  qdrdsdmax(Y,P,T,Z,RD,SM)
- 632   
- 633  qslressd(Y,P,T,Z,R,SL)
- 634  qgase(Y,P,C)
- 635  qgasemax(Y,P,C)
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 14
+ 581  qssdrd(Y,P,T,Z,SS)
+ 582   
+ 583  qresscu(Y,P,T,Z,RU,SML)
+ 584  qresscd(Y,P,T,Z,RD,SML)
+ 585  qressdu(Y,P,T,Z,RU,SM)
+ 586  qressdd(Y,P,T,Z,RD,SM)
+ 587  qnc(Y,P,T,Z,SML)
+ 588  qncmax(Y,P,T,Z,SML)
+ 589  qncsu(Y,P,T,Z,SML)
+ 590  qncsd(Y,P,T,Z,SML)
+ 591  qsmlc(Y,P,T,Z,SML)
+ 592  qsmlcmin(Y,P,T,Z,SML)
+ 593  qsmlcmax(Y,P,T,Z,SML)
+ 594  qcrudyn(Y,P,T,Z,SML)
+ 595  qcrucap(Y,P,T,Z,SML)
+ 596  qcrddyn(Y,P,T,Z,SML)
+ 597  qcrdcap(Y,P,T,Z,SML)
+ 598  qcsumin(Y,P,T,Z,SML)
+ 599  qcsumax(Y,P,T,Z,SML)
+ 600  qcsdmin(Y,P,T,Z,SML)
+ 601  qcsdmax(Y,P,T,Z,SML)
+ 602  qcruad(Y,P,T,Z,SML)
+ 603  qcrumd(Y,P,T,Z,SML)
+ 604  qcrdfu(Y,P,T,Z,SML)
+ 605  qcrdau(Y,P,T,Z,SML)
+ 606  qcrdmus(Y,P,T,Z,SML)
+ 607  qcrunsmin(Y,P,T,Z,RD,SML)
+ 608  qcrunsmax(Y,P,T,Z,RD,SML)
+ 609  qcrdsdmin(Y,P,T,Z,RU,SML)
+ 610  qcrdsdmax(Y,P,T,Z,RU,SML)
+ 611   
+ 612  qcapdeqcapc(Y,Z,SM)
+ 613  qnd(Y,P,T,Z,SM)
+ 614  qndmax(Y,P,T,Z,SM)
+ 615  qndsu(Y,P,T,Z,SM)
+ 616  qndsd(Y,P,T,Z,SM)
+ 617  qsmd(Y,P,T,Z,SM)
+ 618  qsmdmin(Y,P,T,Z,SM)
+ 619  qsmdmax(Y,P,T,Z,SM)
+ 620  qdrudyn(Y,P,T,Z,SM)
+ 621  qdrucap(Y,P,T,Z,SM)
+ 622  qdrddyn(Y,P,T,Z,SM)
+ 623  qdrdcap(Y,P,T,Z,SM)
+ 624  qdsumin(Y,P,T,Z,SM)
+ 625  qdsumax(Y,P,T,Z,SM)
+ 626  qdsdmin(Y,P,T,Z,SM)
+ 627  qdsdmax(Y,P,T,Z,SM)
+ 628  qdrufu(Y,P,T,Z,SM)
+ 629  qdruau(Y,P,T,Z,SM)
+ 630  qdrumus(Y,P,T,Z,SM)
+ 631  qdrdad(Y,P,T,Z,SM)
+ 632  qdrdmd(Y,P,T,Z,SM)
+ 633  qdrunsmin(Y,P,T,Z,RU,SM)
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 14
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
- 636  qgasef(Y,P,T,C)
- 637  qgasefmax(Y,P,T,C)
- 638  qgasefstart(Y,P,T,C)
- 639  qgasel(Y,P,T,C)
- 640  qgaselmax(Y,P,T,C)
- 641  qgaselstart(Y,P,T,C)
- 642  qgasc(Y,P,T,C)
- 643  qgasd(Y,P,T,C)
- 644  qgasuse(Y,C)
- 645  qgasusegen(Y,P,T,Z,GCG)
- 646   
- 647  ###############################
- 648  #price(P,H,Z)
- 649  price_clone(P,T,Z)
- 650  demand(P,T,Z)
- 651  demand_clone(P,H,Z)
- 652  totdemand(P,Z)
- 653  surplusdemand(P,T,Z)
- 654  totdemand2(P,Z)
- 655  refdemand(P,T,Z)
- 656  refdemand2(Z)
- 657  priceconstraint1(P,T,Z)
- 658  priceconstraint2(P,T,Z)
- 659  priceconstraint3(P,Z)
- 660  shiftconstraint_frame_1(P,H,Z)
- 661  shiftconstraint_frame_2(P,H,Z)
- 662  shiftconstraint1(P,H,Z)
- 663  shiftconstraint2(P,H,Z)
- 664  shiftedforward(P,H,Z)
- 665  shiftedforwardtotal(P,Z)
- 666  shiftedbackward(P,H,Z)
- 667  shiftedbackwardtotal(P,Z)
- 668  shiftedaway(P,H,Z)
- 669  shiftedawaytotal(P,Z)
- 670   
- 671  front_d_1(P,H,Z)
- 672  front_d_2(P,H,Z)
- 673  front_u_1(P,H,Z)
- 674  front_u_2(P,H,Z)
- 675   
- 676  back_d_1(P,H,Z)
- 677  back_d_2(P,H,Z)
- 678  back_u_1(P,H,Z)
- 679  back_u_2(P,H,Z)
- 680   
- 681  shift_d_1(P,H,Z)
- 682  shift_d_2(P,H,Z)
- 683  shift_u_1(P,H,Z)
- 684  shift_u_2(P,H,Z)
- 685   
- 686  qinnerframe(P,H,Z)
- 687  qouterframe(P,H,Z)
- 688   
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 15
+ 634  qdrunsmax(Y,P,T,Z,RU,SM)
+ 635  qdrdsdmin(Y,P,T,Z,RD,SM)
+ 636  qdrdsdmax(Y,P,T,Z,RD,SM)
+ 637   
+ 638  qslressd(Y,P,T,Z,R,SL)
+ 639  qgase(Y,P,C)
+ 640  qgasemax(Y,P,C)
+ 641  qgasef(Y,P,T,C)
+ 642  qgasefmax(Y,P,T,C)
+ 643  qgasefstart(Y,P,T,C)
+ 644  qgasel(Y,P,T,C)
+ 645  qgaselmax(Y,P,T,C)
+ 646  qgaselstart(Y,P,T,C)
+ 647  qgasc(Y,P,T,C)
+ 648  qgasd(Y,P,T,C)
+ 649  qgasuse(Y,C)
+ 650  qgasusegen(Y,P,T,Z,GCG)
+ 651   
+ 652  ###############################
+ 653  #price(P,H,Z)
+ 654  price_clone(P,T,Z)
+ 655  demand(P,T,Z)
+ 656  demand_clone(P,H,Z)
+ 657   
+ 658  sum_demand(P,T,Z)
+ 659  totdemand(P,Z)
+ 660  surplusdemand(P,T,Z)
+ 661  totdemand2(P,Z)
+ 662  refdemand(P,T,Z)
+ 663  refdemand2(Z)
+ 664  priceconstraint1(P,T,Z)
+ 665  priceconstraint2(P,T,Z)
+ 666  priceconstraint3(P,Z)
+ 667  shiftconstraint_frame_1(P,H,Z)
+ 668  shiftconstraint_frame_2(P,H,Z)
+ 669  shiftconstraint1(P,H,Z)
+ 670  shiftconstraint2(P,H,Z)
+ 671  shiftedforward(P,H,Z)
+ 672  shiftedforwardtotal(P,Z)
+ 673  shiftedbackward(P,H,Z)
+ 674  shiftedbackwardtotal(P,Z)
+ 675  shiftedaway(P,H,Z)
+ 676  shiftedawaytotal(P,Z)
+ 677   
+ 678  front_d_1(P,H,Z)
+ 679  front_d_2(P,H,Z)
+ 680  front_u_1(P,H,Z)
+ 681  front_u_2(P,H,Z)
+ 682   
+ 683  back_d_1(P,H,Z)
+ 684  back_d_2(P,H,Z)
+ 685  back_u_1(P,H,Z)
+ 686  back_u_2(P,H,Z)
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 15
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
- 689  revenue(P,Z)
- 690  fixedcost(Z)
- 691  variablecost(P,Z)
- 692  cost(Z)
- 693   
- 694  demlimitunder(P,T,Z)
- 695  demlimitupper(P,T,Z)
- 696  ;
- 697   
- 698  #-----######################---------------------------------------------------#
- 699  #-----# Objective function #---------------------------------------------------#
- 700  #-----######################---------------------------------------------------#
- 701  qobj..              obj
- 702                                          =e=
- 703                                                  sum((Y,Z,G),            (G_DATA(G,'C_INV') + G_DATA(G,'C_FOM'))*1000*cap(Y,Z,G))
- 704                                                  #+ sum((Y,Z,S),      (S_DATA(S,'C_P_C_INV')*1000)*p_cap_c(Y,Z,S))
- 705                                                  +
- 706                                                  (sum((Y,P,T,Z,G),               W(P)*(G_DATA(G,'C_VOM'))*gen(Y,P,T,Z,G))
- 707                                                  + sum((Y,P,T,Z,GC),     W(P)*(G_DATA(GC,'C_FUEL'))*gen(Y,P,T,Z,GC))
- 708   
- 709                                                  #+ sum((Y,P,T,Z,S),             W(P)*(S_DATA(S,'OPEX'))*p_c(Y,P,T,Z,S)+p_d(Y,P,T,Z,S))
- 710   
- 711                                                  )
- 712                                                  *(168/card(T));
- 713                                                  ;
- 714   
+ 687   
+ 688  shift_d_1(P,H,Z)
+ 689  shift_d_2(P,H,Z)
+ 690  shift_u_1(P,H,Z)
+ 691  shift_u_2(P,H,Z)
+ 692   
+ 693  qinnerframe(P,H,Z)
+ 694  qouterframe(P,H,Z)
+ 695   
+ 696  revenue(P,Z)
+ 697  fixedcost(Z)
+ 698  variablecost(P,Z)
+ 699  cost(Z)
+ 700   
+ 701  demlimitunder(P,T,Z)
+ 702  demlimitupper(P,T,Z)
+ 703  ;
+ 704   
+ 705  #-----######################---------------------------------------------------#
+ 706  #-----# Objective function #---------------------------------------------------#
+ 707  #-----######################---------------------------------------------------#
+ 708  qobj..              obj
+ 709                                          =e=
+ 710                                                  sum((Y,Z,G),            (G_DATA(G,'C_INV') + G_DATA(G,'C_FOM'))*1000*cap(Y,Z,G))
+ 711                                                  #+ sum((Y,Z,S),      (S_DATA(S,'C_P_C_INV')*1000)*p_cap_c(Y,Z,S))
+ 712                                                  +
+ 713                                                  (sum((Y,P,T,Z,G),               W(P)*(G_DATA(G,'C_VOM'))*gen(Y,P,T,Z,G))
+ 714                                                  + sum((Y,P,T,Z,GC),     W(P)*(G_DATA(GC,'C_FUEL'))*gen(Y,P,T,Z,GC))
  715   
- 716   
+ 716                                                  #+ sum((Y,P,T,Z,S),             W(P)*(S_DATA(S,'OPEX'))*p_c(Y,P,T,Z,S)+p_d(Y,P,T,Z,S))
  717   
- 718  #-----######################---------------------------------------------------#
- 719  #-----# System constraints #---------------------------------------------------#
- 720  #-----######################---------------------------------------------------#
+ 718                                                  )
+ 719                                                  *(168/card(T));
+ 720                                                  ;
  721   
- 722  #--System balance--#
+ 722   
  723   
- 724  # balance with demand response
- 725  qbalance(Y,P,T,Z)..
- 726                                  sum(G, gen(Y,P,T,Z,G))
- 727                                  #+ sum(SSM, p_d(Y,P,T,Z,SSM))
- 728                                          =e=
- 729                                                  demand_unit(P,T,Z)
- 730  #                                               - load_shedding(Y,P,T,Z)
- 731                                                  #+ sum(S, p_c(Y,P,T,Z,S))
- 732                                                  ;
- 733   
- 734  #balance without demand response
- 735  #qbalance(Y,P,T,Z)..
- 736  #                               sum(G, gen(Y,P,T,Z,G))
- 737  #                                       #+ sum(SSM, p_d(Y,P,T,Z,SSM))
- 738  #                                       =e=
- 739  #                                               DEM_T(P,T,Z)
- 740  #                                       #       - load_shedding(Y,P,T,Z)
- 741  #                                       #       + sum(S, p_c(Y,P,T,Z,S))
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 16
+ 724   
+ 725  #-----######################---------------------------------------------------#
+ 726  #-----# System constraints #---------------------------------------------------#
+ 727  #-----######################---------------------------------------------------#
+ 728   
+ 729  #--System balance--#
+ 730   
+ 731  # balance with demand response
+ 732  qbalance(Y,P,T,Z)..
+ 733                                  sum(G, gen(Y,P,T,Z,G))
+ 734                                  #+ sum(SSM, p_d(Y,P,T,Z,SSM))
+ 735                                          =e=
+ 736                                                  demand_unit(P,T,Z)
+ 737  #                                               - load_shedding(Y,P,T,Z)
+ 738                                                  #+ sum(S, p_c(Y,P,T,Z,S))
+ 739                                                  ;
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 16
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
- 742  #                                               ;
- 743  #DEM(Y,Z)*DEM_T(T,Z);
- 744   
- 745  #--Renewable target--#
- 746   
- 747  #qresprod(Y,C)..
- 748  #                                       sum(Z $ C_Z(C,Z),       sum((GCO,P,T), W(P)*gen(Y,P,T,Z,GCO)))
- 749  #                                       + sum(Z $ C_Z(C,Z), sum((GCG,P,T), W(P)*pg_fos(Y,P,T,Z,GCG)*(G_DATA(GCG,'EFF')/100)))
- 750  #                                       =l=
- 751  #                                               (100 - POL_TARGETS('RES_SHARE', Y))/100 * sum(Z $ C_Z(C,Z), sum((P,T), W(P)*DEM_T(P,T,Z)))
- 752  #                                               ;
+ 740   
+ 741  #balance without demand response
+ 742  #qbalance(Y,P,T,Z)..
+ 743  #                               sum(G, gen(Y,P,T,Z,G))
+ 744  #                                       #+ sum(SSM, p_d(Y,P,T,Z,SSM))
+ 745  #                                       =e=
+ 746  #                                               DEM_T(P,T,Z)
+ 747  #                                       #       - load_shedding(Y,P,T,Z)
+ 748  #                                       #       + sum(S, p_c(Y,P,T,Z,S))
+ 749  #                                               ;
+ 750  #DEM(Y,Z)*DEM_T(T,Z);
+ 751   
+ 752  #--Renewable target--#
  753   
- 754  qresprod(Y,C)..
- 755                                          sum(Z $ C_Z(C,Z), sum((GR,P,T), W(P)*gen(Y,P,T,Z,GR)))
- 756                                          =g=
- 757                                                  POL_TARGETS('RES_SHARE', Y)/100 * sum(Z $ C_Z(C,Z), sum((P,T), W(P)*DEM_T(P,T,Z)))
- 758                                                  ;
- 759   
- 760  qco2lim(Y,C)..
- 761  #                                       sum(Z $ C_Z(C,Z), sum((GCO,P,T), W(P)*gen(Y,P,T,Z,GCO)*G_DATA(GCO,'CO2')))
- 762  #                                       + sum(Z $ C_Z(C,Z), sum((GCG,P,T), W(P)*pg_fos(Y,P,T,Z,GCG)*(G_DATA(GCG,'EFF')/100)*G_DATA(GCG,'CO2')))
- 763                                          sum(Z $ C_Z(C,Z), sum((GC,P,T), W(P)*gen(Y,P,T,Z,GC)*G_DATA(GC,'CO2')))
- 764                                          =l=
- 765                                                  50000000*0.4
- 766                                                  ;
- 767   
- 768  #--Reserve requirements--#
- 769   
- 770  qresendomin(Y,P,T,C,R,GRI)..
- 771                                          q_endo(Y,P,T,C,R,GRI)
- 772                                          =g=
- 773                                                  R_ENDO(C,GRI,R)*sum(Z $ C_Z(C,Z), (RES_T(P,T,Z,GRI)-REL_T(P,T,Z,GRI))*cap(Y,Z,GRI)-curt(Y,P,T,Z,GRI))
- 774                                                  ;
- 775   
- 776  qresendomax(Y,P,T,C,R,GRI)..
- 777                                          q_endo(Y,P,T,C,R,GRI)
- 778                                          =l=
- 779                                                  R_ENDO(C,GRI,R)*sum(Z $ C_Z(C,Z), (RES_T(P,T,Z,GRI)-REL_T(P,T,Z,GRI))*cap(Y,Z,GRI))
- 780                                                  ;
- 781   
+ 754  #qresprod(Y,C)..
+ 755  #                                       sum(Z $ C_Z(C,Z),       sum((GCO,P,T), W(P)*gen(Y,P,T,Z,GCO)))
+ 756  #                                       + sum(Z $ C_Z(C,Z), sum((GCG,P,T), W(P)*pg_fos(Y,P,T,Z,GCG)*(G_DATA(GCG,'EFF')/100)))
+ 757  #                                       =l=
+ 758  #                                               (100 - POL_TARGETS('RES_SHARE', Y))/100 * sum(Z $ C_Z(C,Z), sum((P,T), W(P)*demand_unit(P,T,Z)))
+ 759  #                                               ;
+ 760   
+ 761  qresprod(Y,C)..
+ 762                                          sum(Z $ C_Z(C,Z), sum((GR,P,T), W(P)*gen(Y,P,T,Z,GR)))
+ 763                                          =g=
+ 764                                                  POL_TARGETS('RES_SHARE', Y)/100 * sum(Z $ C_Z(C,Z), sum((P,T), W(P)*demand_unit(P,T,Z)))
+ 765                                                  ;
+ 766   
+ 767  qco2lim(Y,C)..
+ 768  #                                       sum(Z $ C_Z(C,Z), sum((GCO,P,T), W(P)*gen(Y,P,T,Z,GCO)*G_DATA(GCO,'CO2')))
+ 769  #                                       + sum(Z $ C_Z(C,Z), sum((GCG,P,T), W(P)*pg_fos(Y,P,T,Z,GCG)*(G_DATA(GCG,'EFF')/100)*G_DATA(GCG,'CO2')))
+ 770                                          sum(Z $ C_Z(C,Z), sum((GC,P,T), W(P)*gen(Y,P,T,Z,GC)*G_DATA(GC,'CO2')))
+ 771                                          =l=
+ 772                                                  50000000*0.4
+ 773                                                  ;
+ 774   
+ 775  #--Reserve requirements--#
+ 776   
+ 777  qresendomin(Y,P,T,C,R,GRI)..
+ 778                                          q_endo(Y,P,T,C,R,GRI)
+ 779                                          =g=
+ 780                                                  R_ENDO(C,GRI,R)*sum(Z $ C_Z(C,Z), (RES_T(P,T,Z,GRI)-REL_T(P,T,Z,GRI))*cap(Y,Z,GRI)-curt(Y,P,T,Z,GRI))
+ 781                                                  ;
  782   
- 783  qres(Y,P,T,C,R)..
- 784                                          sum(Z $ C_Z(C,Z),       sum(G, res_g(Y,P,T,Z,R,G)))
- 785                                          + sum(Z $ C_Z(C,Z), sum(S, res_s(Y,P,T,Z,R,S)))
- 786                                          =e=
- 787                                                  R_EXO(C,R)
- 788                                                  + sum(GRI, q_endo(Y,P,T,C,R,GRI))
- 789                                                  ;
- 790   
- 791  #--Dispatchable capacity--#
- 792   
- 793  qgendisp(Y,P,T,C)..
- 794                                          sum(Z $ C_Z(C,Z), sum(GD, gen(Y,P,T,Z,GD)))
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 17
+ 783  qresendomax(Y,P,T,C,R,GRI)..
+ 784                                          q_endo(Y,P,T,C,R,GRI)
+ 785                                          =l=
+ 786                                                  R_ENDO(C,GRI,R)*sum(Z $ C_Z(C,Z), (RES_T(P,T,Z,GRI)-REL_T(P,T,Z,GRI))*cap(Y,Z,GRI))
+ 787                                                  ;
+ 788   
+ 789   
+ 790  qres(Y,P,T,C,R)..
+ 791                                          sum(Z $ C_Z(C,Z),       sum(G, res_g(Y,P,T,Z,R,G)))
+ 792                                          + sum(Z $ C_Z(C,Z), sum(S, res_s(Y,P,T,Z,R,S)))
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 17
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
- 795                                          =g=
- 796                                                  sum(Z $ C_Z(C,Z), DEM_T(P,T,Z))*0.20
- 797                                                  ;
- 798   
- 799  qgendisppeak(Y,C)..
- 800                                          sum(Z $ C_Z(C,Z), sum(GD, cap(Y,Z,GD)))
- 801                                          =g=
- 802                                                  10000*1.20
- 803                                                  ;
- 804   
- 805  #--Emissions--#
+ 793                                          =e=
+ 794                                                  R_EXO(C,R)
+ 795                                                  + sum(GRI, q_endo(Y,P,T,C,R,GRI))
+ 796                                                  ;
+ 797   
+ 798  #--Dispatchable capacity--#
+ 799   
+ 800  #TODO: wich demand is needed here?
+ 801  qgendisp(Y,P,T,C)..
+ 802                                          sum(Z $ C_Z(C,Z), sum(GD, gen(Y,P,T,Z,GD)))
+ 803                                          =g=
+ 804                                                  sum(Z $ C_Z(C,Z), demand_unit(P,T,Z))*0.20
+ 805                                                  ;
  806   
- 807  qco2(Y,C,G)..
- 808                                          co2(Y,C,G)
- 809                                          =e=
- 810                                                  sum(Z $ C_Z(C,Z), sum((P,T), W(P)*gen(Y,P,T,Z,G)*G_DATA(G,'CO2')))
+ 807  qgendisppeak(Y,C)..
+ 808                                          sum(Z $ C_Z(C,Z), sum(GD, cap(Y,Z,GD)))
+ 809                                          =g=
+ 810                                                  10000*1.20
  811                                                  ;
  812   
- 813  qlcg(Y,C,G)..
- 814                                          lcg(Y,C,G)
- 815                                          =e=
- 816                                                  sum(Z $ C_Z(C,Z), sum((P,T), gen(Y,P,T,Z,G)*G_DATA(G,'LCG')))
- 817                                                  ;
- 818   
- 819   
- 820  #-----###########################----------------------------------------------#
- 821  #-----# Generation technologies #----------------------------------------------#
- 822  #-----###########################----------------------------------------------#
- 823   
- 824  ##--Installed generation capacities--#
- 825   
- 826  qpotcapmin(Y,C,G)..
- 827                                          sum(Z $ C_Z(C,Z), cap(Y,Z,G))
- 828                                          =g=
- 829                                                  G_DATA(G,'CAP_MIN')
- 830                                                  ;
+ 813  #--Emissions--#
+ 814   
+ 815  qco2(Y,C,G)..
+ 816                                          co2(Y,C,G)
+ 817                                          =e=
+ 818                                                  sum(Z $ C_Z(C,Z), sum((P,T), W(P)*gen(Y,P,T,Z,G)*G_DATA(G,'CO2')))
+ 819                                                  ;
+ 820   
+ 821  qlcg(Y,C,G)..
+ 822                                          lcg(Y,C,G)
+ 823                                          =e=
+ 824                                                  sum(Z $ C_Z(C,Z), sum((P,T), gen(Y,P,T,Z,G)*G_DATA(G,'LCG')))
+ 825                                                  ;
+ 826   
+ 827   
+ 828  #-----###########################----------------------------------------------#
+ 829  #-----# Generation technologies #----------------------------------------------#
+ 830  #-----###########################----------------------------------------------#
  831   
- 832  #qpotcapmax(Y,C,G)..
- 833  #                                       sum(Z $ C_Z(C,Z), cap(Y,Z,G))
- 834  #                                       =g=
- 835  #                                               CAP_G(Y,Z,G,'CAP_MAX')
- 836  #                                               ;
- 837  #
- 838  #qpotgenmin(Y,C,G)..
- 839  #                                       sum(Z $ C_Z(C,Z), sum(T, gen(Y,T,Z,G)))
- 840  #                                       =g=
- 841  #                                               CAP_G(Y,Z,G,'GEN_MIN')
- 842  #                                               ;
- 843  #
- 844  #qpotgenmax(Y,Z,G)..
- 845  #                                       sum(Z $ C_Z(C,Z), sum(T, gen(Y,T,Z,G)))
- 846  #                                       =g=
- 847  #                                               CAP_G(Y,Z,G,'GEN_MAX')
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 18
+ 832  ##--Installed generation capacities--#
+ 833   
+ 834  qpotcapmin(Y,C,G)..
+ 835                                          sum(Z $ C_Z(C,Z), cap(Y,Z,G))
+ 836                                          =g=
+ 837                                                  G_DATA(G,'CAP_MIN')
+ 838                                                  ;
+ 839   
+ 840  #qpotcapmax(Y,C,G)..
+ 841  #                                       sum(Z $ C_Z(C,Z), cap(Y,Z,G))
+ 842  #                                       =g=
+ 843  #                                               CAP_G(Y,Z,G,'CAP_MAX')
+ 844  #                                               ;
+ 845  #
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 18
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
- 848  #                                               ;
- 849   
- 850  #-------Dispatchable generation technologies-----------------------------------#
- 851   
- 852  #--Reserve allocation--#
- 853   
- 854  qresgcu(Y,P,T,Z,RU,GD)..
- 855                                          res_g(Y,P,T,Z,RU,GD)
- 856                                          =e=
- 857                                                  res_g_s(Y,P,T,Z,RU,GD)
- 858                                                  + res_g_ns(Y,P,T,Z,RU,GD)
- 859                                                  ;
- 860   
- 861  qresgcd(Y,P,T,Z,RD,GD)..
- 862                                          res_g(Y,P,T,Z,RD,GD)
- 863                                          =e=
- 864                                                  res_g_s(Y,P,T,Z,RD,GD)
- 865                                                  + res_g_sd(Y,P,T,Z,RD,GD)
- 866                                                  ;
- 867   
- 868  #--Clustering logical constraints--#
- 869   
- 870  qn(Y,P,T,Z,GD)$(ord(T)<card(T))..
- 871                                          n(Y,P,T+1,Z,GD)
- 872                                          =e=
- 873                                                  n(Y,P,T,Z,GD)
- 874                                                  + n_su(Y,P,T,Z,GD)
- 875                                                  - n_sd(Y,P,T,Z,GD)
- 876                                                  ;
+ 846  #qpotgenmin(Y,C,G)..
+ 847  #                                       sum(Z $ C_Z(C,Z), sum(T, gen(Y,T,Z,G)))
+ 848  #                                       =g=
+ 849  #                                               CAP_G(Y,Z,G,'GEN_MIN')
+ 850  #                                               ;
+ 851  #
+ 852  #qpotgenmax(Y,Z,G)..
+ 853  #                                       sum(Z $ C_Z(C,Z), sum(T, gen(Y,T,Z,G)))
+ 854  #                                       =g=
+ 855  #                                               CAP_G(Y,Z,G,'GEN_MAX')
+ 856  #                                               ;
+ 857   
+ 858  #-------Dispatchable generation technologies-----------------------------------#
+ 859   
+ 860  #--Reserve allocation--#
+ 861   
+ 862  qresgcu(Y,P,T,Z,RU,GD)..
+ 863                                          res_g(Y,P,T,Z,RU,GD)
+ 864                                          =e=
+ 865                                                  res_g_s(Y,P,T,Z,RU,GD)
+ 866                                                  + res_g_ns(Y,P,T,Z,RU,GD)
+ 867                                                  ;
+ 868   
+ 869  qresgcd(Y,P,T,Z,RD,GD)..
+ 870                                          res_g(Y,P,T,Z,RD,GD)
+ 871                                          =e=
+ 872                                                  res_g_s(Y,P,T,Z,RD,GD)
+ 873                                                  + res_g_sd(Y,P,T,Z,RD,GD)
+ 874                                                  ;
+ 875   
+ 876  #--Clustering logical constraints--#
  877   
- 878  qnmax(Y,P,T,Z,GD)..
- 879                                          n(Y,P,T,Z,GD)
- 880                                          =l=
- 881                                                  cap(Y,Z,GD)/G_DATA(GD,'P_MAX')
- 882                                                  ;
- 883   
- 884  qnsu(Y,P,T,Z,GD)..
- 885                                          n_su(Y,P,T,Z,GD)
- 886                                          + sum(RU, n_su_r(Y,P,T,Z,RU,GD))
- 887                                          =l=
- 888                                                  cap(Y,Z,GD)/G_DATA(GD,'P_MAX')
- 889                                                  - n(Y,P,T,Z,GD)
- 890                                                  - sum(MDT(GD,T_MDT), n_sd(Y,P, T-(ord(T_MDT)-1), Z, GD))
- 891                                                  ;
- 892   
- 893  qnsd(Y,P,T,Z,GD)..
- 894                                          n_sd(Y,P,T,Z,GD)
- 895                                          + sum(RD, n_sd_r(Y,P,T,Z,RD,GD))
- 896                                          =l=
- 897                                                  n(Y,P,T,Z,GD)
- 898                                                  - sum(MUT(GD,T_MUT), n_su(Y,P, T-(ord(T_MUT)-1), Z, GD))
+ 878  qn(Y,P,T,Z,GD)$(ord(T)<card(T))..
+ 879                                          n(Y,P,T+1,Z,GD)
+ 880                                          =e=
+ 881                                                  n(Y,P,T,Z,GD)
+ 882                                                  + n_su(Y,P,T,Z,GD)
+ 883                                                  - n_sd(Y,P,T,Z,GD)
+ 884                                                  ;
+ 885   
+ 886  qnmax(Y,P,T,Z,GD)..
+ 887                                          n(Y,P,T,Z,GD)
+ 888                                          =l=
+ 889                                                  cap(Y,Z,GD)/G_DATA(GD,'P_MAX')
+ 890                                                  ;
+ 891   
+ 892  qnsu(Y,P,T,Z,GD)..
+ 893                                          n_su(Y,P,T,Z,GD)
+ 894                                          + sum(RU, n_su_r(Y,P,T,Z,RU,GD))
+ 895                                          =l=
+ 896                                                  cap(Y,Z,GD)/G_DATA(GD,'P_MAX')
+ 897                                                  - n(Y,P,T,Z,GD)
+ 898                                                  - sum(MDT(GD,T_MDT), n_sd(Y,P, T-(ord(T_MDT)-1), Z, GD))
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 19
+GOA version 2.0 (December 2013) puuh
+C o m p i l a t i o n
+
+
  899                                                  ;
  900   
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 19
-GOA version 2.0 (December 2013) puuh
-C o m p i l a t i o n
-
-
- 901  #--Generation constraints--#
- 902   
- 903  qgen(Y,P,T,Z,GD)$(ord(T)<card(T))..
- 904                      gen(Y,P,T+1,Z,GD)
- 905                      =e=
- 906                          gen(Y,P,T,Z,GD)
- 907                          + ramp_up(Y,P,T,Z,GD)
- 908                          - ramp_dn(Y,P,T,Z,GD)
- 909                          + ramp_su(Y,P,T,Z,GD)
- 910                          - ramp_sd(Y,P,T,Z,GD)
- 911                          ;
- 912   
- 913  qgenmin(Y,P,T,Z,GD)..
- 914                                          gen(Y,P,T,Z,GD)
- 915                                          =g=
- 916                                                  n(Y,P,T,Z,GD)*G_DATA(GD,'P_MIN')
- 917                                                  ;
- 918   
- 919  qgenmax(Y,P,T,Z,GD)..
- 920                                          gen(Y,P,T,Z,GD)
- 921                                          =l=
- 922                                                  n(Y,P,T,Z,GD)*G_DATA(GD,'P_MAX')
- 923                                                  ;
- 924                                                  #*G_DATA(G,'PM')/100;
- 925   
- 926  #--Ramping constraints--#
- 927   
- 928  qrudyn(Y,P,T,Z,GD)..
- 929                      ramp_up(Y,P,T,Z,GD)
- 930                      + sum(RU, res_g_s(Y,P,T,Z,RU,GD))
- 931                      =l=
- 932                          (n(Y,P,T,Z,GD)-n_sd(Y,P,T,Z,GD))*G_DATA(GD,'RH')/100*G_DATA(GD,'P_MAX')
- 933                          ;
- 934   
- 935  qrucap(Y,P,T,Z,GD)..
- 936                      ramp_up(Y,P,T,Z,GD)
- 937                      + sum(RU, res_g_s(Y,P,T,Z,RU,GD))
- 938                      =l=
- 939                          (n(Y,P,T,Z,GD)-n_sd(Y,P,T,Z,GD))*G_DATA(GD,'P_MAX')
- 940                          - (gen(Y,P,T,Z,GD)-ramp_sd(Y,P,T,Z,GD))
+ 901  qnsd(Y,P,T,Z,GD)..
+ 902                                          n_sd(Y,P,T,Z,GD)
+ 903                                          + sum(RD, n_sd_r(Y,P,T,Z,RD,GD))
+ 904                                          =l=
+ 905                                                  n(Y,P,T,Z,GD)
+ 906                                                  - sum(MUT(GD,T_MUT), n_su(Y,P, T-(ord(T_MUT)-1), Z, GD))
+ 907                                                  ;
+ 908   
+ 909  #--Generation constraints--#
+ 910   
+ 911  qgen(Y,P,T,Z,GD)$(ord(T)<card(T))..
+ 912                      gen(Y,P,T+1,Z,GD)
+ 913                      =e=
+ 914                          gen(Y,P,T,Z,GD)
+ 915                          + ramp_up(Y,P,T,Z,GD)
+ 916                          - ramp_dn(Y,P,T,Z,GD)
+ 917                          + ramp_su(Y,P,T,Z,GD)
+ 918                          - ramp_sd(Y,P,T,Z,GD)
+ 919                          ;
+ 920   
+ 921  qgenmin(Y,P,T,Z,GD)..
+ 922                                          gen(Y,P,T,Z,GD)
+ 923                                          =g=
+ 924                                                  n(Y,P,T,Z,GD)*G_DATA(GD,'P_MIN')
+ 925                                                  ;
+ 926   
+ 927  qgenmax(Y,P,T,Z,GD)..
+ 928                                          gen(Y,P,T,Z,GD)
+ 929                                          =l=
+ 930                                                  n(Y,P,T,Z,GD)*G_DATA(GD,'P_MAX')
+ 931                                                  ;
+ 932                                                  #*G_DATA(G,'PM')/100;
+ 933   
+ 934  #--Ramping constraints--#
+ 935   
+ 936  qrudyn(Y,P,T,Z,GD)..
+ 937                      ramp_up(Y,P,T,Z,GD)
+ 938                      + sum(RU, res_g_s(Y,P,T,Z,RU,GD))
+ 939                      =l=
+ 940                          (n(Y,P,T,Z,GD)-n_sd(Y,P,T,Z,GD))*G_DATA(GD,'RH')/100*G_DATA(GD,'P_MAX')
  941                          ;
  942   
- 943  qrddyn(Y,P,T,Z,GD)..
- 944                      ramp_dn(Y,P,T,Z,GD)
- 945                      + sum(RD, res_g_s(Y,P,T,Z,RD,GD))
+ 943  qrucap(Y,P,T,Z,GD)..
+ 944                      ramp_up(Y,P,T,Z,GD)
+ 945                      + sum(RU, res_g_s(Y,P,T,Z,RU,GD))
  946                      =l=
- 947                          (n(Y,P,T,Z,GD)-n_sd(Y,P,T,Z,GD)-sum(RD, n_sd_r(Y,P,T,Z,RD,GD)))*G_DATA(GD,'RH')/100*G_DATA(GD,'P_MAX')
- 948                          ;
- 949   
- 950  qrdcap(Y,P,T,Z,GD)..
- 951                      ramp_dn(Y,P,T,Z,GD)
- 952                      + sum(RD, res_g_s(Y,P,T,Z,RD,GD))
- 953                      =l=
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 20
+ 947                          (n(Y,P,T,Z,GD)-n_sd(Y,P,T,Z,GD))*G_DATA(GD,'P_MAX')
+ 948                          - (gen(Y,P,T,Z,GD)-ramp_sd(Y,P,T,Z,GD))
+ 949                          ;
+ 950   
+ 951  qrddyn(Y,P,T,Z,GD)..
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 20
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
- 954                          (gen(Y,P,T,Z,GD)-ramp_sd(Y,P,T,Z,GD)-sum(RD, res_g_sd(Y,P,T,Z,RD,GD)))
- 955                          - (n(Y,P,T,Z,GD)-n_sd(Y,P,T,Z,GD)-sum(RD, n_sd_r(Y,P,T,Z,RD,GD)))*G_DATA(GD,'P_MIN')
+ 952                      ramp_dn(Y,P,T,Z,GD)
+ 953                      + sum(RD, res_g_s(Y,P,T,Z,RD,GD))
+ 954                      =l=
+ 955                          (n(Y,P,T,Z,GD)-n_sd(Y,P,T,Z,GD)-sum(RD, n_sd_r(Y,P,T,Z,RD,GD)))*G_DATA(GD,'RH')/100*G_DATA(GD,'P_MAX')
  956                          ;
  957   
- 958  qsumin(Y,P,T,Z,GD)..
- 959                                          ramp_su(Y,P,T,Z,GD)
- 960                                          =g=
- 961                                                  n_su(Y,P,T,Z,GD)*G_DATA(GD,'P_MIN')
- 962                                                  ;
- 963   
- 964  qsumax(Y,P,T,Z,GD)..
- 965                                          ramp_su(Y,P,T,Z,GD)
- 966                                          =l=
- 967                                                  n_su(Y,P,T,Z,GD)*G_DATA(GD,'RH')/100*G_DATA(GD,'P_MAX')
- 968                                                  ;
- 969   
- 970  qsdmin(Y,P,T,Z,GD)..
- 971                                          ramp_sd(Y,P,T,Z,GD)
- 972                                          =g=
- 973                                                  n_sd(Y,P,T,Z,GD)*G_DATA(GD,'P_MIN')
- 974                                                  ;
- 975   
- 976  qsdmax(Y,P,T,Z,GD)..
- 977                                          ramp_sd(Y,P,T,Z,GD)
- 978                                          =l=
- 979                                                  n_sd(Y,P,T,Z,GD)*G_DATA(GD,'RH')/100*G_DATA(GD,'P_MAX')
- 980                                                  ;
- 981   
- 982  #--Reserve allocation constraints--#
+ 958  qrdcap(Y,P,T,Z,GD)..
+ 959                      ramp_dn(Y,P,T,Z,GD)
+ 960                      + sum(RD, res_g_s(Y,P,T,Z,RD,GD))
+ 961                      =l=
+ 962                          (gen(Y,P,T,Z,GD)-ramp_sd(Y,P,T,Z,GD)-sum(RD, res_g_sd(Y,P,T,Z,RD,GD)))
+ 963                          - (n(Y,P,T,Z,GD)-n_sd(Y,P,T,Z,GD)-sum(RD, n_sd_r(Y,P,T,Z,RD,GD)))*G_DATA(GD,'P_MIN')
+ 964                          ;
+ 965   
+ 966  qsumin(Y,P,T,Z,GD)..
+ 967                                          ramp_su(Y,P,T,Z,GD)
+ 968                                          =g=
+ 969                                                  n_su(Y,P,T,Z,GD)*G_DATA(GD,'P_MIN')
+ 970                                                  ;
+ 971   
+ 972  qsumax(Y,P,T,Z,GD)..
+ 973                                          ramp_su(Y,P,T,Z,GD)
+ 974                                          =l=
+ 975                                                  n_su(Y,P,T,Z,GD)*G_DATA(GD,'RH')/100*G_DATA(GD,'P_MAX')
+ 976                                                  ;
+ 977   
+ 978  qsdmin(Y,P,T,Z,GD)..
+ 979                                          ramp_sd(Y,P,T,Z,GD)
+ 980                                          =g=
+ 981                                                  n_sd(Y,P,T,Z,GD)*G_DATA(GD,'P_MIN')
+ 982                                                  ;
  983   
- 984  qrufu(Y,P,T,Z,GD)..
- 985                      sum(RUF, res_g_s(Y,P,T,Z,RUF,GD))
- 986                      =l=
- 987                          (n(Y,P,T,Z,GD)-n_sd(Y,P,T,Z,GD))*G_DATA(GD,'RF')/100*G_DATA(GD,'P_MAX')
- 988                          ;
+ 984  qsdmax(Y,P,T,Z,GD)..
+ 985                                          ramp_sd(Y,P,T,Z,GD)
+ 986                                          =l=
+ 987                                                  n_sd(Y,P,T,Z,GD)*G_DATA(GD,'RH')/100*G_DATA(GD,'P_MAX')
+ 988                                                  ;
  989   
- 990  qruau(Y,P,T,Z,GD)..
- 991                      sum(RUA, res_g_s(Y,P,T,Z,RUA,GD))
- 992                      =l=
- 993                          (n(Y,P,T,Z,GD)-n_sd(Y,P,T,Z,GD))*G_DATA(GD,'RA')/100*G_DATA(GD,'P_MAX')
- 994                          ;
- 995   
- 996  qrumus(Y,P,T,Z,GD)..
- 997                      sum(RU, res_g_s(Y,P,T,Z,RU,GD))
- 998                      =l=
- 999                          (n(Y,P,T,Z,GD)-n_sd(Y,P,T,Z,GD))*G_DATA(GD,'RM')/100*G_DATA(GD,'P_MAX')
-1000                          ;
-1001   
-1002  qrdad(Y,P,T,Z,GD)..
-1003                      sum(RDA, res_g_s(Y,P,T,Z,RDA,GD))
-1004                      =l=
-1005                          (n(Y,P,T,Z,GD)-n_sd(Y,P,T,Z,GD)-sum(RD, n_sd_r(Y,P,T,Z,RD,GD)))*G_DATA(GD,'RA')/100*G_DATA(GD,'P_MAX')
-1006                          ;
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 21
+ 990  #--Reserve allocation constraints--#
+ 991   
+ 992  qrufu(Y,P,T,Z,GD)..
+ 993                      sum(RUF, res_g_s(Y,P,T,Z,RUF,GD))
+ 994                      =l=
+ 995                          (n(Y,P,T,Z,GD)-n_sd(Y,P,T,Z,GD))*G_DATA(GD,'RF')/100*G_DATA(GD,'P_MAX')
+ 996                          ;
+ 997   
+ 998  qruau(Y,P,T,Z,GD)..
+ 999                      sum(RUA, res_g_s(Y,P,T,Z,RUA,GD))
+1000                      =l=
+1001                          (n(Y,P,T,Z,GD)-n_sd(Y,P,T,Z,GD))*G_DATA(GD,'RA')/100*G_DATA(GD,'P_MAX')
+1002                          ;
+1003   
+1004  qrumus(Y,P,T,Z,GD)..
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 21
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
-1007   
-1008  qrdmd(Y,P,T,Z,GD)..
-1009                      sum(RD, res_g_s(Y,P,T,Z,RD,GD))
-1010                      =l=
-1011                          (n(Y,P,T,Z,GD)-n_sd(Y,P,T,Z,GD)-sum(RD, n_sd_r(Y,P,T,Z,RD,GD)))*G_DATA(GD,'RM')/100*G_DATA(GD,'P_MAX')
-1012                          ;
-1013   
-1014  qrunsmin(Y,P,T,Z,RU,GD)..
-1015                                          res_g_ns(Y,P,T,Z,RU,GD)
-1016                                          =g=
-1017                                                  n_su_r(Y,P,T,Z,RU,GD)*G_DATA(GD,'P_MIN')
-1018                                                  ;
-1019   
-1020  qrunsmax(Y,P,T,Z,RU,GD)..
-1021                                          res_g_ns(Y,P,T,Z,RU,GD)
-1022                                          =l=
-1023                                                  n_su_r(Y,P,T,Z,RU,GD)*RG(RU,GD)/100*G_DATA(GD,'P_MAX')
-1024                                                  ;
-1025   
-1026  qrdsdmin(Y,P,T,Z,RD,GD)..
-1027                                          res_g_sd(Y,P,T,Z,RD,GD)
-1028                                          =g=
-1029                                                  n_sd_r(Y,P,T,Z,RD,GD)*G_DATA(GD,'P_MIN')
-1030                                                  ;
-1031   
-1032  qrdsdmax(Y,P,T,Z,RD,GD)..
-1033                                          res_g_sd(Y,P,T,Z,RD,GD)
-1034                                          =l=
-1035                                                  n_sd_r(Y,P,T,Z,RD,GD)*RG(RD,GD)/100*G_DATA(GD,'P_MAX')
-1036                                                  ;
-1037   
-1038  #-------Intermittent renewable generation technologies-------------------------#
+1005                      sum(RU, res_g_s(Y,P,T,Z,RU,GD))
+1006                      =l=
+1007                          (n(Y,P,T,Z,GD)-n_sd(Y,P,T,Z,GD))*G_DATA(GD,'RM')/100*G_DATA(GD,'P_MAX')
+1008                          ;
+1009   
+1010  qrdad(Y,P,T,Z,GD)..
+1011                      sum(RDA, res_g_s(Y,P,T,Z,RDA,GD))
+1012                      =l=
+1013                          (n(Y,P,T,Z,GD)-n_sd(Y,P,T,Z,GD)-sum(RD, n_sd_r(Y,P,T,Z,RD,GD)))*G_DATA(GD,'RA')/100*G_DATA(GD,'P_MAX')
+1014                          ;
+1015   
+1016  qrdmd(Y,P,T,Z,GD)..
+1017                      sum(RD, res_g_s(Y,P,T,Z,RD,GD))
+1018                      =l=
+1019                          (n(Y,P,T,Z,GD)-n_sd(Y,P,T,Z,GD)-sum(RD, n_sd_r(Y,P,T,Z,RD,GD)))*G_DATA(GD,'RM')/100*G_DATA(GD,'P_MAX')
+1020                          ;
+1021   
+1022  qrunsmin(Y,P,T,Z,RU,GD)..
+1023                                          res_g_ns(Y,P,T,Z,RU,GD)
+1024                                          =g=
+1025                                                  n_su_r(Y,P,T,Z,RU,GD)*G_DATA(GD,'P_MIN')
+1026                                                  ;
+1027   
+1028  qrunsmax(Y,P,T,Z,RU,GD)..
+1029                                          res_g_ns(Y,P,T,Z,RU,GD)
+1030                                          =l=
+1031                                                  n_su_r(Y,P,T,Z,RU,GD)*RG(RU,GD)/100*G_DATA(GD,'P_MAX')
+1032                                                  ;
+1033   
+1034  qrdsdmin(Y,P,T,Z,RD,GD)..
+1035                                          res_g_sd(Y,P,T,Z,RD,GD)
+1036                                          =g=
+1037                                                  n_sd_r(Y,P,T,Z,RD,GD)*G_DATA(GD,'P_MIN')
+1038                                                  ;
 1039   
-1040  #--Reserve allocation--#
-1041   
-1042  qresgru(Y,P,T,Z,RU,GRI)..
-1043                                          res_g(Y,P,T,Z,RU,GRI)
-1044                                          =e=
-1045                                                  0
-1046                                                  ;
+1040  qrdsdmax(Y,P,T,Z,RD,GD)..
+1041                                          res_g_sd(Y,P,T,Z,RD,GD)
+1042                                          =l=
+1043                                                  n_sd_r(Y,P,T,Z,RD,GD)*RG(RD,GD)/100*G_DATA(GD,'P_MAX')
+1044                                                  ;
+1045   
+1046  #-------Intermittent renewable generation technologies-------------------------#
 1047   
-1048  #--Output and curtailment constraint--#
+1048  #--Reserve allocation--#
 1049   
-1050  qgenr(Y,P,T,Z,GRI)..
-1051                      gen(Y,P,T,Z,GRI)
-1052                      + curt(Y,P,T,Z,GRI)
-1053                      + curt_dummy(Y,P,T,Z,GRI)
-1054                      =e=
-1055                          cap(Y,Z,GRI)*RES_T(P,T,Z,GRI)
-1056                          ;
+1050  qresgru(Y,P,T,Z,RU,GRI)..
+1051                                          res_g(Y,P,T,Z,RU,GRI)
+1052                                          =e=
+1053                                                  0
+1054                                                  ;
+1055   
+1056  #--Output and curtailment constraint--#
 1057   
-1058  #--Reserve allocation constraints--#
-1059   
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 22
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 22
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
-1060  qresgrdr(Y,P,T,Z,GRI)..
-1061                                          sum(RD, res_g(Y,P,T,Z,RD,GRI))
-1062                                          =l=
-1063                                                  cap(Y,Z,GRI)*REL_T(P,T,Z,GRI)
-1064                                                  ;
+1058  qgenr(Y,P,T,Z,GRI)..
+1059                      gen(Y,P,T,Z,GRI)
+1060                      + curt(Y,P,T,Z,GRI)
+1061                      + curt_dummy(Y,P,T,Z,GRI)
+1062                      =e=
+1063                          cap(Y,Z,GRI)*RES_T(P,T,Z,GRI)
+1064                          ;
 1065   
-1066  qresgrdg(Y,P,T,Z,GRI)..
-1067                                          sum(RD, res_g(Y,P,T,Z,RD,GRI))
-1068                                          =l=
-1069                                                  gen(Y,P,T,Z,GRI)
-1070                                                  ;
-1071   
-1072  #-----########################-------------------------------------------------#
-1073  #-----# Storage technologies #-------------------------------------------------#
-1074  #-----########################-------------------------------------------------#
-1075   
-1076  #-------General constraints----------------------------------------------------#
-1077   
-1078  #--Reserve allocation--#
+1066  #--Reserve allocation constraints--#
+1067   
+1068  qresgrdr(Y,P,T,Z,GRI)..
+1069                                          sum(RD, res_g(Y,P,T,Z,RD,GRI))
+1070                                          =l=
+1071                                                  cap(Y,Z,GRI)*REL_T(P,T,Z,GRI)
+1072                                                  ;
+1073   
+1074  qresgrdg(Y,P,T,Z,GRI)..
+1075                                          sum(RD, res_g(Y,P,T,Z,RD,GRI))
+1076                                          =l=
+1077                                                  gen(Y,P,T,Z,GRI)
+1078                                                  ;
 1079   
-1080  qress(Y,P,T,Z,R,S)..
-1081                                          res_s(Y,P,T,Z,R,S)
-1082                                          =e=
-1083                                                  res_s_c(Y,P,T,Z,R,S)
-1084                                                  + res_s_d(Y,P,T,Z,R,S)
-1085                                                  ;
-1086   
-1087  #--Installed capacities--#
-1088   
-1089  qspotcapmin(Y,C,S)..
-1090                                          sum(Z $ C_Z(C,Z), p_cap_c(Y,Z,S))
-1091                                          =g=
-1092                                                  S_DATA(S,'CAP_MIN')
+1080  #-----########################-------------------------------------------------#
+1081  #-----# Storage technologies #-------------------------------------------------#
+1082  #-----########################-------------------------------------------------#
+1083   
+1084  #-------General constraints----------------------------------------------------#
+1085   
+1086  #--Reserve allocation--#
+1087   
+1088  qress(Y,P,T,Z,R,S)..
+1089                                          res_s(Y,P,T,Z,R,S)
+1090                                          =e=
+1091                                                  res_s_c(Y,P,T,Z,R,S)
+1092                                                  + res_s_d(Y,P,T,Z,R,S)
 1093                                                  ;
 1094   
-1095  qspotcapmax(Y,C,S)..
-1096                                          sum(Z $ C_Z(C,Z), p_cap_c(Y,Z,S))
-1097                                          =l=
-1098                                                  S_DATA(S,'CAP_MAX')
-1099                                                  ;
-1100   
-1101  #-------Short- and mid-term storage--------------------------------------------#
+1095  #--Installed capacities--#
+1096   
+1097  qspotcapmin(Y,C,S)..
+1098                                          sum(Z $ C_Z(C,Z), p_cap_c(Y,Z,S))
+1099                                          =g=
+1100                                                  S_DATA(S,'CAP_MIN')
+1101                                                  ;
 1102   
-1103  #--Energy constraints--#
-1104   
-1105  qe(Y,P,Z,SSM)..
-1106                                          e(Y,P++1,Z,SSM)
-1107                                          =e=
-1108                                                  e(Y,P,Z,SSM)
-1109                                                  + W(P)*sum(T_E, p_c(Y,P,T_E,Z,SSM)*(S_DATA(SSM,'EFF_C')/100) - p_d(Y,P,T_E,Z,SSM)/(S_DATA(SSM,'EFF_D')/100))
-1110                                                  ;
-1111   
-1112  qemax(Y,P,Z,SSM)..
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 23
+1103  qspotcapmax(Y,C,S)..
+1104                                          sum(Z $ C_Z(C,Z), p_cap_c(Y,Z,S))
+1105                                          =l=
+1106                                                  S_DATA(S,'CAP_MAX')
+1107                                                  ;
+1108   
+1109  #-------Short- and mid-term storage--------------------------------------------#
+1110   
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 23
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
-1113                                          e(Y,P,Z,SSM)
-1114                                          =l=
-1115                                                  e_cap(Y,Z,SSM)
-1116                                                  #p_cap_c(Y,Z,SSM)*S_DATA(SSM,'DUR_MIN')
-1117                                                  ;
-1118   
-1119  qefstart(Y,P,T,Z,SSM)$(ord(T)=1)..
-1120                                          e_f(Y,P,T,Z,SSM)
-1121                                          =e=
-1122                                                  e(Y,P,Z,SSM)
-1123                                                  ;
-1124   
-1125  qef(Y,P,T,Z,SSM)$(ord(T)<card(T))..
-1126                                          e_f(Y,P,T+1,Z,SSM)
-1127                                          =e=
-1128                                                  e_f(Y,P,T,Z,SSM)
-1129                                                  + p_c(Y,P,T,Z,SSM)*(S_DATA(SSM,'EFF_C')/100)
-1130                                                  - p_d(Y,P,T,Z,SSM)/(S_DATA(SSM,'EFF_D')/100)
+1111  #--Energy constraints--#
+1112   
+1113  qe(Y,P,Z,SSM)..
+1114                                          e(Y,P++1,Z,SSM)
+1115                                          =e=
+1116                                                  e(Y,P,Z,SSM)
+1117                                                  + W(P)*sum(T_E, p_c(Y,P,T_E,Z,SSM)*(S_DATA(SSM,'EFF_C')/100) - p_d(Y,P,T_E,Z,SSM)/(S_DATA(SSM,'EFF_D')/100))
+1118                                                  ;
+1119   
+1120  qemax(Y,P,Z,SSM)..
+1121                                          e(Y,P,Z,SSM)
+1122                                          =l=
+1123                                                  e_cap(Y,Z,SSM)
+1124                                                  #p_cap_c(Y,Z,SSM)*S_DATA(SSM,'DUR_MIN')
+1125                                                  ;
+1126   
+1127  qefstart(Y,P,T,Z,SSM)$(ord(T)=1)..
+1128                                          e_f(Y,P,T,Z,SSM)
+1129                                          =e=
+1130                                                  e(Y,P,Z,SSM)
 1131                                                  ;
 1132   
-1133  qefmin(Y,P,T,Z,SSM)..
-1134                                          e_f(Y,P,T,Z,SSM)
-1135                                          =g=
-1136                                                  1/(S_DATA(SSM,'EFF_D')/100)*
-1137                                                  (p_d(Y,P,T,Z,SSM)*T_MARKET
-1138                                                  + sum(RU, res_s_d(Y,P,T,Z,RU,SSM)*T_R(RU)))
+1133  qef(Y,P,T,Z,SSM)$(ord(T)<card(T))..
+1134                                          e_f(Y,P,T+1,Z,SSM)
+1135                                          =e=
+1136                                                  e_f(Y,P,T,Z,SSM)
+1137                                                  + p_c(Y,P,T,Z,SSM)*(S_DATA(SSM,'EFF_C')/100)
+1138                                                  - p_d(Y,P,T,Z,SSM)/(S_DATA(SSM,'EFF_D')/100)
 1139                                                  ;
-1140  qefmax(Y,P,T,Z,SSM)..
-1141                                          e_f(Y,P,T,Z,SSM)
-1142                                          =l=
-1143                                                  e_cap(Y,Z,SSM) - (S_DATA(SSM,'EFF_C')/100)*
-1144                                                  #p_cap_c(Y,Z,SSM)*S_DATA(SSM,'DUR_MIN') - (S_DATA(SSM,'EFF_C')/100)*
-1145                                                  (p_c(Y,P,T,Z,SSM)*T_MARKET
-1146                                                  + sum(RD, res_s_c(Y,P,T,Z,RD,SSM)*T_R(RD)))
+1140   
+1141  qefmin(Y,P,T,Z,SSM)..
+1142                                          e_f(Y,P,T,Z,SSM)
+1143                                          =g=
+1144                                                  1/(S_DATA(SSM,'EFF_D')/100)*
+1145                                                  (p_d(Y,P,T,Z,SSM)*T_MARKET
+1146                                                  + sum(RU, res_s_d(Y,P,T,Z,RU,SSM)*T_R(RU)))
 1147                                                  ;
-1148   
-1149  qelstart(Y,P,T,Z,SSM)$(ord(T)=1)..
-1150                                          e_l(Y,P,T,Z,SSM)
-1151                                          =e=
-1152                                                  e(Y,P,Z,SSM)
-1153                                                  + (W(P)-1)*sum(T_E, p_c(Y,P,T_E,Z,SSM)*(S_DATA(SSM,'EFF_C')/100) - p_d(Y,P,T_E,Z,SSM)/(S_DATA(SSM,'EFF_D')/100))
-1154                                                  ;
-1155   
-1156  qel(Y,P,T,Z,SSM)$(ord(T)<card(T))..
-1157                                          e_l(Y,P,T+1,Z,SSM)
-1158                                          =e=
-1159                                                  e_l(Y,P,T,Z,SSM)
-1160                                                  + p_c(Y,P,T,Z,SSM)*(S_DATA(SSM,'EFF_C')/100)
-1161                                                  - p_d(Y,P,T,Z,SSM)/(S_DATA(SSM,'EFF_D')/100)
+1148  qefmax(Y,P,T,Z,SSM)..
+1149                                          e_f(Y,P,T,Z,SSM)
+1150                                          =l=
+1151                                                  e_cap(Y,Z,SSM) - (S_DATA(SSM,'EFF_C')/100)*
+1152                                                  #p_cap_c(Y,Z,SSM)*S_DATA(SSM,'DUR_MIN') - (S_DATA(SSM,'EFF_C')/100)*
+1153                                                  (p_c(Y,P,T,Z,SSM)*T_MARKET
+1154                                                  + sum(RD, res_s_c(Y,P,T,Z,RD,SSM)*T_R(RD)))
+1155                                                  ;
+1156   
+1157  qelstart(Y,P,T,Z,SSM)$(ord(T)=1)..
+1158                                          e_l(Y,P,T,Z,SSM)
+1159                                          =e=
+1160                                                  e(Y,P,Z,SSM)
+1161                                                  + (W(P)-1)*sum(T_E, p_c(Y,P,T_E,Z,SSM)*(S_DATA(SSM,'EFF_C')/100) - p_d(Y,P,T_E,Z,SSM)/(S_DATA(SSM,'EFF_D')/100))
 1162                                                  ;
 1163   
-1164  qelmin(Y,P,T,Z,SSM)..
-1165                                          e_l(Y,P,T,Z,SSM)
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 24
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 24
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
-1166                                          =g=
-1167                                                  1/(S_DATA(SSM,'EFF_D')/100)*
-1168                                                  (p_d(Y,P,T,Z,SSM)*T_MARKET
-1169                                                  + sum(RU, res_s_d(Y,P,T,Z,RU,SSM)*T_R(RU)))
+1164  qel(Y,P,T,Z,SSM)$(ord(T)<card(T))..
+1165                                          e_l(Y,P,T+1,Z,SSM)
+1166                                          =e=
+1167                                                  e_l(Y,P,T,Z,SSM)
+1168                                                  + p_c(Y,P,T,Z,SSM)*(S_DATA(SSM,'EFF_C')/100)
+1169                                                  - p_d(Y,P,T,Z,SSM)/(S_DATA(SSM,'EFF_D')/100)
 1170                                                  ;
-1171  qelmax(Y,P,T,Z,SSM)..
-1172                                          e_l(Y,P,T,Z,SSM)
-1173                                          =l=
-1174                                                  e_cap(Y,Z,SSM) - (S_DATA(SSM,'EFF_C')/100)*
-1175                                                  #p_cap_c(Y,Z,SSM)*S_DATA(SSM,'DUR_MIN') - (S_DATA(SSM,'EFF_C')/100)*
-1176                                                  (p_c(Y,P,T,Z,SSM)*T_MARKET
-1177                                                  + sum(RD, res_s_c(Y,P,T,Z,RD,SSM)*T_R(RD)))
+1171   
+1172  qelmin(Y,P,T,Z,SSM)..
+1173                                          e_l(Y,P,T,Z,SSM)
+1174                                          =g=
+1175                                                  1/(S_DATA(SSM,'EFF_D')/100)*
+1176                                                  (p_d(Y,P,T,Z,SSM)*T_MARKET
+1177                                                  + sum(RU, res_s_d(Y,P,T,Z,RU,SSM)*T_R(RU)))
 1178                                                  ;
-1179   
-1180  #--Duration limits--#
-1181   
-1182  qdurmin(Y,Z,SSM)..
-1183                                          e_cap(Y,Z,SSM)
-1184                                          #p_cap_c(Y,Z,SSM)*S_DATA(SSM,'DUR_MIN')
-1185                                          =g=
-1186                                                  p_cap_c(Y,Z,SSM)*S_DATA(SSM,'DUR_MIN')
-1187                                                  ;
-1188   
-1189  qdurmax(Y,Z,SSM)..
-1190                                          e_cap(Y,Z,SSM)
-1191                                          #p_cap_c(Y,Z,SSM)*S_DATA(SSM,'DUR_MIN')
-1192                                          =l=
-1193                                                  p_cap_c(Y,Z,SSM)*S_DATA(SSM,'DUR_MAX')
-1194                                                  ;
-1195   
-1196  #-------Short-term storage-----------------------------------------------------#
-1197   
-1198  #--Charging constraints--#
-1199   
-1200  qssc(Y,P,T,Z,SS)$(ord(T)<card(T))..
-1201                                          p_c(Y,P,T+1,Z,SS)
-1202                                          =e=
-1203                                                  p_c(Y,P,T,Z,SS)
-1204                                                  + ramp_c_up(Y,P,T,Z,SS)
-1205                          - ramp_c_dn(Y,P,T,Z,SS)
-1206                          ;
+1179  qelmax(Y,P,T,Z,SSM)..
+1180                                          e_l(Y,P,T,Z,SSM)
+1181                                          =l=
+1182                                                  e_cap(Y,Z,SSM) - (S_DATA(SSM,'EFF_C')/100)*
+1183                                                  #p_cap_c(Y,Z,SSM)*S_DATA(SSM,'DUR_MIN') - (S_DATA(SSM,'EFF_C')/100)*
+1184                                                  (p_c(Y,P,T,Z,SSM)*T_MARKET
+1185                                                  + sum(RD, res_s_c(Y,P,T,Z,RD,SSM)*T_R(RD)))
+1186                                                  ;
+1187   
+1188  #--Duration limits--#
+1189   
+1190  qdurmin(Y,Z,SSM)..
+1191                                          e_cap(Y,Z,SSM)
+1192                                          #p_cap_c(Y,Z,SSM)*S_DATA(SSM,'DUR_MIN')
+1193                                          =g=
+1194                                                  p_cap_c(Y,Z,SSM)*S_DATA(SSM,'DUR_MIN')
+1195                                                  ;
+1196   
+1197  qdurmax(Y,Z,SSM)..
+1198                                          e_cap(Y,Z,SSM)
+1199                                          #p_cap_c(Y,Z,SSM)*S_DATA(SSM,'DUR_MIN')
+1200                                          =l=
+1201                                                  p_cap_c(Y,Z,SSM)*S_DATA(SSM,'DUR_MAX')
+1202                                                  ;
+1203   
+1204  #-------Short-term storage-----------------------------------------------------#
+1205   
+1206  #--Charging constraints--#
 1207   
-1208  qsscru(Y,P,T,Z,SS)..
-1209                      ramp_c_up(Y,P,T,Z,SS)
-1210                      + sum(RD, res_s_c(Y,P,T,Z,RD,SS))
-1211                      =l=
-1212                          p_cap_c(Y,Z,SS)
-1213                          - p_c(Y,P,T,Z,SS)
+1208  qssc(Y,P,T,Z,SS)$(ord(T)<card(T))..
+1209                                          p_c(Y,P,T+1,Z,SS)
+1210                                          =e=
+1211                                                  p_c(Y,P,T,Z,SS)
+1212                                                  + ramp_c_up(Y,P,T,Z,SS)
+1213                          - ramp_c_dn(Y,P,T,Z,SS)
 1214                          ;
 1215   
-1216  qsscrd(Y,P,T,Z,SS)..
-1217                      ramp_c_dn(Y,P,T,Z,SS)
-1218                      + sum(RU, res_s_c(Y,P,T,Z,RU,SS))
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 25
+1216  qsscru(Y,P,T,Z,SS)..
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 25
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
+1217                      ramp_c_up(Y,P,T,Z,SS)
+1218                      + sum(RD, res_s_c(Y,P,T,Z,RD,SS))
 1219                      =l=
-1220                          p_c(Y,P,T,Z,SS)
-1221                          ;
-1222   
-1223  #--Discharging constraints--#
-1224   
-1225  qssd(Y,P,T,Z,SS)$(ord(T)<card(T))..
-1226                          p_d(Y,P,T+1,Z,SS)
-1227                          =e=
-1228                                  p_d(Y,P,T,Z,SS)
-1229                                  + ramp_d_up(Y,P,T,Z,SS)
-1230                          - ramp_d_dn(Y,P,T,Z,SS)
-1231                          ;
+1220                          p_cap_c(Y,Z,SS)
+1221                          - p_c(Y,P,T,Z,SS)
+1222                          ;
+1223   
+1224  qsscrd(Y,P,T,Z,SS)..
+1225                      ramp_c_dn(Y,P,T,Z,SS)
+1226                      + sum(RU, res_s_c(Y,P,T,Z,RU,SS))
+1227                      =l=
+1228                          p_c(Y,P,T,Z,SS)
+1229                          ;
+1230   
+1231  #--Discharging constraints--#
 1232   
-1233  qssdru(Y,P,T,Z,SS)..
-1234                      ramp_d_up(Y,P,T,Z,SS)
-1235                      + sum(RU, res_s_d(Y,P,T,Z,RU,SS))
-1236                      =l=
-1237                          p_cap_c(Y,Z,SS)
-1238                          - p_d(Y,P,T,Z,SS)
+1233  qssd(Y,P,T,Z,SS)$(ord(T)<card(T))..
+1234                          p_d(Y,P,T+1,Z,SS)
+1235                          =e=
+1236                                  p_d(Y,P,T,Z,SS)
+1237                                  + ramp_d_up(Y,P,T,Z,SS)
+1238                          - ramp_d_dn(Y,P,T,Z,SS)
 1239                          ;
 1240   
-1241  qssdrd(Y,P,T,Z,SS)..
-1242                      ramp_d_dn(Y,P,T,Z,SS)
-1243                      + sum(RD, res_s_d(Y,P,T,Z,RD,SS))
+1241  qssdru(Y,P,T,Z,SS)..
+1242                      ramp_d_up(Y,P,T,Z,SS)
+1243                      + sum(RU, res_s_d(Y,P,T,Z,RU,SS))
 1244                      =l=
-1245                          p_d(Y,P,T,Z,SS)
-1246                          ;
-1247   
-1248  #-------Mid and long-term storage----------------------------------------------#
-1249   
-1250  #--Reserve allocation--#
-1251   
-1252  qresscu(Y,P,T,Z,RU,SML)..
-1253                                          res_s_c(Y,P,T,Z,RU,SML)
-1254                                          =e=
-1255                                                  res_s_c_s(Y,P,T,Z,RU,SML)
-1256                                                  + res_s_c_sd(Y,P,T,Z,RU,SML)
-1257                                                  ;
-1258   
-1259  qresscd(Y,P,T,Z,RD,SML)..
-1260                                          res_s_c(Y,P,T,Z,RD,SML)
-1261                                          =e=
-1262                                                  res_s_c_s(Y,P,T,Z,RD,SML)
-1263                                                  + res_s_c_ns(Y,P,T,Z,RD,SML)
-1264                                                  ;
-1265   
-1266  qressdu(Y,P,T,Z,RU,SM)..
-1267                                          res_s_d(Y,P,T,Z,RU,SM)
-1268                                          =e=
-1269                                                  res_s_d_s(Y,P,T,Z,RU,SM)
-1270                                                  + res_s_d_ns(Y,P,T,Z,RU,SM)
-1271                                                  ;
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 26
+1245                          p_cap_c(Y,Z,SS)
+1246                          - p_d(Y,P,T,Z,SS)
+1247                          ;
+1248   
+1249  qssdrd(Y,P,T,Z,SS)..
+1250                      ramp_d_dn(Y,P,T,Z,SS)
+1251                      + sum(RD, res_s_d(Y,P,T,Z,RD,SS))
+1252                      =l=
+1253                          p_d(Y,P,T,Z,SS)
+1254                          ;
+1255   
+1256  #-------Mid and long-term storage----------------------------------------------#
+1257   
+1258  #--Reserve allocation--#
+1259   
+1260  qresscu(Y,P,T,Z,RU,SML)..
+1261                                          res_s_c(Y,P,T,Z,RU,SML)
+1262                                          =e=
+1263                                                  res_s_c_s(Y,P,T,Z,RU,SML)
+1264                                                  + res_s_c_sd(Y,P,T,Z,RU,SML)
+1265                                                  ;
+1266   
+1267  qresscd(Y,P,T,Z,RD,SML)..
+1268                                          res_s_c(Y,P,T,Z,RD,SML)
+1269                                          =e=
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 26
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
-1272   
-1273  qressdd(Y,P,T,Z,RD,SM)..
-1274                                          res_s_d(Y,P,T,Z,RD,SM)
-1275                                          =e=
-1276                                                  res_s_d_s(Y,P,T,Z,RD,SM)
-1277                                                  + res_s_d_sd(Y,P,T,Z,RD,SM)
-1278                                                  ;
-1279   
-1280  #--Charging logical constraints--#
-1281   
-1282  qnc(Y,P,T,Z,SML)$(ord(T)<card(T))..
-1283                                          n_c(Y,P,T+1,Z,SML)
-1284                                          =e=
-1285                                                  n_c(Y,P,T,Z,SML)
-1286                                                  + n_c_su(Y,P,T,Z,SML)
-1287                                                  - n_c_sd(Y,P,T,Z,SML)
-1288                                                  ;
+1270                                                  res_s_c_s(Y,P,T,Z,RD,SML)
+1271                                                  + res_s_c_ns(Y,P,T,Z,RD,SML)
+1272                                                  ;
+1273   
+1274  qressdu(Y,P,T,Z,RU,SM)..
+1275                                          res_s_d(Y,P,T,Z,RU,SM)
+1276                                          =e=
+1277                                                  res_s_d_s(Y,P,T,Z,RU,SM)
+1278                                                  + res_s_d_ns(Y,P,T,Z,RU,SM)
+1279                                                  ;
+1280   
+1281  qressdd(Y,P,T,Z,RD,SM)..
+1282                                          res_s_d(Y,P,T,Z,RD,SM)
+1283                                          =e=
+1284                                                  res_s_d_s(Y,P,T,Z,RD,SM)
+1285                                                  + res_s_d_sd(Y,P,T,Z,RD,SM)
+1286                                                  ;
+1287   
+1288  #--Charging logical constraints--#
 1289   
-1290  qncmax(Y,P,T,Z,SML)..
-1291                                          n_c(Y,P,T,Z,SML)
-1292                                          =l=
-1293                                                  p_cap_c(Y,Z,SML)/S_DATA(SML,'P_C_MAX')
-1294                                                  ;
-1295   
-1296  qncsu(Y,P,T,Z,SML)..
-1297                                          n_c_su(Y,P,T,Z,SML)
-1298                                          + sum(RD, n_c_su_r(Y,P,T,Z,RD,SML))
-1299                                          =l=
-1300                                                  p_cap_c(Y,Z,SML)/S_DATA(SML,'P_C_MAX')
-1301                                                  - n_c(Y,P,T,Z,SML)
+1290  qnc(Y,P,T,Z,SML)$(ord(T)<card(T))..
+1291                                          n_c(Y,P,T+1,Z,SML)
+1292                                          =e=
+1293                                                  n_c(Y,P,T,Z,SML)
+1294                                                  + n_c_su(Y,P,T,Z,SML)
+1295                                                  - n_c_sd(Y,P,T,Z,SML)
+1296                                                  ;
+1297   
+1298  qncmax(Y,P,T,Z,SML)..
+1299                                          n_c(Y,P,T,Z,SML)
+1300                                          =l=
+1301                                                  p_cap_c(Y,Z,SML)/S_DATA(SML,'P_C_MAX')
 1302                                                  ;
 1303   
-1304  qncsd(Y,P,T,Z,SML)..
-1305                                          n_c_sd(Y,P,T,Z,SML)
-1306                                          + sum(RU, n_c_sd_r(Y,P,T,Z,RU,SML))
+1304  qncsu(Y,P,T,Z,SML)..
+1305                                          n_c_su(Y,P,T,Z,SML)
+1306                                          + sum(RD, n_c_su_r(Y,P,T,Z,RD,SML))
 1307                                          =l=
-1308                                                  n_c(Y,P,T,Z,SML)
-1309                                                  ;
-1310   
-1311  #--Charging constraints--#
-1312   
-1313  qsmlc(Y,P,T,Z,SML)$(ord(T)<card(T))..
-1314                      p_c(Y,P,T+1,Z,SML)
-1315                      =e=
-1316                          p_c(Y,P,T,Z,SML)
-1317                          + ramp_c_up(Y,P,T,Z,SML)
-1318                          - ramp_c_dn(Y,P,T,Z,SML)
-1319                          + ramp_c_su(Y,P,T,Z,SML)
-1320                          - ramp_c_sd(Y,P,T,Z,SML)
-1321                          ;
-1322   
-1323  qsmlcmin(Y,P,T,Z,SML)..
-1324                                          p_c(Y,P,T,Z,SML)
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 27
+1308                                                  p_cap_c(Y,Z,SML)/S_DATA(SML,'P_C_MAX')
+1309                                                  - n_c(Y,P,T,Z,SML)
+1310                                                  ;
+1311   
+1312  qncsd(Y,P,T,Z,SML)..
+1313                                          n_c_sd(Y,P,T,Z,SML)
+1314                                          + sum(RU, n_c_sd_r(Y,P,T,Z,RU,SML))
+1315                                          =l=
+1316                                                  n_c(Y,P,T,Z,SML)
+1317                                                  ;
+1318   
+1319  #--Charging constraints--#
+1320   
+1321  qsmlc(Y,P,T,Z,SML)$(ord(T)<card(T))..
+1322                      p_c(Y,P,T+1,Z,SML)
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 27
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
-1325                                          =g=
-1326                                                  n_c(Y,P,T,Z,SML)*S_DATA(SML,'P_C_MIN')
-1327                                                  ;
-1328   
-1329  qsmlcmax(Y,P,T,Z,SML)..
-1330                                          p_c(Y,P,T,Z,SML)
-1331                                          =l=
-1332                                                  n_c(Y,P,T,Z,SML)*S_DATA(SML,'P_C_MAX')
-1333                                                  ;
-1334   
-1335  #--Charging ramping constraints--#
+1323                      =e=
+1324                          p_c(Y,P,T,Z,SML)
+1325                          + ramp_c_up(Y,P,T,Z,SML)
+1326                          - ramp_c_dn(Y,P,T,Z,SML)
+1327                          + ramp_c_su(Y,P,T,Z,SML)
+1328                          - ramp_c_sd(Y,P,T,Z,SML)
+1329                          ;
+1330   
+1331  qsmlcmin(Y,P,T,Z,SML)..
+1332                                          p_c(Y,P,T,Z,SML)
+1333                                          =g=
+1334                                                  n_c(Y,P,T,Z,SML)*S_DATA(SML,'P_C_MIN')
+1335                                                  ;
 1336   
-1337  qcrudyn(Y,P,T,Z,SML)..
-1338                      ramp_c_up(Y,P,T,Z,SML)
-1339                      + sum(RD, res_s_c_s(Y,P,T,Z,RD,SML))
-1340                      =l=
-1341                          (n_c(Y,P,T,Z,SML)-n_c_sd(Y,P,T,Z,SML))*S_DATA(SML,'RCH')/100*S_DATA(SML,'P_C_MAX')
-1342                          ;
-1343   
-1344  qcrucap(Y,P,T,Z,SML)..
-1345                      ramp_c_up(Y,P,T,Z,SML)
-1346                      + sum(RD, res_s_c_s(Y,P,T,Z,RD,SML))
-1347                      =l=
-1348                          (n_c(Y,P,T,Z,SML)-n_c_sd(Y,P,T,Z,SML))*S_DATA(SML,'P_C_MAX')
-1349                          - (p_c(Y,P,T,Z,SML)-ramp_c_sd(Y,P,T,Z,SML))
+1337  qsmlcmax(Y,P,T,Z,SML)..
+1338                                          p_c(Y,P,T,Z,SML)
+1339                                          =l=
+1340                                                  n_c(Y,P,T,Z,SML)*S_DATA(SML,'P_C_MAX')
+1341                                                  ;
+1342   
+1343  #--Charging ramping constraints--#
+1344   
+1345  qcrudyn(Y,P,T,Z,SML)..
+1346                      ramp_c_up(Y,P,T,Z,SML)
+1347                      + sum(RD, res_s_c_s(Y,P,T,Z,RD,SML))
+1348                      =l=
+1349                          (n_c(Y,P,T,Z,SML)-n_c_sd(Y,P,T,Z,SML))*S_DATA(SML,'RCH')/100*S_DATA(SML,'P_C_MAX')
 1350                          ;
 1351   
-1352  qcrddyn(Y,P,T,Z,SML)..
-1353                      ramp_c_dn(Y,P,T,Z,SML)
-1354                      + sum(RU, res_s_c_s(Y,P,T,Z,RU,SML))
+1352  qcrucap(Y,P,T,Z,SML)..
+1353                      ramp_c_up(Y,P,T,Z,SML)
+1354                      + sum(RD, res_s_c_s(Y,P,T,Z,RD,SML))
 1355                      =l=
-1356                          (n_c(Y,P,T,Z,SML)-n_c_sd(Y,P,T,Z,SML)-sum(RU, n_c_sd_r(Y,P,T,Z,RU,SML)))*S_DATA(SML,'RCH')/100*S_DATA(SML,'P_C_MAX')
-1357                          ;
-1358   
-1359  qcrdcap(Y,P,T,Z,SML)..
-1360                      ramp_c_dn(Y,P,T,Z,SML)
-1361                      + sum(RU, res_s_c_s(Y,P,T,Z,RU,SML))
-1362                      =l=
-1363                          (p_c(Y,P,T,Z,SML)-ramp_c_sd(Y,P,T,Z,SML)-sum(RU, res_s_c_sd(Y,P,T,Z,RU,SML)))
-1364                          - (n_c(Y,P,T,Z,SML)-n_c_sd(Y,P,T,Z,SML)-sum(RU, n_c_sd_r(Y,P,T,Z,RU,SML)))*S_DATA(SML,'P_C_MIN')
+1356                          (n_c(Y,P,T,Z,SML)-n_c_sd(Y,P,T,Z,SML))*S_DATA(SML,'P_C_MAX')
+1357                          - (p_c(Y,P,T,Z,SML)-ramp_c_sd(Y,P,T,Z,SML))
+1358                          ;
+1359   
+1360  qcrddyn(Y,P,T,Z,SML)..
+1361                      ramp_c_dn(Y,P,T,Z,SML)
+1362                      + sum(RU, res_s_c_s(Y,P,T,Z,RU,SML))
+1363                      =l=
+1364                          (n_c(Y,P,T,Z,SML)-n_c_sd(Y,P,T,Z,SML)-sum(RU, n_c_sd_r(Y,P,T,Z,RU,SML)))*S_DATA(SML,'RCH')/100*S_DATA(SML,'P_C_MAX')
 1365                          ;
 1366   
-1367  qcsumin(Y,P,T,Z,SML)..
-1368                                          ramp_c_su(Y,P,T,Z,SML)
-1369                                          =g=
-1370                                                  n_c_su(Y,P,T,Z,SML)*S_DATA(SML,'P_C_MIN')
-1371                                                  ;
-1372   
-1373  qcsumax(Y,P,T,Z,SML)..
-1374                                          ramp_c_su(Y,P,T,Z,SML)
-1375                                          =l=
-1376                                                  n_c_su(Y,P,T,Z,SML)*S_DATA(SML,'RCH')/100*S_DATA(SML,'P_C_MAX')
-1377                                                  ;
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 28
+1367  qcrdcap(Y,P,T,Z,SML)..
+1368                      ramp_c_dn(Y,P,T,Z,SML)
+1369                      + sum(RU, res_s_c_s(Y,P,T,Z,RU,SML))
+1370                      =l=
+1371                          (p_c(Y,P,T,Z,SML)-ramp_c_sd(Y,P,T,Z,SML)-sum(RU, res_s_c_sd(Y,P,T,Z,RU,SML)))
+1372                          - (n_c(Y,P,T,Z,SML)-n_c_sd(Y,P,T,Z,SML)-sum(RU, n_c_sd_r(Y,P,T,Z,RU,SML)))*S_DATA(SML,'P_C_MIN')
+1373                          ;
+1374   
+1375  qcsumin(Y,P,T,Z,SML)..
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 28
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
-1378   
-1379  qcsdmin(Y,P,T,Z,SML)..
-1380                                          ramp_c_sd(Y,P,T,Z,SML)
-1381                                          =g=
-1382                                                  n_c_sd(Y,P,T,Z,SML)*S_DATA(SML,'P_C_MIN')
-1383                                                  ;
-1384   
-1385  qcsdmax(Y,P,T,Z,SML)..
-1386                                          ramp_c_sd(Y,P,T,Z,SML)
-1387                                          =l=
-1388                                                  n_c_sd(Y,P,T,Z,SML)*S_DATA(SML,'RCH')/100*S_DATA(SML,'P_C_MAX')
-1389                                                  ;
-1390   
-1391  #--Reserve allocation constraints--#
+1376                                          ramp_c_su(Y,P,T,Z,SML)
+1377                                          =g=
+1378                                                  n_c_su(Y,P,T,Z,SML)*S_DATA(SML,'P_C_MIN')
+1379                                                  ;
+1380   
+1381  qcsumax(Y,P,T,Z,SML)..
+1382                                          ramp_c_su(Y,P,T,Z,SML)
+1383                                          =l=
+1384                                                  n_c_su(Y,P,T,Z,SML)*S_DATA(SML,'RCH')/100*S_DATA(SML,'P_C_MAX')
+1385                                                  ;
+1386   
+1387  qcsdmin(Y,P,T,Z,SML)..
+1388                                          ramp_c_sd(Y,P,T,Z,SML)
+1389                                          =g=
+1390                                                  n_c_sd(Y,P,T,Z,SML)*S_DATA(SML,'P_C_MIN')
+1391                                                  ;
 1392   
-1393  qcruad(Y,P,T,Z,SML)..
-1394                      sum(RDA, res_s_c_s(Y,P,T,Z,RDA,SML))
-1395                      =l=
-1396                          (n_c(Y,P,T,Z,SML)-n_c_sd(Y,P,T,Z,SML))*S_DATA(SML,'RCA')/100*S_DATA(SML,'P_C_MAX')
-1397                          ;
+1393  qcsdmax(Y,P,T,Z,SML)..
+1394                                          ramp_c_sd(Y,P,T,Z,SML)
+1395                                          =l=
+1396                                                  n_c_sd(Y,P,T,Z,SML)*S_DATA(SML,'RCH')/100*S_DATA(SML,'P_C_MAX')
+1397                                                  ;
 1398   
-1399  qcrumd(Y,P,T,Z,SML)..
-1400                      sum(RD, res_s_c_s(Y,P,T,Z,RD,SML))
-1401                      =l=
-1402                          (n_c(Y,P,T,Z,SML)-n_c_sd(Y,P,T,Z,SML))*S_DATA(SML,'RCM')/100*S_DATA(SML,'P_C_MAX')
-1403                          ;
-1404   
-1405  qcrdfu(Y,P,T,Z,SML)..
-1406                      sum(RUF, res_s_c_s(Y,P,T,Z,RUF,SML))
-1407                      =l=
-1408                          (n_c(Y,P,T,Z,SML)-n_c_sd(Y,P,T,Z,SML)-sum(RU, n_c_sd_r(Y,P,T,Z,RU,SML)))*S_DATA(SML,'RCF')/100*S_DATA(SML,'P_C_MAX')
-1409                          ;
-1410   
-1411  qcrdau(Y,P,T,Z,SML)..
-1412                      sum(RUA, res_s_c_s(Y,P,T,Z,RUA,SML))
-1413                      =l=
-1414                          (n_c(Y,P,T,Z,SML)-n_c_sd(Y,P,T,Z,SML)-sum(RU, n_c_sd_r(Y,P,T,Z,RU,SML)))*S_DATA(SML,'RCA')/100*S_DATA(SML,'P_C_MAX')
-1415                          ;
-1416   
-1417  qcrdmus(Y,P,T,Z,SML)..
-1418                      sum(RU, res_s_c_s(Y,P,T,Z,RU,SML))
-1419                      =l=
-1420                          (n_c(Y,P,T,Z,SML)-n_c_sd(Y,P,T,Z,SML)-sum(RU, n_c_sd_r(Y,P,T,Z,RU,SML)))*S_DATA(SML,'RCM')/100*S_DATA(SML,'P_C_MAX')
-1421                          ;
-1422   
-1423  qcrunsmin(Y,P,T,Z,RD,SML)..
-1424                                          res_s_c_ns(Y,P,T,Z,RD,SML)
-1425                                          =g=
-1426                                                  n_c_su_r(Y,P,T,Z,RD,SML)*S_DATA(SML,'P_C_MIN')
-1427                                                  ;
-1428   
-1429  qcrunsmax(Y,P,T,Z,RD,SML)..
-1430                                          res_s_c_ns(Y,P,T,Z,RD,SML)
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 29
+1399  #--Reserve allocation constraints--#
+1400   
+1401  qcruad(Y,P,T,Z,SML)..
+1402                      sum(RDA, res_s_c_s(Y,P,T,Z,RDA,SML))
+1403                      =l=
+1404                          (n_c(Y,P,T,Z,SML)-n_c_sd(Y,P,T,Z,SML))*S_DATA(SML,'RCA')/100*S_DATA(SML,'P_C_MAX')
+1405                          ;
+1406   
+1407  qcrumd(Y,P,T,Z,SML)..
+1408                      sum(RD, res_s_c_s(Y,P,T,Z,RD,SML))
+1409                      =l=
+1410                          (n_c(Y,P,T,Z,SML)-n_c_sd(Y,P,T,Z,SML))*S_DATA(SML,'RCM')/100*S_DATA(SML,'P_C_MAX')
+1411                          ;
+1412   
+1413  qcrdfu(Y,P,T,Z,SML)..
+1414                      sum(RUF, res_s_c_s(Y,P,T,Z,RUF,SML))
+1415                      =l=
+1416                          (n_c(Y,P,T,Z,SML)-n_c_sd(Y,P,T,Z,SML)-sum(RU, n_c_sd_r(Y,P,T,Z,RU,SML)))*S_DATA(SML,'RCF')/100*S_DATA(SML,'P_C_MAX')
+1417                          ;
+1418   
+1419  qcrdau(Y,P,T,Z,SML)..
+1420                      sum(RUA, res_s_c_s(Y,P,T,Z,RUA,SML))
+1421                      =l=
+1422                          (n_c(Y,P,T,Z,SML)-n_c_sd(Y,P,T,Z,SML)-sum(RU, n_c_sd_r(Y,P,T,Z,RU,SML)))*S_DATA(SML,'RCA')/100*S_DATA(SML,'P_C_MAX')
+1423                          ;
+1424   
+1425  qcrdmus(Y,P,T,Z,SML)..
+1426                      sum(RU, res_s_c_s(Y,P,T,Z,RU,SML))
+1427                      =l=
+1428                          (n_c(Y,P,T,Z,SML)-n_c_sd(Y,P,T,Z,SML)-sum(RU, n_c_sd_r(Y,P,T,Z,RU,SML)))*S_DATA(SML,'RCM')/100*S_DATA(SML,'P_C_MAX')
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 29
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
-1431                                          =l=
-1432                                                  n_c_su_r(Y,P,T,Z,RD,SML)*RSC(RD,SML)/100*S_DATA(SML,'P_C_MAX')
-1433                                                  ;
-1434   
-1435  qcrdsdmin(Y,P,T,Z,RU,SML)..
-1436                                          res_s_c_sd(Y,P,T,Z,RU,SML)
-1437                                          =g=
-1438                                                  n_c_sd_r(Y,P,T,Z,RU,SML)*S_DATA(SML,'P_C_MIN')
-1439                                                  ;
-1440   
-1441  qcrdsdmax(Y,P,T,Z,RU,SML)..
-1442                                          res_s_c_sd(Y,P,T,Z,RU,SML)
-1443                                          =l=
-1444                                                  n_c_sd_r(Y,P,T,Z,RU,SML)*RSC(RU,SML)/100*S_DATA(SML,'P_C_MAX')
-1445                                                  ;
-1446   
-1447  #-------Mid-term storage-------------------------------------------------------#
+1429                          ;
+1430   
+1431  qcrunsmin(Y,P,T,Z,RD,SML)..
+1432                                          res_s_c_ns(Y,P,T,Z,RD,SML)
+1433                                          =g=
+1434                                                  n_c_su_r(Y,P,T,Z,RD,SML)*S_DATA(SML,'P_C_MIN')
+1435                                                  ;
+1436   
+1437  qcrunsmax(Y,P,T,Z,RD,SML)..
+1438                                          res_s_c_ns(Y,P,T,Z,RD,SML)
+1439                                          =l=
+1440                                                  n_c_su_r(Y,P,T,Z,RD,SML)*RSC(RD,SML)/100*S_DATA(SML,'P_C_MAX')
+1441                                                  ;
+1442   
+1443  qcrdsdmin(Y,P,T,Z,RU,SML)..
+1444                                          res_s_c_sd(Y,P,T,Z,RU,SML)
+1445                                          =g=
+1446                                                  n_c_sd_r(Y,P,T,Z,RU,SML)*S_DATA(SML,'P_C_MIN')
+1447                                                  ;
 1448   
-1449  qcapdeqcapc(Y,Z,SM)..
-1450                                          p_cap_d(Y,Z,SM)
-1451                                          =e=
-1452                                                  p_cap_c(Y,Z,SM)
+1449  qcrdsdmax(Y,P,T,Z,RU,SML)..
+1450                                          res_s_c_sd(Y,P,T,Z,RU,SML)
+1451                                          =l=
+1452                                                  n_c_sd_r(Y,P,T,Z,RU,SML)*RSC(RU,SML)/100*S_DATA(SML,'P_C_MAX')
 1453                                                  ;
 1454   
-1455  #--Discharging logical constraints--#
+1455  #-------Mid-term storage-------------------------------------------------------#
 1456   
-1457  qnd(Y,P,T,Z,SM)$(ord(T)<card(T))..
-1458                                          n_d(Y,P,T+1,Z,SM)
+1457  qcapdeqcapc(Y,Z,SM)..
+1458                                          p_cap_d(Y,Z,SM)
 1459                                          =e=
-1460                                                  n_d(Y,P,T,Z,SM)
-1461                                                  + n_d_su(Y,P,T,Z,SM)
-1462                                                  - n_d_sd(Y,P,T,Z,SM)
-1463                                                  ;
+1460                                                  p_cap_c(Y,Z,SM)
+1461                                                  ;
+1462   
+1463  #--Discharging logical constraints--#
 1464   
-1465  qndmax(Y,P,T,Z,SM)..
-1466                                          n_d(Y,P,T,Z,SM)
-1467                                          =l=
-1468                                                  p_cap_d(Y,Z,SM)/S_DATA(SM,'P_D_MAX')
-1469                                                  ;
-1470   
-1471  qndsu(Y,P,T,Z,SM)..
-1472                                          n_d_su(Y,P,T,Z,SM)
-1473                                          + sum(RU, n_d_su_r(Y,P,T,Z,RU,SM))
-1474                                          =l=
-1475                                                  p_cap_d(Y,Z,SM)/S_DATA(SM,'P_D_MAX')
-1476                                                  - n_d(Y,P,T,Z,SM)
+1465  qnd(Y,P,T,Z,SM)$(ord(T)<card(T))..
+1466                                          n_d(Y,P,T+1,Z,SM)
+1467                                          =e=
+1468                                                  n_d(Y,P,T,Z,SM)
+1469                                                  + n_d_su(Y,P,T,Z,SM)
+1470                                                  - n_d_sd(Y,P,T,Z,SM)
+1471                                                  ;
+1472   
+1473  qndmax(Y,P,T,Z,SM)..
+1474                                          n_d(Y,P,T,Z,SM)
+1475                                          =l=
+1476                                                  p_cap_d(Y,Z,SM)/S_DATA(SM,'P_D_MAX')
 1477                                                  ;
 1478   
-1479  qndsd(Y,P,T,Z,SM)..
-1480                                          n_d_sd(Y,P,T,Z,SM)
-1481                                          + sum(RD, n_d_sd_r(Y,P,T,Z,RD,SM))
-1482                                          =l=
-1483                                                  n_d(Y,P,T,Z,SM)
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 30
+1479  qndsu(Y,P,T,Z,SM)..
+1480                                          n_d_su(Y,P,T,Z,SM)
+1481                                          + sum(RU, n_d_su_r(Y,P,T,Z,RU,SM))
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 30
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
-1484                                                  ;
-1485   
-1486  #--Discharging constraints--#
-1487   
-1488  qsmd(Y,P,T,Z,SM)$(ord(T)<card(T))..
-1489                      p_d(Y,P,T+1,Z,SM)
-1490                      =e=
-1491                          p_d(Y,P,T,Z,SM)
-1492                          + ramp_d_up(Y,P,T,Z,SM)
-1493                          - ramp_d_dn(Y,P,T,Z,SM)
-1494                          + ramp_d_su(Y,P,T,Z,SM)
-1495                          - ramp_d_sd(Y,P,T,Z,SM)
-1496                          ;
-1497   
-1498  qsmdmin(Y,P,T,Z,SM)..
-1499                                          p_d(Y,P,T,Z,SM)
-1500                                          =g=
-1501                                                  n_d(Y,P,T,Z,SM)*S_DATA(SM,'P_D_MIN')
-1502                                                  ;
-1503   
-1504  qsmdmax(Y,P,T,Z,SM)..
-1505                                          p_d(Y,P,T,Z,SM)
-1506                                          =l=
-1507                                                  n_d(Y,P,T,Z,SM)*S_DATA(SM,'P_D_MAX')
-1508                                                  ;
-1509   
-1510  #--Discharging ramping constraints--#
+1482                                          =l=
+1483                                                  p_cap_d(Y,Z,SM)/S_DATA(SM,'P_D_MAX')
+1484                                                  - n_d(Y,P,T,Z,SM)
+1485                                                  ;
+1486   
+1487  qndsd(Y,P,T,Z,SM)..
+1488                                          n_d_sd(Y,P,T,Z,SM)
+1489                                          + sum(RD, n_d_sd_r(Y,P,T,Z,RD,SM))
+1490                                          =l=
+1491                                                  n_d(Y,P,T,Z,SM)
+1492                                                  ;
+1493   
+1494  #--Discharging constraints--#
+1495   
+1496  qsmd(Y,P,T,Z,SM)$(ord(T)<card(T))..
+1497                      p_d(Y,P,T+1,Z,SM)
+1498                      =e=
+1499                          p_d(Y,P,T,Z,SM)
+1500                          + ramp_d_up(Y,P,T,Z,SM)
+1501                          - ramp_d_dn(Y,P,T,Z,SM)
+1502                          + ramp_d_su(Y,P,T,Z,SM)
+1503                          - ramp_d_sd(Y,P,T,Z,SM)
+1504                          ;
+1505   
+1506  qsmdmin(Y,P,T,Z,SM)..
+1507                                          p_d(Y,P,T,Z,SM)
+1508                                          =g=
+1509                                                  n_d(Y,P,T,Z,SM)*S_DATA(SM,'P_D_MIN')
+1510                                                  ;
 1511   
-1512  qdrudyn(Y,P,T,Z,SM)..
-1513                      ramp_d_up(Y,P,T,Z,SM)
-1514                      + sum(RU, res_s_d_s(Y,P,T,Z,RU,SM))
-1515                      =l=
-1516                          (n_d(Y,P,T,Z,SM)-n_d_sd(Y,P,T,Z,SM))*S_DATA(SM,'RDH')/100*S_DATA(SM,'P_D_MAX')
-1517                          ;
-1518   
-1519  qdrucap(Y,P,T,Z,SM)..
-1520                      ramp_d_up(Y,P,T,Z,SM)
-1521                      + sum(RU, res_s_d_s(Y,P,T,Z,RU,SM))
-1522                      =l=
-1523                          (n_d(Y,P,T,Z,SM)-n_d_sd(Y,P,T,Z,SM))*S_DATA(SM,'P_D_MAX')
-1524                          - (p_d(Y,P,T,Z,SM)-ramp_d_sd(Y,P,T,Z,SM))
+1512  qsmdmax(Y,P,T,Z,SM)..
+1513                                          p_d(Y,P,T,Z,SM)
+1514                                          =l=
+1515                                                  n_d(Y,P,T,Z,SM)*S_DATA(SM,'P_D_MAX')
+1516                                                  ;
+1517   
+1518  #--Discharging ramping constraints--#
+1519   
+1520  qdrudyn(Y,P,T,Z,SM)..
+1521                      ramp_d_up(Y,P,T,Z,SM)
+1522                      + sum(RU, res_s_d_s(Y,P,T,Z,RU,SM))
+1523                      =l=
+1524                          (n_d(Y,P,T,Z,SM)-n_d_sd(Y,P,T,Z,SM))*S_DATA(SM,'RDH')/100*S_DATA(SM,'P_D_MAX')
 1525                          ;
 1526   
-1527  qdrddyn(Y,P,T,Z,SM)..
-1528                      ramp_d_dn(Y,P,T,Z,SM)
-1529                      + sum(RD, res_s_d_s(Y,P,T,Z,RD,SM))
+1527  qdrucap(Y,P,T,Z,SM)..
+1528                      ramp_d_up(Y,P,T,Z,SM)
+1529                      + sum(RU, res_s_d_s(Y,P,T,Z,RU,SM))
 1530                      =l=
-1531                          (n_d(Y,P,T,Z,SM)-n_d_sd(Y,P,T,Z,SM)-sum(RD, n_d_sd_r(Y,P,T,Z,RD,SM)))*S_DATA(SM,'RDH')/100*S_DATA(SM,'P_D_MAX')
-1532                          ;
-1533   
-1534  qdrdcap(Y,P,T,Z,SM)..
-1535                      ramp_d_dn(Y,P,T,Z,SM)
-1536                      + sum(RD, res_s_d_s(Y,P,T,Z,RD,SM))
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 31
+1531                          (n_d(Y,P,T,Z,SM)-n_d_sd(Y,P,T,Z,SM))*S_DATA(SM,'P_D_MAX')
+1532                          - (p_d(Y,P,T,Z,SM)-ramp_d_sd(Y,P,T,Z,SM))
+1533                          ;
+1534   
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 31
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
-1537                      =l=
-1538                          (p_d(Y,P,T,Z,SM)-ramp_d_sd(Y,P,T,Z,SM)-sum(RD, res_s_d_sd(Y,P,T,Z,RD,SM)))
-1539                          - (n_d(Y,P,T,Z,SM)-n_d_sd(Y,P,T,Z,SM)-sum(RD, n_d_sd_r(Y,P,T,Z,RD,SM)))*S_DATA(SM,'P_D_MIN')
+1535  qdrddyn(Y,P,T,Z,SM)..
+1536                      ramp_d_dn(Y,P,T,Z,SM)
+1537                      + sum(RD, res_s_d_s(Y,P,T,Z,RD,SM))
+1538                      =l=
+1539                          (n_d(Y,P,T,Z,SM)-n_d_sd(Y,P,T,Z,SM)-sum(RD, n_d_sd_r(Y,P,T,Z,RD,SM)))*S_DATA(SM,'RDH')/100*S_DATA(SM,'P_D_MAX')
 1540                          ;
 1541   
-1542  qdsumin(Y,P,T,Z,SM)..
-1543                                          ramp_d_su(Y,P,T,Z,SM)
-1544                                          =g=
-1545                                                  n_d_su(Y,P,T,Z,SM)*S_DATA(SM,'P_D_MIN')
-1546                                                  ;
-1547   
-1548  qdsumax(Y,P,T,Z,SM)..
-1549                                          ramp_d_su(Y,P,T,Z,SM)
-1550                                          =l=
-1551                                                  n_d_su(Y,P,T,Z,SM)*S_DATA(SM,'RDH')/100*S_DATA(SM,'P_D_MAX')
-1552                                                  ;
-1553   
-1554  qdsdmin(Y,P,T,Z,SM)..
-1555                                          ramp_d_sd(Y,P,T,Z,SM)
-1556                                          =g=
-1557                                                  n_d_sd(Y,P,T,Z,SM)*S_DATA(SM,'P_D_MIN')
-1558                                                  ;
-1559   
-1560  qdsdmax(Y,P,T,Z,SM)..
-1561                                          ramp_d_sd(Y,P,T,Z,SM)
-1562                                          =l=
-1563                                                  n_d_sd(Y,P,T,Z,SM)*S_DATA(SM,'RDH')/100*S_DATA(SM,'P_D_MAX')
-1564                                                  ;
-1565   
-1566  #--Reserve allocation constraints--#
+1542  qdrdcap(Y,P,T,Z,SM)..
+1543                      ramp_d_dn(Y,P,T,Z,SM)
+1544                      + sum(RD, res_s_d_s(Y,P,T,Z,RD,SM))
+1545                      =l=
+1546                          (p_d(Y,P,T,Z,SM)-ramp_d_sd(Y,P,T,Z,SM)-sum(RD, res_s_d_sd(Y,P,T,Z,RD,SM)))
+1547                          - (n_d(Y,P,T,Z,SM)-n_d_sd(Y,P,T,Z,SM)-sum(RD, n_d_sd_r(Y,P,T,Z,RD,SM)))*S_DATA(SM,'P_D_MIN')
+1548                          ;
+1549   
+1550  qdsumin(Y,P,T,Z,SM)..
+1551                                          ramp_d_su(Y,P,T,Z,SM)
+1552                                          =g=
+1553                                                  n_d_su(Y,P,T,Z,SM)*S_DATA(SM,'P_D_MIN')
+1554                                                  ;
+1555   
+1556  qdsumax(Y,P,T,Z,SM)..
+1557                                          ramp_d_su(Y,P,T,Z,SM)
+1558                                          =l=
+1559                                                  n_d_su(Y,P,T,Z,SM)*S_DATA(SM,'RDH')/100*S_DATA(SM,'P_D_MAX')
+1560                                                  ;
+1561   
+1562  qdsdmin(Y,P,T,Z,SM)..
+1563                                          ramp_d_sd(Y,P,T,Z,SM)
+1564                                          =g=
+1565                                                  n_d_sd(Y,P,T,Z,SM)*S_DATA(SM,'P_D_MIN')
+1566                                                  ;
 1567   
-1568  qdrufu(Y,P,T,Z,SM)..
-1569                      sum(RUF, res_s_d_s(Y,P,T,Z,RUF,SM))
-1570                      =l=
-1571                          (n_d(Y,P,T,Z,SM)-n_d_sd(Y,P,T,Z,SM))*S_DATA(SM,'RDF')/100*S_DATA(SM,'P_D_MAX')
-1572                          ;
+1568  qdsdmax(Y,P,T,Z,SM)..
+1569                                          ramp_d_sd(Y,P,T,Z,SM)
+1570                                          =l=
+1571                                                  n_d_sd(Y,P,T,Z,SM)*S_DATA(SM,'RDH')/100*S_DATA(SM,'P_D_MAX')
+1572                                                  ;
 1573   
-1574  qdruau(Y,P,T,Z,SM)..
-1575                      sum(RUA, res_s_d_s(Y,P,T,Z,RUA,SM))
-1576                      =l=
-1577                          (n_d(Y,P,T,Z,SM)-n_d_sd(Y,P,T,Z,SM))*S_DATA(SM,'RDA')/100*S_DATA(SM,'P_D_MAX')
-1578                          ;
-1579   
-1580  qdrumus(Y,P,T,Z,SM)..
-1581                      sum(RU, res_s_d_s(Y,P,T,Z,RU,SM))
-1582                      =l=
-1583                          (n_d(Y,P,T,Z,SM)-n_d_sd(Y,P,T,Z,SM))*S_DATA(SM,'RDM')/100*S_DATA(SM,'P_D_MAX')
-1584                          ;
-1585   
-1586  qdrdad(Y,P,T,Z,SM)..
-1587                      sum(RDA, res_s_d_s(Y,P,T,Z,RDA,SM))
-1588                      =l=
-1589                          (n_d(Y,P,T,Z,SM)-n_d_sd(Y,P,T,Z,SM)-sum(RD, n_d_sd_r(Y,P,T,Z,RD,SM)))*S_DATA(SM,'RDA')/100*S_DATA(SM,'P_D_MAX')
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 32
+1574  #--Reserve allocation constraints--#
+1575   
+1576  qdrufu(Y,P,T,Z,SM)..
+1577                      sum(RUF, res_s_d_s(Y,P,T,Z,RUF,SM))
+1578                      =l=
+1579                          (n_d(Y,P,T,Z,SM)-n_d_sd(Y,P,T,Z,SM))*S_DATA(SM,'RDF')/100*S_DATA(SM,'P_D_MAX')
+1580                          ;
+1581   
+1582  qdruau(Y,P,T,Z,SM)..
+1583                      sum(RUA, res_s_d_s(Y,P,T,Z,RUA,SM))
+1584                      =l=
+1585                          (n_d(Y,P,T,Z,SM)-n_d_sd(Y,P,T,Z,SM))*S_DATA(SM,'RDA')/100*S_DATA(SM,'P_D_MAX')
+1586                          ;
+1587   
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 32
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
-1590                          ;
-1591   
-1592  qdrdmd(Y,P,T,Z,SM)..
-1593                      sum(RD, res_s_d_s(Y,P,T,Z,RD,SM))
-1594                      =l=
-1595                          (n_d(Y,P,T,Z,SM)-n_d_sd(Y,P,T,Z,SM)-sum(RD, n_d_sd_r(Y,P,T,Z,RD,SM)))*S_DATA(SM,'RDM')/100*S_DATA(SM,'P_D_MAX')
-1596                          ;
-1597   
-1598  qdrunsmin(Y,P,T,Z,RU,SM)..
-1599                                          res_s_d_ns(Y,P,T,Z,RU,SM)
-1600                                          =g=
-1601                                                  n_d_su_r(Y,P,T,Z,RU,SM)*S_DATA(SM,'P_D_MIN')
-1602                                                  ;
-1603   
-1604  qdrunsmax(Y,P,T,Z,RU,SM)..
-1605                                          res_s_d_ns(Y,P,T,Z,RU,SM)
-1606                                          =l=
-1607                                                  n_d_su_r(Y,P,T,Z,RU,SM)*RSD(RU,SM)/100*S_DATA(SM,'P_D_MAX')
-1608                                                  ;
-1609   
-1610  qdrdsdmin(Y,P,T,Z,RD,SM)..
-1611                                          res_s_d_sd(Y,P,T,Z,RD,SM)
-1612                                          =g=
-1613                                                  n_d_sd_r(Y,P,T,Z,RD,SM)*S_DATA(SM,'P_D_MIN')
-1614                                                  ;
-1615   
-1616  qdrdsdmax(Y,P,T,Z,RD,SM)..
-1617                                          res_s_d_sd(Y,P,T,Z,RD,SM)
-1618                                          =l=
-1619                                                  n_d_sd_r(Y,P,T,Z,RD,SM)*RSD(RD,SM)/100*S_DATA(SM,'P_D_MAX')
-1620                                                  ;
-1621   
-1622  #-------Long-term storage------------------------------------------------------#
+1588  qdrumus(Y,P,T,Z,SM)..
+1589                      sum(RU, res_s_d_s(Y,P,T,Z,RU,SM))
+1590                      =l=
+1591                          (n_d(Y,P,T,Z,SM)-n_d_sd(Y,P,T,Z,SM))*S_DATA(SM,'RDM')/100*S_DATA(SM,'P_D_MAX')
+1592                          ;
+1593   
+1594  qdrdad(Y,P,T,Z,SM)..
+1595                      sum(RDA, res_s_d_s(Y,P,T,Z,RDA,SM))
+1596                      =l=
+1597                          (n_d(Y,P,T,Z,SM)-n_d_sd(Y,P,T,Z,SM)-sum(RD, n_d_sd_r(Y,P,T,Z,RD,SM)))*S_DATA(SM,'RDA')/100*S_DATA(SM,'P_D_MAX')
+1598                          ;
+1599   
+1600  qdrdmd(Y,P,T,Z,SM)..
+1601                      sum(RD, res_s_d_s(Y,P,T,Z,RD,SM))
+1602                      =l=
+1603                          (n_d(Y,P,T,Z,SM)-n_d_sd(Y,P,T,Z,SM)-sum(RD, n_d_sd_r(Y,P,T,Z,RD,SM)))*S_DATA(SM,'RDM')/100*S_DATA(SM,'P_D_MAX')
+1604                          ;
+1605   
+1606  qdrunsmin(Y,P,T,Z,RU,SM)..
+1607                                          res_s_d_ns(Y,P,T,Z,RU,SM)
+1608                                          =g=
+1609                                                  n_d_su_r(Y,P,T,Z,RU,SM)*S_DATA(SM,'P_D_MIN')
+1610                                                  ;
+1611   
+1612  qdrunsmax(Y,P,T,Z,RU,SM)..
+1613                                          res_s_d_ns(Y,P,T,Z,RU,SM)
+1614                                          =l=
+1615                                                  n_d_su_r(Y,P,T,Z,RU,SM)*RSD(RU,SM)/100*S_DATA(SM,'P_D_MAX')
+1616                                                  ;
+1617   
+1618  qdrdsdmin(Y,P,T,Z,RD,SM)..
+1619                                          res_s_d_sd(Y,P,T,Z,RD,SM)
+1620                                          =g=
+1621                                                  n_d_sd_r(Y,P,T,Z,RD,SM)*S_DATA(SM,'P_D_MIN')
+1622                                                  ;
 1623   
-1624  #--Discharging reserve allocation--#
-1625   
-1626  qslressd(Y,P,T,Z,R,SL)..
-1627                                          res_s_d(Y,P,T,Z,R,SL)
-1628                                          =e=
-1629                                                  0
-1630                                                  ;
+1624  qdrdsdmax(Y,P,T,Z,RD,SM)..
+1625                                          res_s_d_sd(Y,P,T,Z,RD,SM)
+1626                                          =l=
+1627                                                  n_d_sd_r(Y,P,T,Z,RD,SM)*RSD(RD,SM)/100*S_DATA(SM,'P_D_MAX')
+1628                                                  ;
+1629   
+1630  #-------Long-term storage------------------------------------------------------#
 1631   
-1632  #--Gas energy balance--#
+1632  #--Discharging reserve allocation--#
 1633   
-1634  qgase(Y,P,C)..
-1635                                          eg(Y,P++1,C)
+1634  qslressd(Y,P,T,Z,R,SL)..
+1635                                          res_s_d(Y,P,T,Z,R,SL)
 1636                                          =e=
-1637                                                  eg(Y,P,C)
-1638                                                  + W(P)*sum(T_E, pg_c(Y,P,T_E,C) - pg_d(Y,P,T_E,C))
-1639                                                  ;
-1640   
-1641  qgasemax(Y,P,C)..
-1642                                          eg(Y,P,C)
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 33
+1637                                                  0
+1638                                                  ;
+1639   
+1640  #--Gas energy balance--#
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 33
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
-1643                                          =l=
-1644                                                  E_LP
-1645                                                  + eg_cap
-1646                                                  ;
-1647   
-1648  qgasef(Y,P,T,C)$(ord(T)<card(T))..
-1649                                          eg_f(Y,P,T+1,C)
-1650                                          =e=
-1651                                                  eg_f(Y,P,T,C)
-1652                                                  + pg_c(Y,P,T,C)
-1653                                                  - pg_d(Y,P,T,C)
+1641   
+1642  qgase(Y,P,C)..
+1643                                          eg(Y,P++1,C)
+1644                                          =e=
+1645                                                  eg(Y,P,C)
+1646                                                  + W(P)*sum(T_E, pg_c(Y,P,T_E,C) - pg_d(Y,P,T_E,C))
+1647                                                  ;
+1648   
+1649  qgasemax(Y,P,C)..
+1650                                          eg(Y,P,C)
+1651                                          =l=
+1652                                                  E_LP
+1653                                                  + eg_cap
 1654                                                  ;
 1655   
-1656  qgasefmax(Y,P,T,C)..
-1657                                          eg_f(Y,P,T,C)
-1658                                          =l=
-1659                                                  E_LP
-1660                                                  + eg_cap
-1661                                                  ;
-1662   
-1663  qgasefstart(Y,P,T,C)$(ord(T)=1)..
-1664                                          eg_f(Y,P,T,C)
-1665                                          =e=
-1666                                                  eg(Y,P,C)
-1667                                                  ;
-1668   
-1669  qgasel(Y,P,T,C)$(ord(T)<card(T))..
-1670                                          eg_l(Y,P,T+1,C)
-1671                                          =e=
-1672                                                  eg_l(Y,P,T,C)
-1673                                                  + pg_c(Y,P,T,C)
-1674                                                  - pg_d(Y,P,T,C)
+1656  qgasef(Y,P,T,C)$(ord(T)<card(T))..
+1657                                          eg_f(Y,P,T+1,C)
+1658                                          =e=
+1659                                                  eg_f(Y,P,T,C)
+1660                                                  + pg_c(Y,P,T,C)
+1661                                                  - pg_d(Y,P,T,C)
+1662                                                  ;
+1663   
+1664  qgasefmax(Y,P,T,C)..
+1665                                          eg_f(Y,P,T,C)
+1666                                          =l=
+1667                                                  E_LP
+1668                                                  + eg_cap
+1669                                                  ;
+1670   
+1671  qgasefstart(Y,P,T,C)$(ord(T)=1)..
+1672                                          eg_f(Y,P,T,C)
+1673                                          =e=
+1674                                                  eg(Y,P,C)
 1675                                                  ;
 1676   
-1677  qgaselmax(Y,P,T,C)..
-1678                                          eg_l(Y,P,T,C)
-1679                                          =l=
-1680                                                  E_LP
-1681                                                  + eg_cap
-1682                                                  ;
-1683   
-1684  qgaselstart(Y,P,T,C)$(ord(T)=1)..
-1685                                          eg_l(Y,P,T,C)
-1686                                          =e=
-1687                                                  eg(Y,P,C)
-1688                                                  + (W(P)-1)*sum(T_E, pg_c(Y,P,T_E,C) - pg_d(Y,P,T_E,C))
-1689                                                  ;
-1690   
-1691  #--Gas charging constraints--#
-1692   
-1693  qgasc(Y,P,T,C)..
-1694                                          pg_c(Y,P,T,C)
-1695                                          =e=
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 34
+1677  qgasel(Y,P,T,C)$(ord(T)<card(T))..
+1678                                          eg_l(Y,P,T+1,C)
+1679                                          =e=
+1680                                                  eg_l(Y,P,T,C)
+1681                                                  + pg_c(Y,P,T,C)
+1682                                                  - pg_d(Y,P,T,C)
+1683                                                  ;
+1684   
+1685  qgaselmax(Y,P,T,C)..
+1686                                          eg_l(Y,P,T,C)
+1687                                          =l=
+1688                                                  E_LP
+1689                                                  + eg_cap
+1690                                                  ;
+1691   
+1692  qgaselstart(Y,P,T,C)$(ord(T)=1)..
+1693                                          eg_l(Y,P,T,C)
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 34
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
-1696                                                  sum(Z $ C_Z(C,Z), sum(SL, p_c(Y,P,T,Z,SL)*(S_DATA(SL,'EFF_C')/100)))
-1697                                                  + pg_import(Y,P,T,C)
-1698                                                  ;
-1699   
-1700  #--Gas discharging constraints--#
-1701   
-1702  qgasd(Y,P,T,C)..
-1703                                          pg_d(Y,P,T,C)
-1704                                          =e=
-1705                                                  sum(Z $ C_Z(C,Z), sum(GCG, pg_syn(Y,P,T,Z,GCG) + pg_fos(Y,P,T,Z,GCG)))
+1694                                          =e=
+1695                                                  eg(Y,P,C)
+1696                                                  + (W(P)-1)*sum(T_E, pg_c(Y,P,T_E,C) - pg_d(Y,P,T_E,C))
+1697                                                  ;
+1698   
+1699  #--Gas charging constraints--#
+1700   
+1701  qgasc(Y,P,T,C)..
+1702                                          pg_c(Y,P,T,C)
+1703                                          =e=
+1704                                                  sum(Z $ C_Z(C,Z), sum(SL, p_c(Y,P,T,Z,SL)*(S_DATA(SL,'EFF_C')/100)))
+1705                                                  + pg_import(Y,P,T,C)
 1706                                                  ;
 1707   
-1708  #--Gas usage--#
+1708  #--Gas discharging constraints--#
 1709   
-1710  qgasuse(Y,C)..
-1711                                          sum(Z $ C_Z(C,Z), sum((GCG,P,T), pg_syn(Y,P,T,Z,GCG)))
-1712                                          =l=
-1713                                                  sum(Z $ C_Z(C,Z), sum((SL,P,T), p_c(Y,P,T,Z,SL)*(S_DATA(SL,'EFF_C')/100)))
+1710  qgasd(Y,P,T,C)..
+1711                                          pg_d(Y,P,T,C)
+1712                                          =e=
+1713                                                  sum(Z $ C_Z(C,Z), sum(GCG, pg_syn(Y,P,T,Z,GCG) + pg_fos(Y,P,T,Z,GCG)))
 1714                                                  ;
 1715   
-1716  qgasusegen(Y,P,T,Z,GCG)..
-1717                                          gen(Y,P,T,Z,GCG)/(G_DATA(GCG,'EFF')/100)
-1718                                          =e=
-1719                                                  pg_syn(Y,P,T,Z,GCG)
-1720                                                  + pg_fos(Y,P,T,Z,GCG)
-1721                                                  ;
-1722   
-1723  ################################################
-1724  ################################################
-1725   
-1726  demand(P,T,Z)..
-1727                                          demand_unit(P,T,Z) =e= DEM_T(P,T,Z) + sum(H,ELAST_NEW(P,T,H)*(DEM_T(P,T,Z)/P_REF)*(price_unit(P,H,Z)-P_REF))
-1728                                          ;
-1729   
-1730  demand_clone(P,H,Z)..
-1731                                          demand_unit_clone(P,H,Z) =e= sum(T,demand_unit(P,T,Z)*DIAG(T,H))
-1732                                          ;
+1716  #--Gas usage--#
+1717   
+1718  qgasuse(Y,C)..
+1719                                          sum(Z $ C_Z(C,Z), sum((GCG,P,T), pg_syn(Y,P,T,Z,GCG)))
+1720                                          =l=
+1721                                                  sum(Z $ C_Z(C,Z), sum((SL,P,T), p_c(Y,P,T,Z,SL)*(S_DATA(SL,'EFF_C')/100)))
+1722                                                  ;
+1723   
+1724  qgasusegen(Y,P,T,Z,GCG)..
+1725                                          gen(Y,P,T,Z,GCG)/(G_DATA(GCG,'EFF')/100)
+1726                                          =e=
+1727                                                  pg_syn(Y,P,T,Z,GCG)
+1728                                                  + pg_fos(Y,P,T,Z,GCG)
+1729                                                  ;
+1730   
+1731  ################################################
+1732  ################################################
 1733   
-1734  totdemand(P,Z)..
-1735  #                                       sum(T,DEM_T(P,T,Z)) =l= sum(T,demand_unit(P,T,Z))
-1736                                          sum(T,DEM_T(P,T,Z)+eff_factor_earlier*sum(H,DIAG(T,H)*(front_up(P,H,Z)-back_down(P,H,Z)))) =l= demand_tot(P,Z)
-1737                                          ;
-1738   
-1739  surplusdemand(P,T,Z)..
-1740                                          surplus(P,T,Z) =e= eff_factor_earlier*sum(H,DIAG(T,H)*(front_up(P,H,Z)-back_down(P,H,Z)))
-1741                                          ;
-1742   
-1743  totdemand2(P,Z)..
-1744                                          demand_tot(P,Z) =e= sum(T,demand_unit(P,T,Z))
-1745  #                                       demand_tot(P,Z) =e= sum(T,DEM_T(P,T,Z))
-1746                                          ;
-1747   
-1748  #price(P,H,Z)..
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 35
+1734  demand(P,T,Z)..
+1735                                          demand_new_res(P,T,Z) =e= DEM_REF_RES(P,T,Z) + sum(H,ELAST_NEW(P,T,H)*(DEM_REF_RES(P,T,Z)/P_REF)*(price_unit(P,H,Z)-P_REF))
+1736                                          ;
+1737   
+1738  demand_clone(P,H,Z)..
+1739                                          demand_new_res_clone(P,H,Z) =e= sum(T,demand_new_res(P,T,Z)*DIAG(T,H))
+1740                                          ;
+1741   
+1742  sum_demand(P,T,Z)..
+1743                      demand_unit(P,T,Z) =e= DEM_NON_RES(P,T,Z) + demand_new_res(P,T,Z)
+1744                      ;
+1745   
+1746  totdemand(P,Z)..
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 35
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
-1749  #                                       (price_unit(P,H,Z) - P_REF)*sum(H,ELAST(T,H)*(DEM_T(P,T,Z)/P_REF)) =e= (demand_unit(P,T,Z)-DEM_T(P,T,Z))
-1750  #                                       ;
-1751   
-1752  price_clone(P,T,Z)..
-1753                                          price_unit_clone(P,T,Z) =e= sum(H,price_unit(P,H,Z)*DIAG(T,H))
-1754                                          ;
-1755   
-1756  refdemand(P,T,Z)..
-1757                                          demand_ref(P,T,Z) =e= DEM_T(P,T,Z)
+1747  #                                       sum(T,DEM_REF_RES(P,T,Z)) =l= sum(T,demand_new_res(P,T,Z))
+1748                                          sum(T,DEM_REF_RES(P,T,Z)+eff_factor_earlier*sum(H,DIAG(T,H)*(front_up(P,H,Z)-back_down(P,H,Z)))) =l= demand_tot(P,Z)
+1749                                          ;
+1750   
+1751  surplusdemand(P,T,Z)..
+1752                                          surplus(P,T,Z) =e= eff_factor_earlier*sum(H,DIAG(T,H)*(front_up(P,H,Z)-back_down(P,H,Z)))
+1753                                          ;
+1754   
+1755  totdemand2(P,Z)..
+1756                                          demand_tot(P,Z) =e= sum(T,demand_new_res(P,T,Z))
+1757  #                                       demand_tot(P,Z) =e= sum(T,DEM_REF_RES(P,T,Z))
 1758                                          ;
 1759   
-1760  shiftedaway(P,H,Z)..
-1761                                          shiftaway(P,H,Z) =e= sum(T,DIAG(T,H)*ELAST_NEW(P,T,H)*DEM_T(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
-1762                                          ;
+1760  #price(P,H,Z)..
+1761  #                                       (price_unit(P,H,Z) - P_REF)*sum(H,ELAST(T,H)*(DEM_REF_RES(P,T,Z)/P_REF)) =e= (demand_new_res(P,T,Z)-DEM_REF_RES(P,T,Z))
+1762  #                                       ;
 1763   
-1764  shiftedawaytotal(P,Z)..
-1765                                          shiftaway_total(P,Z) =e= sum(H,shift_up(P,H,Z)-shift_down(P,H,Z))
+1764  price_clone(P,T,Z)..
+1765                                          price_unit_clone(P,T,Z) =e= sum(H,price_unit(P,H,Z)*DIAG(T,H))
 1766                                          ;
 1767   
-1768  shiftedforward(P,H,Z)..
-1769                                          shiftforwards(P,H,Z) =e= sum(T,TRI_UP(T,H)*ELAST_NEW(P,T,H)*DEM_T(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+1768  refdemand(P,T,Z)..
+1769                                          demand_ref(P,T,Z) =e= DEM_REF_RES(P,T,Z)
 1770                                          ;
 1771   
-1772  shiftedforwardtotal(P,Z)..
-1773  #                                       shiftforwards_total(P,Z) =e= sum(H,shiftforwards(P,H,Z))
-1774                                          shiftforwards_total(P,Z) =e= sum(H,front_up(P,H,Z)-back_down(P,H,Z))
-1775                                          ;
-1776   
-1777  shiftedbackward(P,H,Z)..
-1778                                          shiftbackwards(P,H,Z) =e= sum(T,TRI_LOW(T,H)*ELAST_NEW(P,T,H)*DEM_T(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
-1779                                          ;
-1780   
-1781  shiftedbackwardtotal(P,Z)..
-1782  #                                       shiftbackwards_total(P,Z) =e= sum(H,shiftbackwards(P,H,Z))
-1783                                          shiftbackwards_total(P,Z) =e= sum(H,back_up(P,H,Z)-front_down(P,H,Z))
-1784                                          ;
-1785   
-1786  shiftconstraint_frame_1(P,H,Z)..
-1787                                          sum(T,DEM_T(P,T,Z)*SHIFTMIN(H,T)) =l= sum(T,demand_unit(P,T,Z)*SHIFTMAX(H,T))
-1788                                          ;
-1789   
-1790  shiftconstraint_frame_2(P,H,Z)..
-1791                                          sum(T,DEM_T(P,T,Z)*SHIFTMAX(H,T)) =g= sum(T,demand_unit(P,T,Z)*SHIFTMIN(H,T))
-1792                                          ;
-1793   
-1794  shiftconstraint1(P,H,Z)..
-1795                                          shiftaway(P,H,Z) =l= LIMITSHIFT
+1772  shiftedaway(P,H,Z)..
+1773                                          shiftaway(P,H,Z) =e= sum(T,DIAG(T,H)*ELAST_NEW(P,T,H)*DEM_REF_RES(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+1774                                          ;
+1775   
+1776  shiftedawaytotal(P,Z)..
+1777                                          shiftaway_total(P,Z) =e= sum(H,shift_up(P,H,Z)-shift_down(P,H,Z))
+1778                                          ;
+1779   
+1780  shiftedforward(P,H,Z)..
+1781                                          shiftforwards(P,H,Z) =e= sum(T,TRI_UP(T,H)*ELAST_NEW(P,T,H)*DEM_REF_RES(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+1782                                          ;
+1783   
+1784  shiftedforwardtotal(P,Z)..
+1785  #                                       shiftforwards_total(P,Z) =e= sum(H,shiftforwards(P,H,Z))
+1786                                          shiftforwards_total(P,Z) =e= sum(H,front_up(P,H,Z)-back_down(P,H,Z))
+1787                                          ;
+1788   
+1789  shiftedbackward(P,H,Z)..
+1790                                          shiftbackwards(P,H,Z) =e= sum(T,TRI_LOW(T,H)*ELAST_NEW(P,T,H)*DEM_REF_RES(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+1791                                          ;
+1792   
+1793  shiftedbackwardtotal(P,Z)..
+1794  #                                       shiftbackwards_total(P,Z) =e= sum(H,shiftbackwards(P,H,Z))
+1795                                          shiftbackwards_total(P,Z) =e= sum(H,back_up(P,H,Z)-front_down(P,H,Z))
 1796                                          ;
 1797   
-1798  shiftconstraint2(P,H,Z)..
-1799                                          shiftaway(P,H,Z) =g= -LIMITSHIFT
+1798  shiftconstraint_frame_1(P,H,Z)..
+1799                                          sum(T,DEM_REF_RES(P,T,Z)*SHIFTMIN(H,T)) =l= sum(T,demand_new_res(P,T,Z)*SHIFTMAX(H,T))
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 36
+GOA version 2.0 (December 2013) puuh
+C o m p i l a t i o n
+
+
 1800                                          ;
 1801   
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 36
-GOA version 2.0 (December 2013) puuh
-C o m p i l a t i o n
-
-
-1802  priceconstraint1(P,T,Z)..
-1803                                          price_unit_clone(P,T,Z) =l= P_REF + LIMITPRICE
+1802  shiftconstraint_frame_2(P,H,Z)..
+1803                                          sum(T,DEM_REF_RES(P,T,Z)*SHIFTMAX(H,T)) =g= sum(T,demand_new_res(P,T,Z)*SHIFTMIN(H,T))
 1804                                          ;
 1805   
-1806  priceconstraint2(P,T,Z)..
-1807                                          price_unit_clone(P,T,Z) =g= P_REF - LIMITPRICE
+1806  shiftconstraint1(P,H,Z)..
+1807                                          shiftaway(P,H,Z) =l= LIMITSHIFT
 1808                                          ;
 1809   
-1810  demlimitunder(P,T,Z)..
-1811                                          DEM_T(P,T,Z) - LIMITDEM =l= demand_unit(P,T,Z)
+1810  shiftconstraint2(P,H,Z)..
+1811                                          shiftaway(P,H,Z) =g= -LIMITSHIFT
 1812                                          ;
 1813   
-1814  demlimitupper(P,T,Z)..
-1815                                          DEM_T(P,T,Z) + LIMITDEM =g= demand_unit(P,T,Z)
+1814  priceconstraint1(P,T,Z)..
+1815                                          price_unit_clone(P,T,Z) =l= P_REF + LIMITPRICE
 1816                                          ;
 1817   
-1818   
-1819  #priceconstraint3(P,Z)..
-1820  #                                       sum(T,price_unit(P,T,Z))/card(T) =e= P_REF
-1821  #                                       ;
-1822   
-1823   
-1824  qinnerframe(P,H,Z)..
-1825                                          innerframe(P,H,Z) =e= sum(T,DEM_T(P,T,Z)*SHIFTMIN(H,T))
-1826                                          ;
-1827   
-1828  qouterframe(P,H,Z)..
-1829                                          outerframe(P,H,Z) =e= sum(T,demand_unit(P,T,Z)*SHIFTMAX(H,T))
-1830                                          ;
-1831   
-1832  fixedcost(Z)..
-1833                                          totalfixedcost(Z) =e= sum((Y,G), (G_DATA(G,'C_INV') + G_DATA(G,'C_FOM'))*1000*cap(Y,Z,G))
-1834                                          ;
+1818  priceconstraint2(P,T,Z)..
+1819                                          price_unit_clone(P,T,Z) =g= P_REF - LIMITPRICE
+1820                                          ;
+1821   
+1822  demlimitunder(P,T,Z)..
+1823                                          DEM_REF_RES(P,T,Z) - LIMITDEM =l= demand_new_res(P,T,Z)
+1824                                          ;
+1825   
+1826  demlimitupper(P,T,Z)..
+1827                                          DEM_REF_RES(P,T,Z) + LIMITDEM =g= demand_new_res(P,T,Z)
+1828                                          ;
+1829   
+1830   
+1831  #priceconstraint3(P,Z)..
+1832  #                                       sum(T,price_unit(P,T,Z))/card(T) =e= P_REF
+1833  #                                       ;
+1834   
 1835   
-1836  variablecost(P,Z)..
-1837                                          totalvariablecost(P,Z) =e= (sum((Y,T,G), W(P)*(G_DATA(G,'C_VOM'))*gen(Y,P,T,Z,G))
-1838                                          + sum((Y,T,GC), W(P)*(G_DATA(GC,'C_FUEL'))*gen(Y,P,T,Z,GC)))*(168/card(T))
-1839                                          ;
-1840   
-1841  cost(Z)..
-1842                                          totalcost(Z) =e= sum(P,totalvariablecost(P,Z)) + totalfixedcost(Z)
-1843                                          ;
-1844   
-1845  ####################################
-1846  # get downwards en upward numbers for front and back
-1847  ####################################
-1848   
-1849  front_d_1(P,H,Z)..
-1850                                          front_down(P,H,Z) =l= shiftforwards(P,H,Z)
+1836  qinnerframe(P,H,Z)..
+1837                                          innerframe(P,H,Z) =e= sum(T,DEM_REF_RES(P,T,Z)*SHIFTMIN(H,T))
+1838                                          ;
+1839   
+1840  qouterframe(P,H,Z)..
+1841                                          outerframe(P,H,Z) =e= sum(T,demand_new_res(P,T,Z)*SHIFTMAX(H,T))
+1842                                          ;
+1843   
+1844  fixedcost(Z)..
+1845                                          totalfixedcost(Z) =e= sum((Y,G), (G_DATA(G,'C_INV') + G_DATA(G,'C_FOM'))*1000*cap(Y,Z,G))
+1846                                          ;
+1847   
+1848  variablecost(P,Z)..
+1849                                          totalvariablecost(P,Z) =e= (sum((Y,T,G), W(P)*(G_DATA(G,'C_VOM'))*gen(Y,P,T,Z,G))
+1850                                          + sum((Y,T,GC), W(P)*(G_DATA(GC,'C_FUEL'))*gen(Y,P,T,Z,GC)))*(168/card(T))
 1851                                          ;
 1852   
-1853  front_d_2(P,H,Z)..
-1854                                          front_down(P,H,Z) =l= 0
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 37
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 37
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
+1853  cost(Z)..
+1854                                          totalcost(Z) =e= sum(P,totalvariablecost(P,Z)) + totalfixedcost(Z)
 1855                                          ;
 1856   
-1857  front_u_1(P,H,Z)..
-1858                                          front_up(P,H,Z) =g= shiftforwards(P,H,Z)
-1859                                          ;
+1857  ####################################
+1858  # get downwards en upward numbers for front and back
+1859  ####################################
 1860   
-1861  front_u_2(P,H,Z)..
-1862                                          front_up(P,H,Z) =g= 0
+1861  front_d_1(P,H,Z)..
+1862                                          front_down(P,H,Z) =l= shiftforwards(P,H,Z)
 1863                                          ;
 1864   
-1865  back_d_1(P,H,Z)..
-1866                                          back_down(P,H,Z) =l= shiftbackwards(P,H,Z)
+1865  front_d_2(P,H,Z)..
+1866                                          front_down(P,H,Z) =l= 0
 1867                                          ;
 1868   
-1869  back_d_2(P,H,Z)..
-1870                                          back_down(P,H,Z) =l= 0
+1869  front_u_1(P,H,Z)..
+1870                                          front_up(P,H,Z) =g= shiftforwards(P,H,Z)
 1871                                          ;
 1872   
-1873  back_u_1(P,H,Z)..
-1874                                          back_up(P,H,Z) =g= shiftbackwards(P,H,Z)
+1873  front_u_2(P,H,Z)..
+1874                                          front_up(P,H,Z) =g= 0
 1875                                          ;
 1876   
-1877  back_u_2(P,H,Z)..
-1878                                          back_up(P,H,Z) =g= 0
+1877  back_d_1(P,H,Z)..
+1878                                          back_down(P,H,Z) =l= shiftbackwards(P,H,Z)
 1879                                          ;
 1880   
-1881  shift_d_1(P,H,Z)..
-1882                                          shift_down(P,H,Z) =l= shiftaway(P,H,Z)
+1881  back_d_2(P,H,Z)..
+1882                                          back_down(P,H,Z) =l= 0
 1883                                          ;
 1884   
-1885  shift_d_2(P,H,Z)..
-1886                                          shift_down(P,H,Z) =l= 0
+1885  back_u_1(P,H,Z)..
+1886                                          back_up(P,H,Z) =g= shiftbackwards(P,H,Z)
 1887                                          ;
 1888   
-1889  shift_u_1(P,H,Z)..
-1890                                          shift_up(P,H,Z) =g= shiftaway(P,H,Z)
+1889  back_u_2(P,H,Z)..
+1890                                          back_up(P,H,Z) =g= 0
 1891                                          ;
 1892   
-1893  shift_u_2(P,H,Z)..
-1894                                          shift_up(P,H,Z) =g= 0
+1893  shift_d_1(P,H,Z)..
+1894                                          shift_down(P,H,Z) =l= shiftaway(P,H,Z)
 1895                                          ;
 1896   
-1897   
-1898   
-1899  MODEL GOA GOA model /
+1897  shift_d_2(P,H,Z)..
+1898                                          shift_down(P,H,Z) =l= 0
+1899                                          ;
 1900   
-1901  #-------Objective function-----------------------------------------------------#
-1902                  qobj
-1903   
-1904  #-------System constraints-----------------------------------------------------#
-1905                  qbalance
-1906   
-1907                  qresprod
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 38
+1901  shift_u_1(P,H,Z)..
+1902                                          shift_up(P,H,Z) =g= shiftaway(P,H,Z)
+1903                                          ;
+1904   
+1905  shift_u_2(P,H,Z)..
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 38
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
-1908                  qco2lim
+1906                                          shift_up(P,H,Z) =g= 0
+1907                                          ;
+1908   
 1909   
-1910                  qresendomin
-1911                  qresendomax
-1912                  qres
-1913   
-1914                  #qgendisp
-1915                  #qgendisppeak
-1916   
-1917                  qco2
-1918                  qlcg
-1919   
-1920  #-------Generation technologies------------------------------------------------#
-1921                  qpotcapmin
-1922  #               qpotcapmax
-1923  #               qpotgenmin
-1924  #               qpotgenmax
+1910   
+1911  MODEL GOA GOA model /
+1912   
+1913  #-------Objective function-----------------------------------------------------#
+1914                  qobj
+1915   
+1916  #-------System constraints-----------------------------------------------------#
+1917                  qbalance
+1918   
+1919                  qresprod
+1920                  qco2lim
+1921   
+1922                  qresendomin
+1923                  qresendomax
+1924                  qres
 1925   
-1926  #--Conventional generation technologies--#
-1927                  qresgcu
-1928                  qresgcd
-1929   
-1930                  qn
-1931                  qnmax
-1932                  qnsu
-1933                  qnsd
-1934   
-1935                  qgen
-1936                  qgenmin
-1937                  qgenmax
-1938   
-1939                  qrudyn
-1940                  qrucap
-1941                  qrddyn
-1942                  qrdcap
-1943                  qsumin
-1944                  qsumax
-1945                  qsdmin
-1946                  qsdmax
-1947   
-1948                  qrufu
-1949                  qruau
-1950                  qrumus
-1951                  qrdad
-1952                  qrdmd
-1953                  qrunsmin
-1954                  qrunsmax
-1955                  qrdsdmin
-1956                  qrdsdmax
-1957   
-1958  #--Intermittent renewable generation technologies--#
-1959                  qresgru
-1960   
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 39
+1926                  #qgendisp
+1927                  #qgendisppeak
+1928   
+1929                  qco2
+1930                  qlcg
+1931   
+1932  #-------Generation technologies------------------------------------------------#
+1933                  qpotcapmin
+1934  #               qpotcapmax
+1935  #               qpotgenmin
+1936  #               qpotgenmax
+1937   
+1938  #--Conventional generation technologies--#
+1939                  qresgcu
+1940                  qresgcd
+1941   
+1942                  qn
+1943                  qnmax
+1944                  qnsu
+1945                  qnsd
+1946   
+1947                  qgen
+1948                  qgenmin
+1949                  qgenmax
+1950   
+1951                  qrudyn
+1952                  qrucap
+1953                  qrddyn
+1954                  qrdcap
+1955                  qsumin
+1956                  qsumax
+1957                  qsdmin
+1958                  qsdmax
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 39
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
-1961                  qgenr
-1962   
-1963                  qresgrdr
-1964                  qresgrdg
-1965   
-1966  #-------Storage technologies---------------------------------------------------#
-1967  #--General constraints--#
-1968                  qress
-1969                  qspotcapmin
-1970                  qspotcapmax
-1971   
-1972                  qe
-1973                  qemax
-1974                  qef
-1975                  qefmin
-1976                  qefmax
-1977                  qefstart
-1978                  qel
-1979                  qelmin
-1980                  qelmax
-1981                  qelstart
-1982   
-1983                  qdurmin
-1984                  qdurmax
-1985   
-1986  #--Short-term storage--#
-1987                  qssc
-1988                  qsscru
-1989                  qsscrd
-1990   
-1991                  qssd
-1992                  qssdru
-1993                  qssdrd
+1959   
+1960                  qrufu
+1961                  qruau
+1962                  qrumus
+1963                  qrdad
+1964                  qrdmd
+1965                  qrunsmin
+1966                  qrunsmax
+1967                  qrdsdmin
+1968                  qrdsdmax
+1969   
+1970  #--Intermittent renewable generation technologies--#
+1971                  qresgru
+1972   
+1973                  qgenr
+1974   
+1975                  qresgrdr
+1976                  qresgrdg
+1977   
+1978  #-------Storage technologies---------------------------------------------------#
+1979  #--General constraints--#
+1980                  qress
+1981                  qspotcapmin
+1982                  qspotcapmax
+1983   
+1984                  qe
+1985                  qemax
+1986                  qef
+1987                  qefmin
+1988                  qefmax
+1989                  qefstart
+1990                  qel
+1991                  qelmin
+1992                  qelmax
+1993                  qelstart
 1994   
-1995  #--Mid and long-term storage--#
-1996                  qresscu
-1997                  qresscd
-1998                  qressdu
-1999                  qressdd
-2000   
-2001                  qnc
-2002                  qncmax
-2003                  qncsu
-2004                  qncsd
-2005   
-2006                  qsmlc
-2007                  qsmlcmin
-2008                  qsmlcmax
-2009   
-2010                  qcrudyn
-2011                  qcrucap
-2012                  qcrddyn
-2013                  qcrdcap
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 40
+1995                  qdurmin
+1996                  qdurmax
+1997   
+1998  #--Short-term storage--#
+1999                  qssc
+2000                  qsscru
+2001                  qsscrd
+2002   
+2003                  qssd
+2004                  qssdru
+2005                  qssdrd
+2006   
+2007  #--Mid and long-term storage--#
+2008                  qresscu
+2009                  qresscd
+2010                  qressdu
+2011                  qressdd
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 40
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
-2014                  qcsumin
-2015                  qcsumax
-2016                  qcsdmin
-2017                  qcsdmax
-2018   
-2019                  qcruad
-2020                  qcrumd
-2021                  qcrdfu
-2022                  qcrdau
-2023                  qcrdmus
-2024                  qcrunsmin
-2025                  qcrunsmax
-2026                  qcrdsdmin
-2027                  qcrdsdmax
-2028   
-2029  #--Mid-term storage--#
-2030                  qcapdeqcapc
-2031   
-2032                  qnd
-2033                  qndmax
-2034                  qndsu
-2035                  qndsd
-2036   
-2037                  qsmd
-2038                  qsmdmin
-2039                  qsmdmax
+2012   
+2013                  qnc
+2014                  qncmax
+2015                  qncsu
+2016                  qncsd
+2017   
+2018                  qsmlc
+2019                  qsmlcmin
+2020                  qsmlcmax
+2021   
+2022                  qcrudyn
+2023                  qcrucap
+2024                  qcrddyn
+2025                  qcrdcap
+2026                  qcsumin
+2027                  qcsumax
+2028                  qcsdmin
+2029                  qcsdmax
+2030   
+2031                  qcruad
+2032                  qcrumd
+2033                  qcrdfu
+2034                  qcrdau
+2035                  qcrdmus
+2036                  qcrunsmin
+2037                  qcrunsmax
+2038                  qcrdsdmin
+2039                  qcrdsdmax
 2040   
-2041                  qdrudyn
-2042                  qdrucap
-2043                  qdrddyn
-2044                  qdrdcap
-2045                  qdsumin
-2046                  qdsumax
-2047                  qdsdmin
-2048                  qdsdmax
-2049   
-2050                  qdrufu
-2051                  qdruau
-2052                  qdrumus
-2053                  qdrdad
-2054                  qdrdmd
-2055                  qdrunsmin
-2056                  qdrunsmax
-2057                  qdrdsdmin
-2058                  qdrdsdmax
-2059   
-2060  #--Long-term storage--#
-2061                  qslressd
-2062   
-2063                  qgase
-2064                  qgasemax
-2065                  qgasef
-2066                  qgasefmax
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 41
+2041  #--Mid-term storage--#
+2042                  qcapdeqcapc
+2043   
+2044                  qnd
+2045                  qndmax
+2046                  qndsu
+2047                  qndsd
+2048   
+2049                  qsmd
+2050                  qsmdmin
+2051                  qsmdmax
+2052   
+2053                  qdrudyn
+2054                  qdrucap
+2055                  qdrddyn
+2056                  qdrdcap
+2057                  qdsumin
+2058                  qdsumax
+2059                  qdsdmin
+2060                  qdsdmax
+2061   
+2062                  qdrufu
+2063                  qdruau
+2064                  qdrumus
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 41
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
-2067                  qgasefstart
-2068                  qgasel
-2069                  qgaselmax
-2070                  qgaselstart
+2065                  qdrdad
+2066                  qdrdmd
+2067                  qdrunsmin
+2068                  qdrunsmax
+2069                  qdrdsdmin
+2070                  qdrdsdmax
 2071   
-2072                  qgasc
-2073   
-2074                  qgasd
-2075   
-2076                  qgasuse
-2077                  qgasusegen
-2078   
-2079  #-- Price-elasticity--#
-2080   
-2081  #               price
-2082                  price_clone
-2083                  demand
-2084                  demand_clone
-2085                  totdemand
-2086                  totdemand2
-2087                  refdemand
-2088   
-2089                  shiftedaway
-2090                  shiftedforward
-2091                  shiftedbackward
+2072  #--Long-term storage--#
+2073                  qslressd
+2074   
+2075                  qgase
+2076                  qgasemax
+2077                  qgasef
+2078                  qgasefmax
+2079                  qgasefstart
+2080                  qgasel
+2081                  qgaselmax
+2082                  qgaselstart
+2083   
+2084                  qgasc
+2085   
+2086                  qgasd
+2087   
+2088                  qgasuse
+2089                  qgasusegen
+2090   
+2091  #-- Price-elasticity--#
 2092   
-2093                  shiftedawaytotal
-2094                  shiftedforwardtotal
-2095                  shiftedbackwardtotal
-2096   
-2097                  priceconstraint1
-2098                  priceconstraint2
-2099  #               priceconstraint3
-2100   
-2101          ##########
-2102          # include when working with moving frames, and set in wout_program -> factor back to 1
-2103                  shiftconstraint_frame_1
-2104                  shiftconstraint_frame_2
+2093  #               price
+2094                  price_clone
+2095                  demand
+2096                  demand_clone
+2097                  sum_demand
+2098                  totdemand
+2099                  totdemand2
+2100                  refdemand
+2101   
+2102                  shiftedaway
+2103                  shiftedforward
+2104                  shiftedbackward
 2105   
-2106                  shiftconstraint1
-2107                  shiftconstraint2
-2108   
-2109                  qinnerframe
-2110                  qouterframe
-2111   
-2112  #               revenue
-2113                  fixedcost
-2114                  variablecost
-2115                  cost
-2116   
-2117                  demlimitunder
-2118                  demlimitupper
-2119   
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 42
+2106                  shiftedawaytotal
+2107                  shiftedforwardtotal
+2108                  shiftedbackwardtotal
+2109   
+2110                  priceconstraint1
+2111                  priceconstraint2
+2112  #               priceconstraint3
+2113   
+2114          ##########
+2115          # include when working with moving frames, and set in wout_program -> factor back to 1
+2116                  shiftconstraint_frame_1
+2117                  shiftconstraint_frame_2
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 42
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
-2120                  front_d_1
-2121                  front_d_2
-2122                  front_u_1
-2123                  front_u_2
-2124                  back_d_1
-2125                  back_d_2
-2126                  back_u_1
-2127                  back_u_2
-2128   
-2129                  shift_u_1
-2130                  shift_u_2
-2131                  shift_d_1
-2132                  shift_d_2
-2133   
-2134                  surplusdemand
-2135  /;
-2136   
-2137   
-2138   
+2118   
+2119                  shiftconstraint1
+2120                  shiftconstraint2
+2121   
+2122                  qinnerframe
+2123                  qouterframe
+2124   
+2125  #               revenue
+2126                  fixedcost
+2127                  variablecost
+2128                  cost
+2129   
+2130                  demlimitunder
+2131                  demlimitupper
+2132   
+2133                  front_d_1
+2134                  front_d_2
+2135                  front_u_1
+2136                  front_u_2
+2137                  back_d_1
+2138                  back_d_2
+2139                  back_u_1
+2140                  back_u_2
+2141   
+2142                  shift_u_1
+2143                  shift_u_2
+2144                  shift_d_1
+2145                  shift_d_2
+2146   
+2147  #               surplusdemand
+2148  /;
+2149   
+2150   
+2151   
 
 **** LIST OF STRAY NAMES - CHECK DECLARATIONS FOR SPURIOUS COMMAS
 **** STRAY NAME taking OF TYPE PARAM
 **** STRAY NAME based OF TYPE VAR  
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 43
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 43
 GOA version 2.0 (December 2013) puuh
 Include File Summary
 
@@ -2417,8 +2432,8 @@ Include File Summary
      4      265 GDXIN          1      69  C:\Users\Wout\Documents\GitHub\thesis\Model2\run\_gams_py_gdb0.gdx
 
 
-COMPILATION TIME     =        0.016 SECONDS      4 MB  24.5.1 r54187 WEX-WEI
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/21/16 21:43:28 Page 44
+COMPILATION TIME     =        0.078 SECONDS      4 MB  24.5.1 r54187 WEX-WEI
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 44
 GOA version 2.0 (December 2013) puuh
 E x e c u t i o n
 

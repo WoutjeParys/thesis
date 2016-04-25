@@ -262,14 +262,14 @@ def calculate_comp_factor():
         print 'compensate new value: ', list_compensation[i-1]
 
 # Reset factor (to compensate the inbalances in the cross elasticities) to 1
-reset_factor_to_one()
+# reset_factor_to_one()
 # reset_factor_to_value(1.38)
 # set balance_price to flat price
-# Wout_initialise.initialise(length_period)
+Wout_initialise.initialise(length_period)
 
-output = list()
+# output = list()
 
-output.append(list(list_compensation))
+# output.append(list(list_compensation))
 for i in range (0,1):
     Wout_main.main(length_period)
     # balance_m_to_excel()
@@ -281,7 +281,7 @@ for i in range (0,1):
     #
     # output.append(list(list_compensation))
 
-print output
+# print output
 
 
 

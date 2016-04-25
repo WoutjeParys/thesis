@@ -289,6 +289,9 @@ def main(length_period):
     SHIFTMAX = db.add_parameter_dc('SHIFTMAX', [H,T], 'matrix to constraint shifting of energy outer window')
     COMPENSATE = db.add_parameter_dc('COMPENSATE', [P,H], 'a factor to multiply with the elasticity matrix to compensate energy losses')
 
+    DEM_NON_RES = db.add_parameter_dc('DEM_NON_RES', [P,T,Z], 'amount of non residential demand')
+    DEM_REF_RES = db.add_parameter_dc('DEM_REF_RES', [P,T,Z], 'amount of reference residential demand before DR')
+
     ############################################
 
     sql = 'Select g.Code from Generation_technologies g where g.Include > 0;'
@@ -488,10 +491,40 @@ def main(length_period):
     cur.execute(sql)
     profile = cur.fetchall()
     for per in enumerate(periods, start=1):
+        print 'per: ',per
+        print per[0],per[1][0]
         for p in range(0,length_period):
             # print str(int(per[0])), str(p+1), str(profile[(int(per[1][0])-1 + p)*4][1]), profile[(int(per[1][0])-1 + p)*4][2]
             # print int(per[0]), int(per[1][0]), (int(per[1][0])-1 + p)*4, profile[(int(per[1][0])-1 + p)*4][2]
             DEM_T.add_record((str(int(per[0])), str(p+1), str(profile[(int(per[1][0])-1 + p)*4][1]))).value = profile[(int(per[1][0])-1 + p)*4][2]
+
+    sql = 'Select First_hour from Time_steps;'
+    cur.execute(sql)
+    periods = cur.fetchall()
+    sql = 'Select Time, Zone, Demand from Demand_non_residential;'
+    cur.execute(sql)
+    profile = cur.fetchall()
+    for per in enumerate(periods, start=1):
+        print 'per: ',per
+        print per[0],per[1][0]
+        for p in range(0,length_period):
+            # print str(int(per[0])), str(p+1), str(profile[(int(per[1][0])-1 + p)*4][1]), profile[(int(per[1][0])-1 + p)*4][2]
+            # print int(per[0]), int(per[1][0]), (int(per[1][0])-1 + p)*4, profile[(int(per[1][0])-1 + p)*4][2]
+            DEM_NON_RES.add_record((str(int(per[0])), str(p+1), str(profile[(int(per[1][0])-1 + p)*4][1]))).value = profile[(int(per[1][0])-1 + p)*4][2]
+
+    sql = 'Select First_hour from Time_steps;'
+    cur.execute(sql)
+    periods = cur.fetchall()
+    sql = 'Select Time, Zone, Demand from Demand_residential;'
+    cur.execute(sql)
+    profile = cur.fetchall()
+    for per in enumerate(periods, start=1):
+        print 'per: ',per
+        print per[0],per[1][0]
+        for p in range(0,length_period):
+            # print str(int(per[0])), str(p+1), str(profile[(int(per[1][0])-1 + p)*4][1]), profile[(int(per[1][0])-1 + p)*4][2]
+            # print int(per[0]), int(per[1][0]), (int(per[1][0])-1 + p)*4, profile[(int(per[1][0])-1 + p)*4][2]
+            DEM_REF_RES.add_record((str(int(per[0])), str(p+1), str(profile[(int(per[1][0])-1 + p)*4][1]))).value = profile[(int(per[1][0])-1 + p)*4][2]
 
     ############################################
 
@@ -545,7 +578,7 @@ def main(length_period):
     cur.execute(sql)
     periods = cur.fetchall()
     for per in enumerate(periods, start=1):
-        # print per[0], per[1][0]
+        print per[0], per[1][0]
         W.add_record(str(int(per[0]))).value = per[1][0]
 
     ############################################
@@ -722,6 +755,8 @@ def main(length_period):
         for dvs in db.get_database_dvs():
             print dvs.symbol.name
             db.export('wrong_database.gdx')
+
+
     # except gams.workspace.GamsException as ge:
     #     print "error running gms file"
     #     for dvs in db.get_database_dvs():
