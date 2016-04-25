@@ -1,4 +1,4 @@
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 13:54:13 Page 1
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 18:41:41 Page 1
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -56,7 +56,7 @@ INCLUDE    C:\Users\Wout\Documents\GitHub\thesis\Model2\run\../gams/GAMS.opt
   57   
   58  *...............................................................................
   59  * OFFSYMXREF OFFSYMLIST OFFUELLIST OFFUELXREF, with the alternatives
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 13:54:13 Page 2
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 18:41:41 Page 2
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -114,7 +114,7 @@ C o m p i l a t i o n
  111   
  112  *...............................................................................
  113  * Handling of empty sets:
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 13:54:13 Page 3
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 18:41:41 Page 3
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -172,7 +172,7 @@ C o m p i l a t i o n
  164  *put "cuts no"/;
  165  *put "predual 1"/;
  166  *put "interactive yes"/;
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 13:54:13 Page 4
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 18:41:41 Page 4
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -230,7 +230,7 @@ INCLUDE    C:\Users\Wout\Documents\GitHub\thesis\Model2\run\../gams/GOA.opt
  216   
  217  # Declaration
  218   
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 13:54:13 Page 5
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 18:41:41 Page 5
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -288,7 +288,7 @@ GDXIN   C:\Users\Wout\Documents\GitHub\thesis\Model2\run\_gams_py_gdb0.gdx
 --- LOAD  C_ALL = 3:C_ALL
 --- LOAD  Z_ALL = 4:Z_ALL
 --- LOAD  R_C = 5:R_C
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 13:54:13 Page 6
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 18:41:41 Page 6
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -346,7 +346,7 @@ C o m p i l a t i o n
 --- LOAD  MDT = 38:MDT
  284  $LOAD MDT
  285   
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 13:54:13 Page 7
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 18:41:41 Page 7
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -382,7 +382,7 @@ C o m p i l a t i o n
  314  EGCAPEX                                 Annualized energy investment cost of gas storage
  315  E_LP                                    Energy volume of the gas line pack
  316   
- 317  ELAST(T,H)                              Elasticity relative to hour one and hour two
+ 317  ELAST(P,T,H)                            Elasticity relative to hour one and hour two
  318   
  319  DIAG(T,H)                               a matrix to include the controlled hour
  320  TRI_UP(T,H)                             a matrix to include the eleven earlier hours
@@ -404,7 +404,7 @@ C o m p i l a t i o n
  336  ELAST_NEW(P,T,H)        the new calculated elasticity matrix, taking into account the compensation factor
  337  DEM_REF_RES(P,T,Z)      amount of reference residential demand before DR
  338  DEM_NON_RES(P,T,Z)      amount of non residential demand
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 13:54:13 Page 8
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 18:41:41 Page 8
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -462,7 +462,7 @@ C o m p i l a t i o n
  366  EGCAPEX = 2000000000000000000000000;
  367  E_LP = 7100000;
  368  P_REF = 55.5;
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 13:54:13 Page 9
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                 04/25/16 18:41:41 Page 9
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -472,8 +472,8 @@ C o m p i l a t i o n
  371  LIMITDEM = 750;
  372  LIMITSHIFT = 2000;
  373  LENGTH_P = card(T);
- 374  ELAST_NEW(P,T,H) = ELAST(T,H)*DIAG(T,H)+COMPENSATE(P,H)*(TRI_LOW(T,H)*ELAST(T,H)+TRI_UP(T,H)*ELAST(T,H));
- 375  #ELAST_NEW(P,T,H) = ELAST(T,H)*1;
+ 374  ELAST_NEW(P,T,H) = ELAST(P,T,H)*DIAG(T,H)+COMPENSATE(P,H)*(TRI_LOW(T,H)*ELAST(P,T,H)+TRI_UP(T,H)*ELAST(P,T,H));
+ 375  #ELAST_NEW(P,T,H) = ELAST(P,T,H)*1;
  376   
  377  eff_factor_earlier = 0.0;
  378  eff_factor_later = 0.0;
@@ -520,7 +520,7 @@ C o m p i l a t i o n
  419   
  420  #######################################################
  421   
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 10
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 10
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -578,7 +578,7 @@ C o m p i l a t i o n
  472  res_s_d_s(Y,P,T,Z,R,SM)         Spinning reserve allocation of discharging storage technology SM for reserve category R
  473  res_s_d_ns(Y,P,T,Z,RU,SM)       Start-up reserve allocation of discharging storage technology SM for reserve category RU
  474  res_s_d_sd(Y,P,T,Z,RD,SM)       Shut-down reserve allocation of discharging storage technology SM for reserve category RD
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 11
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 11
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -636,7 +636,7 @@ C o m p i l a t i o n
  525   
  526  qresgcu(Y,P,T,Z,RU,GD)
  527  qresgcd(Y,P,T,Z,RD,GD)
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 12
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 12
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -694,7 +694,7 @@ C o m p i l a t i o n
  578  qsscrd(Y,P,T,Z,SS)
  579  qssd(Y,P,T,Z,SS)
  580  qssdru(Y,P,T,Z,SS)
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 13
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 13
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -752,7 +752,7 @@ C o m p i l a t i o n
  631  qdrdad(Y,P,T,Z,SM)
  632  qdrdmd(Y,P,T,Z,SM)
  633  qdrunsmin(Y,P,T,Z,RU,SM)
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 14
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 14
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -810,7 +810,7 @@ C o m p i l a t i o n
  684  back_d_2(P,H,Z)
  685  back_u_1(P,H,Z)
  686  back_u_2(P,H,Z)
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 15
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 15
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -868,7 +868,7 @@ C o m p i l a t i o n
  737  #                                               - load_shedding(Y,P,T,Z)
  738                                                  #+ sum(S, p_c(Y,P,T,Z,S))
  739                                                  ;
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 16
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 16
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -926,7 +926,7 @@ C o m p i l a t i o n
  790  qres(Y,P,T,C,R)..
  791                                          sum(Z $ C_Z(C,Z),       sum(G, res_g(Y,P,T,Z,R,G)))
  792                                          + sum(Z $ C_Z(C,Z), sum(S, res_s(Y,P,T,Z,R,S)))
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 17
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 17
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -984,7 +984,7 @@ C o m p i l a t i o n
  843  #                                               CAP_G(Y,Z,G,'CAP_MAX')
  844  #                                               ;
  845  #
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 18
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 18
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -1042,7 +1042,7 @@ C o m p i l a t i o n
  896                                                  cap(Y,Z,GD)/G_DATA(GD,'P_MAX')
  897                                                  - n(Y,P,T,Z,GD)
  898                                                  - sum(MDT(GD,T_MDT), n_sd(Y,P, T-(ord(T_MDT)-1), Z, GD))
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 19
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 19
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -1100,7 +1100,7 @@ C o m p i l a t i o n
  949                          ;
  950   
  951  qrddyn(Y,P,T,Z,GD)..
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 20
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 20
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -1158,7 +1158,7 @@ C o m p i l a t i o n
 1002                          ;
 1003   
 1004  qrumus(Y,P,T,Z,GD)..
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 21
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 21
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -1216,7 +1216,7 @@ C o m p i l a t i o n
 1055   
 1056  #--Output and curtailment constraint--#
 1057   
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 22
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 22
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -1274,7 +1274,7 @@ C o m p i l a t i o n
 1108   
 1109  #-------Short- and mid-term storage--------------------------------------------#
 1110   
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 23
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 23
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -1332,7 +1332,7 @@ C o m p i l a t i o n
 1161                                                  + (W(P)-1)*sum(T_E, p_c(Y,P,T_E,Z,SSM)*(S_DATA(SSM,'EFF_C')/100) - p_d(Y,P,T_E,Z,SSM)/(S_DATA(SSM,'EFF_D')/100))
 1162                                                  ;
 1163   
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 24
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 24
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -1390,7 +1390,7 @@ C o m p i l a t i o n
 1214                          ;
 1215   
 1216  qsscru(Y,P,T,Z,SS)..
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 25
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 25
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -1448,7 +1448,7 @@ C o m p i l a t i o n
 1267  qresscd(Y,P,T,Z,RD,SML)..
 1268                                          res_s_c(Y,P,T,Z,RD,SML)
 1269                                          =e=
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 26
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 26
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -1506,7 +1506,7 @@ C o m p i l a t i o n
 1320   
 1321  qsmlc(Y,P,T,Z,SML)$(ord(T)<card(T))..
 1322                      p_c(Y,P,T+1,Z,SML)
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 27
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 27
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -1564,7 +1564,7 @@ C o m p i l a t i o n
 1373                          ;
 1374   
 1375  qcsumin(Y,P,T,Z,SML)..
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 28
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 28
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -1622,7 +1622,7 @@ C o m p i l a t i o n
 1426                      sum(RU, res_s_c_s(Y,P,T,Z,RU,SML))
 1427                      =l=
 1428                          (n_c(Y,P,T,Z,SML)-n_c_sd(Y,P,T,Z,SML)-sum(RU, n_c_sd_r(Y,P,T,Z,RU,SML)))*S_DATA(SML,'RCM')/100*S_DATA(SML,'P_C_MAX')
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 29
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 29
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -1680,7 +1680,7 @@ C o m p i l a t i o n
 1479  qndsu(Y,P,T,Z,SM)..
 1480                                          n_d_su(Y,P,T,Z,SM)
 1481                                          + sum(RU, n_d_su_r(Y,P,T,Z,RU,SM))
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 30
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 30
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -1738,7 +1738,7 @@ C o m p i l a t i o n
 1532                          - (p_d(Y,P,T,Z,SM)-ramp_d_sd(Y,P,T,Z,SM))
 1533                          ;
 1534   
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 31
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 31
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -1796,7 +1796,7 @@ C o m p i l a t i o n
 1585                          (n_d(Y,P,T,Z,SM)-n_d_sd(Y,P,T,Z,SM))*S_DATA(SM,'RDA')/100*S_DATA(SM,'P_D_MAX')
 1586                          ;
 1587   
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 32
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 32
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -1854,7 +1854,7 @@ C o m p i l a t i o n
 1638                                                  ;
 1639   
 1640  #--Gas energy balance--#
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 33
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 33
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -1912,7 +1912,7 @@ C o m p i l a t i o n
 1691   
 1692  qgaselstart(Y,P,T,C)$(ord(T)=1)..
 1693                                          eg_l(Y,P,T,C)
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 34
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 34
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -1970,13 +1970,13 @@ C o m p i l a t i o n
 1744                      ;
 1745   
 1746  totdemand(P,Z)..
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 35
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 35
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
 
 1747  #                                       sum(T,DEM_REF_RES(P,T,Z)) =l= sum(T,demand_new_res(P,T,Z))
-1748                                          sum(T,DEM_REF_RES(P,T,Z)+eff_factor_earlier*sum(H,DIAG(T,H)*(front_up(P,H,Z)-back_down(P,H,Z)))) =l= demand_tot(P,Z)
+1748                                          sum(T,DEM_REF_RES(P,T,Z)+eff_factor_earlier*sum(H,DIAG(T,H)*(front_up(P,H,Z)-back_down(P,H,Z)))) =l= sum(T,demand_new_res(P,T,Z))
 1749                                          ;
 1750   
 1751  surplusdemand(P,T,Z)..
@@ -2028,7 +2028,7 @@ C o m p i l a t i o n
 1797   
 1798  shiftconstraint_frame_1(P,H,Z)..
 1799                                          sum(T,DEM_REF_RES(P,T,Z)*SHIFTMIN(H,T)) =l= sum(T,demand_new_res(P,T,Z)*SHIFTMAX(H,T))
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 36
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 36
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -2086,7 +2086,7 @@ C o m p i l a t i o n
 1850                                          + sum((Y,T,GC), W(P)*(G_DATA(GC,'C_FUEL'))*gen(Y,P,T,Z,GC)))*(168/card(T))
 1851                                          ;
 1852   
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 37
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 37
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -2144,7 +2144,7 @@ C o m p i l a t i o n
 1903                                          ;
 1904   
 1905  shift_u_2(P,H,Z)..
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 38
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 38
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -2202,7 +2202,7 @@ C o m p i l a t i o n
 1956                  qsumax
 1957                  qsdmin
 1958                  qsdmax
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 39
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 39
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -2260,7 +2260,7 @@ C o m p i l a t i o n
 2009                  qresscd
 2010                  qressdu
 2011                  qressdd
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 40
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 40
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -2318,7 +2318,7 @@ C o m p i l a t i o n
 2062                  qdrufu
 2063                  qdruau
 2064                  qdrumus
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 41
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 41
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -2354,10 +2354,10 @@ C o m p i l a t i o n
 2093  #               price
 2094                  price_clone
 2095                  demand
-2096                  demand_clone
+2096  #               demand_clone
 2097                  sum_demand
 2098                  totdemand
-2099                  totdemand2
+2099  #               totdemand2
 2100                  refdemand
 2101   
 2102                  shiftedaway
@@ -2368,15 +2368,15 @@ C o m p i l a t i o n
 2107                  shiftedforwardtotal
 2108                  shiftedbackwardtotal
 2109   
-2110                  priceconstraint1
-2111                  priceconstraint2
+2110  #               priceconstraint1
+2111  #               priceconstraint2
 2112  #               priceconstraint3
 2113   
 2114          ##########
 2115          # include when working with moving frames, and set in wout_program -> factor back to 1
-2116                  shiftconstraint_frame_1
-2117                  shiftconstraint_frame_2
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 42
+2116  #               shiftconstraint_frame_1
+2117  #               shiftconstraint_frame_2
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 42
 GOA version 2.0 (December 2013) puuh
 C o m p i l a t i o n
 
@@ -2385,13 +2385,13 @@ C o m p i l a t i o n
 2119                  shiftconstraint1
 2120                  shiftconstraint2
 2121   
-2122                  qinnerframe
-2123                  qouterframe
+2122  #               qinnerframe
+2123  #               qouterframe
 2124   
 2125  #               revenue
-2126                  fixedcost
-2127                  variablecost
-2128                  cost
+2126  #               fixedcost
+2127  #               variablecost
+2128  #               cost
 2129   
 2130                  demlimitunder
 2131                  demlimitupper
@@ -2419,7 +2419,7 @@ C o m p i l a t i o n
 **** LIST OF STRAY NAMES - CHECK DECLARATIONS FOR SPURIOUS COMMAS
 **** STRAY NAME taking OF TYPE PARAM
 **** STRAY NAME based OF TYPE VAR  
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 43
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 43
 GOA version 2.0 (December 2013) puuh
 Include File Summary
 
@@ -2432,13 +2432,13 @@ Include File Summary
      4      265 GDXIN          1      69  C:\Users\Wout\Documents\GitHub\thesis\Model2\run\_gams_py_gdb0.gdx
 
 
-COMPILATION TIME     =        0.078 SECONDS      4 MB  24.5.1 r54187 WEX-WEI
-GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 13:54:13 Page 44
+COMPILATION TIME     =        0.140 SECONDS      4 MB  24.5.1 r54187 WEX-WEI
+GAMS 24.5.1  r54187 Released Sep 23, 2015 WEX-WEI x86 64bit/MS Windows                                                                                                                                                                04/25/16 18:41:41 Page 44
 GOA version 2.0 (December 2013) puuh
 E x e c u t i o n
 
 
-EXECUTION TIME       =        0.000 SECONDS      4 MB  24.5.1 r54187 WEX-WEI
+EXECUTION TIME       =        0.016 SECONDS      4 MB  24.5.1 r54187 WEX-WEI
 
 
 USER: Electrical Engineering, Research Group         S150824:1037AO-GEN

@@ -26,7 +26,7 @@ list_compensation = list()
 
 #length period needs to be a multiple of 24
 length_period = 24*7
-amount_of_periods = 1
+amount_of_periods = 3
 
 #write marginal values of balance function to excel
 def balance_m_to_excel():
@@ -244,18 +244,18 @@ def calculate_comp_factor():
     print 'shifting file loaded'
     sheet = wbread.get_sheet_by_name(sh_shift_name)
     print list_compensation
-    forward = 0
-    backward = 0
-    away = 0
     for i in range(1,amount_of_periods+1):
+        forward = 0
+        backward = 0
+        away = 0
         for j in range(2,length_period+2):
             # print ('j: ', j)
-            forward = forward + abs(sheet.cell(row = (i-1)+j,column = 4).value)
-            backward = backward + abs(sheet.cell(row = (i-1)+j,column = 5).value)
-            away = away + abs(sheet.cell(row = (i-1)+j,column = 6).value)
-        # print forward
-        # print backward
-        # print away
+            forward = forward + abs(sheet.cell(row = (i-1)*length_period+j,column = 4).value)
+            backward = backward + abs(sheet.cell(row = (i-1)*length_period+j,column = 5).value)
+            away = away + abs(sheet.cell(row = (i-1)*length_period+j,column = 6).value)
+        print forward
+        print backward
+        print away
         compensate = away/(forward+backward)
         print 'compensate: ',compensate
         list_compensation[i-1] = list_compensation[i-1]*math.sqrt(compensate)
@@ -263,25 +263,24 @@ def calculate_comp_factor():
 
 # Reset factor (to compensate the inbalances in the cross elasticities) to 1
 # reset_factor_to_one()
-# reset_factor_to_value(1.38)
+reset_factor_to_value(1.38)
 # set balance_price to flat price
-Wout_initialise.initialise(length_period)
+# Wout_initialise.initialise(length_period)
 
-# output = list()
+output = list()
 
-# output.append(list(list_compensation))
+output.append(list(list_compensation))
 for i in range (0,1):
-    Wout_main.main(length_period)
+    # Wout_main.main(length_period)
     # balance_m_to_excel()
     # balance_m_to_sqlite()
-    # update_factor_values()
     # shift_to_excel()
-    # calculate_comp_factor()
-    # set_factor_to_value()
+    calculate_comp_factor()
+    set_factor_to_value()
     #
-    # output.append(list(list_compensation))
+    output.append(list(list_compensation))
 
-# print output
+print output
 
 
 

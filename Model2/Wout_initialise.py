@@ -15,7 +15,7 @@ geographical_entities = include
 generation_technologies = include
 storage_technologies = include
 time_periods = True
-demand_ref = True
+demand_ref = include
 intermittent_renewables = include
 reliable_intermittent = include
 policy = include
@@ -238,16 +238,17 @@ def initialise(length_period):
         sh = book.sheet_by_index(1)
         sql = 'DROP TABLE IF EXISTS Time_steps;'
         cur.execute(sql)
-        sql = 'CREATE TABLE IF NOT EXISTS Time_steps (First_hour FLOAT, Weight FLOAT);'
+        sql = 'CREATE TABLE IF NOT EXISTS Time_steps (First_hour FLOAT, Weight FLOAT, Season FLOAT);'
         cur.execute(sql)
         periods = list()
         for rx in range(sh.nrows - 3):
             a = sh.cell_value(rowx=rx + 3, colx=0)
             b = sh.cell_value(rowx=rx + 3, colx=1)
+            s = sh.cell_value(rowx=rx + 3, colx=2)
             # print a, b
-            periods.append((a, b))
+            periods.append((a, b, s))
         # print periods
-        cur.executemany('INSERT INTO Time_steps VALUES (?,?)', periods)
+        cur.executemany('INSERT INTO Time_steps VALUES (?,?,?)', periods)
         conn.commit()
         ############################################
         print "Done time"
@@ -260,42 +261,52 @@ def initialise(length_period):
 
     if elasticity_matrix:
         book = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\Elasticity.xlsx"))
-        sh = book.sheet_by_index(0)
         sql = 'DROP TABLE IF EXISTS Elasticity;'
         cur.execute(sql)
-        sql = 'CREATE TABLE IF NOT EXISTS Elasticity (Hour1 TEXT, Hour2 TEXT, Price_Elasticity FLOAT);'
+        sql = 'CREATE TABLE IF NOT EXISTS Elasticity (Season FLOAT, Hour1 TEXT, Hour2 TEXT, Price_Elasticity FLOAT);'
         cur.execute(sql)
         elasticity = list()
         if test:
             sheetwrite = wbwrite.get_sheet_by_name('Sheet1')
         # TODO
         # check how to handle elasticity, for now, only Hour1 - Hour2 and matrix 168-168
+        # amount of days should be 7 to work with right elasticities weekday-weekend
         amount_of_days = length_period/24
-        for day in range(0,amount_of_days):
-            for row in range(3,sh.nrows):
-                hour1 = int(sh.cell_value(row, 0)) + 24*day
-                for col in range(1,sh.ncols):
-                    if col < 13:
-                        if row > 14 + col:
-                            hour2 = int(sh.cell_value(2, col)) + 24*(day+1)
+        startday_weekend = 4
+        for season in range (0,4):
+            print 'season: ', season
+            print 'season: ', season
+            for day in range(0,amount_of_days):
+                if day == startday_weekend or day == startday_weekend+1:
+                    print 'in if, and index = ', season*2+1
+                    sh=book.sheet_by_index(season*2+1)
+                else:
+                    print 'in else, and index = ', season*2
+                    sh=book.sheet_by_index(season*2)
+                for row in range(3,sh.nrows):
+                    hour1 = int(sh.cell_value(row, 0)) + 24*day
+                    for col in range(1,sh.ncols):
+                        if col < 13:
+                            if row > 14 + col:
+                                hour2 = int(sh.cell_value(2, col)) + 24*(day+1)
+                            else:
+                                hour2 = int(sh.cell_value(2, col)) + 24*(day)
+                            if hour2 > length_period:
+                                hour2 = hour2 - length_period
                         else:
-                            hour2 = int(sh.cell_value(2, col)) + 24*(day)
-                        if hour2 > length_period:
-                            hour2 = hour2 - length_period
-                    else:
-                        if col > 11 + row-2:
-                            hour2 = int(sh.cell_value(2, col)) + 24*(day-1)
-                        else:
-                            hour2 = int(sh.cell_value(2, col)) + 24*(day)
-                        if hour2 < 1:
-                            hour2 = hour2 + length_period
-                    value = sh.cell_value(row,col)
-                    elasticity.append((hour1,hour2,value))
-                    if test:
-                        writecell = sheetwrite.cell(row = hour1, column = hour2)
-                        # print value
-                        writecell.value = value
-        cur.executemany('INSERT INTO Elasticity VALUES (?,?,?)', elasticity)
+                            if col > 11 + row-2:
+                                hour2 = int(sh.cell_value(2, col)) + 24*(day-1)
+                            else:
+                                hour2 = int(sh.cell_value(2, col)) + 24*(day)
+                            if hour2 < 1:
+                                hour2 = hour2 + length_period
+                        value = sh.cell_value(row,col)
+                        elasticity.append((season+1,hour1,hour2,value))
+                        if test:
+                            writecell = sheetwrite.cell(row = hour1, column = hour2)
+                            # print value
+                            writecell.value = value
+        cur.executemany('INSERT INTO Elasticity VALUES (?,?,?,?)', elasticity)
         conn.commit()
         print 'Done elasticities'
 

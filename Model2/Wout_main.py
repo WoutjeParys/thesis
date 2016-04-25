@@ -281,7 +281,7 @@ def main(length_period):
     # EGCAPEX = db.add_parameter_dc('EGCAPEX', 1, 'Annualized energy investment cost of gas storage')
     # E_LP = db.add_parameter_dc('E_LP', 1, 'Energy volume of the gas line pack')
 
-    ELAST = db.add_parameter_dc('ELAST', [T,H], 'Elasticity relative to hour one and hour two')
+    ELAST = db.add_parameter_dc('ELAST', [P,T,H], 'Elasticity relative to hour one and hour two')
     DIAG = db.add_parameter_dc('DIAG', [T,H], 'Diagonal matrix with ones and zeros')
     TRI_UP = db.add_parameter_dc('TRI_UP', [T,H], 'Diagonal matrix with ones and zeros')
     TRI_LOW = db.add_parameter_dc('TRI_LOW', [T,H], 'Lower triangle with ones and zeros')
@@ -491,8 +491,8 @@ def main(length_period):
     cur.execute(sql)
     profile = cur.fetchall()
     for per in enumerate(periods, start=1):
-        print 'per: ',per
-        print per[0],per[1][0]
+        # print 'per: ',per
+        # print per[0],per[1][0]
         for p in range(0,length_period):
             # print str(int(per[0])), str(p+1), str(profile[(int(per[1][0])-1 + p)*4][1]), profile[(int(per[1][0])-1 + p)*4][2]
             # print int(per[0]), int(per[1][0]), (int(per[1][0])-1 + p)*4, profile[(int(per[1][0])-1 + p)*4][2]
@@ -505,8 +505,8 @@ def main(length_period):
     cur.execute(sql)
     profile = cur.fetchall()
     for per in enumerate(periods, start=1):
-        print 'per: ',per
-        print per[0],per[1][0]
+        # print 'per: ',per
+        # print per[0],per[1][0]
         for p in range(0,length_period):
             # print str(int(per[0])), str(p+1), str(profile[(int(per[1][0])-1 + p)*4][1]), profile[(int(per[1][0])-1 + p)*4][2]
             # print int(per[0]), int(per[1][0]), (int(per[1][0])-1 + p)*4, profile[(int(per[1][0])-1 + p)*4][2]
@@ -519,8 +519,8 @@ def main(length_period):
     cur.execute(sql)
     profile = cur.fetchall()
     for per in enumerate(periods, start=1):
-        print 'per: ',per
-        print per[0],per[1][0]
+        # print 'per: ',per
+        # print per[0],per[1][0]
         for p in range(0,length_period):
             # print str(int(per[0])), str(p+1), str(profile[(int(per[1][0])-1 + p)*4][1]), profile[(int(per[1][0])-1 + p)*4][2]
             # print int(per[0]), int(per[1][0]), (int(per[1][0])-1 + p)*4, profile[(int(per[1][0])-1 + p)*4][2]
@@ -578,16 +578,26 @@ def main(length_period):
     cur.execute(sql)
     periods = cur.fetchall()
     for per in enumerate(periods, start=1):
-        print per[0], per[1][0]
+        # print per[0], per[1][0]
         W.add_record(str(int(per[0]))).value = per[1][0]
 
     ############################################
 
-    sql = 'Select Hour1, Hour2, Price_Elasticity from Elasticity;'
+    sql = 'Select First_hour,Season from Time_steps;'
+    cur.execute(sql)
+    periods = cur.fetchall()
+    print 'periods: ',periods
+
+    sql = 'Select Season, Hour1, Hour2, Price_Elasticity from Elasticity;'
     cur.execute(sql)
     elasticities = cur.fetchall()
-    for e in elasticities:
-        ELAST.add_record((str(e[0]), str(e[1]))).value = e[2]
+    count_per = 1
+    for per in periods:
+        print 'season: ', per[1]
+        for e in elasticities:
+            if e[0] == per[1]:
+                ELAST.add_record((str(count_per),str(e[1]), str(e[2]))).value = e[3]
+        count_per = count_per+1
 
     ###########################################
 

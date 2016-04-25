@@ -118,7 +118,7 @@ T_R(R)                  Time factor to calculate energy for reserve provision
 EGCAPEX					Annualized energy investment cost of gas storage
 E_LP					Energy volume of the gas line pack
 
-ELAST(T,H)				Elasticity relative to hour one and hour two
+ELAST(P,T,H)				Elasticity relative to hour one and hour two
 
 DIAG(T,H)				a matrix to include the controlled hour
 TRI_UP(T,H)				a matrix to include the eleven earlier hours
@@ -175,8 +175,8 @@ LIMITPRICE = P_REF*0.9;
 LIMITDEM = 750;
 LIMITSHIFT = 2000;
 LENGTH_P = card(T);
-ELAST_NEW(P,T,H) = ELAST(T,H)*DIAG(T,H)+COMPENSATE(P,H)*(TRI_LOW(T,H)*ELAST(T,H)+TRI_UP(T,H)*ELAST(T,H));
-#ELAST_NEW(P,T,H) = ELAST(T,H)*1;
+ELAST_NEW(P,T,H) = ELAST(P,T,H)*DIAG(T,H)+COMPENSATE(P,H)*(TRI_LOW(T,H)*ELAST(P,T,H)+TRI_UP(T,H)*ELAST(P,T,H));
+#ELAST_NEW(P,T,H) = ELAST(P,T,H)*1;
 
 eff_factor_earlier = 0.0;
 eff_factor_later = 0.0;
@@ -1549,7 +1549,7 @@ sum_demand(P,T,Z)..
 
 totdemand(P,Z)..
 #					sum(T,DEM_REF_RES(P,T,Z)) =l= sum(T,demand_new_res(P,T,Z))
-					sum(T,DEM_REF_RES(P,T,Z)+eff_factor_earlier*sum(H,DIAG(T,H)*(front_up(P,H,Z)-back_down(P,H,Z)))) =l= demand_tot(P,Z)
+					sum(T,DEM_REF_RES(P,T,Z)+eff_factor_earlier*sum(H,DIAG(T,H)*(front_up(P,H,Z)-back_down(P,H,Z)))) =l= sum(T,demand_new_res(P,T,Z))
 					;
 
 surplusdemand(P,T,Z)..
@@ -1897,10 +1897,10 @@ MODEL GOA GOA model /
 #		price
 		price_clone
 		demand
-		demand_clone
+#		demand_clone
 		sum_demand
 		totdemand
-		totdemand2
+#		totdemand2
 		refdemand
 
 		shiftedaway
@@ -1911,25 +1911,25 @@ MODEL GOA GOA model /
 		shiftedforwardtotal
 		shiftedbackwardtotal
 
-		priceconstraint1
-		priceconstraint2
+#		priceconstraint1
+#		priceconstraint2
 #		priceconstraint3
 
         ##########
         # include when working with moving frames, and set in wout_program -> factor back to 1
-		shiftconstraint_frame_1
-		shiftconstraint_frame_2
+#		shiftconstraint_frame_1
+#		shiftconstraint_frame_2
 
 		shiftconstraint1
 		shiftconstraint2
 
-		qinnerframe
-		qouterframe
+#		qinnerframe
+#		qouterframe
 
 #		revenue
-		fixedcost
-		variablecost
-		cost
+#		fixedcost
+#		variablecost
+#		cost
 
 		demlimitunder
 		demlimitupper
