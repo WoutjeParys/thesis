@@ -44,7 +44,7 @@ GCO(GC)		Other conventional generation technologies
 GR(G)		Renewable generation technologies
 GRI(GR)		Intermittent renewable generation technologies
 GRD(GR)		Dispatchable renewable generation technologies
-G_PARAM		Generation technology parameterz
+G_PARAM		Generation technology parameters
 
 S			All storage technologies
 SSM(S)		Short and Mid-term storage technologies
@@ -118,13 +118,32 @@ T_R(R)                  Time factor to calculate energy for reserve provision
 EGCAPEX					Annualized energy investment cost of gas storage
 E_LP					Energy volume of the gas line pack
 
-ELAST(T,H)				Elasticity relative to hour one and hour two
+ELAST(P,T,H)				Elasticity relative to hour one and hour two
+
+DIAG(T,H)				a matrix to include the controlled hour
+TRI_UP(T,H)				a matrix to include the eleven earlier hours
+TRI_LOW(T,H)			a matrix to include the twelve later hours
+
 P_REF					reference price (calculated in advance)
 TOTDEM					The sum of the demand over all hours
-LIMIT					absolute value of price difference that is allowed
+LIMITPRICE				absolute value of price difference that is allowed
+LIMITDEM				absolute value of max demand shift
+LIMITSHIFT				absolute value of max demand shifted away from an hour with use of elasticities
 SHIFTMIN(H,T)			matrix to constraint shifting of energy inner window
 SHIFTMAX(H,T)			matrix to constraint shifting of energy outer window
 LENGTH_P				the length of the period as programmed in main and init (.py)
+
+eff_factor_earlier		a factor to include the efficiency of demand shifted to an earlier time
+eff_factor_later		a factor to include the efficiency of demand shifted to a later time
+
+COMPENSATE(P,H)			a parameter that compensates for energy losses due an elasticity-matrix that is not perfect
+ELAST_NEW(P,T,H)        the new calculated elasticity matrix, taking into account the compensation factor
+DEM_REF_RES(P,T,Z)      amount of reference residential demand before DR
+DEM_NON_RES(P,T,Z)      amount of non residential demand
+ELAST_COMP(P,T,H)       compensation PEM
+RATIO_H(P,H)            inbalance ratio
+LINEARPEM(T,H)          compensation PEM linear
+OWNELAST(T,H)           compensation PEM elast
 ;
 
 $LOAD G_DATA
@@ -142,32 +161,83 @@ $LOAD R_EXO
 $LOAD R_ENDO
 $LOAD T_R
 $LOAD ELAST
+$LOAD DIAG
+$LOAD TRI_UP TRI_LOW
 $LOAD SHIFTMIN
 $LOAD SHIFTMAX
+$LOAD COMPENSATE
+$LOAD DEM_REF_RES DEM_NON_RES
+$LOAD RATIO_H
+$LOAD LINEARPEM OWNELAST
 
 #C_GAS = 25.6643460843943;
 C_GAS = 25.6643460843943*2;
 T_MARKET = 1;
 EGCAPEX = 2000000000000000000000000;
 E_LP = 7100000;
-P_REF = 55.8;
+P_REF = 55.5;
 TOTDEM = sum((P,T,Z),DEM_T(P,T,Z));
-LIMIT = P_REF*0.7;
+LIMITPRICE = P_REF*0.95;
+LIMITDEM = 1500;
+LIMITSHIFT = 3000;
 LENGTH_P = card(T);
+
+# flat compensation PEM
+ELAST_COMP(P,T,H) = (TRI_LOW(T,H)+TRI_UP(T,H))*RATIO_H(P,H);
+# linear compensation PEM
+#ELAST_COMP(P,T,H) = (LINEARPEM(T,H))*RATIO_H(P,H);
+# Elastic compensation PEM
+#ELAST_COMP(P,T,H) = (OWNELAST(T,H))*RATIO_H(P,H);
+ELAST_NEW(P,T,H) = ELAST(P,T,H)+ELAST_COMP(P,T,H);
+
+eff_factor_earlier = 0.0;
+eff_factor_later = 0.0;
 
 VARIABLES
 obj                 	Value of objective function
+
+#######################################################
+
+shiftforwards(P,H,Z)			Shift towards an earlier moment in time per hour
+shiftforwards_total(P,Z)		Shift towards an earlier moment in time per period
+shiftbackwards(P,H,Z)			Shift towards a later moment in time per hour
+shiftbackwards_total(P,Z)		Shift towards a later moment in time per period
+shiftaway(P,H,Z)				Shift away from an hour
+shiftaway_total(P,Z)			Shift away from a period
+
+shiftfi(P,H,Z)
+shiftbi(P,H,Z)
+shifta(P,H,Z)
+shiftfc(P,H,Z)
+shiftbc(P,H,Z)
+
+front_up(P,H,Z)
+front_down(P,H,Z)
+back_up(P,H,Z)
+back_down(P,H,Z)
+shift_up(P,H,Z)
+shift_down(P,H,Z)
 ;
 
 POSITIVE VARIABLES
 #######################################################
 
-price_unit(P,T,Z)				Price of the electricity
-demand_unit(P,T,Z)				demand of the electricity
+price_unit(P,H,Z)				Residential price signal for the electricity
+price_unit_clone(P,T,Z)
+demand_new_res(P,T,Z)           Residential demand after price signal applied
+demand_new_res_clone(P,H,Z)
+demand_unit(P,T,Z)				demand of the electricity (sum residential & non-residential)
+demand_unit_clone(P,H,Z)
 demand_tot(P,Z)					total demand, based on demand_unit
+surplus(P,T,Z)
 demand_ref(P,T,Z)				the reference demand with flat price
 innerframe(P,H,Z)
 outerframe(P,H,Z)
+
+totalrevenue(P,Z)				the product of demand and price
+totalfixedcost(Z)				the sum of the total investment cost and fixed variable cost
+totalvariablecost(P,Z)			the sum of the variable O&M cost and fuel cost
+totalcost(Z)					the sum of the totalvariablecost and totalfixedcost
 
 #######################################################
 
@@ -402,51 +472,78 @@ qgasuse(Y,C)
 qgasusegen(Y,P,T,Z,GCG)
 
 ###############################
-price(P,T,Z)
+#price(P,H,Z)
+price_clone(P,T,Z)
 demand(P,T,Z)
+demand_clone(P,H,Z)
+
+sum_demand(P,T,Z)
 totdemand(P,Z)
+surplusdemand(P,T,Z)
 totdemand2(P,Z)
 refdemand(P,T,Z)
 refdemand2(Z)
 priceconstraint1(P,T,Z)
 priceconstraint2(P,T,Z)
-shiftconstraint(P,H,Z)
+priceconstraint3(P,Z)
+shiftconstraint_frame_1(P,H,Z)
+shiftconstraint_frame_2(P,H,Z)
+shiftconstraint1(P,H,Z)
+shiftconstraint2(P,H,Z)
+shiftedforward(P,H,Z)
+shiftedforwardtotal(P,Z)
+shiftedbackward(P,H,Z)
+shiftedbackwardtotal(P,Z)
+shiftedaway(P,H,Z)
+shiftedawaytotal(P,Z)
+
+shiftedfi(P,H,Z)
+shiftedbi(P,H,Z)
+shiftedfc(P,H,Z)
+shiftedbc(P,H,Z)
+
+front_d_1(P,H,Z)
+front_d_2(P,H,Z)
+front_u_1(P,H,Z)
+front_u_2(P,H,Z)
+
+back_d_1(P,H,Z)
+back_d_2(P,H,Z)
+back_u_1(P,H,Z)
+back_u_2(P,H,Z)
+
+shift_d_1(P,H,Z)
+shift_d_2(P,H,Z)
+shift_u_1(P,H,Z)
+shift_u_2(P,H,Z)
+
 qinnerframe(P,H,Z)
 qouterframe(P,H,Z)
+
+revenue(P,Z)
+fixedcost(Z)
+variablecost(P,Z)
+cost(Z)
+
+demlimitunder(P,T,Z)
+demlimitupper(P,T,Z)
 ;
 
 #-----######################---------------------------------------------------#
 #-----# Objective function #---------------------------------------------------#
 #-----######################---------------------------------------------------#
 qobj..              obj
-#					=e=
-#						sum((P,T,Z),price_unit(P,T,Z)*demand_unit(P,T,Z))
-#						-
-#						sum((Y,Z,G), 			(G_DATA(G,'C_INV') + G_DATA(G,'C_FOM'))*1000*cap(Y,Z,G))
-#						-
-#						(sum((Y,P,T,Z,G), 		W(P)*(G_DATA(G,'C_VOM'))*gen(Y,P,T,Z,G))
-#						+ sum((Y,P,T,Z,GC), 	W(P)*(G_DATA(GC,'C_FUEL'))*gen(Y,P,T,Z,GC))
-#						)*((8760/card(T))*((365/7)/sum(P, W(P))));
-#						;
 					=e=
-						sum((Y,Z,G), 			(G_DATA(G,'C_INV') + G_DATA(G,'C_FOM'))*1000*cap(Y,Z,G))
-						#+ sum((Y,Z,SSM), 		(S_DATA(SSM,'C_E_INV')*1000)*e_cap(Y,Z,SSM))
-						######+ sum((Y,Z,S), 			(S_DATA(S,'C_P_C_INV')*1000)*p_cap_c(Y,Z,S))
-						#+ sum((Y,Z,SM), 		(S_DATA(SM,'C_P_D_INV')*1000)*p_cap_d(Y,Z,SM))
-						#+						(EGCAPEX*1000)*eg_cap
-						+(sum((Y,P,T,Z,G), 		W(P)*(G_DATA(G,'C_VOM'))*gen(Y,P,T,Z,G))
+						sum((Y,Z,G), 		(G_DATA(G,'C_INV') + G_DATA(G,'C_FOM'))*1000*cap(Y,Z,G))
+						#+ sum((Y,Z,S),      (S_DATA(S,'C_P_C_INV')*1000)*p_cap_c(Y,Z,S))
+						+
+						(sum((Y,P,T,Z,G), 		W(P)*(G_DATA(G,'C_VOM'))*gen(Y,P,T,Z,G))
 						+ sum((Y,P,T,Z,GC), 	W(P)*(G_DATA(GC,'C_FUEL'))*gen(Y,P,T,Z,GC))
-						#+ sum((Y,P,T,Z,GRD), 	W(P)*(G_DATA(GRD,'C_FUEL'))*gen(Y,P,T,Z,GRD))
-						#+ sum((Y,P,T,C), 		W(P)*(C_GAS)*pg_import(Y,P,T,C))
-						#+ sum((Y,P,T,Z,GD), 	W(P)*(G_DATA(GD,'RC'))*(ramp_up(Y,P,T,Z,GD)+ramp_dn(Y,P,T,Z,GD)))
-						#+ sum((Y,P,T,Z,GD), 	W(P)*(G_DATA(GD,'SUC'))*ramp_su(Y,P,T,Z,GD))
-						######+ sum((Y,P,T,Z,GRI), 	W(P)*(0)*curt(Y,P,T,Z,GRI) + W(P)*(1000000)*curt_dummy(Y,P,T,Z,GRI))
+
 						#+ sum((Y,P,T,Z,S), 		W(P)*(S_DATA(S,'OPEX'))*p_c(Y,P,T,Z,S)+p_d(Y,P,T,Z,S))
-						######+ sum((Y,P,T,Z), 		W(P)*(10000)*load_shedding(Y,P,T,Z))
 
-						)*((8760/card(T))*((365/7)/sum(P, W(P))));
-
-						#+ sum((Y,Z,G), co2(Y,Z,G)*15)
+						)
+						*(168/card(T));
 						;
 
 
@@ -461,11 +558,11 @@ qobj..              obj
 # balance with demand response
 qbalance(Y,P,T,Z)..
     				sum(G, gen(Y,P,T,Z,G))
-#    				+ sum(SSM, p_d(Y,P,T,Z,SSM))
+    				#+ sum(SSM, p_d(Y,P,T,Z,SSM))
 					=e=
 						demand_unit(P,T,Z)
 #						- load_shedding(Y,P,T,Z)
-#						+ sum(S, p_c(Y,P,T,Z,S))
+						#+ sum(S, p_c(Y,P,T,Z,S))
 						;
 
 #balance without demand response
@@ -485,13 +582,13 @@ qbalance(Y,P,T,Z)..
 #					sum(Z $ C_Z(C,Z), 	sum((GCO,P,T), W(P)*gen(Y,P,T,Z,GCO)))
 #					+ sum(Z $ C_Z(C,Z), sum((GCG,P,T), W(P)*pg_fos(Y,P,T,Z,GCG)*(G_DATA(GCG,'EFF')/100)))
 #					=l=
-#						(100 - POL_TARGETS('RES_SHARE', Y))/100 * sum(Z $ C_Z(C,Z), sum((P,T), W(P)*DEM_T(P,T,Z)))
+#						(100 - POL_TARGETS('RES_SHARE', Y))/100 * sum(Z $ C_Z(C,Z), sum((P,T), W(P)*demand_unit(P,T,Z)))
 #						;
 
 qresprod(Y,C)..
 					sum(Z $ C_Z(C,Z), sum((GR,P,T), W(P)*gen(Y,P,T,Z,GR)))
 					=g=
-						POL_TARGETS('RES_SHARE', Y)/100 * sum(Z $ C_Z(C,Z), sum((P,T), W(P)*DEM_T(P,T,Z)))
+						POL_TARGETS('RES_SHARE', Y)/100 * sum(Z $ C_Z(C,Z), sum((P,T), W(P)*demand_unit(P,T,Z)))
 						;
 
 qco2lim(Y,C)..
@@ -527,10 +624,11 @@ qres(Y,P,T,C,R)..
 
 #--Dispatchable capacity--#
 
+#TODO: wich demand is needed here?
 qgendisp(Y,P,T,C)..
 					sum(Z $ C_Z(C,Z), sum(GD, gen(Y,P,T,Z,GD)))
 					=g=
-						sum(Z $ C_Z(C,Z), DEM_T(P,T,Z))*0.20
+						sum(Z $ C_Z(C,Z), demand_unit(P,T,Z))*0.20
 						;
 
 qgendisppeak(Y,C)..
@@ -1457,46 +1555,203 @@ qgasusegen(Y,P,T,Z,GCG)..
 						+ pg_fos(Y,P,T,Z,GCG)
 						;
 
+################################################
+################################################
+
 demand(P,T,Z)..
-					demand_unit(P,T,Z) =e= DEM_T(P,T,Z) + sum(H,ELAST(T,H)*(DEM_T(P,T,Z)/P_REF)*(price_unit(P,T,Z)-P_REF))
-					#demand_unit(P,T,Z) =e= 8000
+					demand_new_res(P,T,Z) =e= DEM_REF_RES(P,T,Z) + sum(H,ELAST_NEW(P,T,H)*(DEM_REF_RES(P,T,Z)/P_REF)*(price_unit(P,H,Z)-P_REF))
 					;
 
+demand_clone(P,H,Z)..
+					demand_new_res_clone(P,H,Z) =e= sum(T,demand_new_res(P,T,Z)*DIAG(T,H))
+					;
+
+sum_demand(P,T,Z)..
+                    demand_unit(P,T,Z) =e= DEM_NON_RES(P,T,Z) + demand_new_res(P,T,Z)
+                    ;
+
 totdemand(P,Z)..
-					sum(T,DEM_T(P,T,Z)) =l= sum(T,demand_unit(P,T,Z))
+#					sum(T,DEM_REF_RES(P,T,Z)) =l= sum(T,demand_new_res(P,T,Z))
+					sum(T,DEM_REF_RES(P,T,Z)+eff_factor_earlier*sum(H,DIAG(T,H)*(front_up(P,H,Z)-back_down(P,H,Z)))) =l= sum(T,demand_new_res(P,T,Z))
+					;
+
+surplusdemand(P,T,Z)..
+					surplus(P,T,Z) =e= eff_factor_earlier*sum(H,DIAG(T,H)*(front_up(P,H,Z)-back_down(P,H,Z)))
 					;
 
 totdemand2(P,Z)..
-					demand_tot(P,Z) =e= sum(T,demand_unit(P,T,Z))
+					demand_tot(P,Z) =e= sum(T,demand_new_res(P,T,Z))
+#					demand_tot(P,Z) =e= sum(T,DEM_REF_RES(P,T,Z))
 					;
 
-price(P,T,Z)..
-					(price_unit(P,T,Z) - P_REF)*sum(H,ELAST(T,H)*(DEM_T(P,T,Z)/P_REF)) =e= (demand_unit(P,T,Z)-DEM_T(P,T,Z))
+#price(P,H,Z)..
+#					(price_unit(P,H,Z) - P_REF)*sum(H,ELAST(T,H)*(DEM_REF_RES(P,T,Z)/P_REF)) =e= (demand_new_res(P,T,Z)-DEM_REF_RES(P,T,Z))
+#					;
+
+price_clone(P,T,Z)..
+					price_unit_clone(P,T,Z) =e= sum(H,price_unit(P,H,Z)*DIAG(T,H))
 					;
 
 refdemand(P,T,Z)..
-					demand_ref(P,T,Z) =e= DEM_T(P,T,Z)
+					demand_ref(P,T,Z) =e= DEM_REF_RES(P,T,Z) + DEM_NON_RES(P,T,Z)
 					;
 
-shiftconstraint(P,H,Z)..
-					sum(T,DEM_T(P,T,Z)*SHIFTMIN(H,T)) =l= sum(T,demand_unit(P,T,Z)*SHIFTMAX(H,T))
+shiftedaway(P,H,Z)..
+					shiftaway(P,H,Z) =e= sum(T,DIAG(T,H)*ELAST_NEW(P,T,H)*DEM_REF_RES(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+					;
+
+shiftedawaytotal(P,Z)..
+					shiftaway_total(P,Z) =e= sum(H,shift_up(P,H,Z)-shift_down(P,H,Z))
+					;
+
+shiftedforward(P,H,Z)..
+					shiftforwards(P,H,Z) =e= sum(T,TRI_UP(T,H)*ELAST_NEW(P,T,H)*DEM_REF_RES(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+					;
+
+shiftedforwardtotal(P,Z)..
+#					shiftforwards_total(P,Z) =e= sum(H,shiftforwards(P,H,Z))
+					shiftforwards_total(P,Z) =e= sum(H,front_up(P,H,Z)-back_down(P,H,Z))
+					;
+
+shiftedbackward(P,H,Z)..
+					shiftbackwards(P,H,Z) =e= sum(T,TRI_LOW(T,H)*ELAST_NEW(P,T,H)*DEM_REF_RES(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+					;
+
+shiftedbackwardtotal(P,Z)..
+#					shiftbackwards_total(P,Z) =e= sum(H,shiftbackwards(P,H,Z))
+					shiftbackwards_total(P,Z) =e= sum(H,back_up(P,H,Z)-front_down(P,H,Z))
+					;
+
+shiftconstraint_frame_1(P,H,Z)..
+					sum(T,DEM_REF_RES(P,T,Z)*SHIFTMIN(H,T)) =l= sum(T,demand_new_res(P,T,Z)*SHIFTMAX(H,T))
+					;
+
+shiftconstraint_frame_2(P,H,Z)..
+					sum(T,DEM_REF_RES(P,T,Z)*SHIFTMAX(H,T)) =g= sum(T,demand_new_res(P,T,Z)*SHIFTMIN(H,T))
+					;
+
+shiftconstraint1(P,H,Z)..
+					shiftaway(P,H,Z) =l= LIMITSHIFT
+					;
+
+shiftconstraint2(P,H,Z)..
+					shiftaway(P,H,Z) =g= -LIMITSHIFT
 					;
 
 priceconstraint1(P,T,Z)..
-					price_unit(P,T,Z) =l= P_ref + LIMIT
+					price_unit_clone(P,T,Z) =l= P_REF + LIMITPRICE
 					;
 
 priceconstraint2(P,T,Z)..
-					price_unit(P,T,Z) =g= P_ref - LIMIT
+					price_unit_clone(P,T,Z) =g= P_REF - LIMITPRICE
 					;
 
+demlimitunder(P,T,Z)..
+					DEM_REF_RES(P,T,Z) - LIMITDEM =l= demand_new_res(P,T,Z)
+					;
+
+demlimitupper(P,T,Z)..
+					DEM_REF_RES(P,T,Z) + LIMITDEM =g= demand_new_res(P,T,Z)
+					;
+
+
+#priceconstraint3(P,Z)..
+#					sum(T,price_unit(P,T,Z))/card(T) =e= P_REF
+#					;
+
+
 qinnerframe(P,H,Z)..
-					innerframe(P,H,Z) =e= sum(T,DEM_T(P,T,Z)*SHIFTMIN(H,T))
+					innerframe(P,H,Z) =e= sum(T,DEM_REF_RES(P,T,Z)*SHIFTMIN(H,T))
 					;
 
 qouterframe(P,H,Z)..
-					outerframe(P,H,Z) =e= sum(T,demand_unit(P,T,Z)*SHIFTMAX(H,T))
+					outerframe(P,H,Z) =e= sum(T,demand_new_res(P,T,Z)*SHIFTMAX(H,T))
 					;
+
+fixedcost(Z)..
+					totalfixedcost(Z) =e= sum((Y,G), (G_DATA(G,'C_INV') + G_DATA(G,'C_FOM'))*1000*cap(Y,Z,G))
+					;
+
+variablecost(P,Z)..
+					totalvariablecost(P,Z) =e= (sum((Y,T,G), W(P)*(G_DATA(G,'C_VOM'))*gen(Y,P,T,Z,G))
+					+ sum((Y,T,GC), W(P)*(G_DATA(GC,'C_FUEL'))*gen(Y,P,T,Z,GC)))*(168/card(T))
+					;
+
+cost(Z)..
+					totalcost(Z) =e= sum(P,totalvariablecost(P,Z)) + totalfixedcost(Z)
+					;
+
+####################################
+# get downwards en upward numbers for front and back
+####################################
+
+front_d_1(P,H,Z)..
+					front_down(P,H,Z) =l= shiftforwards(P,H,Z)
+					;
+
+front_d_2(P,H,Z)..
+					front_down(P,H,Z) =l= 0
+					;
+
+front_u_1(P,H,Z)..
+					front_up(P,H,Z) =g= shiftforwards(P,H,Z)
+					;
+
+front_u_2(P,H,Z)..
+					front_up(P,H,Z) =g= 0
+					;
+
+back_d_1(P,H,Z)..
+					back_down(P,H,Z) =l= shiftbackwards(P,H,Z)
+					;
+
+back_d_2(P,H,Z)..
+					back_down(P,H,Z) =l= 0
+					;
+
+back_u_1(P,H,Z)..
+					back_up(P,H,Z) =g= shiftbackwards(P,H,Z)
+					;
+
+back_u_2(P,H,Z)..
+					back_up(P,H,Z) =g= 0
+					;
+
+shift_d_1(P,H,Z)..
+					shift_down(P,H,Z) =l= shiftaway(P,H,Z)
+					;
+
+shift_d_2(P,H,Z)..
+					shift_down(P,H,Z) =l= 0
+					;
+
+shift_u_1(P,H,Z)..
+					shift_up(P,H,Z) =g= shiftaway(P,H,Z)
+					;
+
+shift_u_2(P,H,Z)..
+					shift_up(P,H,Z) =g= 0
+					;
+
+# things that have to do with compensqtion mqtrix
+###################################################
+
+shiftedfi(P,H,Z)..
+                    shiftfi(P,H,Z) =e= sum(T,TRI_UP(T,H)*ELAST(P,T,H)*DEM_REF_RES(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+                    ;
+
+shiftedbi(P,H,Z)..
+                    shiftbi(P,H,Z) =e= sum(T,TRI_LOW(T,H)*ELAST(P,T,H)*DEM_REF_RES(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+                    ;
+
+shiftedfc(P,H,Z)..
+                    shiftfc(P,H,Z) =e= sum(T,TRI_UP(T,H)*ELAST_COMP(P,T,H)*DEM_REF_RES(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+                    ;
+
+shiftedbc(P,H,Z)..
+                    shiftbc(P,H,Z) =e= sum(T,TRI_LOW(T,H)*ELAST_COMP(P,T,H)*DEM_REF_RES(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+                    ;
+
 
 MODEL GOA GOA model /
 
@@ -1680,16 +1935,68 @@ MODEL GOA GOA model /
 
 #-- Price-elasticity--#
 
-		price
+#		price
+		price_clone
 		demand
-		totdemand
+#		demand_clone
+		sum_demand
+#		totdemand
+#		surplusdemand
 		totdemand2
 		refdemand
-		priceconstraint1
-		priceconstraint2
-		shiftconstraint
-		qinnerframe
-		qouterframe
+
+		shiftedaway
+#		shiftedforward
+#		shiftedbackward
+
+#		shiftedawaytotal
+#		shiftedforwardtotal
+#		shiftedbackwardtotal
+
+#		priceconstraint1
+#		priceconstraint2
+#		priceconstraint3
+
+        ##########
+        # include when working with moving frames, and set in wout_program -> factor back to 1
+#		shiftconstraint_frame_1
+#		shiftconstraint_frame_2
+
+		shiftconstraint1
+		shiftconstraint2
+
+#		qinnerframe
+#		qouterframe
+
+#		revenue
+#		fixedcost
+#		variablecost
+#		cost
+
+		demlimitunder
+		demlimitupper
+
+#		front_d_1
+#		front_d_2
+#		front_u_1
+#		front_u_2
+#
+#		back_d_1
+#		back_d_2
+#		back_u_1
+#		back_u_2
+#
+#		shift_u_1
+#		shift_u_2
+#		shift_d_1
+#		shift_d_2
+
+        shiftedbc
+        shiftedfc
+        shiftedbi
+        shiftedfi
+
 /;
+
 
 

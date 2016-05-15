@@ -52,33 +52,54 @@ demand_ref = demand_ref.reorder_levels(['C'] + old_index)
 demand_ref.reset_index(inplace=True)
 demand_ref = pivot_table(demand_ref, 'demand_ref', index=['P', 'T','Z'], columns=['C'], aggfunc=np.sum)
 
+print 'Retrieving demand_new_res'
+demand_new_res = gdx_to_df(gdx_file, 'demand_new_res')
+old_index = demand_new_res.index.names
+demand_new_res['C'] = [zone_dict[z] for z in demand_new_res.index.get_level_values('Z')]
+demand_new_res.set_index('C', append=True, inplace=True)
+demand_new_res = demand_new_res.reorder_levels(['C'] + old_index)
+demand_new_res.reset_index(inplace=True)
+demand_new_res = pivot_table(demand_new_res, 'demand_new_res', index=['P','T','Z'], columns=['C'], aggfunc=np.sum)
+# print curt.head()
+
+print 'Retrieving demand_res_ref'
+DEM_REF_RES = gdx_to_df(gdx_file, 'DEM_REF_RES')
+old_index = DEM_REF_RES.index.names
+DEM_REF_RES['C'] = [zone_dict[z] for z in DEM_REF_RES.index.get_level_values('Z')]
+DEM_REF_RES.set_index('C', append=True, inplace=True)
+DEM_REF_RES = DEM_REF_RES.reorder_levels(['C'] + old_index)
+DEM_REF_RES.reset_index(inplace=True)
+DEM_REF_RES = pivot_table(DEM_REF_RES, 'DEM_REF_RES', index=['P', 'T','Z'], columns=['C'], aggfunc=np.sum)
+
 # First Merge
 genmarg = merge(demand_unit, demand_ref, left_index=True, right_index=True, how='outer', suffixes=['_dem', '_dem_ref'])
+genmargres = merge(demand_new_res,DEM_REF_RES,left_index=True,right_index=True,how='outer',suffixes=['dem_res','_dem_res_ref'])
+genmarg = merge(genmarg, genmargres, left_index=True, right_index=True, how='outer')
 genmarg = merge(genmarg, price_unit, left_index=True, right_index=True, how='outer', suffixes=['', '_price'])
 
 print 'Writing demand and prices to Excel'
 genmarg.to_excel(writer, na_rep=0.0, sheet_name='pattern', merge_cells=False)
 
-print 'Retrieving innerframe'
-innerframe = gdx_to_df(gdx_file, 'innerframe')
-old_index = innerframe.index.names
-innerframe['C'] = [zone_dict[z] for z in innerframe.index.get_level_values('Z')]
-innerframe.set_index('C', append=True, inplace=True)
-innerframe = innerframe.reorder_levels(['C'] + old_index)
-innerframe.reset_index(inplace=True)
-innerframe = pivot_table(innerframe, 'innerframe', index=['P', 'H','Z'], columns=['C'], aggfunc=np.sum)
-
-print 'Retrieving outerframe'
-outerframe = gdx_to_df(gdx_file, 'outerframe')
-old_index = outerframe.index.names
-outerframe['C'] = [zone_dict[z] for z in outerframe.index.get_level_values('Z')]
-outerframe.set_index('C', append=True, inplace=True)
-outerframe = outerframe.reorder_levels(['C'] + old_index)
-outerframe.reset_index(inplace=True)
-outerframe = pivot_table(outerframe, 'outerframe', index=['P', 'H','Z'], columns=['C'], aggfunc=np.sum)
-
-framemerg = merge(innerframe,outerframe, left_index=True, right_index=True, how='outer', suffixes=['_inner', '_outer'])
-framemerg.to_excel(writer, na_rep=0.0, sheet_name='frames', merge_cells=False)
+# print 'Retrieving innerframe'
+# innerframe = gdx_to_df(gdx_file, 'innerframe')
+# old_index = innerframe.index.names
+# innerframe['C'] = [zone_dict[z] for z in innerframe.index.get_level_values('Z')]
+# innerframe.set_index('C', append=True, inplace=True)
+# innerframe = innerframe.reorder_levels(['C'] + old_index)
+# innerframe.reset_index(inplace=True)
+# innerframe = pivot_table(innerframe, 'innerframe', index=['P', 'H','Z'], columns=['C'], aggfunc=np.sum)
+#
+# print 'Retrieving outerframe'
+# outerframe = gdx_to_df(gdx_file, 'outerframe')
+# old_index = outerframe.index.names
+# outerframe['C'] = [zone_dict[z] for z in outerframe.index.get_level_values('Z')]
+# outerframe.set_index('C', append=True, inplace=True)
+# outerframe = outerframe.reorder_levels(['C'] + old_index)
+# outerframe.reset_index(inplace=True)
+# outerframe = pivot_table(outerframe, 'outerframe', index=['P', 'H','Z'], columns=['C'], aggfunc=np.sum)
+#
+# framemerg = merge(innerframe,outerframe, left_index=True, right_index=True, how='outer', suffixes=['_inner', '_outer'])
+# framemerg.to_excel(writer, na_rep=0.0, sheet_name='frames', merge_cells=False)
 
 print 'Creating generation pattern analysis'
 print 'Retrieving gen'
@@ -104,9 +125,10 @@ cap.set_index('C', append=True, inplace=True)
 cap = cap.reorder_levels(['C'] + old_index)
 cap.reset_index(inplace=True)
 cap = pivot_table(cap, 'cap', index=['Y', 'Z', 'G'], columns=['C'], aggfunc=np.sum)
+cap.to_excel(writer, na_rep=0.0, sheet_name='capacities', merge_cells=False)
 
 print 'retrieving cost'
-cost = gdx_to_df(gdx_file, 'totalcost')
+cost = gdx_to_df(gdx_file, 'obj')
 # print cost
 old_index = cost.index.names
 # cost['C'] = [zone_dict[z] for z in cost.index.get_level_values('Z')]

@@ -21,12 +21,15 @@ import Wout_main
 file = 'results\out_db_75.6_50.gdx'
 gdx_file = os.path.join(os.getcwd(), '%s' % file)
 sh_shift_name = 'shifting'
-excel_shift_name = 'excel\output_elasticity_model_shifting.xlsx'
+sh_ratio_name = 'ratio'
+excel_shift_name   = 'excel\output_elasticity_model_shifting.xlsx'
+excel_tempory_name = 'excel\output_elasticity_model_tempory.xlsx'
 list_compensation = list()
+list_ratio = list()
 
 #length period needs to be a multiple of 24
 length_period = 24*7
-amount_of_periods = 3
+amount_of_periods = 1
 
 #write marginal values of balance function to excel
 def balance_m_to_excel():
@@ -101,6 +104,33 @@ def reset_factor_to_one():
 
     for i in range(1,amount_of_periods+1):
         list_compensation.append(1)
+
+    ############################################
+
+#reset compensation factor for inbalances in elasticities (to 1)
+def reset_ratio():
+    resetvalue = 0.05
+    print os.getcwd()
+    conn = sq.connect("database/database.sqlite")
+    cur = conn.cursor()
+
+    print os.getcwd()
+    sql = 'DROP TABLE IF EXISTS Ratio;'
+    cur.execute(sql)
+    sql = 'CREATE TABLE IF NOT EXISTS Ratio (Period TEXT, Hour TEXT, Value FLOAT);'
+    # ,  PRIMARY KEY(Code));'
+    cur.execute(sql)
+    ratios = list()
+    for p in range(1,amount_of_periods+1):
+        ratios_period = list()
+        for h in range(1,length_period+1):
+            ratios.append((p,h,resetvalue))
+            ratios_period.append(resetvalue)
+            # print (p,' & ', h)
+        print ratios_period
+        list_ratio.append(ratios_period)
+    cur.executemany('INSERT INTO Ratio VALUES (?,?,?)', ratios)
+    conn.commit()
 
     ############################################
 
@@ -258,29 +288,87 @@ def calculate_comp_factor():
         print away
         compensate = away/(forward+backward)
         print 'compensate: ',compensate
-        list_compensation[i-1] = list_compensation[i-1]*math.sqrt(compensate)
+        list_compensation[i-1] = list_compensation[i-1]*math.pow(compensate,0.8)
         print 'compensate new value: ', list_compensation[i-1]
+
+#get the inbalance ratio for each hour h
+def set_inbalance_ratio():
+    #define the used files
+    writefile = os.getcwd() + '\\' + 'excel\output_elasticity_model_tempory.xlsx'
+    writer = ExcelWriter(writefile)
+    print gdx_file
+    zone_dict = dict()
+    zone_dict['BEL_Z'] = 'BEL'
+
+    #gdx to excel
+    print 'Retrieving ratio'
+    ratio = gdx_to_df(gdx_file, 'ratio')
+    old_index = ratio.index.names
+    ratio['C'] = [zone_dict[z] for z in ratio.index.get_level_values('Z')]
+    ratio.set_index('C', append=True, inplace=True)
+    ratio = ratio.reorder_levels(['C'] + old_index)
+    ratio.reset_index(inplace=True)
+    ratio = pivot_table(ratio, 'ratio', index=['P','H','Z'], columns=['C'], aggfunc=np.sum)
+    print 'Writing ratio to Excel'
+    ratio.to_excel(writer, na_rep=0.0, sheet_name='ratio', merge_cells=False)
+    writer.close()
+
+    #calculate new ratios and put in sql
+    print os.getcwd()
+    conn = sq.connect("database/database.sqlite")
+    cur = conn.cursor()
+    print os.getcwd()
+
+    sql = 'DROP TABLE IF EXISTS Ratio;'
+    cur.execute(sql)
+    sql = 'CREATE TABLE IF NOT EXISTS Ratio (Period TEXT, Hour TEXT, Value FLOAT);'
+    cur.execute(sql)
+    ratios = list()
+    print 'open tempory excel file'
+    wbread = openpyxl.load_workbook(excel_tempory_name)
+    print 'tempory file loaded'
+    sheet = wbread.get_sheet_by_name(sh_ratio_name)
+    for i in range(1,amount_of_periods+1):
+        for j in range(2,length_period+2):
+            list_ratio[i-1][j-2] = round(list_ratio[i-1][j-2]*(sheet.cell(row = (i-1)*length_period+j,column = 4).value),4)
+            # print 'list_ratio for i = ', i, ', and j = ', j
+            # print list_ratio[i-1][j-2]
+            period = i
+            hour = j-1
+            ratio = list_ratio[i-1][j-2]
+            # print period, hour, ratio
+            ratios.append((period,hour,ratio))
+    cur.executemany('INSERT INTO Ratio VALUES (?,?,?)', ratios)
+    conn.commit()
+
+    print 'done ratio'
+
+#Auxiliary funtion to calculate power of negative functions
+def calculate_power(value, power):
+    if value < 0:
+        result = -math.pow(-value,power)
+    else:
+        result = math.pow(value,power)
+    return result
 
 # Reset factor (to compensate the inbalances in the cross elasticities) to 1
 # reset_factor_to_one()
-reset_factor_to_value(1.38)
+# reset_factor_to_value(1.621)
 # set balance_price to flat price
 # Wout_initialise.initialise(length_period)
+reset_ratio()
 
-output = list()
 
-output.append(list(list_compensation))
-for i in range (0,1):
-    # Wout_main.main(length_period)
-    # balance_m_to_excel()
-    # balance_m_to_sqlite()
-    # shift_to_excel()
-    calculate_comp_factor()
-    set_factor_to_value()
-    #
-    output.append(list(list_compensation))
+# output = list()
+#
+# output.append(list(list_compensation))
+for i in range (0,4):
+    Wout_main.main(length_period)
+    set_inbalance_ratio()
+#     output.append(list(list_compensation))
+#
+# print output
 
-print output
 
 
 

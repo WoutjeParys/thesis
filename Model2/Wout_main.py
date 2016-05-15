@@ -13,7 +13,7 @@ import sqlite3 as sq
 
 folder = 'gams'
 
-file = '../gams/LinearModel_Wout.gms'
+file = '../gams/LinearModel_Wout_comp.gms'
 
 def main(length_period):
     # 1. Setup Gams Workspace
@@ -291,6 +291,10 @@ def main(length_period):
 
     DEM_NON_RES = db.add_parameter_dc('DEM_NON_RES', [P,T,Z], 'amount of non residential demand')
     DEM_REF_RES = db.add_parameter_dc('DEM_REF_RES', [P,T,Z], 'amount of reference residential demand before DR')
+
+    RATIO_H = db.add_parameter_dc('RATIO_H', [P,H], 'inbalance ratio')
+    LINEARPEM = db.add_parameter_dc('LINEARPEM', [T,H], 'compensation PEM linear')
+    OWNELAST = db.add_parameter_dc('OWNELAST', [T,H], 'compensation PEM elast')
 
     ############################################
 
@@ -625,11 +629,35 @@ def main(length_period):
 
     ############################################
 
+    sql = 'Select Hour1, Hour2, Include_Value from Linear;'
+    cur.execute(sql)
+    linearpems = cur.fetchall()
+    for l in linearpems:
+        LINEARPEM.add_record((str(l[0]), str(l[1]))).value = l[2]
+
+    ############################################
+
+    sql = 'Select Hour1, Hour2, Include_Value from Ownelast;'
+    cur.execute(sql)
+    elastpems = cur.fetchall()
+    for o in elastpems:
+        OWNELAST.add_record((str(o[0]), str(o[1]))).value = o[2]
+
+    ############################################
+
     sql = 'Select Period, Hour, Value from Factor;'
     cur.execute(sql)
     factor_to_compensate = cur.fetchall()
     for f in factor_to_compensate:
         COMPENSATE.add_record((str(f[0]), str(f[1]))).value = f[2]
+
+    ############################################
+
+    sql = 'Select Period, Hour, Value from Ratio;'
+    cur.execute(sql)
+    inbalanceratios = cur.fetchall()
+    for f in inbalanceratios:
+        RATIO_H.add_record((str(f[0]), str(f[1]))).value = f[2]
 
     ############################################
 
@@ -755,8 +783,10 @@ def main(length_period):
                     'SOLVE GOA using lp minimizing obj;\n'
                     'parameter marg(Y,P,T,Z) shadow prices of production;\n'
                     'marg(Y,P,T,Z) = qbalance.m(Y,P,T,Z)/W(P);\n'
-                    'parameter factor(P,H,Z) compensation to avoid energy losses;\n'
-                    'factor(P,H,Z) = -shiftaway.l(P,H,Z)/(shiftforwards.l(P,H,Z)+shiftbackwards.l(P,H,Z)+0.00000001);\n'
+                    # 'parameter factor(P,H,Z) compensation to avoid energy losses;\n'
+                    # 'factor(P,H,Z) = -shiftaway.l(P,H,Z)/(shiftforwards.l(P,H,Z)+shiftbackwards.l(P,H,Z)+0.00000001);\n'
+                    'parameter ratio(P,H,Z) inbalance ratio;\n'
+                    'ratio(P,H,Z) = (-shiftaway.l(P,H,Z)-shiftfi.l(P,H,Z)-shiftbi.l(P,H,Z))/(shiftfc.l(P,H,Z)+shiftbc.l(P,H,Z)+0.00000001);\n'
                     ,cp)
                     #'SOLVE GOA using lp minimizing obj;'.format(res_target=res_target,inv_cost=inv_cost), cp)
                 job_sense.run(checkpoint=cp)

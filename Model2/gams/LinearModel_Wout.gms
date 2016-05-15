@@ -173,7 +173,7 @@ P_REF = 55.5;
 TOTDEM = sum((P,T,Z),DEM_T(P,T,Z));
 LIMITPRICE = P_REF*0.9;
 LIMITDEM = 750;
-LIMITSHIFT = 2000;
+LIMITSHIFT = 1000;
 LENGTH_P = card(T);
 ELAST_NEW(P,T,H) = ELAST(P,T,H)*DIAG(T,H)+COMPENSATE(P,H)*(TRI_LOW(T,H)*ELAST(P,T,H)+TRI_UP(T,H)*ELAST(P,T,H));
 #ELAST_NEW(P,T,H) = ELAST(P,T,H)*1;
@@ -1570,7 +1570,7 @@ price_clone(P,T,Z)..
 					;
 
 refdemand(P,T,Z)..
-					demand_ref(P,T,Z) =e= DEM_REF_RES(P,T,Z)
+					demand_ref(P,T,Z) =e= DEM_REF_RES(P,T,Z) + DEM_NON_RES(P,T,Z)
 					;
 
 shiftedaway(P,H,Z)..
@@ -1917,8 +1917,8 @@ MODEL GOA GOA model /
 
         ##########
         # include when working with moving frames, and set in wout_program -> factor back to 1
-#		shiftconstraint_frame_1
-#		shiftconstraint_frame_2
+		shiftconstraint_frame_1
+		shiftconstraint_frame_2
 
 		shiftconstraint1
 		shiftconstraint2
