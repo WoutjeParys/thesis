@@ -296,6 +296,14 @@ def main(length_period):
     LINEARPEM = db.add_parameter_dc('LINEARPEM', [T,H], 'compensation PEM linear')
     OWNELAST = db.add_parameter_dc('OWNELAST', [T,H], 'compensation PEM elast')
 
+    #limits demand resposne
+    DEM_RES_MAX = db.add_parameter_dc('DEM_RES_MAX', [P,T,Z], 'max residential demand')
+    DEM_RES_MIN = db.add_parameter_dc('DEM_RES_MIN', [P,T,Z], 'min residential demand')
+    DEM_OPTIMAL = db.add_parameter_dc('DEM_OPTIMAL', [P,T,Z], 'anchor point demand')
+    PRICE_REF = db.add_parameter_dc('PRICE_REF', [P,H,Z], 'anchor point price')
+    DEM_RES_FP = db.add_parameter_dc('DEM_RES_FP', [P,T,Z], 'prospected demand under flat price')
+
+
     ############################################
 
     sql = 'Select g.Code from Generation_technologies g where g.Include > 0;'
@@ -585,12 +593,76 @@ def main(length_period):
         # print per[0], per[1][0]
         W.add_record(str(int(per[0]))).value = per[1][0]
 
-    ############################################
+    ###################################################
+    # things that has to do with coupling model
+    ###################################################
 
+    # needed to get right season for elasticities and demands
     sql = 'Select First_hour,Season from Time_steps;'
     cur.execute(sql)
     periods = cur.fetchall()
     print 'periods: ',periods
+
+    # the different demand profiles, limits and prices
+    sql = 'Select Season, Zone, Hour, Demand from Dem_ref_profile;'
+    cur.execute(sql)
+    demands = cur.fetchall()
+    count_per = 1
+    for per in periods:
+        print 'season: ', per[1]
+        for d in demands:
+            if d[0] == per[1]:
+                # print str(d[1]), str(count_per), str(d[2]), str(d[3])
+                DEM_OPTIMAL.add_record((str(count_per), str(d[2]), str(d[1]))).value = d[3]
+        count_per = count_per+1
+
+    sql = 'Select Season, Zone, Hour, Demand from Dem_min_profile;'
+    cur.execute(sql)
+    demands = cur.fetchall()
+    count_per = 1
+    for per in periods:
+        print 'season: ', per[1]
+        for d in demands:
+            if d[0] == per[1]:
+                # print (str(d[1]), str(count_per), str(d[2])), d[3]
+                DEM_RES_MIN.add_record((str(count_per), str(d[2]), str(d[1]))).value = d[3]
+        count_per = count_per+1
+
+    sql = 'Select Season, Zone, Hour, Demand from Dem_max_profile;'
+    cur.execute(sql)
+    demands = cur.fetchall()
+    count_per = 1
+    for per in periods:
+        print 'season: ', per[1]
+        for d in demands:
+            if d[0] == per[1]:
+                # print (str(d[1]), str(count_per), str(d[2])), d[3]
+                DEM_RES_MAX.add_record((str(count_per), str(d[2]), str(d[1]))).value = d[3]
+        count_per = count_per+1
+
+    sql = 'Select Season, Zone, Hour, Demand from Dem_flat_profile;'
+    cur.execute(sql)
+    demands = cur.fetchall()
+    count_per = 1
+    for per in periods:
+        print 'season: ', per[1]
+        for d in demands:
+            if d[0] == per[1]:
+                # print (str(d[1]), str(count_per), str(d[2])), d[3]
+                DEM_RES_FP.add_record((str(count_per), str(d[2]), str(d[1]))).value = d[3]
+        count_per = count_per+1
+
+    sql = 'Select Season, Zone, Hour, Price from PriceProfile;'
+    cur.execute(sql)
+    prices = cur.fetchall()
+    count_per = 1
+    for per in periods:
+        print 'season: ', per[1]
+        for d in prices:
+            if d[0] == per[1]:
+                # print (str(d[1]), str(count_per), str(d[2])), d[3]
+                PRICE_REF.add_record((str(count_per), str(d[2]), str(d[1]))).value = d[3]
+        count_per = count_per+1
 
     sql = 'Select Season, Hour1, Hour2, Price_Elasticity from Elasticity;'
     cur.execute(sql)
@@ -600,6 +672,7 @@ def main(length_period):
         print 'season: ', per[1]
         for e in elasticities:
             if e[0] == per[1]:
+                # print (str(count_per),str(e[1]), str(e[2])), e[3]
                 ELAST.add_record((str(count_per),str(e[1]), str(e[2]))).value = e[3]
         count_per = count_per+1
 

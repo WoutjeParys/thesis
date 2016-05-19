@@ -1899,7 +1899,7 @@ MODEL GOA GOA model /
 		demand
 #		demand_clone
 		sum_demand
-		totdemand
+#		totdemand
 #		totdemand2
 		refdemand
 

@@ -10,11 +10,12 @@ import openpyxl
 # length_period = 168
 
 include = False
+include_when_period_changed = True
 
 geographical_entities = include
 generation_technologies = include
 storage_technologies = include
-time_periods = True
+time_periods = include_when_period_changed
 demand_ref = include
 intermittent_renewables = include
 reliable_intermittent = include
@@ -22,9 +23,11 @@ policy = include
 installed_capacities = include
 reserves_techn = include
 fixed_tariffs = include
-elasticity_matrix = True
-shiftingconstraints = True
-correction_matrix = True
+elasticity_matrix = include_when_period_changed
+shiftingconstraints = include_when_period_changed
+correction_matrix = include_when_period_changed
+price_profiles = include_when_period_changed
+demand_profiles = include_when_period_changed
 
 def initialise(length_period):
     print os.getcwd()
@@ -253,11 +256,97 @@ def initialise(length_period):
         ############################################
         print "Done time"
 
+    startday_weekend = 3
+
+    if price_profiles:
+        book = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\PriceProf.xlsx"))
+        sql = 'DROP TABLE IF EXISTS PriceProfile;'
+        cur.execute(sql)
+        sql = 'CREATE TABLE IF NOT EXISTS PriceProfile (Season FLOAT, Zone TEXT, Hour TEXT, Price FLOAT);'
+        cur.execute(sql)
+        prices = list()
+        zone = 'BEL_Z'
+        amount_of_days = length_period/24
+        for season in range (0,4):
+            print 'season: ', season
+            for day in range(0,amount_of_days):
+                if day == startday_weekend or day == startday_weekend+1:
+                    print 'weekendday with sheet index = ', season*2+1
+                    sh=book.sheet_by_index(season*2+1)
+                else:
+                    print 'weekday with sheet index = ', season*2
+                    sh=book.sheet_by_index(season*2)
+                for col in range(1,sh.ncols):
+                    hour = int(sh.cell_value(0,col)) + 24*day
+                    value = sh.cell_value(1,col)
+                    prices.append((season+1,zone,hour,value))
+        cur.executemany('INSERT INTO PriceProfile VALUES (?,?,?,?)', prices)
+        conn.commit()
+        print 'Done price profiles'
+
+    if demand_profiles:
+        bookref = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\DemResRef.xlsx"))
+        bookmin = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\DemResMin.xlsx"))
+        bookmax = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\DemResMax.xlsx"))
+        bookflat = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\DemResFlatPrice.xlsx"))
+        sqlref = 'DROP TABLE IF EXISTS Dem_ref_profile;'
+        sqlmin = 'DROP TABLE IF EXISTS Dem_min_profile;'
+        sqlmax = 'DROP TABLE IF EXISTS Dem_max_profile;'
+        sqlflat = 'DROP TABLE IF EXISTS Dem_flat_profile;'
+        cur.execute(sqlref)
+        cur.execute(sqlmin)
+        cur.execute(sqlflat)
+        cur.execute(sqlmax)
+        sqlref = 'CREATE TABLE IF NOT EXISTS Dem_ref_profile (Season FLOAT, Zone TEXT, Hour TEXT, Demand FLOAT);'
+        sqlmin = 'CREATE TABLE IF NOT EXISTS Dem_min_profile (Season FLOAT, Zone TEXT, Hour TEXT, Demand FLOAT);'
+        sqlmax = 'CREATE TABLE IF NOT EXISTS Dem_max_profile (Season FLOAT, Zone TEXT, Hour TEXT, Demand FLOAT);'
+        sqlflat = 'CREATE TABLE IF NOT EXISTS Dem_flat_profile (Season FLOAT, Zone TEXT, Hour TEXT, Demand FLOAT);'
+        cur.execute(sqlref)
+        cur.execute(sqlmin)
+        cur.execute(sqlmax)
+        cur.execute(sqlflat)
+        demref = list()
+        demmin = list()
+        demmax = list()
+        demflat = list()
+        zone = 'BEL_Z'
+        amount_of_days = length_period/24
+        for season in range (0,4):
+            print 'season: ', season
+            for day in range(0,amount_of_days):
+                if day == startday_weekend or day == startday_weekend+1:
+                    print 'weekendday with sheet index = ', season*2+1
+                    shref=bookref.sheet_by_index(season*2+1)
+                    shmin=bookmin.sheet_by_index(season*2+1)
+                    shmax=bookmax.sheet_by_index(season*2+1)
+                    shflat=bookflat.sheet_by_index(season*2+1)
+                else:
+                    print 'weekday with sheet index = ', season*2
+                    shref=bookref.sheet_by_index(season*2)
+                    shmin=bookmin.sheet_by_index(season*2)
+                    shmax=bookmax.sheet_by_index(season*2)
+                    shflat=bookflat.sheet_by_index(season*2)
+                for col in range(1,shref.ncols):
+                    hour = int(shref.cell_value(0,col)) + 24*day
+                    valueref = shref.cell_value(1,col)
+                    valuemin = shmin.cell_value(1,col)
+                    valuemax = shmax.cell_value(1,col)
+                    valueflat = shflat.cell_value(1,col)
+                    demref.append((season+1,zone,hour,valueref))
+                    demmin.append((season+1,zone,hour,valuemin))
+                    demmax.append((season+1,zone,hour,valuemax))
+                    demflat.append((season+1,zone,hour,valueflat))
+        cur.executemany('INSERT INTO Dem_ref_profile VALUES (?,?,?,?)', demref)
+        cur.executemany('INSERT INTO Dem_min_profile VALUES (?,?,?,?)', demmin)
+        cur.executemany('INSERT INTO Dem_max_profile VALUES (?,?,?,?)', demmax)
+        cur.executemany('INSERT INTO Dem_flat_profile VALUES (?,?,?,?)', demflat)
+        conn.commit()
+        print 'Done price profiles'
+
     #test generated elasticity & diag/triag matrices
-    test = True
+    test = False
     if test:
         wbwrite = openpyxl.load_workbook('excel/TestElasticity.xlsx')
-
 
     if elasticity_matrix:
         book = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\Elasticity.xlsx"))
@@ -272,7 +361,6 @@ def initialise(length_period):
         # check how to handle elasticity, for now, only Hour1 - Hour2 and matrix 168-168
         # amount of days should be 7 to work with right elasticities weekday-weekend
         amount_of_days = length_period/24
-        startday_weekend = 4
         for season in range (0,4):
             print 'season: ', season
             print 'season: ', season

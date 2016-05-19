@@ -28,8 +28,256 @@ list_compensation = list()
 list_ratio = list()
 
 #length period needs to be a multiple of 24
+#percentageEV lies in the range 0-100
 length_period = 24*7
 amount_of_periods = 1
+startday_weekend = 3
+percentageEV = 100
+season_range = 1
+
+#reset compensation factor for inbalances in elasticities (to 1)
+def reset_ratio():
+    resetvalue = 0.05
+    print os.getcwd()
+    conn = sq.connect("database/database.sqlite")
+    cur = conn.cursor()
+
+    print os.getcwd()
+    sql = 'DROP TABLE IF EXISTS Ratio;'
+    cur.execute(sql)
+    sql = 'CREATE TABLE IF NOT EXISTS Ratio (Period TEXT, Hour TEXT, Value FLOAT);'
+    # ,  PRIMARY KEY(Code));'
+    cur.execute(sql)
+    ratios = list()
+    for p in range(1,amount_of_periods+1):
+        ratios_period = list()
+        for h in range(1,length_period+1):
+            ratios.append((p,h,resetvalue))
+            ratios_period.append(resetvalue)
+            # print (p,' & ', h)
+        print ratios_period
+        list_ratio.append(ratios_period)
+    cur.executemany('INSERT INTO Ratio VALUES (?,?,?)', ratios)
+    conn.commit()
+
+    ############################################
+
+#get the inbalance ratio for each hour h
+def set_inbalance_ratio():
+    #define the used files
+    writefile = os.getcwd() + '\\' + 'excel\output_elasticity_model_tempory.xlsx'
+    writer = ExcelWriter(writefile)
+    print gdx_file
+    zone_dict = dict()
+    zone_dict['BEL_Z'] = 'BEL'
+
+    #gdx to excel
+    print 'Retrieving ratio'
+    ratio = gdx_to_df(gdx_file, 'ratio')
+    old_index = ratio.index.names
+    ratio['C'] = [zone_dict[z] for z in ratio.index.get_level_values('Z')]
+    ratio.set_index('C', append=True, inplace=True)
+    ratio = ratio.reorder_levels(['C'] + old_index)
+    ratio.reset_index(inplace=True)
+    ratio = pivot_table(ratio, 'ratio', index=['P','H','Z'], columns=['C'], aggfunc=np.sum)
+    print 'Writing ratio to Excel'
+    ratio.to_excel(writer, na_rep=0.0, sheet_name='ratio', merge_cells=False)
+    writer.close()
+
+    #calculate new ratios and put in sql
+    print os.getcwd()
+    conn = sq.connect("database/database.sqlite")
+    cur = conn.cursor()
+    print os.getcwd()
+
+    sql = 'DROP TABLE IF EXISTS Ratio;'
+    cur.execute(sql)
+    sql = 'CREATE TABLE IF NOT EXISTS Ratio (Period TEXT, Hour TEXT, Value FLOAT);'
+    cur.execute(sql)
+    ratios = list()
+    print 'open tempory excel file'
+    wbread = openpyxl.load_workbook(excel_tempory_name)
+    print 'tempory file loaded'
+    sheet = wbread.get_sheet_by_name(sh_ratio_name)
+    for i in range(1,amount_of_periods+1):
+        for j in range(2,length_period+2):
+            list_ratio[i-1][j-2] = round(list_ratio[i-1][j-2]*(sheet.cell(row = (i-1)*length_period+j,column = 4).value),4)
+            # print 'list_ratio for i = ', i, ', and j = ', j
+            # print list_ratio[i-1][j-2]
+            period = i
+            hour = j-1
+            ratio = list_ratio[i-1][j-2]
+            # print period, hour, ratio
+            ratios.append((period,hour,ratio))
+    cur.executemany('INSERT INTO Ratio VALUES (?,?,?)', ratios)
+    conn.commit()
+
+    print 'done ratio'
+
+#Auxiliary funtion to calculate power of negative functions
+def calculate_power(value, power):
+    if value < 0:
+        result = -math.pow(-value,power)
+    else:
+        result = math.pow(value,power)
+    return result
+
+# funtion to choose the right demand profiles based on EV penetration (range0-100)
+def setRightDemandProfilesEV(percentageEV):
+    print os.getcwd()
+    conn = sq.connect("database/database.sqlite")
+    cur = conn.cursor()
+    print os.getcwd()
+
+    row = int(percentageEV/10)+1
+
+    bookref = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\DemResRef.xlsx"))
+    bookmin = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\DemResMin.xlsx"))
+    bookmax = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\DemResMax.xlsx"))
+    bookflat = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\DemResFlatPrice.xlsx"))
+    sqlref = 'DROP TABLE IF EXISTS Dem_ref_profile;'
+    sqlmin = 'DROP TABLE IF EXISTS Dem_min_profile;'
+    sqlmax = 'DROP TABLE IF EXISTS Dem_max_profile;'
+    sqlflat = 'DROP TABLE IF EXISTS Dem_flat_profile;'
+    cur.execute(sqlref)
+    cur.execute(sqlmin)
+    cur.execute(sqlflat)
+    cur.execute(sqlmax)
+    sqlref = 'CREATE TABLE IF NOT EXISTS Dem_ref_profile (Season FLOAT, Zone TEXT, Hour TEXT, Demand FLOAT);'
+    sqlmin = 'CREATE TABLE IF NOT EXISTS Dem_min_profile (Season FLOAT, Zone TEXT, Hour TEXT, Demand FLOAT);'
+    sqlmax = 'CREATE TABLE IF NOT EXISTS Dem_max_profile (Season FLOAT, Zone TEXT, Hour TEXT, Demand FLOAT);'
+    sqlflat = 'CREATE TABLE IF NOT EXISTS Dem_flat_profile (Season FLOAT, Zone TEXT, Hour TEXT, Demand FLOAT);'
+    cur.execute(sqlref)
+    cur.execute(sqlmin)
+    cur.execute(sqlmax)
+    cur.execute(sqlflat)
+    demref = list()
+    demmin = list()
+    demmax = list()
+    demflat = list()
+    zone = 'BEL_Z'
+    amount_of_days = length_period/24
+    for season in range (0,4):
+        print 'season: ', season
+        for day in range(0,amount_of_days):
+            if day == startday_weekend or day == startday_weekend+1:
+                print 'weekendday with sheet index = ', season*2+1
+                shref=bookref.sheet_by_index(season*2+1)
+                shmin=bookmin.sheet_by_index(season*2+1)
+                shmax=bookmax.sheet_by_index(season*2+1)
+                shflat=bookflat.sheet_by_index(season*2+1)
+            else:
+                print 'weekday with sheet index = ', season*2
+                shref=bookref.sheet_by_index(season*2)
+                shmin=bookmin.sheet_by_index(season*2)
+                shmax=bookmax.sheet_by_index(season*2)
+                shflat=bookflat.sheet_by_index(season*2)
+            for col in range(1,shref.ncols):
+                hour = int(shref.cell_value(0,col)) + 24*day
+                valueref = shref.cell_value(row,col)
+                valuemin = shmin.cell_value(row,col)
+                valuemax = shmax.cell_value(row,col)
+                valueflat = shflat.cell_value(row,col)
+                demref.append((season+1,zone,hour,valueref))
+                demmin.append((season+1,zone,hour,valuemin))
+                demmax.append((season+1,zone,hour,valuemax))
+                demflat.append((season+1,zone,hour,valueflat))
+    cur.executemany('INSERT INTO Dem_ref_profile VALUES (?,?,?,?)', demref)
+    cur.executemany('INSERT INTO Dem_min_profile VALUES (?,?,?,?)', demmin)
+    cur.executemany('INSERT INTO Dem_max_profile VALUES (?,?,?,?)', demmax)
+    cur.executemany('INSERT INTO Dem_flat_profile VALUES (?,?,?,?)', demflat)
+    conn.commit()
+    print 'Done price profiles'
+
+# function to choose the right elasticity matrix based on EV penetration (range0-100)
+def setRightElasticityMatrix(percentageEV):
+    print os.getcwd()
+    conn = sq.connect("database/database.sqlite")
+    cur = conn.cursor()
+    print os.getcwd()
+
+    sheet = int(percentageEV/10)
+
+    book = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\Elasticity.xlsx"))
+    bookElastRange = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\ElasticitiesRangeSpring.xlsx"))
+    sql = 'DROP TABLE IF EXISTS Elasticity;'
+    cur.execute(sql)
+    sql = 'CREATE TABLE IF NOT EXISTS Elasticity (Season FLOAT, Hour1 TEXT, Hour2 TEXT, Price_Elasticity FLOAT);'
+    cur.execute(sql)
+    elasticity = list()
+    amount_of_days = length_period/24
+    for season in range (0,4):
+        if season != season_range:
+            print 'season: ', season
+            for day in range(0,amount_of_days):
+                if day == startday_weekend or day == startday_weekend+1:
+                    print 'weekend, normal season, sheet = ', season*2+1
+                    sh=book.sheet_by_index(season*2+1)
+                else:
+                    print 'weekday, normal season, sheet = ', season*2
+                    sh=book.sheet_by_index(season*2)
+                for row in range(3,sh.nrows):
+                    hour1 = int(sh.cell_value(row, 0)) + 24*day
+                    for col in range(1,sh.ncols):
+                        if col < 13:
+                            if row > 14 + col:
+                                hour2 = int(sh.cell_value(2, col)) + 24*(day+1)
+                            else:
+                                hour2 = int(sh.cell_value(2, col)) + 24*(day)
+                            if hour2 > length_period:
+                                hour2 = hour2 - length_period
+                        else:
+                            if col > 11 + row-2:
+                                hour2 = int(sh.cell_value(2, col)) + 24*(day-1)
+                            else:
+                                hour2 = int(sh.cell_value(2, col)) + 24*(day)
+                            if hour2 < 1:
+                                hour2 = hour2 + length_period
+                        value = sh.cell_value(row,col)
+                        elasticity.append((season+1,hour1,hour2,value))
+        else:
+            print 'season: ', season
+            for day in range(0,amount_of_days):
+                if day == startday_weekend or day == startday_weekend+1:
+                    print 'weekend, range_season, sheet = ', sheet
+                    sh=bookElastRange.sheet_by_index(sheet)
+                else:
+                    print 'weekday, range_season, sheet = ', sheet
+                    sh=bookElastRange.sheet_by_index(sheet)
+                for row in range(3,sh.nrows):
+                    hour1 = int(sh.cell_value(row, 0)) + 24*day
+                    for col in range(1,sh.ncols):
+                        if col < 13:
+                            if row > 14 + col:
+                                hour2 = int(sh.cell_value(2, col)) + 24*(day+1)
+                            else:
+                                hour2 = int(sh.cell_value(2, col)) + 24*(day)
+                            if hour2 > length_period:
+                                hour2 = hour2 - length_period
+                        else:
+                            if col > 11 + row-2:
+                                hour2 = int(sh.cell_value(2, col)) + 24*(day-1)
+                            else:
+                                hour2 = int(sh.cell_value(2, col)) + 24*(day)
+                            if hour2 < 1:
+                                hour2 = hour2 + length_period
+                        value = round(sh.cell_value(row,col),4)
+                        elasticity.append((season+1,hour1,hour2,value))
+    cur.executemany('INSERT INTO Elasticity VALUES (?,?,?,?)', elasticity)
+    conn.commit()
+    print 'Done elasticities'
+
+
+# Wout_initialise.initialise(length_period)
+setRightDemandProfilesEV(percentageEV)
+# setRightElasticityMatrix(percentageEV)
+
+reset_ratio()
+
+for i in range (0,3):
+    Wout_main.main(length_period)
+    set_inbalance_ratio()
+
 
 #write marginal values of balance function to excel
 def balance_m_to_excel():
@@ -104,33 +352,6 @@ def reset_factor_to_one():
 
     for i in range(1,amount_of_periods+1):
         list_compensation.append(1)
-
-    ############################################
-
-#reset compensation factor for inbalances in elasticities (to 1)
-def reset_ratio():
-    resetvalue = 0.05
-    print os.getcwd()
-    conn = sq.connect("database/database.sqlite")
-    cur = conn.cursor()
-
-    print os.getcwd()
-    sql = 'DROP TABLE IF EXISTS Ratio;'
-    cur.execute(sql)
-    sql = 'CREATE TABLE IF NOT EXISTS Ratio (Period TEXT, Hour TEXT, Value FLOAT);'
-    # ,  PRIMARY KEY(Code));'
-    cur.execute(sql)
-    ratios = list()
-    for p in range(1,amount_of_periods+1):
-        ratios_period = list()
-        for h in range(1,length_period+1):
-            ratios.append((p,h,resetvalue))
-            ratios_period.append(resetvalue)
-            # print (p,' & ', h)
-        print ratios_period
-        list_ratio.append(ratios_period)
-    cur.executemany('INSERT INTO Ratio VALUES (?,?,?)', ratios)
-    conn.commit()
 
     ############################################
 
@@ -290,88 +511,4 @@ def calculate_comp_factor():
         print 'compensate: ',compensate
         list_compensation[i-1] = list_compensation[i-1]*math.pow(compensate,0.8)
         print 'compensate new value: ', list_compensation[i-1]
-
-#get the inbalance ratio for each hour h
-def set_inbalance_ratio():
-    #define the used files
-    writefile = os.getcwd() + '\\' + 'excel\output_elasticity_model_tempory.xlsx'
-    writer = ExcelWriter(writefile)
-    print gdx_file
-    zone_dict = dict()
-    zone_dict['BEL_Z'] = 'BEL'
-
-    #gdx to excel
-    print 'Retrieving ratio'
-    ratio = gdx_to_df(gdx_file, 'ratio')
-    old_index = ratio.index.names
-    ratio['C'] = [zone_dict[z] for z in ratio.index.get_level_values('Z')]
-    ratio.set_index('C', append=True, inplace=True)
-    ratio = ratio.reorder_levels(['C'] + old_index)
-    ratio.reset_index(inplace=True)
-    ratio = pivot_table(ratio, 'ratio', index=['P','H','Z'], columns=['C'], aggfunc=np.sum)
-    print 'Writing ratio to Excel'
-    ratio.to_excel(writer, na_rep=0.0, sheet_name='ratio', merge_cells=False)
-    writer.close()
-
-    #calculate new ratios and put in sql
-    print os.getcwd()
-    conn = sq.connect("database/database.sqlite")
-    cur = conn.cursor()
-    print os.getcwd()
-
-    sql = 'DROP TABLE IF EXISTS Ratio;'
-    cur.execute(sql)
-    sql = 'CREATE TABLE IF NOT EXISTS Ratio (Period TEXT, Hour TEXT, Value FLOAT);'
-    cur.execute(sql)
-    ratios = list()
-    print 'open tempory excel file'
-    wbread = openpyxl.load_workbook(excel_tempory_name)
-    print 'tempory file loaded'
-    sheet = wbread.get_sheet_by_name(sh_ratio_name)
-    for i in range(1,amount_of_periods+1):
-        for j in range(2,length_period+2):
-            list_ratio[i-1][j-2] = round(list_ratio[i-1][j-2]*(sheet.cell(row = (i-1)*length_period+j,column = 4).value),4)
-            # print 'list_ratio for i = ', i, ', and j = ', j
-            # print list_ratio[i-1][j-2]
-            period = i
-            hour = j-1
-            ratio = list_ratio[i-1][j-2]
-            # print period, hour, ratio
-            ratios.append((period,hour,ratio))
-    cur.executemany('INSERT INTO Ratio VALUES (?,?,?)', ratios)
-    conn.commit()
-
-    print 'done ratio'
-
-#Auxiliary funtion to calculate power of negative functions
-def calculate_power(value, power):
-    if value < 0:
-        result = -math.pow(-value,power)
-    else:
-        result = math.pow(value,power)
-    return result
-
-# Reset factor (to compensate the inbalances in the cross elasticities) to 1
-# reset_factor_to_one()
-# reset_factor_to_value(1.621)
-# set balance_price to flat price
-# Wout_initialise.initialise(length_period)
-reset_ratio()
-
-
-# output = list()
-#
-# output.append(list(list_compensation))
-for i in range (0,4):
-    Wout_main.main(length_period)
-    set_inbalance_ratio()
-#     output.append(list(list_compensation))
-#
-# print output
-
-
-
-
-
-
 

@@ -144,6 +144,14 @@ ELAST_COMP(P,T,H)       compensation PEM
 RATIO_H(P,H)            inbalance ratio
 LINEARPEM(T,H)          compensation PEM linear
 OWNELAST(T,H)           compensation PEM elast
+
+# data from DR model
+DEM_RES_MAX(P,T,Z)        max residential demand
+DEM_RES_MIN(P,T,Z)        min residential demand
+DEM_OPTIMAL(P,T,Z)        anchor point demand
+PRICE_REF(P,H,Z)          anchor point price
+DEM_RES_FP(P,T,Z)         prospected demand under flat price
+
 ;
 
 $LOAD G_DATA
@@ -169,6 +177,7 @@ $LOAD COMPENSATE
 $LOAD DEM_REF_RES DEM_NON_RES
 $LOAD RATIO_H
 $LOAD LINEARPEM OWNELAST
+$LOAD DEM_OPTIMAL DEM_RES_MIN DEM_RES_MAX DEM_RES_FP PRICE_REF
 
 #C_GAS = 25.6643460843943;
 C_GAS = 25.6643460843943*2;
@@ -177,17 +186,24 @@ EGCAPEX = 2000000000000000000000000;
 E_LP = 7100000;
 P_REF = 55.5;
 TOTDEM = sum((P,T,Z),DEM_T(P,T,Z));
-LIMITPRICE = P_REF*0.95;
+LIMITPRICE = P_REF*0.5;
 LIMITDEM = 1500;
 LIMITSHIFT = 3000;
 LENGTH_P = card(T);
 
+############################
+## CHOOSE STARTING DEMAND CURVE
+###############
+#PRICE_REF(P,H,Z) = P_REF;
+#DEM_OPTIMAL(P,T,Z) = DEM_RES_FP(P,T,Z);
+
+
 # flat compensation PEM
-ELAST_COMP(P,T,H) = (TRI_LOW(T,H)+TRI_UP(T,H))*RATIO_H(P,H);
+#ELAST_COMP(P,T,H) = (TRI_LOW(T,H)+TRI_UP(T,H))*RATIO_H(P,H);
 # linear compensation PEM
 #ELAST_COMP(P,T,H) = (LINEARPEM(T,H))*RATIO_H(P,H);
 # Elastic compensation PEM
-#ELAST_COMP(P,T,H) = (OWNELAST(T,H))*RATIO_H(P,H);
+ELAST_COMP(P,T,H) = (OWNELAST(T,H))*RATIO_H(P,H);
 ELAST_NEW(P,T,H) = ELAST(P,T,H)+ELAST_COMP(P,T,H);
 
 eff_factor_earlier = 0.0;
@@ -197,6 +213,9 @@ VARIABLES
 obj                 	Value of objective function
 
 #######################################################
+
+price_unit(P,H,Z)				Residential price signal for the electricity
+price_unit_clone(P,T,Z)
 
 shiftforwards(P,H,Z)			Shift towards an earlier moment in time per hour
 shiftforwards_total(P,Z)		Shift towards an earlier moment in time per period
@@ -222,8 +241,6 @@ shift_down(P,H,Z)
 POSITIVE VARIABLES
 #######################################################
 
-price_unit(P,H,Z)				Residential price signal for the electricity
-price_unit_clone(P,T,Z)
 demand_new_res(P,T,Z)           Residential demand after price signal applied
 demand_new_res_clone(P,H,Z)
 demand_unit(P,T,Z)				demand of the electricity (sum residential & non-residential)
@@ -477,14 +494,18 @@ price_clone(P,T,Z)
 demand(P,T,Z)
 demand_clone(P,H,Z)
 
+#data DR model
+demand_max(P,T,Z)
+demand_min(P,T,Z)
+
 sum_demand(P,T,Z)
 totdemand(P,Z)
 surplusdemand(P,T,Z)
 totdemand2(P,Z)
 refdemand(P,T,Z)
 refdemand2(Z)
-priceconstraint1(P,T,Z)
-priceconstraint2(P,T,Z)
+priceconstraint1(P,H,Z)
+priceconstraint2(P,H,Z)
 priceconstraint3(P,Z)
 shiftconstraint_frame_1(P,H,Z)
 shiftconstraint_frame_2(P,H,Z)
@@ -541,7 +562,8 @@ qobj..              obj
 						+ sum((Y,P,T,Z,GC), 	W(P)*(G_DATA(GC,'C_FUEL'))*gen(Y,P,T,Z,GC))
 
 						#+ sum((Y,P,T,Z,S), 		W(P)*(S_DATA(S,'OPEX'))*p_c(Y,P,T,Z,S)+p_d(Y,P,T,Z,S))
-
+						+ sum((Y,P,T,Z,GRI), 	W(P)*(0)*curt(Y,P,T,Z,GRI) + W(P)*(1000000)*curt_dummy(Y,P,T,Z,GRI))
+                        + sum((Y,P,T,Z), 		W(P)*(10000)*load_shedding(Y,P,T,Z))
 						)
 						*(168/card(T));
 						;
@@ -558,11 +580,11 @@ qobj..              obj
 # balance with demand response
 qbalance(Y,P,T,Z)..
     				sum(G, gen(Y,P,T,Z,G))
-    				#+ sum(SSM, p_d(Y,P,T,Z,SSM))
+#    				+ sum(SSM, p_d(Y,P,T,Z,SSM))
 					=e=
 						demand_unit(P,T,Z)
-#						- load_shedding(Y,P,T,Z)
-						#+ sum(S, p_c(Y,P,T,Z,S))
+						- load_shedding(Y,P,T,Z)
+#						+ sum(S, p_c(Y,P,T,Z,S))
 						;
 
 #balance without demand response
@@ -1556,48 +1578,70 @@ qgasusegen(Y,P,T,Z,GCG)..
 						;
 
 ################################################
+# DEMAND RESPONSE
 ################################################
 
-demand(P,T,Z)..
-					demand_new_res(P,T,Z) =e= DEM_REF_RES(P,T,Z) + sum(H,ELAST_NEW(P,T,H)*(DEM_REF_RES(P,T,Z)/P_REF)*(price_unit(P,H,Z)-P_REF))
-					;
-
-demand_clone(P,H,Z)..
-					demand_new_res_clone(P,H,Z) =e= sum(T,demand_new_res(P,T,Z)*DIAG(T,H))
-					;
+# always included in this manner
 
 sum_demand(P,T,Z)..
                     demand_unit(P,T,Z) =e= DEM_NON_RES(P,T,Z) + demand_new_res(P,T,Z)
                     ;
 
-totdemand(P,Z)..
-#					sum(T,DEM_REF_RES(P,T,Z)) =l= sum(T,demand_new_res(P,T,Z))
-					sum(T,DEM_REF_RES(P,T,Z)+eff_factor_earlier*sum(H,DIAG(T,H)*(front_up(P,H,Z)-back_down(P,H,Z)))) =l= sum(T,demand_new_res(P,T,Z))
+totdemand2(P,Z)..
+					demand_tot(P,Z) =e= sum(T,demand_new_res(P,T,Z) + DEM_NON_RES(P,T,Z))
+#					demand_tot(P,Z) =e= sum(T,DEM_REF_RES(P,T,Z))
 					;
+
+refdemand(P,T,Z)..
+					demand_ref(P,T,Z) =e= DEM_OPTIMAL(P,T,Z) + DEM_NON_RES(P,T,Z)
+					;
+
+
+
+##################################
+
+# change used equation depending on with or withourt demand response
+
+demand(P,T,Z)..
+					demand_new_res(P,T,Z) =e= DEM_OPTIMAL(P,T,Z) + sum(H,ELAST_NEW(P,T,H)*(DEM_OPTIMAL(P,T,Z)/PRICE_REF(P,H,Z))*(price_unit(P,H,Z)-PRICE_REF(P,H,Z)))
+#					demand_new_res(P,T,Z) =e= DEM_REF_RES(P,T,Z)
+					;
+
+price_clone(P,T,Z)..
+					price_unit_clone(P,T,Z) =e= sum(H,price_unit(P,H,Z)*DIAG(T,H))
+#					price_unit_clone(P,T,Z) =e= PRICE_REF(P,H,Z)
+					;
+
+totdemand(P,Z)..
+					sum(T,DEM_OPTIMAL(P,T,Z)) =l= sum(T,demand_new_res(P,T,Z))
+#					sum(T,DEM_REF_RES(P,T,Z)+eff_factor_earlier*sum(H,DIAG(T,H)*(front_up(P,H,Z)-back_down(P,H,Z)))) =l= sum(T,demand_new_res(P,T,Z))
+					;
+
+##################################
+
+demand_max(P,T,Z)..
+                    demand_new_res(P,T,Z) =l= DEM_RES_MAX(P,T,Z)
+                    ;
+
+demand_min(P,T,Z)..
+                    demand_new_res(P,T,Z) =g= DEM_RES_MIN(P,T,Z)
+                    ;
+
+demand_clone(P,H,Z)..
+					demand_new_res_clone(P,H,Z) =e= sum(T,demand_new_res(P,T,Z)*DIAG(T,H))
+					;
+
 
 surplusdemand(P,T,Z)..
 					surplus(P,T,Z) =e= eff_factor_earlier*sum(H,DIAG(T,H)*(front_up(P,H,Z)-back_down(P,H,Z)))
 					;
 
-totdemand2(P,Z)..
-					demand_tot(P,Z) =e= sum(T,demand_new_res(P,T,Z))
-#					demand_tot(P,Z) =e= sum(T,DEM_REF_RES(P,T,Z))
-					;
-
 #price(P,H,Z)..
-#					(price_unit(P,H,Z) - P_REF)*sum(H,ELAST(T,H)*(DEM_REF_RES(P,T,Z)/P_REF)) =e= (demand_new_res(P,T,Z)-DEM_REF_RES(P,T,Z))
+#					(price_unit(P,H,Z) - PRICE_REF(P,H,Z))*sum(H,ELAST(T,H)*(DEM_REF_RES(P,T,Z)/PRICE_REF(P,H,Z))) =e= (demand_new_res(P,T,Z)-DEM_REF_RES(P,T,Z))
 #					;
 
-price_clone(P,T,Z)..
-					price_unit_clone(P,T,Z) =e= sum(H,price_unit(P,H,Z)*DIAG(T,H))
-					;
-
-refdemand(P,T,Z)..
-					demand_ref(P,T,Z) =e= DEM_REF_RES(P,T,Z) + DEM_NON_RES(P,T,Z)
-					;
-
 shiftedaway(P,H,Z)..
-					shiftaway(P,H,Z) =e= sum(T,DIAG(T,H)*ELAST_NEW(P,T,H)*DEM_REF_RES(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+					shiftaway(P,H,Z) =e= sum(T,DIAG(T,H)*ELAST_NEW(P,T,H)*DEM_OPTIMAL(P,T,Z)*(price_unit(P,H,Z)-PRICE_REF(P,H,Z))/PRICE_REF(P,H,Z))
 					;
 
 shiftedawaytotal(P,Z)..
@@ -1605,7 +1649,7 @@ shiftedawaytotal(P,Z)..
 					;
 
 shiftedforward(P,H,Z)..
-					shiftforwards(P,H,Z) =e= sum(T,TRI_UP(T,H)*ELAST_NEW(P,T,H)*DEM_REF_RES(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+					shiftforwards(P,H,Z) =e= sum(T,TRI_UP(T,H)*ELAST_NEW(P,T,H)*DEM_OPTIMAL(P,T,Z)*(price_unit(P,H,Z)-PRICE_REF(P,H,Z))/PRICE_REF(P,H,Z))
 					;
 
 shiftedforwardtotal(P,Z)..
@@ -1614,7 +1658,7 @@ shiftedforwardtotal(P,Z)..
 					;
 
 shiftedbackward(P,H,Z)..
-					shiftbackwards(P,H,Z) =e= sum(T,TRI_LOW(T,H)*ELAST_NEW(P,T,H)*DEM_REF_RES(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+					shiftbackwards(P,H,Z) =e= sum(T,TRI_LOW(T,H)*ELAST_NEW(P,T,H)*DEM_OPTIMAL(P,T,Z)*(price_unit(P,H,Z)-PRICE_REF(P,H,Z))/PRICE_REF(P,H,Z))
 					;
 
 shiftedbackwardtotal(P,Z)..
@@ -1623,11 +1667,11 @@ shiftedbackwardtotal(P,Z)..
 					;
 
 shiftconstraint_frame_1(P,H,Z)..
-					sum(T,DEM_REF_RES(P,T,Z)*SHIFTMIN(H,T)) =l= sum(T,demand_new_res(P,T,Z)*SHIFTMAX(H,T))
+					sum(T,DEM_OPTIMAL(P,T,Z)*SHIFTMIN(H,T)) =l= sum(T,demand_new_res(P,T,Z)*SHIFTMAX(H,T))
 					;
 
 shiftconstraint_frame_2(P,H,Z)..
-					sum(T,DEM_REF_RES(P,T,Z)*SHIFTMAX(H,T)) =g= sum(T,demand_new_res(P,T,Z)*SHIFTMIN(H,T))
+					sum(T,DEM_OPTIMAL(P,T,Z)*SHIFTMAX(H,T)) =g= sum(T,demand_new_res(P,T,Z)*SHIFTMIN(H,T))
 					;
 
 shiftconstraint1(P,H,Z)..
@@ -1638,30 +1682,30 @@ shiftconstraint2(P,H,Z)..
 					shiftaway(P,H,Z) =g= -LIMITSHIFT
 					;
 
-priceconstraint1(P,T,Z)..
-					price_unit_clone(P,T,Z) =l= P_REF + LIMITPRICE
+priceconstraint1(P,H,Z)..
+					price_unit(P,H,Z) =l= PRICE_REF(P,H,Z) + LIMITPRICE
 					;
 
-priceconstraint2(P,T,Z)..
-					price_unit_clone(P,T,Z) =g= P_REF - LIMITPRICE
+priceconstraint2(P,H,Z)..
+					price_unit(P,H,Z) =g= PRICE_REF(P,H,Z) - LIMITPRICE
 					;
 
 demlimitunder(P,T,Z)..
-					DEM_REF_RES(P,T,Z) - LIMITDEM =l= demand_new_res(P,T,Z)
+					DEM_OPTIMAL(P,T,Z) - LIMITDEM =l= demand_new_res(P,T,Z)
 					;
 
 demlimitupper(P,T,Z)..
-					DEM_REF_RES(P,T,Z) + LIMITDEM =g= demand_new_res(P,T,Z)
+					DEM_OPTIMAL(P,T,Z) + LIMITDEM =g= demand_new_res(P,T,Z)
 					;
 
 
 #priceconstraint3(P,Z)..
-#					sum(T,price_unit(P,T,Z))/card(T) =e= P_REF
+#					sum(T,price_unit(P,T,Z))/card(T) =e= PRICE_REF(P,H,Z)
 #					;
 
 
 qinnerframe(P,H,Z)..
-					innerframe(P,H,Z) =e= sum(T,DEM_REF_RES(P,T,Z)*SHIFTMIN(H,T))
+					innerframe(P,H,Z) =e= sum(T,DEM_OPTIMAL(P,T,Z)*SHIFTMIN(H,T))
 					;
 
 qouterframe(P,H,Z)..
@@ -1737,19 +1781,19 @@ shift_u_2(P,H,Z)..
 ###################################################
 
 shiftedfi(P,H,Z)..
-                    shiftfi(P,H,Z) =e= sum(T,TRI_UP(T,H)*ELAST(P,T,H)*DEM_REF_RES(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+                    shiftfi(P,H,Z) =e= sum(T,TRI_UP(T,H)*ELAST(P,T,H)*DEM_OPTIMAL(P,T,Z)*(price_unit(P,H,Z)-PRICE_REF(P,H,Z))/PRICE_REF(P,H,Z))
                     ;
 
 shiftedbi(P,H,Z)..
-                    shiftbi(P,H,Z) =e= sum(T,TRI_LOW(T,H)*ELAST(P,T,H)*DEM_REF_RES(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+                    shiftbi(P,H,Z) =e= sum(T,TRI_LOW(T,H)*ELAST(P,T,H)*DEM_OPTIMAL(P,T,Z)*(price_unit(P,H,Z)-PRICE_REF(P,H,Z))/PRICE_REF(P,H,Z))
                     ;
 
 shiftedfc(P,H,Z)..
-                    shiftfc(P,H,Z) =e= sum(T,TRI_UP(T,H)*ELAST_COMP(P,T,H)*DEM_REF_RES(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+                    shiftfc(P,H,Z) =e= sum(T,TRI_UP(T,H)*ELAST_COMP(P,T,H)*DEM_OPTIMAL(P,T,Z)*(price_unit(P,H,Z)-PRICE_REF(P,H,Z))/PRICE_REF(P,H,Z))
                     ;
 
 shiftedbc(P,H,Z)..
-                    shiftbc(P,H,Z) =e= sum(T,TRI_LOW(T,H)*ELAST_COMP(P,T,H)*DEM_REF_RES(P,T,Z)*(price_unit(P,H,Z)-P_REF)/P_REF)
+                    shiftbc(P,H,Z) =e= sum(T,TRI_LOW(T,H)*ELAST_COMP(P,T,H)*DEM_OPTIMAL(P,T,Z)*(price_unit(P,H,Z)-PRICE_REF(P,H,Z))/PRICE_REF(P,H,Z))
                     ;
 
 
@@ -1935,35 +1979,53 @@ MODEL GOA GOA model /
 
 #-- Price-elasticity--#
 
-#		price
-		price_clone
-		demand
-#		demand_clone
-		sum_demand
-#		totdemand
-#		surplusdemand
+        #always included
 		totdemand2
 		refdemand
+		sum_demand
+
+		#always included, change equation
+		demand
+		price_clone
+
+		###########
+		## Only for demand resposne
+		###########
+
+		#limits shiftaway
+#		shiftconstraint1
+#		shiftconstraint2
+
+		#limits demand difference
+#		demlimitunder
+#		demlimitupper
+
+		#keeps demand between boundaries
+        demand_max
+        demand_min
+
+#		price
+#		demand_clone
+
+#		surplusdemand
 
 		shiftedaway
 #		shiftedforward
 #		shiftedbackward
 
-#		shiftedawaytotal
+		shiftedawaytotal
 #		shiftedforwardtotal
 #		shiftedbackwardtotal
 
-#		priceconstraint1
-#		priceconstraint2
+		priceconstraint1
+		priceconstraint2
 #		priceconstraint3
 
         ##########
         # include when working with moving frames, and set in wout_program -> factor back to 1
 #		shiftconstraint_frame_1
 #		shiftconstraint_frame_2
-
-		shiftconstraint1
-		shiftconstraint2
+#		totdemand
 
 #		qinnerframe
 #		qouterframe
@@ -1972,9 +2034,6 @@ MODEL GOA GOA model /
 #		fixedcost
 #		variablecost
 #		cost
-
-		demlimitunder
-		demlimitupper
 
 #		front_d_1
 #		front_d_2
@@ -1986,10 +2045,10 @@ MODEL GOA GOA model /
 #		back_u_1
 #		back_u_2
 #
-#		shift_u_1
-#		shift_u_2
-#		shift_d_1
-#		shift_d_2
+		shift_u_1
+		shift_u_2
+		shift_d_1
+		shift_d_2
 
         shiftedbc
         shiftedfc

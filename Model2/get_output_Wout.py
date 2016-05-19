@@ -63,18 +63,43 @@ demand_new_res = pivot_table(demand_new_res, 'demand_new_res', index=['P','T','Z
 # print curt.head()
 
 print 'Retrieving demand_res_ref'
-DEM_REF_RES = gdx_to_df(gdx_file, 'DEM_REF_RES')
+# DEM_REF_RES = gdx_to_df(gdx_file, 'DEM_REF_RES')
+DEM_REF_RES = gdx_to_df(gdx_file, 'DEM_OPTIMAL')
 old_index = DEM_REF_RES.index.names
 DEM_REF_RES['C'] = [zone_dict[z] for z in DEM_REF_RES.index.get_level_values('Z')]
 DEM_REF_RES.set_index('C', append=True, inplace=True)
 DEM_REF_RES = DEM_REF_RES.reorder_levels(['C'] + old_index)
 DEM_REF_RES.reset_index(inplace=True)
-DEM_REF_RES = pivot_table(DEM_REF_RES, 'DEM_REF_RES', index=['P', 'T','Z'], columns=['C'], aggfunc=np.sum)
+# DEM_REF_RES = pivot_table(DEM_REF_RES, 'DEM_REF_RES', index=['P', 'T','Z'], columns=['C'], aggfunc=np.sum)
+DEM_REF_RES = pivot_table(DEM_REF_RES, 'DEM_OPTIMAL', index=['P', 'T','Z'], columns=['C'], aggfunc=np.sum)
+
+print 'Retrieving demand_res_min'
+DEM_RES_MIN = gdx_to_df(gdx_file, 'DEM_RES_MIN')
+old_index = DEM_RES_MIN.index.names
+DEM_RES_MIN['C'] = [zone_dict[z] for z in DEM_RES_MIN.index.get_level_values('Z')]
+DEM_RES_MIN.set_index('C', append=True, inplace=True)
+DEM_RES_MIN = DEM_RES_MIN.reorder_levels(['C'] + old_index)
+DEM_RES_MIN.reset_index(inplace=True)
+# DEM_REF_RES = pivot_table(DEM_REF_RES, 'DEM_REF_RES', index=['P', 'T','Z'], columns=['C'], aggfunc=np.sum)
+DEM_RES_MIN = pivot_table(DEM_RES_MIN, 'DEM_RES_MIN', index=['P', 'T','Z'], columns=['C'], aggfunc=np.sum)
+
+print 'Retrieving demand_res_max'
+DEM_RES_MAX = gdx_to_df(gdx_file, 'DEM_RES_MAX')
+old_index = DEM_RES_MAX.index.names
+DEM_RES_MAX['C'] = [zone_dict[z] for z in DEM_RES_MAX.index.get_level_values('Z')]
+DEM_RES_MAX.set_index('C', append=True, inplace=True)
+DEM_RES_MAX = DEM_RES_MAX.reorder_levels(['C'] + old_index)
+DEM_RES_MAX.reset_index(inplace=True)
+# DEM_REF_RES = pivot_table(DEM_REF_RES, 'DEM_REF_RES', index=['P', 'T','Z'], columns=['C'], aggfunc=np.sum)
+DEM_RES_MAX = pivot_table(DEM_RES_MAX, 'DEM_RES_MAX', index=['P', 'T','Z'], columns=['C'], aggfunc=np.sum)
+
 
 # First Merge
 genmarg = merge(demand_unit, demand_ref, left_index=True, right_index=True, how='outer', suffixes=['_dem', '_dem_ref'])
 genmargres = merge(demand_new_res,DEM_REF_RES,left_index=True,right_index=True,how='outer',suffixes=['dem_res','_dem_res_ref'])
 genmarg = merge(genmarg, genmargres, left_index=True, right_index=True, how='outer')
+genmarg = merge(genmarg, DEM_RES_MIN, left_index=True, right_index=True, how='outer')
+genmarg = merge(genmarg, DEM_RES_MAX, left_index=True, right_index=True, how='outer')
 genmarg = merge(genmarg, price_unit, left_index=True, right_index=True, how='outer', suffixes=['', '_price'])
 
 print 'Writing demand and prices to Excel'
