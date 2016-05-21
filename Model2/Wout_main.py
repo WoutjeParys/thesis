@@ -15,7 +15,7 @@ folder = 'gams'
 
 file = '../gams/LinearModel_Wout_comp.gms'
 
-def main(length_period):
+def main(length_period,res_target_extern,note,commands):
     # 1. Setup Gams Workspace
     # ws = gams.GamsWorkspace(working_directory=os.getcwd(), debug=gams.DebugLevel.ShowLog)
     print os.getcwd() + '\gams'
@@ -843,13 +843,14 @@ def main(length_period):
         #     for target in [0,10,20,30,40,50]:
                 # print target
                 # for res_target in [target]:
-            for res_target in [50]:
+            for res_target in [40]:
                 print '*'*80
                 print inv_cost
                 print res_target
                 job_sense = ws.add_job_from_string(
                     #'S_DATA(\'STOR_S\', \'C_P_C_INV\') = {inv_cost};\n'
-                    #'POL_TARGETS(\'RES_SHARE\', \'2050\') = {res_target};\n'
+                    'POL_TARGETS(\'RES_SHARE\', \'2050\') = {res_target};\n'
+                    '{commands}'
                     # 'cplex option OptimalityTarget=3;\n'
                     # 'option nlp=pathnlp;\n'
                     # 'SOLVE GOA using nlp maximizing obj;'.format(res_target=res_target,inv_cost=inv_cost), cp)
@@ -860,10 +861,10 @@ def main(length_period):
                     # 'factor(P,H,Z) = -shiftaway.l(P,H,Z)/(shiftforwards.l(P,H,Z)+shiftbackwards.l(P,H,Z)+0.00000001);\n'
                     'parameter ratio(P,H,Z) inbalance ratio;\n'
                     'ratio(P,H,Z) = (-shiftaway.l(P,H,Z)-shiftfi.l(P,H,Z)-shiftbi.l(P,H,Z))/(shiftfc.l(P,H,Z)+shiftbc.l(P,H,Z)+0.00000001);\n'
-                    ,cp)
+                    .format(res_target=res_target_extern,commands=commands),cp)
                     #'SOLVE GOA using lp minimizing obj;'.format(res_target=res_target,inv_cost=inv_cost), cp)
                 job_sense.run(checkpoint=cp)
-                job_sense.out_db.export(os.path.join(os.getcwd(),'results', 'out_db_{inv_cost}_{res_target}.gdx'.format(res_target=res_target,inv_cost=inv_cost)))
+                job_sense.out_db.export(os.path.join(os.getcwd(),'results', 'out_db_{res_target}_{case}.gdx'.format(res_target=res_target_extern,case=note)))
     else:
         for dvs in db.get_database_dvs():
             print dvs.symbol.name

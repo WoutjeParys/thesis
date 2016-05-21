@@ -30,8 +30,8 @@ list_ratio = list()
 #length period needs to be a multiple of 24
 #percentageEV lies in the range 0-100
 length_period = 24*7
-amount_of_periods = 1
-startday_weekend = 3
+amount_of_periods = 8
+startday_weekend = 2
 percentageEV = 100
 season_range = 1
 
@@ -268,15 +268,113 @@ def setRightElasticityMatrix(percentageEV):
     print 'Done elasticities'
 
 
-# Wout_initialise.initialise(length_period)
-setRightDemandProfilesEV(percentageEV)
-# setRightElasticityMatrix(percentageEV)
+Wout_initialise.initialise(length_period)
 
+
+#no DR
+note = 'noDR'
+string1 = 'PRICE_REF(P,H,Z) = P_REF;\n'
+string2 = 'DEM_OPTIMAL(P,T,Z) = DEM_RES_FP(P,T,Z);\n'
+string3 = 'LIMITPRICE = 0;\n'
+string4 = 'FACTOR_RES_DR = 0;\n'
+stringtot = string1+string2+string3+string4
+for res_target_extern in [10,30,50]:
+    Wout_main.main(length_period,res_target_extern,note,stringtot)
+
+print '-------------------------'
+print '\n'
+print '\n'
+print '\n'
+print '\n'
+print '\n'
+print 'NO DEMAND RESPONSE CASES ARE DONE!'
+print '\n'
+print '\n'
+print '\n'
+print '\n'
+print '\n'
+print '-------------------------'
+
+# with DR
 reset_ratio()
+# calculate RATIO_H for first time
+# this ratio depends on the used demand profile and the initial elasticities!
+note = 'DR'
+string3 = 'LIMITPRICE = 1.5;\n'
+string4 = 'FACTOR_RES_DR = 0;\n'
+stringtot = string3+string4
+testResTarget = 5
+Wout_main.main(length_period,testResTarget,note,stringtot)
+file = 'results\out_db_'+ str(testResTarget) + '_DR.gdx'
+gdx_file = os.path.join(os.getcwd(), '%s' % file)
+set_inbalance_ratio()
 
-for i in range (0,3):
-    Wout_main.main(length_period)
+print '-------------------------'
+print '\n'
+print '\n'
+print '\n'
+print '\n'
+print '\n'
+print 'CALCULATE RATIO IS DONE FOR UPCOMING CASES!!!'
+print '\n'
+print '\n'
+print '\n'
+print '\n'
+print '\n'
+print '-------------------------'
+
+# DR not as reserves
+note = 'DR'
+string3 = 'LIMITPRICE = 1.5;\n'
+string4 = 'FACTOR_RES_DR = 0;\n'
+stringtot = string3+string4
+
+for res_target_extern in [10,30,50]:
+    Wout_main.main(length_period,res_target_extern,note,stringtot)
+    file = 'results\out_db_'+ str(res_target_extern) + '_DR.gdx'
+    gdx_file = os.path.join(os.getcwd(), '%s' % file)
     set_inbalance_ratio()
+
+print '-------------------------'
+print '\n'
+print '\n'
+print '\n'
+print '\n'
+print '\n'
+print 'CASES WITH DEMAND RESPONSE ARE DONE!!!!!!!!!'
+print '\n'
+print '\n'
+print '\n'
+print '\n'
+print '\n'
+print '-------------------------'
+
+# DR also as reserves
+note = 'DRres'
+string3 = 'LIMITPRICE = 1.5;\n'
+string4 = 'FACTOR_RES_DR = 1;\n'
+stringtot = string3+string4
+
+for res_target_extern in [10,30,50]:
+    Wout_main.main(length_period,res_target_extern,note,stringtot)
+    file = 'results\out_db_'+ str(res_target_extern) + '_DRres.gdx'
+    gdx_file = os.path.join(os.getcwd(), '%s' % file)
+    set_inbalance_ratio()
+
+
+print '-------------------------'
+print '\n'
+print '\n'
+print '\n'
+print '\n'
+print '\n'
+print 'AND WE ARE COMPLETELY FINISHED!!!!!!!!!!'
+print '\n'
+print '\n'
+print '\n'
+print '\n'
+print '\n'
+print '-------------------------'
 
 
 #write marginal values of balance function to excel
@@ -424,7 +522,6 @@ def update_factor_values():
     print os.getcwd()
     conn = sq.connect("database/database.sqlite")
     cur = conn.cursor()
-
     print os.getcwd()
 
     book = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\output_elasticity_model_tempory.xlsx"))
@@ -512,3 +609,7 @@ def calculate_comp_factor():
         list_compensation[i-1] = list_compensation[i-1]*math.pow(compensate,0.8)
         print 'compensate new value: ', list_compensation[i-1]
 
+x = 'dit is een test'
+y = 5
+z = x + str(y)
+print z

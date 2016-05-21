@@ -256,7 +256,7 @@ def initialise(length_period):
         ############################################
         print "Done time"
 
-    startday_weekend = 3
+    startday_weekend = 2
 
     if price_profiles:
         book = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\PriceProf.xlsx"))
@@ -285,10 +285,7 @@ def initialise(length_period):
         print 'Done price profiles'
 
     if demand_profiles:
-        bookref = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\DemResRef.xlsx"))
-        bookmin = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\DemResMin.xlsx"))
-        bookmax = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\DemResMax.xlsx"))
-        bookflat = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\DemResFlatPrice.xlsx"))
+        book = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\DemAllProfilesFull.xlsx"))
         sqlref = 'DROP TABLE IF EXISTS Dem_ref_profile;'
         sqlmin = 'DROP TABLE IF EXISTS Dem_min_profile;'
         sqlmax = 'DROP TABLE IF EXISTS Dem_max_profile;'
@@ -308,38 +305,36 @@ def initialise(length_period):
         demref = list()
         demmin = list()
         demmax = list()
-        demflat = list()
+        demflp = list()
         zone = 'BEL_Z'
+        shmin=book.sheet_by_index(0)
+        shmax=book.sheet_by_index(1)
+        shref=book.sheet_by_index(2)
+        shflp=book.sheet_by_index(3)
         amount_of_days = length_period/24
         for season in range (0,4):
             print 'season: ', season
             for day in range(0,amount_of_days):
                 if day == startday_weekend or day == startday_weekend+1:
-                    print 'weekendday with sheet index = ', season*2+1
-                    shref=bookref.sheet_by_index(season*2+1)
-                    shmin=bookmin.sheet_by_index(season*2+1)
-                    shmax=bookmax.sheet_by_index(season*2+1)
-                    shflat=bookflat.sheet_by_index(season*2+1)
+                    print 'weekendday with row = ', season*2+1
+                    row = season*2+2
                 else:
                     print 'weekday with sheet index = ', season*2
-                    shref=bookref.sheet_by_index(season*2)
-                    shmin=bookmin.sheet_by_index(season*2)
-                    shmax=bookmax.sheet_by_index(season*2)
-                    shflat=bookflat.sheet_by_index(season*2)
+                    row = season*2+1
                 for col in range(1,shref.ncols):
                     hour = int(shref.cell_value(0,col)) + 24*day
-                    valueref = shref.cell_value(1,col)
-                    valuemin = shmin.cell_value(1,col)
-                    valuemax = shmax.cell_value(1,col)
-                    valueflat = shflat.cell_value(1,col)
+                    valueref = shref.cell_value(row,col)
+                    valuemin = shmin.cell_value(row,col)
+                    valuemax = shmax.cell_value(row,col)
+                    valueflp = shflp.cell_value(row,col)
                     demref.append((season+1,zone,hour,valueref))
                     demmin.append((season+1,zone,hour,valuemin))
                     demmax.append((season+1,zone,hour,valuemax))
-                    demflat.append((season+1,zone,hour,valueflat))
+                    demflp.append((season+1,zone,hour,valueflp))
         cur.executemany('INSERT INTO Dem_ref_profile VALUES (?,?,?,?)', demref)
         cur.executemany('INSERT INTO Dem_min_profile VALUES (?,?,?,?)', demmin)
         cur.executemany('INSERT INTO Dem_max_profile VALUES (?,?,?,?)', demmax)
-        cur.executemany('INSERT INTO Dem_flat_profile VALUES (?,?,?,?)', demflat)
+        cur.executemany('INSERT INTO Dem_flat_profile VALUES (?,?,?,?)', demflp)
         conn.commit()
         print 'Done price profiles'
 
