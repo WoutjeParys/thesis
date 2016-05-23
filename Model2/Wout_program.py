@@ -333,7 +333,7 @@ string2 = 'DEM_OPTIMAL(P,T,Z) = DEM_RES_FP(P,T,Z);\n'
 string3 = 'LIMITPRICE = 0;\n'
 string4 = 'FACTOR_RES_DR = 0;\n'
 stringtot = string1+string2+string3+string4
-for res_target_extern in [0,40]:
+for res_target_extern in []:
     Wout_main.main(length_period,res_target_extern,note,stringtot)
 
 print '-------------------------'
@@ -374,7 +374,7 @@ string3 = 'LIMITPRICE = 1.5;\n'
 string4 = 'FACTOR_RES_DR = 0;\n'
 stringtot = string3+string4
 
-for res_target_extern in [0,20,60]:
+for res_target_extern in [60]:
     Wout_main.main(length_period,res_target_extern,note,stringtot)
 # #     file = 'results\out_db_'+ str(res_target_extern) + '_DR.gdx'
 # #     gdx_file = os.path.join(os.getcwd(), '%s' % file)
@@ -395,38 +395,25 @@ print '\n'
 print '-------------------------'
 
 # # DR also as reserves
-# note = 'DRres'
-# string3 = 'LIMITPRICE = 3;\n'
-# string4 = 'FACTOR_RES_DR = 1;\n'
-# stringtot = string3+string4
-#
-# for res_target_extern in [20,60]:
-#     Wout_main.main(length_period,res_target_extern,note,stringtot)
-# #     file = 'results\out_db_'+ str(res_target_extern) + '_DRres.gdx'
-# #     gdx_file = os.path.join(os.getcwd(), '%s' % file)
-# #     set_inbalance_ratio()
+note = 'DRres'
+string3 = 'LIMITPRICE = 1.5;\n'
+string4 = 'FACTOR_RES_DR = 1;\n'
+stringtot = string3+string4
 
-
-# # DR also as reserves
-# note = 'DRres0_1'
-# string3 = 'LIMITPRICE = 3;\n'
-# string4 = 'FACTOR_RES_DR = 0.1;\n'
-# stringtot = string3+string4
-#
-# for res_target_extern in [20,60]:
-#     Wout_main.main(length_period,res_target_extern,note,stringtot)
-# #     file = 'results\out_db_'+ str(res_target_extern) + '_DRres.gdx'
-# #     gdx_file = os.path.join(os.getcwd(), '%s' % file)
-# #     set_inbalance_ratio()
+for res_target_extern in [60]:
+    Wout_main.main(length_period,res_target_extern,note,stringtot)
+#     file = 'results\out_db_'+ str(res_target_extern) + '_DRres.gdx'
+#     gdx_file = os.path.join(os.getcwd(), '%s' % file)
+#     set_inbalance_ratio()
 
 # DR also as reserves
-# note = 'DRres0_1'
-# string3 = 'LIMITPRICE = 1.5;\n'
-# string4 = 'FACTOR_RES_DR = 0.1;\n'
-# stringtot = string3+string4
-#
-# for res_target_extern in [10,30,50,70]:
-#     Wout_main.main(length_period,res_target_extern,note,stringtot)
+note = 'DRres0_1'
+string3 = 'LIMITPRICE = 1.5;\n'
+string4 = 'FACTOR_RES_DR = 0.1;\n'
+stringtot = string3+string4
+
+for res_target_extern in [60]:
+    Wout_main.main(length_period,res_target_extern,note,stringtot)
 
 
 print '-------------------------'

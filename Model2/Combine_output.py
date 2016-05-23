@@ -6,8 +6,10 @@ from pandas import pivot_table, merge, ExcelWriter, DataFrame
 import numpy as np
 from gams_addon import gdx_to_df, DomainInfo
 
-startvalue = 10
-type = '_DRres0_5'
+targets = [0,10,20,30,40,50,60,70]
+startvalue = targets[0]
+print startvalue
+type = '_noDR'
 
 writefile = os.getcwd() + '\\' + 'excel' + '\\' + 'DemR' + '\\' + 'results\Overview_fullweek' + type +'.xlsx'
 writer = ExcelWriter(writefile)
@@ -110,7 +112,7 @@ restot=retrieving_res_g()
 restot=merge(restot,retrieving_res_s(), left_index=True, right_index=True, how='outer')
 restot=merge(restot,retrieving_res_DR(), left_index=True, right_index=True, how='outer')
 
-for i in [30,50,70]:
+for i in targets:
     file = 'results\8weeksFull\out_db_' + str(i) + type
     gdx_file = os.path.join(os.getcwd(), '%s' % file)
     print gdx_file

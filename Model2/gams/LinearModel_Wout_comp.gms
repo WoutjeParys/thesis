@@ -567,6 +567,8 @@ qobj..              obj
                                         =e=
                                                 sum((Y,Z,G),            (G_DATA(G,'C_INV') + G_DATA(G,'C_FOM'))*1000*cap(Y,Z,G))
                                                 + sum((Y,Z,S),      (S_DATA(S,'C_P_C_INV')*1000)*p_cap_c(Y,Z,S))
+#                                                + sum((Y,Z,S),      (S_DATA(S,'C_P_D_INV')*1000)*p_cap_d(Y,Z,S))
+#                                                + sum((Y,Z,S),      (S_DATA(S,'C_E')*1000)*e_cap(Y,Z,S))
                                                 +
                                                 (sum((Y,P,T,Z,G),               W(P)*(G_DATA(G,'C_VOM'))*gen(Y,P,T,Z,G))
                                                 + sum((Y,P,T,Z,GC),     W(P)*(G_DATA(GC,'C_FUEL'))*gen(Y,P,T,Z,GC))
