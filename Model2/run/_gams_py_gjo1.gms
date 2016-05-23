@@ -1,6 +1,8 @@
-POL_TARGETS('RES_SHARE', '2050') = 50;
-LIMITPRICE = 1.5;
-FACTOR_RES_DR = 1;
+POL_TARGETS('RES_SHARE', '2050') = 40;
+PRICE_REF(P,H,Z) = P_REF;
+DEM_OPTIMAL(P,T,Z) = DEM_RES_FP(P,T,Z);
+LIMITPRICE = 0;
+FACTOR_RES_DR = 0;
 SOLVE GOA using lp minimizing obj;
 parameter marg(Y,P,T,Z) shadow prices of production;
 marg(Y,P,T,Z) = qbalance.m(Y,P,T,Z)/W(P);

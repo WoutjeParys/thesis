@@ -62,6 +62,61 @@ def reset_ratio():
 
     ############################################
 
+# set ratio based on a given file
+def set_ratio(gdx_file):
+    # gdx_file = 'results\8weeksFull\out_db_5_DR'
+    #define the used files
+    writefile = os.getcwd() + '\\' + 'excel\output_elasticity_model_tempory.xlsx'
+    writer = ExcelWriter(writefile)
+    file = gdx_file
+    gdx_file = os.path.join(os.getcwd(), '%s' % file)
+    print gdx_file
+    zone_dict = dict()
+    zone_dict['BEL_Z'] = 'BEL'
+
+    #gdx to excel
+    print 'Retrieving ratio'
+    ratio = gdx_to_df(gdx_file, 'ratio')
+    old_index = ratio.index.names
+    ratio['C'] = [zone_dict[z] for z in ratio.index.get_level_values('Z')]
+    ratio.set_index('C', append=True, inplace=True)
+    ratio = ratio.reorder_levels(['C'] + old_index)
+    ratio.reset_index(inplace=True)
+    ratio = pivot_table(ratio, 'ratio', index=['P','H','Z'], columns=['C'], aggfunc=np.sum)
+    print 'Writing ratio to Excel'
+    ratio.to_excel(writer, na_rep=0.0, sheet_name='ratio', merge_cells=False)
+    writer.close()
+
+    #calculate new ratios and put in sql
+    print os.getcwd()
+    conn = sq.connect("database/database.sqlite")
+    cur = conn.cursor()
+    print os.getcwd()
+
+    sql = 'DROP TABLE IF EXISTS Ratio;'
+    cur.execute(sql)
+    sql = 'CREATE TABLE IF NOT EXISTS Ratio (Period TEXT, Hour TEXT, Value FLOAT);'
+    cur.execute(sql)
+    ratios = list()
+    print 'open tempory excel file'
+    wbread = openpyxl.load_workbook(excel_tempory_name)
+    print 'tempory file loaded'
+    sheet = wbread.get_sheet_by_name(sh_ratio_name)
+    for i in range(1,amount_of_periods+1):
+        for j in range(2,length_period+2):
+            list_ratio[i-1][j-2] = round(list_ratio[i-1][j-2]*(sheet.cell(row = (i-1)*length_period+j,column = 4).value),4)
+            # print 'list_ratio for i = ', i, ', and j = ', j
+            # print list_ratio[i-1][j-2]
+            period = i
+            hour = j-1
+            ratio = list_ratio[i-1][j-2]
+            # print period, hour, ratio
+            ratios.append((period,hour,ratio))
+    cur.executemany('INSERT INTO Ratio VALUES (?,?,?)', ratios)
+    conn.commit()
+
+    print 'done ratio'
+
 #get the inbalance ratio for each hour h
 def set_inbalance_ratio():
     #define the used files
@@ -278,7 +333,7 @@ string2 = 'DEM_OPTIMAL(P,T,Z) = DEM_RES_FP(P,T,Z);\n'
 string3 = 'LIMITPRICE = 0;\n'
 string4 = 'FACTOR_RES_DR = 0;\n'
 stringtot = string1+string2+string3+string4
-for res_target_extern in [10,30,50]:
+for res_target_extern in [0,40]:
     Wout_main.main(length_period,res_target_extern,note,stringtot)
 
 print '-------------------------'
@@ -297,17 +352,7 @@ print '-------------------------'
 
 # with DR
 reset_ratio()
-# calculate RATIO_H for first time
-# this ratio depends on the used demand profile and the initial elasticities!
-note = 'DR'
-string3 = 'LIMITPRICE = 1.5;\n'
-string4 = 'FACTOR_RES_DR = 0;\n'
-stringtot = string3+string4
-testResTarget = 5
-Wout_main.main(length_period,testResTarget,note,stringtot)
-file = 'results\out_db_'+ str(testResTarget) + '_DR.gdx'
-gdx_file = os.path.join(os.getcwd(), '%s' % file)
-set_inbalance_ratio()
+set_ratio('results\8weeksFull\out_db_5_DR')
 
 print '-------------------------'
 print '\n'
@@ -329,11 +374,11 @@ string3 = 'LIMITPRICE = 1.5;\n'
 string4 = 'FACTOR_RES_DR = 0;\n'
 stringtot = string3+string4
 
-for res_target_extern in [10,30,50]:
+for res_target_extern in [0,20,60]:
     Wout_main.main(length_period,res_target_extern,note,stringtot)
-    file = 'results\out_db_'+ str(res_target_extern) + '_DR.gdx'
-    gdx_file = os.path.join(os.getcwd(), '%s' % file)
-    set_inbalance_ratio()
+# #     file = 'results\out_db_'+ str(res_target_extern) + '_DR.gdx'
+# #     gdx_file = os.path.join(os.getcwd(), '%s' % file)
+# #     set_inbalance_ratio()
 
 print '-------------------------'
 print '\n'
@@ -349,17 +394,39 @@ print '\n'
 print '\n'
 print '-------------------------'
 
-# DR also as reserves
-note = 'DRres'
-string3 = 'LIMITPRICE = 1.5;\n'
-string4 = 'FACTOR_RES_DR = 1;\n'
-stringtot = string3+string4
+# # DR also as reserves
+# note = 'DRres'
+# string3 = 'LIMITPRICE = 3;\n'
+# string4 = 'FACTOR_RES_DR = 1;\n'
+# stringtot = string3+string4
+#
+# for res_target_extern in [20,60]:
+#     Wout_main.main(length_period,res_target_extern,note,stringtot)
+# #     file = 'results\out_db_'+ str(res_target_extern) + '_DRres.gdx'
+# #     gdx_file = os.path.join(os.getcwd(), '%s' % file)
+# #     set_inbalance_ratio()
 
-for res_target_extern in [10,30,50]:
-    Wout_main.main(length_period,res_target_extern,note,stringtot)
-    file = 'results\out_db_'+ str(res_target_extern) + '_DRres.gdx'
-    gdx_file = os.path.join(os.getcwd(), '%s' % file)
-    set_inbalance_ratio()
+
+# # DR also as reserves
+# note = 'DRres0_1'
+# string3 = 'LIMITPRICE = 3;\n'
+# string4 = 'FACTOR_RES_DR = 0.1;\n'
+# stringtot = string3+string4
+#
+# for res_target_extern in [20,60]:
+#     Wout_main.main(length_period,res_target_extern,note,stringtot)
+# #     file = 'results\out_db_'+ str(res_target_extern) + '_DRres.gdx'
+# #     gdx_file = os.path.join(os.getcwd(), '%s' % file)
+# #     set_inbalance_ratio()
+
+# DR also as reserves
+# note = 'DRres0_1'
+# string3 = 'LIMITPRICE = 1.5;\n'
+# string4 = 'FACTOR_RES_DR = 0.1;\n'
+# stringtot = string3+string4
+#
+# for res_target_extern in [10,30,50,70]:
+#     Wout_main.main(length_period,res_target_extern,note,stringtot)
 
 
 print '-------------------------'

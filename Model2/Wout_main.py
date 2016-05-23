@@ -846,7 +846,7 @@ def main(length_period,res_target_extern,note,commands):
             for res_target in [40]:
                 print '*'*80
                 print inv_cost
-                print res_target
+                print res_target_extern
                 job_sense = ws.add_job_from_string(
                     #'S_DATA(\'STOR_S\', \'C_P_C_INV\') = {inv_cost};\n'
                     'POL_TARGETS(\'RES_SHARE\', \'2050\') = {res_target};\n'
