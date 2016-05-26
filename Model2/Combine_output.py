@@ -6,10 +6,12 @@ from pandas import pivot_table, merge, ExcelWriter, DataFrame
 import numpy as np
 from gams_addon import gdx_to_df, DomainInfo
 
-targets = [0,10,20,30,40,50,60,70]
-startvalue = targets[0]
+targets = [20,30,40,50,60,70]
+weight = [3.066,8.375,4.742,5.277,6.98,5.856,9.678,8.169]
+# startvalue = targets[0]
+startvalue = 10
 print startvalue
-type = '_noDR'
+type = '_DR'
 
 writefile = os.getcwd() + '\\' + 'excel' + '\\' + 'DemR' + '\\' + 'results\Overview_fullweek' + type +'.xlsx'
 writer = ExcelWriter(writefile)
@@ -104,37 +106,87 @@ def retrieving_res_DR():
     res_DR = pivot_table(res_DR.reset_index(), 'res_DR', index=['Y','R'], columns=['C'],aggfunc=np.sum)
     return res_DR
 
-captot=retrieving_cap()
+def retrieving_gen():
+    gen = gdx_to_df(gdx_file, 'gen')
+    old_index = gen.index.names
+    gen['C'] = [zone_dict[z] for z in gen.index.get_level_values('Z')]
+    gen.set_index('C', append=True, inplace=True)
+    gen = gen.reorder_levels(['C'] + old_index)
+    for i in gen.index:
+        value = float(gen.get_value(i,'gen'))*weight[i[2]-1]
+        gen.set_value(i,'gen',value)
+    gen.reset_index(inplace=True)
+    gen = pivot_table(gen, 'gen', index=['Y', 'G'], columns=['C'], aggfunc=np.sum)
+    return gen
+
+def retrieving_shift():
+    ref = gdx_to_df(gdx_file, 'DEM_RES_FP')
+    new = gdx_to_df(gdx_file, 'demand_new_res')
+    old_indexr = ref.index.names
+    old_indexn = new.index.names
+    ref['C'] = [zone_dict[z] for z in ref.index.get_level_values('Z')]
+    new['C'] = [zone_dict[z] for z in new.index.get_level_values('Z')]
+    ref.set_index('C', append=True, inplace=True)
+    new.set_index('C', append=True, inplace=True)
+    ref = ref.reorder_levels(['C'] + old_indexr)
+    new = new.reorder_levels(['C'] + old_indexn)
+    shiftedtot=0
+    for i in ref.index:
+        value1 = float(ref.get_value(i,'DEM_RES_FP'))*weight[i[1]-1]
+        value2 = float(new.get_value((i[0],i[1],i[2],i[3],'L'),'demand_new_res'))*weight[i[1]-1]
+        shifted = (value1-value2)/2
+        shifted = abs(shifted)
+        # print value1,value2,shifted
+        ref.set_value(i,'DEM_RES_FP',shifted)
+        shiftedtot = shiftedtot + shifted
+    ref.reset_index(inplace=True)
+    new.reset_index(inplace=True)
+    shift = pivot_table(ref, 'DEM_RES_FP', index=['Z'], columns=['C'], aggfunc=np.sum)
+    print shiftedtot
+    return shift
+
+shifttot = retrieving_shift()
+# gentot=retrieving_gen()
+# captot=retrieving_cap()
 curttot=retrieving_curt()
-stortot=retrieving_stor_cap_c()
+# stortot=retrieving_stor_cap_c()
+#
+# restot=retrieving_res_g()
+# restot=merge(restot,retrieving_res_s(), left_index=True, right_index=True, how='outer')
+# restot=merge(restot,retrieving_res_DR(), left_index=True, right_index=True, how='outer')
 
-restot=retrieving_res_g()
-restot=merge(restot,retrieving_res_s(), left_index=True, right_index=True, how='outer')
-restot=merge(restot,retrieving_res_DR(), left_index=True, right_index=True, how='outer')
-
+# for i in []:
 for i in targets:
     file = 'results\8weeksFull\out_db_' + str(i) + type
     gdx_file = os.path.join(os.getcwd(), '%s' % file)
     print gdx_file
 
-    cap=retrieving_cap()
+    # cap=retrieving_cap()
     curt=retrieving_curt()
-    stor=retrieving_stor_cap_c()
+    # stor=retrieving_stor_cap_c()
+    # gen=retrieving_gen()
+    shift=retrieving_shift()
+    #
+    # restot=merge(restot,retrieving_res_g(), left_index=True, right_index=True, how='outer',suffixes=['',str(i)])
+    # restot=merge(restot,retrieving_res_s(), left_index=True, right_index=True, how='outer',suffixes=['',str(i)])
+    # restot=merge(restot,retrieving_res_DR(), left_index=True, right_index=True, how='outer',suffixes=['',str(i)])
+    #
+    # captot = merge(captot,cap, left_index=True, right_index=True, how='outer',suffixes=['',str(i)])
+    # stortot = merge(stortot,stor, left_index=True, right_index=True, how='outer',suffixes=['',str(i)])
+    # curttot = merge(curttot,curt, left_index=True, right_index=True, how='outer',suffixes=['',str(i)])
+    # gentot = merge(gentot,gen, left_index=True, right_index=True, how='outer',suffixes=['',str(i)])
+    shifttot = merge(shifttot,shift, left_index=True, right_index=True, how='outer',suffixes=['',str(i)])
 
-    restot=merge(restot,retrieving_res_g(), left_index=True, right_index=True, how='outer',suffixes=['',str(i)])
-    restot=merge(restot,retrieving_res_s(), left_index=True, right_index=True, how='outer',suffixes=['',str(i)])
-    restot=merge(restot,retrieving_res_DR(), left_index=True, right_index=True, how='outer',suffixes=['',str(i)])
 
-    captot = merge(captot,cap, left_index=True, right_index=True, how='outer',suffixes=['',str(i)])
-    stortot = merge(stortot,stor, left_index=True, right_index=True, how='outer',suffixes=['',str(i)])
-    curttot = merge(curttot,curt, left_index=True, right_index=True, how='outer',suffixes=['',str(i)])
-
-print captot
+# print captot
 print curttot
-print stortot
-print restot
-restot.to_excel(writer, na_rep=0.0, sheet_name='reserves', merge_cells=False)
-captot.to_excel(writer, na_rep=0.0, sheet_name='capacities', merge_cells=False)
-curttot.to_excel(writer, na_rep=0.0, sheet_name='curtailment', merge_cells=False)
-stortot.to_excel(writer, na_rep=0.0, sheet_name='storage', merge_cells=False)
+# print stortot
+# print restot
+#print gentot
+# print shifttot
+# restot.to_excel(writer, na_rep=0.0, sheet_name='reserves', merge_cells=False)
+# captot.to_excel(writer, na_rep=0.0, sheet_name='capacities', merge_cells=False)
+# curttot.to_excel(writer, na_rep=0.0, sheet_name='curtailment', merge_cells=False)
+# stortot.to_excel(writer, na_rep=0.0, sheet_name='storage', merge_cells=False)
+#gentot.to_excel(writer, na_rep=0.0, sheet_name='generation', merge_cells=False)
 writer.close()

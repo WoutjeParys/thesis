@@ -177,19 +177,17 @@ def calculate_power(value, power):
         result = math.pow(value,power)
     return result
 
-# funtion to choose the right demand profiles based on EV penetration (range0-100)
-def setRightDemandProfilesEV(percentageEV):
+# function to set demand profiles for different penetration rates
+def set_demandprofiles(case):
+
     print os.getcwd()
     conn = sq.connect("database/database.sqlite")
     cur = conn.cursor()
     print os.getcwd()
 
-    row = int(percentageEV/10)+1
+    file = "excel\DemR\penetrationDR\DemAllProfiles0_" + str(case) + ".xlsx"
 
-    bookref = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\DemResRef.xlsx"))
-    bookmin = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\DemResMin.xlsx"))
-    bookmax = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\DemResMax.xlsx"))
-    bookflat = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\DemResFlatPrice.xlsx"))
+    book = xlrd.open_workbook(os.path.join(os.getcwd() , file))
     sqlref = 'DROP TABLE IF EXISTS Dem_ref_profile;'
     sqlmin = 'DROP TABLE IF EXISTS Dem_min_profile;'
     sqlmax = 'DROP TABLE IF EXISTS Dem_max_profile;'
@@ -209,119 +207,90 @@ def setRightDemandProfilesEV(percentageEV):
     demref = list()
     demmin = list()
     demmax = list()
-    demflat = list()
+    demflp = list()
     zone = 'BEL_Z'
+    shmin=book.sheet_by_index(0)
+    shmax=book.sheet_by_index(1)
+    shref=book.sheet_by_index(2)
+    shflp=book.sheet_by_index(3)
     amount_of_days = length_period/24
     for season in range (0,4):
         print 'season: ', season
         for day in range(0,amount_of_days):
             if day == startday_weekend or day == startday_weekend+1:
-                print 'weekendday with sheet index = ', season*2+1
-                shref=bookref.sheet_by_index(season*2+1)
-                shmin=bookmin.sheet_by_index(season*2+1)
-                shmax=bookmax.sheet_by_index(season*2+1)
-                shflat=bookflat.sheet_by_index(season*2+1)
+                print 'weekendday with row = ', season*2+1
+                row = season*2+2
             else:
                 print 'weekday with sheet index = ', season*2
-                shref=bookref.sheet_by_index(season*2)
-                shmin=bookmin.sheet_by_index(season*2)
-                shmax=bookmax.sheet_by_index(season*2)
-                shflat=bookflat.sheet_by_index(season*2)
+                row = season*2+1
             for col in range(1,shref.ncols):
                 hour = int(shref.cell_value(0,col)) + 24*day
                 valueref = shref.cell_value(row,col)
                 valuemin = shmin.cell_value(row,col)
                 valuemax = shmax.cell_value(row,col)
-                valueflat = shflat.cell_value(row,col)
+                valueflp = shflp.cell_value(row,col)
                 demref.append((season+1,zone,hour,valueref))
                 demmin.append((season+1,zone,hour,valuemin))
                 demmax.append((season+1,zone,hour,valuemax))
-                demflat.append((season+1,zone,hour,valueflat))
+                demflp.append((season+1,zone,hour,valueflp))
     cur.executemany('INSERT INTO Dem_ref_profile VALUES (?,?,?,?)', demref)
     cur.executemany('INSERT INTO Dem_min_profile VALUES (?,?,?,?)', demmin)
     cur.executemany('INSERT INTO Dem_max_profile VALUES (?,?,?,?)', demmax)
-    cur.executemany('INSERT INTO Dem_flat_profile VALUES (?,?,?,?)', demflat)
+    cur.executemany('INSERT INTO Dem_flat_profile VALUES (?,?,?,?)', demflp)
     conn.commit()
     print 'Done price profiles'
 
-# function to choose the right elasticity matrix based on EV penetration (range0-100)
-def setRightElasticityMatrix(percentageEV):
+# function to set elasticity for different penetration rates
+def set_elasticity(case):
     print os.getcwd()
     conn = sq.connect("database/database.sqlite")
     cur = conn.cursor()
     print os.getcwd()
 
-    sheet = int(percentageEV/10)
+    file = "excel\DemR\penetrationDR\Elasticity0_" + str(case) + ".xlsx"
 
-    book = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\Elasticity.xlsx"))
-    bookElastRange = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\ElasticitiesRangeSpring.xlsx"))
+    book = xlrd.open_workbook(os.path.join(os.getcwd() , file))
     sql = 'DROP TABLE IF EXISTS Elasticity;'
     cur.execute(sql)
     sql = 'CREATE TABLE IF NOT EXISTS Elasticity (Season FLOAT, Hour1 TEXT, Hour2 TEXT, Price_Elasticity FLOAT);'
     cur.execute(sql)
     elasticity = list()
+    # TODO
+    # check how to handle elasticity, for now, only Hour1 - Hour2 and matrix 168-168
+    # amount of days should be 7 to work with right elasticities weekday-weekend
     amount_of_days = length_period/24
     for season in range (0,4):
-        if season != season_range:
-            print 'season: ', season
-            for day in range(0,amount_of_days):
-                if day == startday_weekend or day == startday_weekend+1:
-                    print 'weekend, normal season, sheet = ', season*2+1
-                    sh=book.sheet_by_index(season*2+1)
-                else:
-                    print 'weekday, normal season, sheet = ', season*2
-                    sh=book.sheet_by_index(season*2)
-                for row in range(3,sh.nrows):
-                    hour1 = int(sh.cell_value(row, 0)) + 24*day
-                    for col in range(1,sh.ncols):
-                        if col < 13:
-                            if row > 14 + col:
-                                hour2 = int(sh.cell_value(2, col)) + 24*(day+1)
-                            else:
-                                hour2 = int(sh.cell_value(2, col)) + 24*(day)
-                            if hour2 > length_period:
-                                hour2 = hour2 - length_period
+        print 'season: ', season
+        print 'season: ', season
+        for day in range(0,amount_of_days):
+            if day == startday_weekend or day == startday_weekend+1:
+                print 'in if, and index = ', season*2+1
+                sh=book.sheet_by_index(season*2+1)
+            else:
+                print 'in else, and index = ', season*2
+                sh=book.sheet_by_index(season*2)
+            for row in range(3,sh.nrows):
+                hour1 = int(sh.cell_value(row, 0)) + 24*day
+                for col in range(1,sh.ncols):
+                    if col < 13:
+                        if row > 14 + col:
+                            hour2 = int(sh.cell_value(2, col)) + 24*(day+1)
                         else:
-                            if col > 11 + row-2:
-                                hour2 = int(sh.cell_value(2, col)) + 24*(day-1)
-                            else:
-                                hour2 = int(sh.cell_value(2, col)) + 24*(day)
-                            if hour2 < 1:
-                                hour2 = hour2 + length_period
-                        value = sh.cell_value(row,col)
-                        elasticity.append((season+1,hour1,hour2,value))
-        else:
-            print 'season: ', season
-            for day in range(0,amount_of_days):
-                if day == startday_weekend or day == startday_weekend+1:
-                    print 'weekend, range_season, sheet = ', sheet
-                    sh=bookElastRange.sheet_by_index(sheet)
-                else:
-                    print 'weekday, range_season, sheet = ', sheet
-                    sh=bookElastRange.sheet_by_index(sheet)
-                for row in range(3,sh.nrows):
-                    hour1 = int(sh.cell_value(row, 0)) + 24*day
-                    for col in range(1,sh.ncols):
-                        if col < 13:
-                            if row > 14 + col:
-                                hour2 = int(sh.cell_value(2, col)) + 24*(day+1)
-                            else:
-                                hour2 = int(sh.cell_value(2, col)) + 24*(day)
-                            if hour2 > length_period:
-                                hour2 = hour2 - length_period
+                            hour2 = int(sh.cell_value(2, col)) + 24*(day)
+                        if hour2 > length_period:
+                            hour2 = hour2 - length_period
+                    else:
+                        if col > 11 + row-2:
+                            hour2 = int(sh.cell_value(2, col)) + 24*(day-1)
                         else:
-                            if col > 11 + row-2:
-                                hour2 = int(sh.cell_value(2, col)) + 24*(day-1)
-                            else:
-                                hour2 = int(sh.cell_value(2, col)) + 24*(day)
-                            if hour2 < 1:
-                                hour2 = hour2 + length_period
-                        value = round(sh.cell_value(row,col),4)
-                        elasticity.append((season+1,hour1,hour2,value))
+                            hour2 = int(sh.cell_value(2, col)) + 24*(day)
+                        if hour2 < 1:
+                            hour2 = hour2 + length_period
+                    value = sh.cell_value(row,col)
+                    elasticity.append((season+1,hour1,hour2,value))
     cur.executemany('INSERT INTO Elasticity VALUES (?,?,?,?)', elasticity)
     conn.commit()
     print 'Done elasticities'
-
 
 Wout_initialise.initialise(length_period)
 
@@ -374,7 +343,7 @@ string3 = 'LIMITPRICE = 1.5;\n'
 string4 = 'FACTOR_RES_DR = 0;\n'
 stringtot = string3+string4
 
-for res_target_extern in [60]:
+for res_target_extern in []:
     Wout_main.main(length_period,res_target_extern,note,stringtot)
 # #     file = 'results\out_db_'+ str(res_target_extern) + '_DR.gdx'
 # #     gdx_file = os.path.join(os.getcwd(), '%s' % file)
@@ -400,7 +369,7 @@ string3 = 'LIMITPRICE = 1.5;\n'
 string4 = 'FACTOR_RES_DR = 1;\n'
 stringtot = string3+string4
 
-for res_target_extern in [60]:
+for res_target_extern in []:
     Wout_main.main(length_period,res_target_extern,note,stringtot)
 #     file = 'results\out_db_'+ str(res_target_extern) + '_DRres.gdx'
 #     gdx_file = os.path.join(os.getcwd(), '%s' % file)
@@ -412,8 +381,19 @@ string3 = 'LIMITPRICE = 1.5;\n'
 string4 = 'FACTOR_RES_DR = 0.1;\n'
 stringtot = string3+string4
 
-for res_target_extern in [60]:
+for res_target_extern in [20]:
     Wout_main.main(length_period,res_target_extern,note,stringtot)
+
+# currently only choice between 25,50 or 75
+for penetration in [75]:
+    set_demandprofiles(penetration)
+    set_elasticity(penetration)
+    note = 'DRpen_' + str(penetration)
+    string3 = 'LIMITPRICE = 1.5;\n'
+    string4 = 'FACTOR_RES_DR = 0.1;\n'
+    stringtot = string3+string4
+    for res_target_extern in [20,50]:
+        Wout_main.main(length_period,res_target_extern,note,stringtot)
 
 
 print '-------------------------'
@@ -662,6 +642,151 @@ def calculate_comp_factor():
         print 'compensate: ',compensate
         list_compensation[i-1] = list_compensation[i-1]*math.pow(compensate,0.8)
         print 'compensate new value: ', list_compensation[i-1]
+
+# funtion to choose the right demand profiles based on EV penetration (range0-100)
+def setRightDemandProfilesEV(percentageEV):
+    print os.getcwd()
+    conn = sq.connect("database/database.sqlite")
+    cur = conn.cursor()
+    print os.getcwd()
+
+    row = int(percentageEV/10)+1
+
+    bookref = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\DemResRef.xlsx"))
+    bookmin = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\DemResMin.xlsx"))
+    bookmax = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\DemResMax.xlsx"))
+    bookflat = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\DemResFlatPrice.xlsx"))
+    sqlref = 'DROP TABLE IF EXISTS Dem_ref_profile;'
+    sqlmin = 'DROP TABLE IF EXISTS Dem_min_profile;'
+    sqlmax = 'DROP TABLE IF EXISTS Dem_max_profile;'
+    sqlflat = 'DROP TABLE IF EXISTS Dem_flat_profile;'
+    cur.execute(sqlref)
+    cur.execute(sqlmin)
+    cur.execute(sqlflat)
+    cur.execute(sqlmax)
+    sqlref = 'CREATE TABLE IF NOT EXISTS Dem_ref_profile (Season FLOAT, Zone TEXT, Hour TEXT, Demand FLOAT);'
+    sqlmin = 'CREATE TABLE IF NOT EXISTS Dem_min_profile (Season FLOAT, Zone TEXT, Hour TEXT, Demand FLOAT);'
+    sqlmax = 'CREATE TABLE IF NOT EXISTS Dem_max_profile (Season FLOAT, Zone TEXT, Hour TEXT, Demand FLOAT);'
+    sqlflat = 'CREATE TABLE IF NOT EXISTS Dem_flat_profile (Season FLOAT, Zone TEXT, Hour TEXT, Demand FLOAT);'
+    cur.execute(sqlref)
+    cur.execute(sqlmin)
+    cur.execute(sqlmax)
+    cur.execute(sqlflat)
+    demref = list()
+    demmin = list()
+    demmax = list()
+    demflat = list()
+    zone = 'BEL_Z'
+    amount_of_days = length_period/24
+    for season in range (0,4):
+        print 'season: ', season
+        for day in range(0,amount_of_days):
+            if day == startday_weekend or day == startday_weekend+1:
+                print 'weekendday with sheet index = ', season*2+1
+                shref=bookref.sheet_by_index(season*2+1)
+                shmin=bookmin.sheet_by_index(season*2+1)
+                shmax=bookmax.sheet_by_index(season*2+1)
+                shflat=bookflat.sheet_by_index(season*2+1)
+            else:
+                print 'weekday with sheet index = ', season*2
+                shref=bookref.sheet_by_index(season*2)
+                shmin=bookmin.sheet_by_index(season*2)
+                shmax=bookmax.sheet_by_index(season*2)
+                shflat=bookflat.sheet_by_index(season*2)
+            for col in range(1,shref.ncols):
+                hour = int(shref.cell_value(0,col)) + 24*day
+                valueref = shref.cell_value(row,col)
+                valuemin = shmin.cell_value(row,col)
+                valuemax = shmax.cell_value(row,col)
+                valueflat = shflat.cell_value(row,col)
+                demref.append((season+1,zone,hour,valueref))
+                demmin.append((season+1,zone,hour,valuemin))
+                demmax.append((season+1,zone,hour,valuemax))
+                demflat.append((season+1,zone,hour,valueflat))
+    cur.executemany('INSERT INTO Dem_ref_profile VALUES (?,?,?,?)', demref)
+    cur.executemany('INSERT INTO Dem_min_profile VALUES (?,?,?,?)', demmin)
+    cur.executemany('INSERT INTO Dem_max_profile VALUES (?,?,?,?)', demmax)
+    cur.executemany('INSERT INTO Dem_flat_profile VALUES (?,?,?,?)', demflat)
+    conn.commit()
+    print 'Done price profiles'
+
+# function to choose the right elasticity matrix based on EV penetration (range0-100)
+def setRightElasticityMatrix(percentageEV):
+    print os.getcwd()
+    conn = sq.connect("database/database.sqlite")
+    cur = conn.cursor()
+    print os.getcwd()
+
+    sheet = int(percentageEV/10)
+
+    book = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\Elasticity.xlsx"))
+    bookElastRange = xlrd.open_workbook(os.path.join(os.getcwd() , "excel\DemR\ElasticitiesRangeSpring.xlsx"))
+    sql = 'DROP TABLE IF EXISTS Elasticity;'
+    cur.execute(sql)
+    sql = 'CREATE TABLE IF NOT EXISTS Elasticity (Season FLOAT, Hour1 TEXT, Hour2 TEXT, Price_Elasticity FLOAT);'
+    cur.execute(sql)
+    elasticity = list()
+    amount_of_days = length_period/24
+    for season in range (0,4):
+        if season != season_range:
+            print 'season: ', season
+            for day in range(0,amount_of_days):
+                if day == startday_weekend or day == startday_weekend+1:
+                    print 'weekend, normal season, sheet = ', season*2+1
+                    sh=book.sheet_by_index(season*2+1)
+                else:
+                    print 'weekday, normal season, sheet = ', season*2
+                    sh=book.sheet_by_index(season*2)
+                for row in range(3,sh.nrows):
+                    hour1 = int(sh.cell_value(row, 0)) + 24*day
+                    for col in range(1,sh.ncols):
+                        if col < 13:
+                            if row > 14 + col:
+                                hour2 = int(sh.cell_value(2, col)) + 24*(day+1)
+                            else:
+                                hour2 = int(sh.cell_value(2, col)) + 24*(day)
+                            if hour2 > length_period:
+                                hour2 = hour2 - length_period
+                        else:
+                            if col > 11 + row-2:
+                                hour2 = int(sh.cell_value(2, col)) + 24*(day-1)
+                            else:
+                                hour2 = int(sh.cell_value(2, col)) + 24*(day)
+                            if hour2 < 1:
+                                hour2 = hour2 + length_period
+                        value = sh.cell_value(row,col)
+                        elasticity.append((season+1,hour1,hour2,value))
+        else:
+            print 'season: ', season
+            for day in range(0,amount_of_days):
+                if day == startday_weekend or day == startday_weekend+1:
+                    print 'weekend, range_season, sheet = ', sheet
+                    sh=bookElastRange.sheet_by_index(sheet)
+                else:
+                    print 'weekday, range_season, sheet = ', sheet
+                    sh=bookElastRange.sheet_by_index(sheet)
+                for row in range(3,sh.nrows):
+                    hour1 = int(sh.cell_value(row, 0)) + 24*day
+                    for col in range(1,sh.ncols):
+                        if col < 13:
+                            if row > 14 + col:
+                                hour2 = int(sh.cell_value(2, col)) + 24*(day+1)
+                            else:
+                                hour2 = int(sh.cell_value(2, col)) + 24*(day)
+                            if hour2 > length_period:
+                                hour2 = hour2 - length_period
+                        else:
+                            if col > 11 + row-2:
+                                hour2 = int(sh.cell_value(2, col)) + 24*(day-1)
+                            else:
+                                hour2 = int(sh.cell_value(2, col)) + 24*(day)
+                            if hour2 < 1:
+                                hour2 = hour2 + length_period
+                        value = round(sh.cell_value(row,col),4)
+                        elasticity.append((season+1,hour1,hour2,value))
+    cur.executemany('INSERT INTO Elasticity VALUES (?,?,?,?)', elasticity)
+    conn.commit()
+    print 'Done elasticities'
 
 x = 'dit is een test'
 y = 5

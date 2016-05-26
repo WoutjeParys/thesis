@@ -181,6 +181,7 @@ $LOAD RATIO_H
 $LOAD LINEARPEM OWNELAST
 $LOAD DEM_OPTIMAL DEM_RES_MIN DEM_RES_MAX DEM_RES_FP PRICE_REF
 
+
 #C_GAS = 25.6643460843943;
 C_GAS = 25.6643460843943*2;
 T_MARKET = 1;
@@ -200,7 +201,8 @@ FACTOR_RES_DR = 1;
 #PRICE_REF(P,H,Z) = P_REF;
 #DEM_OPTIMAL(P,T,Z) = DEM_RES_FP(P,T,Z);
 
-
+RATIO_H(P,H) = (-sum((T,Z),DIAG(T,H)*ELAST(P,T,H)*DEM_OPTIMAL(P,T,Z))-sum((T,Z),(TRI_UP(T,H)+TRI_LOW(T,H))*ELAST(P,T,H)*DEM_OPTIMAL(P,T,Z))) /
+                (sum((T,Z),(TRI_LOW(T,H)+TRI_UP(T,H))*DEM_OPTIMAL(P,T,Z)));
 ## flat compensation PEM
 ELAST_COMP(P,T,H) = (TRI_LOW(T,H)+TRI_UP(T,H))*RATIO_H(P,H);
 ## linear compensation PEM
@@ -2081,10 +2083,10 @@ MODEL GOA GOA model /
 #               shift_d_1
 #               shift_d_2
 #
-        shiftedbc
-        shiftedfc
-        shiftedbi
-        shiftedfi
+#        shiftedbc
+#        shiftedfc
+#        shiftedbi
+#        shiftedfi
 
 /;
 

@@ -859,8 +859,8 @@ def main(length_period,res_target_extern,note,commands):
                     'marg(Y,P,T,Z) = qbalance.m(Y,P,T,Z)/W(P);\n'
                     # 'parameter factor(P,H,Z) compensation to avoid energy losses;\n'
                     # 'factor(P,H,Z) = -shiftaway.l(P,H,Z)/(shiftforwards.l(P,H,Z)+shiftbackwards.l(P,H,Z)+0.00000001);\n'
-                    'parameter ratio(P,H,Z) inbalance ratio;\n'
-                    'ratio(P,H,Z) = (-shiftaway.l(P,H,Z)-shiftfi.l(P,H,Z)-shiftbi.l(P,H,Z))/(shiftfc.l(P,H,Z)+shiftbc.l(P,H,Z)+0.00000001);\n'
+                    # 'parameter ratio(P,H,Z) inbalance ratio;\n'
+                    # 'ratio(P,H,Z) = (-shiftaway.l(P,H,Z)-shiftfi.l(P,H,Z)-shiftbi.l(P,H,Z))/(shiftfc.l(P,H,Z)+shiftbc.l(P,H,Z)+0.00000001);\n'
                     .format(res_target=res_target_extern,commands=commands),cp)
                     #'SOLVE GOA using lp minimizing obj;'.format(res_target=res_target,inv_cost=inv_cost), cp)
                 job_sense.run(checkpoint=cp)
