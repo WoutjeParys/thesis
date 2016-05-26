@@ -11,7 +11,7 @@ weight = [3.066,8.375,4.742,5.277,6.98,5.856,9.678,8.169]
 # startvalue = targets[0]
 startvalue = 10
 print startvalue
-type = '_DR'
+type = '_noDR'
 
 writefile = os.getcwd() + '\\' + 'excel' + '\\' + 'DemR' + '\\' + 'results\Overview_fullweek' + type +'.xlsx'
 writer = ExcelWriter(writefile)
@@ -51,8 +51,9 @@ def retrieving_curt():
     curt['C'] = [curtail[z] for z in curt.index.get_level_values('Z')]
     curt.set_index('C', append=True, inplace=True)
     curt = curt.reorder_levels(['C'] + old_index)
+    print curt.index.names
     for i in curt.index:
-        value = float(curt.get_value(i,'curt'))
+        value = float(curt.get_value(i,'curt'))*weight[i[2]-1]
         curt.set_value(i,'curt',value)
     curt.reset_index(inplace=True)
     curt = pivot_table(curt, 'curt', index=['Y', 'GRI'], columns=['C'], aggfunc=np.sum)
@@ -173,7 +174,7 @@ for i in targets:
     #
     # captot = merge(captot,cap, left_index=True, right_index=True, how='outer',suffixes=['',str(i)])
     # stortot = merge(stortot,stor, left_index=True, right_index=True, how='outer',suffixes=['',str(i)])
-    # curttot = merge(curttot,curt, left_index=True, right_index=True, how='outer',suffixes=['',str(i)])
+    curttot = merge(curttot,curt, left_index=True, right_index=True, how='outer',suffixes=['',str(i)])
     # gentot = merge(gentot,gen, left_index=True, right_index=True, how='outer',suffixes=['',str(i)])
     shifttot = merge(shifttot,shift, left_index=True, right_index=True, how='outer',suffixes=['',str(i)])
 
@@ -183,7 +184,7 @@ print curttot
 # print stortot
 # print restot
 #print gentot
-# print shifttot
+print shifttot
 # restot.to_excel(writer, na_rep=0.0, sheet_name='reserves', merge_cells=False)
 # captot.to_excel(writer, na_rep=0.0, sheet_name='capacities', merge_cells=False)
 # curttot.to_excel(writer, na_rep=0.0, sheet_name='curtailment', merge_cells=False)

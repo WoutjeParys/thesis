@@ -23,18 +23,18 @@
             <file leaf-file-name="Combine_output.py" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/Combine_output.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.7692308">
-                    <caret line="186" column="11" selection-start-line="186" selection-start-column="11" selection-end-line="186" selection-end-column="11" />
+                  <state vertical-scroll-proportion="0.25">
+                    <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
                     <folding>
                       <element signature="e#21#30#0" expanded="true" />
-                      <element signature="e#840#1210#0" expanded="false" />
-                      <element signature="e#1239#1729#0" expanded="false" />
-                      <element signature="e#1764#2130#0" expanded="false" />
-                      <element signature="e#2160#2663#0" expanded="false" />
-                      <element signature="e#2693#3194#0" expanded="false" />
-                      <element signature="e#3225#3742#0" expanded="false" />
-                      <element signature="e#3770#4257#0" expanded="false" />
-                      <element signature="e#4287#5373#0" expanded="false" />
+                      <element signature="e#842#1212#0" expanded="false" />
+                      <element signature="e#1241#1773#0" expanded="false" />
+                      <element signature="e#1808#2174#0" expanded="false" />
+                      <element signature="e#2204#2707#0" expanded="false" />
+                      <element signature="e#2737#3238#0" expanded="false" />
+                      <element signature="e#3269#3786#0" expanded="false" />
+                      <element signature="e#3814#4301#0" expanded="false" />
+                      <element signature="e#4331#5417#0" expanded="false" />
                     </folding>
                   </state>
                 </provider>
@@ -533,8 +533,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26281112" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1124,18 +1124,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Combine_output.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7692308">
-          <caret line="186" column="11" selection-start-line="186" selection-start-column="11" selection-end-line="186" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.25">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
           <folding>
             <element signature="e#21#30#0" expanded="true" />
-            <element signature="e#840#1210#0" expanded="false" />
-            <element signature="e#1239#1729#0" expanded="false" />
-            <element signature="e#1764#2130#0" expanded="false" />
-            <element signature="e#2160#2663#0" expanded="false" />
-            <element signature="e#2693#3194#0" expanded="false" />
-            <element signature="e#3225#3742#0" expanded="false" />
-            <element signature="e#3770#4257#0" expanded="false" />
-            <element signature="e#4287#5373#0" expanded="false" />
+            <element signature="e#842#1212#0" expanded="false" />
+            <element signature="e#1241#1773#0" expanded="false" />
+            <element signature="e#1808#2174#0" expanded="false" />
+            <element signature="e#2204#2707#0" expanded="false" />
+            <element signature="e#2737#3238#0" expanded="false" />
+            <element signature="e#3269#3786#0" expanded="false" />
+            <element signature="e#3814#4301#0" expanded="false" />
+            <element signature="e#4331#5417#0" expanded="false" />
           </folding>
         </state>
       </provider>
