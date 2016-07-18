@@ -136,7 +136,7 @@ LENGTH_P                                the length of the period as programmed i
 eff_factor_earlier              a factor to include the efficiency of demand shifted to an earlier time
 eff_factor_later                a factor to include the efficiency of demand shifted to a later time
 
-COMPENSATE(P,H)                 a parameter that compensates for energy losses due an elasticity-matrix that is not perfect
+#COMPENSATE(P,H)                 a parameter that compensates for energy losses due an elasticity-matrix that is not perfect
 ELAST_NEW(P,T,H)        the new calculated elasticity matrix, taking into account the compensation factor
 DEM_REF_RES(P,T,Z)      amount of reference residential demand before DR
 DEM_NON_RES(P,T,Z)      amount of non residential demand
@@ -154,6 +154,9 @@ DEM_RES_FP(P,T,Z)         prospected demand under flat price
 
 # factor of reserve allocation flexible damand
 FACTOR_RES_DR             factor that determines which part of the flexible band is used for flexibility
+
+DR_CAP_PRICE          a fictive price for mobilised DR capacity
+DR_EN_PRICE           a fictive price for mobilised DR energy
 ;
 
 $LOAD G_DATA
@@ -175,7 +178,7 @@ $LOAD DIAG
 $LOAD TRI_UP TRI_LOW
 $LOAD SHIFTMIN
 $LOAD SHIFTMAX
-$LOAD COMPENSATE
+#$LOAD COMPENSATE
 $LOAD DEM_REF_RES DEM_NON_RES
 $LOAD RATIO_H
 $LOAD LINEARPEM OWNELAST
@@ -195,20 +198,26 @@ LIMITSHIFT = 3000;
 LENGTH_P = card(T);
 FACTOR_RES_DR = 1;
 
+DR_CAP_PRICE = 0;
+DR_EN_PRICE = 0;
+
 ############################
 ## CHOOSE STARTING DEMAND CURVE (Do not use!!!!!!!!)
 ###############
 #PRICE_REF(P,H,Z) = P_REF;
 #DEM_OPTIMAL(P,T,Z) = DEM_RES_FP(P,T,Z);
 
-RATIO_H(P,H) = (-sum((T,Z),DIAG(T,H)*ELAST(P,T,H)*DEM_OPTIMAL(P,T,Z))-sum((T,Z),(TRI_UP(T,H)+TRI_LOW(T,H))*ELAST(P,T,H)*DEM_OPTIMAL(P,T,Z))) /
-                (sum((T,Z),(TRI_LOW(T,H)+TRI_UP(T,H))*DEM_OPTIMAL(P,T,Z)));
+
 ## flat compensation PEM
-ELAST_COMP(P,T,H) = (TRI_LOW(T,H)+TRI_UP(T,H))*RATIO_H(P,H);
+#RATIO_H(P,H) = (-sum((T,Z),DIAG(T,H)*ELAST(P,T,H)*DEM_OPTIMAL(P,T,Z))-sum((T,Z),(TRI_UP(T,H)+TRI_LOW(T,H))*ELAST(P,T,H)*DEM_OPTIMAL(P,T,Z))) /
+#                (sum((T,Z),(TRI_LOW(T,H)+TRI_UP(T,H))*DEM_OPTIMAL(P,T,Z)));
+#ELAST_COMP(P,T,H) = (TRI_LOW(T,H)+TRI_UP(T,H))*RATIO_H(P,H);
 ## linear compensation PEM
 #ELAST_COMP(P,T,H) = (LINEARPEM(T,H))*RATIO_H(P,H);
 ## Elastic compensation PEM
-#ELAST_COMP(P,T,H) = (OWNELAST(T,H))*RATIO_H(P,H);
+RATIO_H(P,H) = (-sum((T,Z),DIAG(T,H)*ELAST(P,T,H)*DEM_OPTIMAL(P,T,Z))-sum((T,Z),(TRI_UP(T,H)+TRI_LOW(T,H))*ELAST(P,T,H)*DEM_OPTIMAL(P,T,Z))) /
+                (sum((T,Z),(TRI_LOW(T,H)+TRI_UP(T,H))*OWNELAST(T,H)*DEM_OPTIMAL(P,T,Z)));
+ELAST_COMP(P,T,H) = (OWNELAST(T,H))*RATIO_H(P,H);
 ## Moving frames compensation PEM = 0
 #ELAST_COMP(P,T,H) = 0;
 ELAST_NEW(P,T,H) = ELAST(P,T,H)+ELAST_COMP(P,T,H);
@@ -243,6 +252,11 @@ back_up(P,H,Z)
 back_down(P,H,Z)
 shift_up(P,H,Z)
 shift_down(P,H,Z)
+
+genDR(P,T,Z)
+capDR(Z)
+costgDR(Z)
+costcDR(Z)
 ;
 
 POSITIVE VARIABLES
@@ -510,6 +524,13 @@ demand_min(P,T,Z)
 qresdrup(Y,P,T,Z)
 qresdrdo(Y,P,T,Z)
 
+# cost of DR
+gdr(P,T,Z)
+gdr2(P,T,Z)
+cdr(P,T,Z)
+cgdr(Z)
+ccdr(Z)
+
 sum_demand(P,T,Z)
 totdemand(P,Z)
 surplusdemand(P,T,Z)
@@ -568,16 +589,18 @@ demlimitupper(P,T,Z)
 qobj..              obj
                                         =e=
                                                 sum((Y,Z,G),            (G_DATA(G,'C_INV') + G_DATA(G,'C_FOM'))*1000*cap(Y,Z,G))
-                                                + sum((Y,Z,S),      (S_DATA(S,'C_P_C_INV')*1000)*p_cap_c(Y,Z,S))
-#                                                + sum((Y,Z,S),      (S_DATA(S,'C_P_D_INV')*1000)*p_cap_d(Y,Z,S))
-#                                                + sum((Y,Z,S),      (S_DATA(S,'C_E')*1000)*e_cap(Y,Z,S))
+                                                + sum((Y,Z,S),          (S_DATA(S,'C_P_C_INV')*1000)*p_cap_c(Y,Z,S))
+                                                + sum(Z,                DR_CAP_PRICE*1000*capDR(Z))
+#                                                + sum((Y,Z,S),         (S_DATA(S,'C_P_D_INV')*1000)*p_cap_d(Y,Z,S))
+#                                                + sum((Y,Z,S),         (S_DATA(S,'C_E')*1000)*e_cap(Y,Z,S))
                                                 +
-                                                (sum((Y,P,T,Z,G),               W(P)*(G_DATA(G,'C_VOM'))*gen(Y,P,T,Z,G))
+                                                (sum((Y,P,T,Z,G),       W(P)*(G_DATA(G,'C_VOM'))*gen(Y,P,T,Z,G))
                                                 + sum((Y,P,T,Z,GC),     W(P)*(G_DATA(GC,'C_FUEL'))*gen(Y,P,T,Z,GC))
 
-                                                #+ sum((Y,P,T,Z,S),             W(P)*(S_DATA(S,'OPEX'))*p_c(Y,P,T,Z,S)+p_d(Y,P,T,Z,S))
+                                                #+ sum((Y,P,T,Z,S),     W(P)*(S_DATA(S,'OPEX'))*p_c(Y,P,T,Z,S)+p_d(Y,P,T,Z,S))
                                                 + sum((Y,P,T,Z,GRI),    W(P)*(0)*curt(Y,P,T,Z,GRI) + W(P)*(1000000)*curt_dummy(Y,P,T,Z,GRI))
-                        + sum((Y,P,T,Z),                W(P)*(10000)*load_shedding(Y,P,T,Z))
+                                                + sum((Y,P,T,Z),        W(P)*(10000)*load_shedding(Y,P,T,Z))
+                                                + sum((P,T,Z),          W(P)*genDR(P,T,Z)*DR_EN_PRICE)
                                                 )
                                                 *(168/card(T));
                                                 ;
@@ -1634,6 +1657,27 @@ totdemand(P,Z)..
 
 ##################################
 
+gdr(P,T,Z)..
+            genDR(P,T,Z) =g= DEM_RES_FP(P,T,Z)-demand_new_res(P,T,Z)
+            ;
+
+gdr2(P,T,Z)..
+            genDR(P,T,Z) =g= 0
+            ;
+
+cdr(P,T,Z)..
+            capDR(Z) =g= genDR(P,T,Z)
+            ;
+
+cgdr(Z)..
+            costgDR(Z) =e= sum((T,P),genDR(P,T,Z)*W(P)*DR_EN_PRICE)
+            ;
+
+ccdr(Z)..
+            costcDR(Z) =e= capDR(Z)*1000*DR_CAP_PRICE
+            ;
+
+
 # reserve allocation
 
 qresdrup(Y,P,T,Z)..
@@ -1728,9 +1772,9 @@ demlimitupper(P,T,Z)..
                                         ;
 
 
-#priceconstraint3(P,Z)..
-#                                       sum(T,price_unit(P,T,Z))/card(T) =e= PRICE_REF(P,H,Z)
-#                                       ;
+priceconstraint3(P,Z)..
+                                       sum(H,price_unit(P,H,Z))/card(H) =e= sum(H,PRICE_REF(P,H,Z))/card(H)
+                                       ;
 
 
 qinnerframe(P,H,Z)..
@@ -2009,33 +2053,40 @@ MODEL GOA GOA model /
 #-- Price-elasticity--#
 
         #always included
-                totdemand2
-                refdemand
-                sum_demand
+        totdemand2
+        refdemand
+        sum_demand
 
-                #always included, change equation
-                demand
-#               price_clone
+        #always included, change equation
+        demand
+        price_clone
 
-                #reserve allocation of flex demand
-                qresdrup
-                qresdrdo
+        #reserve allocation of flex demand
+        qresdrup
+        qresdrdo
 
-                ###########
-                ## Only for demand resposne
-                ###########
+        ###########
+        ## Only for demand response
+        ###########
 
-                #limits shiftaway
-#               shiftconstraint1
-#               shiftconstraint2
+        #limits shiftaway
+#       shiftconstraint1
+#       shiftconstraint2
 
-                #limits demand difference
-#               demlimitunder
-#               demlimitupper
+        #limits demand difference
+#       demlimitunder
+#       demlimitupper
 
-                #keeps demand between boundaries
+        #keeps demand between boundaries
         demand_max
         demand_min
+
+        # add cost for DR
+        gdr
+        gdr2
+        cdr
+        cgdr
+        ccdr
 
 #               price
 #               demand_clone
@@ -2052,7 +2103,7 @@ MODEL GOA GOA model /
 
                 priceconstraint1
                 priceconstraint2
-#               priceconstraint3
+#                priceconstraint3
 
         ##########
         # include when working with moving frames, and set in wout_program -> factor back to 1

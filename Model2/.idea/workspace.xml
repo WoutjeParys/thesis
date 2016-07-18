@@ -15,86 +15,41 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="Combine_output.py" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/Combine_output.py">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.25">
-                    <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-                    <folding>
-                      <element signature="e#21#30#0" expanded="true" />
-                      <element signature="e#842#1212#0" expanded="false" />
-                      <element signature="e#1241#1773#0" expanded="false" />
-                      <element signature="e#1808#2174#0" expanded="false" />
-                      <element signature="e#2204#2707#0" expanded="false" />
-                      <element signature="e#2737#3238#0" expanded="false" />
-                      <element signature="e#3269#3786#0" expanded="false" />
-                      <element signature="e#3814#4301#0" expanded="false" />
-                      <element signature="e#4331#5417#0" expanded="false" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Wout_program.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Wout_program.py">
+      <file leaf-file-name="get_output_Wout.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/get_output_Wout.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.892857">
-              <caret line="385" column="0" selection-start-line="385" selection-start-column="0" selection-end-line="385" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="250" column="26" selection-start-line="250" selection-start-column="26" selection-end-line="250" selection-end-column="26" />
               <folding>
-                <element signature="e#49#58#0" expanded="true" />
-                <element signature="e#1015#1807#0" expanded="false" />
-                <element signature="e#1872#3887#0" expanded="false" />
-                <element signature="e#3961#5852#0" expanded="false" />
-                <element signature="e#5953#6074#0" expanded="false" />
-                <element signature="e#6177#8851#0" expanded="false" />
-                <element signature="e#8944#11177#0" expanded="false" />
-                <element signature="e#14003#14754#0" expanded="false" />
-                <element signature="e#14851#15745#0" expanded="false" />
-                <element signature="e#15843#16547#0" expanded="false" />
-                <element signature="e#16652#17362#0" expanded="false" />
-                <element signature="e#17453#18095#0" expanded="false" />
-                <element signature="e#18176#19639#0" expanded="false" />
-                <element signature="e#19714#21770#0" expanded="false" />
-                <element signature="e#21856#22803#0" expanded="false" />
-                <element signature="e#22934#26135#0" expanded="false" />
-                <element signature="e#26271#30062#0" expanded="false" />
+                <element signature="e#23#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LinearModel_Wout_comp.gms" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gams/LinearModel_Wout_comp.gms">
+      <file leaf-file-name="Combine_output.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Combine_output.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="206" column="60" selection-start-line="206" selection-start-column="60" selection-end-line="206" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Wout_main.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Wout_main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="675" column="0" selection-start-line="675" selection-start-column="0" selection-end-line="675" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="1.3252689">
+              <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+              <folding>
+                <element signature="e#2319#2685#0" expanded="false" />
+                <element signature="e#2715#3235#0" expanded="false" />
+                <element signature="e#3265#3783#0" expanded="false" />
+                <element signature="e#3814#4348#0" expanded="false" />
+                <element signature="e#4376#4863#0" expanded="false" />
+                <element signature="e#4893#5981#0" expanded="false" />
+                <element signature="e#6015#7079#0" expanded="false" />
+                <element signature="e#7110#7673#0" expanded="false" />
+                <element signature="e#7704#8214#0" expanded="false" />
+                <element signature="e#8245#8755#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -116,13 +71,16 @@
         <option value="$PROJECT_DIR$/gams/LinearModel.gms" />
         <option value="$PROJECT_DIR$/gams/LinearModel_Wout.gms" />
         <option value="$PROJECT_DIR$/Wout_initialise.py" />
-        <option value="$PROJECT_DIR$/get_output_Wout.py" />
         <option value="$PROJECT_DIR$/excel/Combine_output.py" />
         <option value="$PROJECT_DIR$/output_reduced.py" />
         <option value="$PROJECT_DIR$/gams_addon/gdx_to_df.py" />
+        <option value="$PROJECT_DIR$/Combine_output_pen.py" />
+        <option value="$PROJECT_DIR$/results/Combine_output_DRcosts.py" />
+        <option value="$PROJECT_DIR$/Combine_output_DRcosts.py" />
         <option value="$PROJECT_DIR$/Wout_main.py" />
-        <option value="$PROJECT_DIR$/gams/LinearModel_Wout_comp.gms" />
+        <option value="$PROJECT_DIR$/get_output_Wout.py" />
         <option value="$PROJECT_DIR$/Wout_program.py" />
+        <option value="$PROJECT_DIR$/gams/LinearModel_Wout_comp.gms" />
         <option value="$PROJECT_DIR$/Combine_output.py" />
       </list>
     </option>
@@ -159,8 +117,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -207,24 +165,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="results" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="8weeksFull" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Model2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Model2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="excel" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -243,7 +183,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="DemR" />
+              <option name="myItemId" value="auxiliary" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -262,10 +202,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="DemR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="results" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -280,18 +216,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Wout\Documents\GitHub\thesis\Model2\results\4weeksDRcost" />
+      <recent name="C:\Users\Wout\Documents\GitHub\thesis\Model2\results\DRpenetrationfull" />
+      <recent name="C:\Users\Wout\Documents\GitHub\thesis\Model2\excel\DemR\results" />
       <recent name="C:\Users\Wout\Documents\GitHub\thesis\Model2\excel\DemR\penetrationDR" />
       <recent name="C:\Users\Wout\Documents\GitHub\thesis\Model2\excel" />
-      <recent name="C:\Users\Wout\Documents\GitHub\thesis\Model2\results\8weeksFull" />
-      <recent name="C:\Users\Wout\Documents\GitHub\thesis\Model2\excel\DemR\results" />
-      <recent name="C:\Users\Wout\Documents\GitHub\thesis\Model2\results\4seasons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Wout\Documents\GitHub\thesis\Model2\results\4weeksDRcost" />
+      <recent name="C:\Users\Wout\Documents\GitHub\thesis\Model2" />
+      <recent name="C:\Users\Wout\Documents\GitHub\thesis\Model2\results\DRpenetrationfull" />
       <recent name="C:\Users\Wout\Documents\GitHub\thesis\Model2\results\8weeksFull" />
       <recent name="C:\Users\Wout\Documents\GitHub\thesis\Model2\excel\DemR\penetrationDR" />
-      <recent name="C:\Users\Wout\Documents\GitHub\thesis\Model2" />
-      <recent name="C:\Users\Wout\Documents\GitHub\thesis\Model2\results\8weeksFull_price3" />
-      <recent name="C:\Users\Wout\Documents\GitHub\thesis\Model2\results\4seasons" />
     </key>
   </component>
   <component name="RunManager" selected="Python.Combine_output (1)">
@@ -308,23 +244,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Model2" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Wout_program.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="main_reduced" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Model2" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main_reduced.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -346,23 +265,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="Combine_output" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/excel" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Model2" />
-      <option name="SCRIPT_NAME" value="C:\Users\Wout\Documents\GitHub\thesis\Model2\Combine_output.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="Combine_output (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -376,6 +278,40 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Model2" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Combine_output.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Combine_output_pen" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Model2" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Combine_output_pen.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Combine_output_DRcosts" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Model2" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Combine_output_DRcosts.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -504,18 +440,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.Wout_program" />
-      <item index="1" class="java.lang.String" itemvalue="Python.main_reduced" />
-      <item index="2" class="java.lang.String" itemvalue="Python.get_output_Wout" />
-      <item index="3" class="java.lang.String" itemvalue="Python.Combine_output" />
-      <item index="4" class="java.lang.String" itemvalue="Python.Combine_output (1)" />
+      <item index="1" class="java.lang.String" itemvalue="Python.get_output_Wout" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Combine_output (1)" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Combine_output_pen" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Combine_output_DRcosts" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.Combine_output (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Wout_program" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Combine_output" />
-        <item index="3" class="java.lang.String" itemvalue="Python.get_output_Wout" />
-        <item index="4" class="java.lang.String" itemvalue="Python.main_reduced" />
+        <item index="1" class="java.lang.String" itemvalue="Python.get_output_Wout" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Wout_program" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Combine_output_DRcosts" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Combine_output_pen" />
       </list>
     </recent_temporary>
   </component>
@@ -536,13 +472,13 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26281112" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27598828" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="1.0" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37007874" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -552,7 +488,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -584,45 +520,11 @@
           <properties exception="BaseException" />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="20" />
+      <option name="time" value="23" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Wout_program.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="265" column="2" selection-start-line="265" selection-start-column="2" selection-end-line="265" selection-end-column="2" />
-          <folding>
-            <element signature="e#49#58#0" expanded="true" />
-            <element signature="e#1015#1807#0" expanded="false" />
-            <element signature="e#1872#3887#0" expanded="false" />
-            <element signature="e#3961#5852#0" expanded="false" />
-            <element signature="e#5953#6074#0" expanded="false" />
-            <element signature="e#6177#8851#0" expanded="false" />
-            <element signature="e#8944#11177#0" expanded="false" />
-            <element signature="e#14003#14754#0" expanded="false" />
-            <element signature="e#14851#15745#0" expanded="false" />
-            <element signature="e#15843#16547#0" expanded="false" />
-            <element signature="e#16652#17362#0" expanded="false" />
-            <element signature="e#17453#18095#0" expanded="false" />
-            <element signature="e#18176#19639#0" expanded="false" />
-            <element signature="e#19714#21770#0" expanded="false" />
-            <element signature="e#21856#22803#0" expanded="false" />
-            <element signature="e#22934#26135#0" expanded="false" />
-            <element signature="e#26271#30062#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Wout_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/get_output_Wout.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -642,7 +544,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -650,25 +551,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="265" column="2" selection-start-line="265" selection-start-column="2" selection-end-line="265" selection-end-column="2" />
-          <folding>
-            <element signature="e#49#58#0" expanded="true" />
-            <element signature="e#1015#1807#0" expanded="false" />
-            <element signature="e#1872#3887#0" expanded="false" />
-            <element signature="e#3961#5852#0" expanded="false" />
-            <element signature="e#5953#6074#0" expanded="false" />
-            <element signature="e#6177#8851#0" expanded="false" />
-            <element signature="e#8944#11177#0" expanded="false" />
-            <element signature="e#14003#14754#0" expanded="false" />
-            <element signature="e#14851#15745#0" expanded="false" />
-            <element signature="e#15843#16547#0" expanded="false" />
-            <element signature="e#16652#17362#0" expanded="false" />
-            <element signature="e#17453#18095#0" expanded="false" />
-            <element signature="e#18176#19639#0" expanded="false" />
-            <element signature="e#19714#21770#0" expanded="false" />
-            <element signature="e#21856#22803#0" expanded="false" />
-            <element signature="e#22934#26135#0" expanded="false" />
-            <element signature="e#26271#30062#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -676,25 +558,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
-          <folding>
-            <element signature="e#49#58#0" expanded="true" />
-            <element signature="e#1015#1807#0" expanded="false" />
-            <element signature="e#1872#3887#0" expanded="false" />
-            <element signature="e#3961#5852#0" expanded="false" />
-            <element signature="e#5953#6074#0" expanded="false" />
-            <element signature="e#6177#8851#0" expanded="false" />
-            <element signature="e#8944#11177#0" expanded="false" />
-            <element signature="e#14003#14754#0" expanded="false" />
-            <element signature="e#14851#15745#0" expanded="false" />
-            <element signature="e#15843#16547#0" expanded="false" />
-            <element signature="e#16652#17362#0" expanded="false" />
-            <element signature="e#17453#18095#0" expanded="false" />
-            <element signature="e#18176#19639#0" expanded="false" />
-            <element signature="e#19714#21770#0" expanded="false" />
-            <element signature="e#21856#22803#0" expanded="false" />
-            <element signature="e#22934#26135#0" expanded="false" />
-            <element signature="e#26271#30062#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -702,7 +565,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="715" column="21" selection-start-line="715" selection-start-column="21" selection-end-line="715" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -731,25 +593,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="96" column="1" selection-start-line="96" selection-start-column="1" selection-end-line="96" selection-end-column="1" />
-          <folding>
-            <element signature="e#49#58#0" expanded="true" />
-            <element signature="e#1015#1807#0" expanded="false" />
-            <element signature="e#1872#3887#0" expanded="false" />
-            <element signature="e#3961#5852#0" expanded="false" />
-            <element signature="e#5953#6074#0" expanded="false" />
-            <element signature="e#6177#8851#0" expanded="false" />
-            <element signature="e#8944#11177#0" expanded="false" />
-            <element signature="e#14003#14754#0" expanded="false" />
-            <element signature="e#14851#15745#0" expanded="false" />
-            <element signature="e#15843#16547#0" expanded="false" />
-            <element signature="e#16652#17362#0" expanded="false" />
-            <element signature="e#17453#18095#0" expanded="false" />
-            <element signature="e#18176#19639#0" expanded="false" />
-            <element signature="e#19714#21770#0" expanded="false" />
-            <element signature="e#21856#22803#0" expanded="false" />
-            <element signature="e#22934#26135#0" expanded="false" />
-            <element signature="e#26271#30062#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -757,7 +600,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="715" column="21" selection-start-line="715" selection-start-column="21" selection-end-line="715" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -786,7 +628,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -815,25 +656,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
-          <folding>
-            <element signature="e#49#58#0" expanded="true" />
-            <element signature="e#1015#1807#0" expanded="false" />
-            <element signature="e#1872#3887#0" expanded="false" />
-            <element signature="e#3961#5852#0" expanded="false" />
-            <element signature="e#5953#6074#0" expanded="false" />
-            <element signature="e#6177#8851#0" expanded="false" />
-            <element signature="e#8944#11177#0" expanded="false" />
-            <element signature="e#14003#14754#0" expanded="false" />
-            <element signature="e#14851#15745#0" expanded="false" />
-            <element signature="e#15843#16547#0" expanded="false" />
-            <element signature="e#16652#17362#0" expanded="false" />
-            <element signature="e#17453#18095#0" expanded="false" />
-            <element signature="e#18176#19639#0" expanded="false" />
-            <element signature="e#19714#21770#0" expanded="false" />
-            <element signature="e#21856#22803#0" expanded="false" />
-            <element signature="e#22934#26135#0" expanded="false" />
-            <element signature="e#26271#30062#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -841,7 +663,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -856,25 +677,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#49#58#0" expanded="true" />
-            <element signature="e#1015#1807#0" expanded="false" />
-            <element signature="e#1872#3887#0" expanded="false" />
-            <element signature="e#3961#5852#0" expanded="false" />
-            <element signature="e#5953#6074#0" expanded="false" />
-            <element signature="e#6177#8851#0" expanded="false" />
-            <element signature="e#8944#11177#0" expanded="false" />
-            <element signature="e#14003#14754#0" expanded="false" />
-            <element signature="e#14851#15745#0" expanded="false" />
-            <element signature="e#15843#16547#0" expanded="false" />
-            <element signature="e#16652#17362#0" expanded="false" />
-            <element signature="e#17453#18095#0" expanded="false" />
-            <element signature="e#18176#19639#0" expanded="false" />
-            <element signature="e#19714#21770#0" expanded="false" />
-            <element signature="e#21856#22803#0" expanded="false" />
-            <element signature="e#22934#26135#0" expanded="false" />
-            <element signature="e#26271#30062#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -889,7 +691,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -897,25 +698,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#49#58#0" expanded="true" />
-            <element signature="e#1015#1807#0" expanded="false" />
-            <element signature="e#1872#3887#0" expanded="false" />
-            <element signature="e#3961#5852#0" expanded="false" />
-            <element signature="e#5953#6074#0" expanded="false" />
-            <element signature="e#6177#8851#0" expanded="false" />
-            <element signature="e#8944#11177#0" expanded="false" />
-            <element signature="e#14003#14754#0" expanded="false" />
-            <element signature="e#14851#15745#0" expanded="false" />
-            <element signature="e#15843#16547#0" expanded="false" />
-            <element signature="e#16652#17362#0" expanded="false" />
-            <element signature="e#17453#18095#0" expanded="false" />
-            <element signature="e#18176#19639#0" expanded="false" />
-            <element signature="e#19714#21770#0" expanded="false" />
-            <element signature="e#21856#22803#0" expanded="false" />
-            <element signature="e#22934#26135#0" expanded="false" />
-            <element signature="e#26271#30062#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -937,7 +719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -945,25 +726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#49#58#0" expanded="true" />
-            <element signature="e#1015#1807#0" expanded="false" />
-            <element signature="e#1872#3887#0" expanded="false" />
-            <element signature="e#3961#5852#0" expanded="false" />
-            <element signature="e#5953#6074#0" expanded="false" />
-            <element signature="e#6177#8851#0" expanded="false" />
-            <element signature="e#8944#11177#0" expanded="false" />
-            <element signature="e#14003#14754#0" expanded="false" />
-            <element signature="e#14851#15745#0" expanded="false" />
-            <element signature="e#15843#16547#0" expanded="false" />
-            <element signature="e#16652#17362#0" expanded="false" />
-            <element signature="e#17453#18095#0" expanded="false" />
-            <element signature="e#18176#19639#0" expanded="false" />
-            <element signature="e#19714#21770#0" expanded="false" />
-            <element signature="e#21856#22803#0" expanded="false" />
-            <element signature="e#22934#26135#0" expanded="false" />
-            <element signature="e#26271#30062#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1044,20 +806,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gams_addon/gdx_to_df.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.103449">
-          <caret line="136" column="44" selection-start-line="136" selection-start-column="44" selection-end-line="136" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/get_output_Wout.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="105" column="77" selection-start-line="105" selection-start-column="7" selection-end-line="105" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/output_reduced.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1065,77 +813,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gams/LinearModel_Wout_comp.lst">
+    <entry file="file://$PROJECT_DIR$/Combine_output_pen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.6896553">
-          <caret line="509" column="72" selection-start-line="509" selection-start-column="72" selection-end-line="509" selection-end-column="72" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="237" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Wout_main.py">
+    <entry file="file://$PROJECT_DIR$/gams_addon/gdx_to_df.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.5641646">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Combine_output_DRcosts.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="675" column="0" selection-start-line="675" selection-start-column="0" selection-end-line="675" selection-end-column="0" />
-          <folding />
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Wout_initialise.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="350" column="24" selection-start-line="350" selection-start-column="24" selection-end-line="350" selection-end-column="24" />
+          <caret line="355" column="84" selection-start-line="355" selection-start-column="81" selection-end-line="355" selection-end-column="84" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Wout_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="739" column="25" selection-start-line="739" selection-start-column="25" selection-end-line="739" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Wout_program.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="343" column="25" selection-start-line="343" selection-start-column="25" selection-end-line="343" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gams/LinearModel_Wout_comp.lst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="516" column="4" selection-start-line="516" selection-start-column="4" selection-end-line="516" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gams/LinearModel_Wout_comp.gms">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="206" column="60" selection-start-line="206" selection-start-column="60" selection-end-line="206" selection-end-column="60" />
-          <folding />
+          <caret line="792" column="91" selection-start-line="792" selection-start-column="88" selection-end-line="792" selection-end-column="91" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Wout_program.py">
+    <entry file="file://$PROJECT_DIR$/get_output_Wout.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.892857">
-          <caret line="385" column="0" selection-start-line="385" selection-start-column="0" selection-end-line="385" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="250" column="26" selection-start-line="250" selection-start-column="26" selection-end-line="250" selection-end-column="26" />
           <folding>
-            <element signature="e#49#58#0" expanded="true" />
-            <element signature="e#1015#1807#0" expanded="false" />
-            <element signature="e#1872#3887#0" expanded="false" />
-            <element signature="e#3961#5852#0" expanded="false" />
-            <element signature="e#5953#6074#0" expanded="false" />
-            <element signature="e#6177#8851#0" expanded="false" />
-            <element signature="e#8944#11177#0" expanded="false" />
-            <element signature="e#14003#14754#0" expanded="false" />
-            <element signature="e#14851#15745#0" expanded="false" />
-            <element signature="e#15843#16547#0" expanded="false" />
-            <element signature="e#16652#17362#0" expanded="false" />
-            <element signature="e#17453#18095#0" expanded="false" />
-            <element signature="e#18176#19639#0" expanded="false" />
-            <element signature="e#19714#21770#0" expanded="false" />
-            <element signature="e#21856#22803#0" expanded="false" />
-            <element signature="e#22934#26135#0" expanded="false" />
-            <element signature="e#26271#30062#0" expanded="false" />
+            <element signature="e#23#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Combine_output.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25">
-          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+        <state vertical-scroll-proportion="1.3252689">
+          <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
           <folding>
-            <element signature="e#21#30#0" expanded="true" />
-            <element signature="e#842#1212#0" expanded="false" />
-            <element signature="e#1241#1773#0" expanded="false" />
-            <element signature="e#1808#2174#0" expanded="false" />
-            <element signature="e#2204#2707#0" expanded="false" />
-            <element signature="e#2737#3238#0" expanded="false" />
-            <element signature="e#3269#3786#0" expanded="false" />
-            <element signature="e#3814#4301#0" expanded="false" />
-            <element signature="e#4331#5417#0" expanded="false" />
+            <element signature="e#2319#2685#0" expanded="false" />
+            <element signature="e#2715#3235#0" expanded="false" />
+            <element signature="e#3265#3783#0" expanded="false" />
+            <element signature="e#3814#4348#0" expanded="false" />
+            <element signature="e#4376#4863#0" expanded="false" />
+            <element signature="e#4893#5981#0" expanded="false" />
+            <element signature="e#6015#7079#0" expanded="false" />
+            <element signature="e#7110#7673#0" expanded="false" />
+            <element signature="e#7704#8214#0" expanded="false" />
+            <element signature="e#8245#8755#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -29,11 +29,11 @@ list_ratio = list()
 
 #length period needs to be a multiple of 24
 #percentageEV lies in the range 0-100
-length_period = 24*7
-amount_of_periods = 8
+length_period = 24*1
+amount_of_periods = 7
 startday_weekend = 2
-percentageEV = 100
-season_range = 1
+# percentageEV = 100
+# season_range = 1
 
 #reset compensation factor for inbalances in elasticities (to 1)
 def reset_ratio():
@@ -293,6 +293,8 @@ def set_elasticity(case):
     print 'Done elasticities'
 
 Wout_initialise.initialise(length_period)
+reset_ratio()
+#set_ratio('results\8weeksFull\out_db_5_DR')
 
 
 #no DR
@@ -320,8 +322,8 @@ print '\n'
 print '-------------------------'
 
 # with DR
-reset_ratio()
-set_ratio('results\8weeksFull\out_db_5_DR')
+#reset_ratio()
+#set_ratio('results\8weeksFull\out_db_5_DR')
 
 print '-------------------------'
 print '\n'
@@ -339,11 +341,11 @@ print '-------------------------'
 
 # DR not as reserves
 note = 'DR'
-string3 = 'LIMITPRICE = 1.5;\n'
+string3 = 'LIMITPRICE = 15;\n'
 string4 = 'FACTOR_RES_DR = 0;\n'
 stringtot = string3+string4
 
-for res_target_extern in []:
+for res_target_extern in [30]:
     Wout_main.main(length_period,res_target_extern,note,stringtot)
 # #     file = 'results\out_db_'+ str(res_target_extern) + '_DR.gdx'
 # #     gdx_file = os.path.join(os.getcwd(), '%s' % file)
@@ -375,25 +377,39 @@ for res_target_extern in []:
 #     gdx_file = os.path.join(os.getcwd(), '%s' % file)
 #     set_inbalance_ratio()
 
+
 # DR also as reserves
 note = 'DRres0_1'
 string3 = 'LIMITPRICE = 1.5;\n'
 string4 = 'FACTOR_RES_DR = 0.1;\n'
 stringtot = string3+string4
 
-for res_target_extern in [20]:
+for res_target_extern in []:
     Wout_main.main(length_period,res_target_extern,note,stringtot)
 
+for cost in []:
+    target = 50
+    en_cost = 17.31*0
+    c_cost = 30.07*2
+    note = 'cost_' + str(cost)
+    string1 = 'DR_EN_PRICE = ' + str(en_cost*cost/100) + ';\n'
+    string2 = 'DR_CAP_PRICE = ' + str(c_cost*cost/100) + ';\n'
+    string3 = 'LIMITPRICE = 1.5;\n'
+    string4 = 'FACTOR_RES_DR = 0;\n'
+    stringtot = string1+string2+string3+string4
+    Wout_main.main(length_period,target,note,stringtot)
+
 # currently only choice between 25,50 or 75
-for penetration in [75]:
+for penetration in []:
     set_demandprofiles(penetration)
     set_elasticity(penetration)
     note = 'DRpen_' + str(penetration)
     string3 = 'LIMITPRICE = 1.5;\n'
     string4 = 'FACTOR_RES_DR = 0.1;\n'
     stringtot = string3+string4
-    for res_target_extern in [20,50]:
+    for res_target_extern in [70]:
         Wout_main.main(length_period,res_target_extern,note,stringtot)
+
 
 
 print '-------------------------'

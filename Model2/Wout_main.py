@@ -287,7 +287,7 @@ def main(length_period,res_target_extern,note,commands):
     TRI_LOW = db.add_parameter_dc('TRI_LOW', [T,H], 'Lower triangle with ones and zeros')
     SHIFTMIN = db.add_parameter_dc('SHIFTMIN', [H,T], 'matrix to constraint shifting of energy inner window')
     SHIFTMAX = db.add_parameter_dc('SHIFTMAX', [H,T], 'matrix to constraint shifting of energy outer window')
-    COMPENSATE = db.add_parameter_dc('COMPENSATE', [P,H], 'a factor to multiply with the elasticity matrix to compensate energy losses')
+    # COMPENSATE = db.add_parameter_dc('COMPENSATE', [P,H], 'a factor to multiply with the elasticity matrix to compensate energy losses')
 
     DEM_NON_RES = db.add_parameter_dc('DEM_NON_RES', [P,T,Z], 'amount of non residential demand')
     DEM_REF_RES = db.add_parameter_dc('DEM_REF_RES', [P,T,Z], 'amount of reference residential demand before DR')
@@ -717,12 +717,12 @@ def main(length_period,res_target_extern,note,commands):
         OWNELAST.add_record((str(o[0]), str(o[1]))).value = o[2]
 
     ############################################
-
-    sql = 'Select Period, Hour, Value from Factor;'
-    cur.execute(sql)
-    factor_to_compensate = cur.fetchall()
-    for f in factor_to_compensate:
-        COMPENSATE.add_record((str(f[0]), str(f[1]))).value = f[2]
+    #
+    # sql = 'Select Period, Hour, Value from Factor;'
+    # cur.execute(sql)
+    # factor_to_compensate = cur.fetchall()
+    # for f in factor_to_compensate:
+    #     COMPENSATE.add_record((str(f[0]), str(f[1]))).value = f[2]
 
     ############################################
 

@@ -14,7 +14,7 @@ from gams_addon import gdx_to_df, DomainInfo
 from openpyxl.styles import Style, Border, Alignment, Protection, Font, colors
 
 
-file = 'results\out_db_75.6_50.gdx'
+file = 'results\out_db_30_DR.gdx'
 gdx_file = os.path.join(os.getcwd(), '%s' % file)
 writefile = os.getcwd() + '\\' + 'excel\output_elasticity_model.xlsx'
 writer = ExcelWriter(writefile)
@@ -31,7 +31,6 @@ price_unit.set_index('C', append=True, inplace=True)
 price_unit = price_unit.reorder_levels(['C'] + old_index)
 price_unit.reset_index(inplace=True)
 price_unit = pivot_table(price_unit, 'price_unit_clone', index=['P', 'T','Z'], columns=['C'], aggfunc=np.sum)
-
 
 print 'Retrieving demand_unit'
 demand_unit = gdx_to_df(gdx_file, 'demand_unit')
@@ -93,6 +92,16 @@ DEM_RES_MAX.reset_index(inplace=True)
 # DEM_REF_RES = pivot_table(DEM_REF_RES, 'DEM_REF_RES', index=['P', 'T','Z'], columns=['C'], aggfunc=np.sum)
 DEM_RES_MAX = pivot_table(DEM_RES_MAX, 'DEM_RES_MAX', index=['P', 'T','Z'], columns=['C'], aggfunc=np.sum)
 
+print 'Retrieving demand_res_max'
+DEM_RES_FP = gdx_to_df(gdx_file, 'DEM_RES_FP')
+old_index = DEM_RES_FP.index.names
+DEM_RES_FP['C'] = [zone_dict[z] for z in DEM_RES_FP.index.get_level_values('Z')]
+DEM_RES_FP.set_index('C', append=True, inplace=True)
+DEM_RES_FP = DEM_RES_FP.reorder_levels(['C'] + old_index)
+DEM_RES_FP.reset_index(inplace=True)
+# DEM_REF_RES = pivot_table(DEM_REF_RES, 'DEM_REF_RES', index=['P', 'T','Z'], columns=['C'], aggfunc=np.sum)
+DEM_RES_FP = pivot_table(DEM_RES_FP, 'DEM_RES_FP', index=['P', 'T','Z'], columns=['C'], aggfunc=np.sum)
+
 
 # First Merge
 genmarg = merge(demand_unit, demand_ref, left_index=True, right_index=True, how='outer', suffixes=['_dem', '_dem_ref'])
@@ -100,6 +109,7 @@ genmargres = merge(demand_new_res,DEM_REF_RES,left_index=True,right_index=True,h
 genmarg = merge(genmarg, genmargres, left_index=True, right_index=True, how='outer')
 genmarg = merge(genmarg, DEM_RES_MIN, left_index=True, right_index=True, how='outer')
 genmarg = merge(genmarg, DEM_RES_MAX, left_index=True, right_index=True, how='outer')
+genmarg = merge(genmarg, DEM_RES_FP, left_index=True, right_index=True, how='outer')
 genmarg = merge(genmarg, price_unit, left_index=True, right_index=True, how='outer', suffixes=['', '_price'])
 
 print 'Writing demand and prices to Excel'
